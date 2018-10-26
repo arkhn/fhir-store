@@ -16,7 +16,7 @@ def clean_json(filename, output_file=None):
     # Handle [{ }] {} from FHIR convention
     lines = new_lines
     new_lines = []
-    for line in lines:
+    for i, line in enumerate(lines):
         # One line case [{ }]
         m = re.match('''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*([^}]*)\s+\}\](,*)''', line)
         if m is not None:
@@ -27,6 +27,14 @@ def clean_json(filename, output_file=None):
         m = re.match('''(\s*)"([^"]*)"\s*:\s*{\s*([^}]*)\s+}(,*)''', line)
         if m is not None:
             new_lines.append('{}"{}<{}>": null{}'.format(m.group(1), m.group(2), m.group(3), m.group(4)))
+            continue
+
+        # One line case { } exception with a \n in it
+        m = re.match('''(\s*"[^"]*"\s*:\s*{\s*[^"}\s]+)\s*$''', line)
+        if m is not None:
+            next_line = lines[i + 1]
+            m_next = re.match('''\s*(\w.*)$''', next_line)
+            lines[i + 1] = m.group(1) + m_next.group(1)
             continue
 
         # Multi line case [{ \n ... \n }]

@@ -1,0 +1,25 @@
+resourceType: "Appointment"
+identifier<list::Identifier>:
+status<code>:
+serviceCategory<CodeableConcept>:
+serviceType<list::CodeableConcept>:
+specialty<list::CodeableConcept>:
+appointmentType<CodeableConcept>:
+reason<list::CodeableConcept>:
+indication<list::Reference(Condition|Procedure)>:
+priority<unsignedInt>:
+description<string>:
+supportingInformation<list::Reference(Any)>:
+start<instant>:
+end<instant>:
+minutesDuration<positiveInt>:
+slot<list::Reference(Slot)>:
+created<dateTime>:
+comment<string>:
+incomingReferral<list::Reference(ReferralRequest)>:
+participant<list>:
+  - type<list::CodeableConcept>:
+    actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>:
+    required<code>:
+    status<code>:
+requestedPeriod<list::Period>:

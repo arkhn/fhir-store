@@ -1,4 +1,4 @@
-resourceType: 'Patient'
+resourceType: "Patient"
 identifier<list::Identifier>:
 active<boolean>:
 name<list::HumanName>:
@@ -24,11 +24,11 @@ animal:
     species<CodeableConcept>:
     breed<CodeableConcept>:
     genderStatus<CodeableConcept>:
-communication:
+communication<list>:
   - language<CodeableConcept>:
     preferred<boolean>:
 generalPractitioner<list::Reference(Organization|Practitioner)>:
 managingOrganization<Reference(Organization)>:
-link:
+link<list>:
   - other<Reference(Patient|RelatedPerson)>:
     type<code=replaced-by|replaces|refer|seealso>:

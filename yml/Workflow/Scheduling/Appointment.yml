@@ -1,6 +1,6 @@
 resourceType: "Appointment"
 identifier<list::Identifier>:
-status<code>:
+status<code=proposed|pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error>:
 serviceCategory<CodeableConcept>:
 serviceType<list::CodeableConcept>:
 specialty<list::CodeableConcept>:
@@ -20,6 +20,6 @@ incomingReferral<list::Reference(ReferralRequest)>:
 participant<list>:
   - type<list::CodeableConcept>:
     actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>:
-    required<code>:
-    status<code>:
+    required<code=required|optional|information-only>:
+    status<code=accepted|declined|tentative|needs-action>:
 requestedPeriod<list::Period>:

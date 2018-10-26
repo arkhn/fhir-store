@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Appointment",
+  "identifier<list::Identifier>": null,
+  "status<code=proposed|pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error>": null,
+  "serviceCategory<CodeableConcept>": null,
+  "serviceType<list::CodeableConcept>": null,
+  "specialty<list::CodeableConcept>": null,
+  "appointmentType<CodeableConcept>": null,
+  "reason<list::CodeableConcept>": null,
+  "indication<list::Reference(Condition|Procedure)>": null,
+  "priority<unsignedInt>": null,
+  "description<string>": null,
+  "supportingInformation<list::Reference(Any)>": null,
+  "start<instant>": null,
+  "end<instant>": null,
+  "minutesDuration<positiveInt>": null,
+  "slot<list::Reference(Slot)>": null,
+  "created<dateTime>": null,
+  "comment<string>": null,
+  "incomingReferral<list::Reference(ReferralRequest)>": null,
+  "participant<list>": [{
+    "type<list::CodeableConcept>": null,
+    "actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>": null,
+    "required<code=required|optional|information-only>": null,
+    "status<code=accepted|declined|tentative|needs-action>": null
+  }],
+  "requestedPeriod<list::Period>": null
+}

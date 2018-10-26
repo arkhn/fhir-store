@@ -54,9 +54,15 @@ def clean_json(filename, output_file=None):
     lines = new_lines
     new_lines = []
     for i, line in enumerate(lines):
-        match = re.match('''(\s*)"([^"]*)"\s*:\s*"?<([^>]*)>"?(,*)''', line)
+        match = re.match('''(\s*)"([^"]*)"\s*:\s*\[?"?<([^>]*)>"?\]?(,*)''', line)
         if match is not None:
             given_type = match.group(3)
+            # Test if [ ] present
+            if re.match('''(\s*)"([^"]*)"\s*:\s*\["?<([^>]*)>"?\](,*)''', line):
+                list_marker = 'list::'
+            else:
+                list_marker = ''
+
             if given_type == 'code':  # We need to get the code options given in comments
                 comment = comments[i]
                 code_match = re.match('''[^|]*(\s[A-Za-z\-]+\s(?:\|\s[A-Za-z\-]+\s)+)[^|]*''', comment)
@@ -66,7 +72,7 @@ def clean_json(filename, output_file=None):
                 else:
                     raise TypeError('No code provided', match)
 
-            new_lines.append('{}"{}<{}>": null{}'.format(match.group(1), match.group(2), given_type, match.group(4)))
+            new_lines.append('{}"{}<{}{}>": null{}'.format(match.group(1), match.group(2), list_marker, given_type, match.group(4)))
             continue
         else:
             new_lines.append(line)

@@ -10,6 +10,7 @@ yapf = "*"
 
 [packages]
 scrapy = "*"
+"html2text" = "*"
 
 [requires]
 # python_version = "3.4"

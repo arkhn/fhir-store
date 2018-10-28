@@ -1,5 +1,6 @@
 import scrapy
 import urllib.parse
+import html2text
 
 
 class Hl7Spider(scrapy.Spider):
@@ -26,8 +27,13 @@ class Hl7Spider(scrapy.Spider):
         filtered_links = list(filter(lambda x: "#" not in x, links))
         for link in filtered_links:
             url = urllib.parse.urljoin(self.root_url, link)
+            self.log('Processing URL: {}'.format(url))
             yield scrapy.Request(url=url, callback=self.parse_links)
 
     def parse_links(self, response):
-        # ToDo
+        json_html = response.css("#json").css("#json-inner").css(
+            "pre").extract_first()
+        json_text = html2text.html2text(json_html)
+        self.log(json_text)
+        # ToDo: Export JSON to text file
         pass

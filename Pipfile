@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+ipdb = "*"
+"flake8" = "*"
+yapf = "*"
+
+[packages]
+scrapy = "*"
+
+[requires]
+# python_version = "3.4"

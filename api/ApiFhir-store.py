@@ -19,7 +19,7 @@ git checkout -b christian_api_getfile
 Exemple d utilisation de l'API Flask 
 
 http://127.0.0.1:5000/yml
-http://localhost:5000/getdirect/yml/practitioner/
+http://localhost:5000/getdirect/yml/PRactitioner/
 
 """
 
@@ -76,8 +76,9 @@ def api_yml():
         y = y[len(y)-1]
         k = y.rfind(".")
         #suppression de l'extension 'yml'
-        print(y[:k], file=sys.stderr)
-        tab_yml = tab_yml.append({'name':y[:k], 'path':x}, ignore_index=True)        
+        stname = y[:k].lower()
+        print(stname, file=sys.stderr)
+        tab_yml = tab_yml.append({'name':stname, 'path':x}, ignore_index=True)        
     return html(ret)
 
 #TEST UNITAIRE
@@ -88,9 +89,8 @@ def api_yml():
 
 
 def getdirect_file(kind,fname):
-    global tab_yml
-    
-    df = tab_yml.loc[tab_yml['name'] == fname]
+    global tab_yml    
+    df = tab_yml.loc[tab_yml['name'] == fname.lower()]
     filename = df.iloc[0]['path']
     return send_file(filename, mimetype='text/csv')
     #return filename

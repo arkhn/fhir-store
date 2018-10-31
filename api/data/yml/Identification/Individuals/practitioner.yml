@@ -1,0 +1,16 @@
+resourceType: 'Practitioner'
+identifier<list::Identifier>:
+active<boolean>:
+name<list::HumanName>:
+telecom<list::ContactPoint>:
+address<list::Address>:
+gender<code=male|female|other|unknown>:
+birthDate<date>:
+photo<list::Attachment>:
+qualification<list>:
+  - identifier<list::Identifier>:
+    code<CodeableConcept>:
+    period<Period>:
+    issuer<Reference(Organization)>:
+communication<list::CodeableConcept>:
+

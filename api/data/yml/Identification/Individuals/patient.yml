@@ -1,0 +1,34 @@
+resourceType: 'Patient'
+identifier<list::Identifier>:
+active<boolean>:
+name<list::HumanName>:
+telecom<list::ContactPoint>:
+gender<code=male|female|other|unknown>:
+birthDate<date>:
+deceasedBoolean<boolean>:
+deceasedDateTime<dateTime>:
+address<list::Address>:
+maritalStatus<CodeableConcept>:
+multipleBirthBoolean<boolean>:
+multipleBirthInteger<integer>:
+photo<list::Attachment>:
+contact<list>:
+  - relationship<list::CodeableConcept>:
+    name<HumanName>:
+    telecom<list::ContactPoint>:
+    address<Address>:
+    gender<code=male|female|other|unknown>:
+    organization<Reference(Organization)>:
+    period<Period>:
+animal:
+    species<CodeableConcept>:
+    breed<CodeableConcept>:
+    genderStatus<CodeableConcept>:
+communication:
+  - language<CodeableConcept>:
+    preferred<boolean>:
+generalPractitioner<list::Reference(Organization|Practitioner)>:
+managingOrganization<Reference(Organization)>:
+link:
+  - other<Reference(Patient|RelatedPerson)>:
+    type<code=replaced-by|replaces|refer|seealso>:

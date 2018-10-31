@@ -1,0 +1,21 @@
+resourceType: "Timing"
+event<list::dateTime>:
+repeat:
+  boundsDuration<Duration>:
+  boundsRange<Range>:
+  boundsPeriod<Period>:
+  count<integer>:
+  countMax<integer>:
+  duration<decimal>:
+  durationMax<decimal>:
+  durationUnit<code=s|min|h|d|wk|mo|a>:
+  frequency<integer>:
+  frequencyMax<integer>:
+  period<decimal>:
+  periodMax<decimal>:
+  periodUnit<code=s|min|h|d|wk|mo|a>:
+  dayOfWeek<list::code=mon|tue|wed|thu|fri|sat|sun>:
+  timeOfDay<list::time>:
+  when<list::code>:
+  offset<unsignedInt>:
+code<CodeableConcept>:

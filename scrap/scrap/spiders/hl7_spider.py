@@ -23,7 +23,7 @@ class Hl7Spider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        links = response.css("tr.frm-contents").css("a").xpath(
+        links = response.css("#tabs-3").css("tr").css("a").xpath(
             "@href").extract()
         filtered_links = list(filter(lambda x: "#" not in x, links))
 

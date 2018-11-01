@@ -34,13 +34,17 @@ class Hl7Spider(scrapy.Spider):
     def parse_links(self, response):
         self.log('Processing URL: {}'.format(response.url))
         json_html = response.css("#json").css("#json-inner").css(
-            "pre").extract_first().strip()
-        json_text = html2text.html2text(json_html)
-        # self.log(json_text)
+            "pre").extract_first()
+        if json_html:
+            json_html = json_html.strip()
+            json_text = html2text.html2text(json_html)
+            # self.log(json_text)
 
-        page = response.url.split("/")[-1].replace(".html", "")
-        filename = '{}.json'.format(page)
-        filepath = os.path.join("../json", filename)
-        with open(filepath, 'w') as f:
-            f.write(json_text)
-        self.log('Saved file \"{}\"'.format(filename))
+            page = response.url.split("/")[-1].replace(".html", "")
+            filename = '{}.json'.format(page)
+            filepath = os.path.join("../json", filename)
+            with open(filepath, 'w') as f:
+                f.write(json_text)
+            self.log('Saved file \"{}\"'.format(filename))
+        else:
+            self.log("No JSON found in page {}".format(response.url))

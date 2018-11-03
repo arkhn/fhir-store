@@ -1,7 +1,7 @@
 import scrapy
 import urllib.parse
-import html2text
 import os
+from inscriptis import get_text
 
 
 class Hl7Spider(scrapy.Spider):
@@ -37,7 +37,7 @@ class Hl7Spider(scrapy.Spider):
             "pre").extract_first()
         if json_html:
             json_html = json_html.strip()
-            json_text = html2text.html2text(json_html)
+            json_text = get_text(json_html)
             # self.log(json_text)
 
             page = response.url.split("/")[-1].replace(".html", "")

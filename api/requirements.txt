@@ -1,9 +1,0 @@
-flask_api
-Flask==0.12
-Flask-SQLAlchemy==2.1
-Flask-Migrate==2.0.3
-scipy
-scikit-learn
-gunicorn
-pandas
-

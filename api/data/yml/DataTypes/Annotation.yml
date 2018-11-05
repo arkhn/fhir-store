@@ -1,4 +1,0 @@
-authorReference<Reference(Practitioner|Patient|RelatedPerson)>:
-authorString:
-time<dateTime>:
-text:

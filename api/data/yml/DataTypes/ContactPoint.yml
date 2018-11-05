@@ -1,6 +1,0 @@
-resourceType: "ContactPoint"
-system<code=phone|fax|email|pager|url|sms|other>:
-value:
-use<code=home|work|temp|old|mobile>:
-rank<positiveInt>:
-period<Period>:

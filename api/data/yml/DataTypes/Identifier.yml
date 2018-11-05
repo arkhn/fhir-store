@@ -1,6 +1,0 @@
-use<code=usual|official|temp|secondary>:
-type<CodeableConcept>:
-system<uri>:
-value<string>:
-period<Period>:
-assigner<Reference(Organization)>:

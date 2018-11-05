@@ -7,6 +7,7 @@ name = "pypi"
 ipdb = "*"
 "flake8" = "*"
 yapf = "*"
+pytest = "*"
 
 [packages]
 scrapy = "*"

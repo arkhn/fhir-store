@@ -18,7 +18,7 @@ class Store(Resource):
 
         args = parser.parse_args()
 
-        file_path = fhir_resource_path(args['fhir_resource_name'], parent_folder='yml')
+        file_path = fhir_resource_path(args['fhir_resource_name'], parent_folder=args['output_format'])
         if not file_path:
             return jsonify(
                 {"message": "Fhir resource not found."}

@@ -37,7 +37,7 @@ class Mapping(Resource):
     def post(self):
 
         parser = reqparse.RequestParser()
-        parser.add_argument('output_format', required=True, type=str, choices=('sql', 'yml'))
+        parser.add_argument('output_format', required=True, type=str, choices=('json', 'yml'))
         parser.add_argument('fhir_resource_name', required=True, type=str)
         parser.add_argument('database', required=True, type=str)
 

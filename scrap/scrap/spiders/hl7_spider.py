@@ -75,9 +75,8 @@ class Hl7Spider(scrapy.Spider):
         json_html = response.css("#json").css("#json-inner").css(
             "pre").extract_first()
         if json_html:
-            json_html = json_html.strip()
+            json_html = json_html.strip().replace('\n', '<br>')
             json_text = get_text(json_html)
-            # self.log(json_text)
 
             page = response.url.split("/")[-1].replace(".html", "")
             filename = '{}.json'.format(page)

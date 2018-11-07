@@ -10,8 +10,8 @@ yapf = "*"
 pytest = "*"
 
 [packages]
-scrapy = "*"
-inscriptis = "*"
+Scrapy = "*"
+"beautifulsoup4" = "*"
 
 [requires]
-# python_version = "3.4"
+# python_version = "3.5"

@@ -1,7 +1,7 @@
 import scrapy
 import urllib.parse
 import os
-from inscriptis import get_text
+from bs4 import BeautifulSoup
 
 FILE_PATH = os.path.dirname(__file__)
 PROJECT_PATH = os.path.split(os.path.split(os.path.split(FILE_PATH)[0])[0])[0]
@@ -34,7 +34,8 @@ class Hl7Spider(scrapy.Spider):
 
             if len(table_data) == 1:
                 # Get the parent category
-                parent_category = get_text(table_data.css("b").extract_first())
+                parent_category = BeautifulSoup(
+                    table_data.css("b").extract_first(), "lxml").text
 
                 if not os.path.exists(
                         os.path.join(self.saving_path, parent_category)):
@@ -43,8 +44,9 @@ class Hl7Spider(scrapy.Spider):
             elif len(table_data) > 1:
                 for td in table_data:
                     # Get the category and the links
-                    category = get_text(
-                        td.css("p").extract_first()).replace(
+
+                    category = BeautifulSoup(
+                        td.css("p").extract_first(), 'lxml').text.replace(
                             "\n", "").replace(":", "")
 
                     if not os.path.exists(
@@ -58,7 +60,7 @@ class Hl7Spider(scrapy.Spider):
                     filtered_links = list(
                         filter(lambda x: "#" not in x, links))
 
-                    for link in filtered_links:
+                    for link in filtered_links[0:2]:
                         url = urllib.parse.urljoin(self.root_url, link)
 
                         request = scrapy.Request(
@@ -76,7 +78,7 @@ class Hl7Spider(scrapy.Spider):
             "pre").extract_first()
         if json_html:
             json_html = json_html.strip()
-            json_text = get_text(json_html)
+            json_text = BeautifulSoup(json_html, 'lxml').text
             # self.log(json_text)
 
             page = response.url.split("/")[-1].replace(".html", "")

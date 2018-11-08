@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import scrapy
 import urllib.parse
 import os
@@ -44,7 +46,6 @@ class Hl7Spider(scrapy.Spider):
             elif len(table_data) > 1:
                 for td in table_data:
                     # Get the category and the links
-
                     category = BeautifulSoup(
                         td.css("p").extract_first(), 'lxml').text.replace(
                             "\n", "").replace(":", "")
@@ -60,7 +61,7 @@ class Hl7Spider(scrapy.Spider):
                     filtered_links = list(
                         filter(lambda x: "#" not in x, links))
 
-                    for link in filtered_links[0:2]:
+                    for link in filtered_links:
                         url = urllib.parse.urljoin(self.root_url, link)
 
                         request = scrapy.Request(
@@ -79,7 +80,7 @@ class Hl7Spider(scrapy.Spider):
         if json_html:
             json_html = json_html.strip()
             json_text = BeautifulSoup(json_html, 'lxml').text
-            # self.log(json_text)
+            self.log(json_text)
 
             page = response.url.split("/")[-1].replace(".html", "")
             filename = '{}.json'.format(page)

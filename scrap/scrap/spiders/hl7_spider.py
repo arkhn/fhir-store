@@ -17,7 +17,7 @@ class Hl7Spider(scrapy.Spider):
 
     custom_settings = {
         'DOWNLOAD_DELAY':
-        1,
+        2,
         'USER_AGENT':
         'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
     }
@@ -58,22 +58,26 @@ class Hl7Spider(scrapy.Spider):
                                          category))
 
                     links = td.css("a").xpath("@href").extract()
+                    titles = td.css("a").xpath("text()").extract()
+                    links_struct = list(zip(links, titles))
                     filtered_links = list(
-                        filter(lambda x: "#" not in x, links))
+                        filter(lambda x: "#" not in x[0], links_struct))
 
                     for link in filtered_links:
-                        url = urllib.parse.urljoin(self.root_url, link)
+                        url = urllib.parse.urljoin(self.root_url, link[0])
 
                         request = scrapy.Request(
                             url=url, callback=self.parse_links)
                         request.meta["parent_category"] = parent_category
                         request.meta["category"] = category
+                        request.meta["title"] = link[1]
                         yield request
 
     def parse_links(self, response):
         self.log('Processing URL: {}'.format(response.url))
         parent_category = response.meta["parent_category"]
         category = response.meta["category"]
+        title = response.meta["title"]
 
         json_html = response.css("#json").css("#json-inner").css(
             "pre").extract_first()
@@ -82,8 +86,7 @@ class Hl7Spider(scrapy.Spider):
             json_text = BeautifulSoup(json_html, 'lxml').text
             self.log(json_text)
 
-            page = response.url.split("/")[-1].replace(".html", "")
-            filename = '{}.json'.format(page)
+            filename = '{}.json'.format(title)
             filepath = os.path.join(self.saving_path, parent_category,
                                     category, filename)
             with open(filepath, 'w') as f:

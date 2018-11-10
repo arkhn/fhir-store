@@ -5,8 +5,14 @@ import urllib.parse
 import os
 from bs4 import BeautifulSoup
 
+
+def get_parent_dir(path):
+    return os.path.split(path)[0]
+
+
 FILE_PATH = os.path.dirname(__file__)
-PROJECT_PATH = os.path.split(os.path.split(os.path.split(FILE_PATH)[0])[0])[0]
+PROJECT_PATH = get_parent_dir(
+    get_parent_dir(get_parent_dir(get_parent_dir(FILE_PATH))))
 SAVING_DIRECTORY = "json"
 
 

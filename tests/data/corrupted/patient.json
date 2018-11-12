@@ -1,4 +1,5 @@
-{doco
+
+{
   "resourceType" : "Patient",
   // from Resource: id, meta, implicitRules, and language
   // from DomainResource: text, contained, extension, and modifierExtension

@@ -1,0 +1,34 @@
+{
+  "resourceType" : "Condition",
+  "identifier<list::Identifier>": null,
+  "clinicalStatus<code=active|recurrence|inactive|remission|resolved>": null,
+  "verificationStatus<code=provisional|differential|confirmed|refuted|entered-in-error|unknown>": null,
+  "category<list::CodeableConcept>": null,
+  "severity<CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "bodySite<list::CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "onsetDateTime<dateTime>": null,
+  "onsetAge<Age>": null,
+  "onsetPeriod<Period>": null,
+  "onsetRange<Range>": null,
+  "onsetString<string>": null,
+  "abatementDateTime<dateTime>": null,
+  "abatementAge<Age>": null,
+  "abatementBoolean<boolean>": null,
+  "abatementPeriod<Period>": null,
+  "abatementRange<Range>": null,
+  "abatementString<string>": null,
+  "assertedDate<dateTime>": null,
+  "asserter<Reference(Practitioner|Patient|RelatedPerson)>": null,
+  "stage" : { 
+    "summary<CodeableConcept>": null,
+    "assessment<list::Reference(ClinicalImpression|DiagnosticReport|Observation)>": null
+  },
+  "evidence<list>": [{
+    "code<list::CodeableConcept>": null,
+    "detail<list::Reference(Any)>": null
+  }],
+  "note<list::Annotation>": null
+}

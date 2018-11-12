@@ -1,0 +1,36 @@
+{
+  "resourceType" : "Specimen",
+  "identifier<list::Identifier>": null,
+  "accessionIdentifier<Identifier>": null,
+  "status<code=available|unavailable|unsatisfactory|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "subject<Reference(Patient|Group|Device|Substance)>": null,
+  "receivedTime<dateTime>": null,
+  "parent<list::Reference(Specimen)>": null,
+  "request<list::Reference(ProcedureRequest)>": null,
+  "collection" : { 
+    "collector<Reference(Practitioner)>": null,
+    "collectedDateTime<dateTime>": null,
+    "collectedPeriod<Period>": null,
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "method<CodeableConcept>": null,
+    "bodySite<CodeableConcept>": null
+  },
+  "processing<list>": [{
+    "description<string>": null,
+    "procedure<CodeableConcept>": null,
+    "additive<list::Reference(Substance)>": null,
+    "timeDateTime<dateTime>": null,
+    "timePeriod<Period>": null
+  }],
+  "container<list>": [{
+    "identifier<list::Identifier>": null,
+    "description<string>": null,
+    "type<CodeableConcept>": null,
+    "capacity<Quantity(SimpleQuantity)>": null,
+    "specimenQuantity<Quantity(SimpleQuantity)>": null,
+    "additiveCodeableConcept<CodeableConcept>": null,
+    "additiveReference<Reference(Substance)>": null
+  }],
+  "note<list::Annotation>": null
+}

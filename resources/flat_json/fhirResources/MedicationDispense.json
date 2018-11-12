@@ -1,0 +1,37 @@
+{
+  "resourceType" : "MedicationDispense",
+  "identifier<list::Identifier>": null,
+  "partOf<list::Reference(Procedure)>": null,
+  "status<code=preparation|in-progress|on-hold|completed|entered-in-error|stopped>": null,
+  "category<CodeableConcept>": null,
+  "medicationCodeableConcept<CodeableConcept>": null,
+  "medicationReference<Reference(Medication)>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "supportingInformation<list::Reference(Any)>": null,
+  "performer<list>": [{
+    "actor<Reference(Practitioner|Organization|Patient|Device|RelatedPerson)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  }],
+  "authorizingPrescription<list::Reference(MedicationRequest)>": null,
+  "type<CodeableConcept>": null,
+  "quantity<Quantity(SimpleQuantity)>": null,
+  "daysSupply<Quantity(SimpleQuantity)>": null,
+  "whenPrepared<dateTime>": null,
+  "whenHandedOver<dateTime>": null,
+  "destination<Reference(Location)>": null,
+  "receiver<list::Reference(Patient|Practitioner)>": null,
+  "note<list::Annotation>": null,
+  "dosageInstruction<list::Dosage>": null,
+  "substitution" : { 
+    "wasSubstituted<boolean>": null,
+    "type<CodeableConcept>": null,
+    "reason<list::CodeableConcept>": null,
+    "responsibleParty<list::Reference(Practitioner)>": null
+  },
+  "detectedIssue<list::Reference(DetectedIssue)>": null,
+  "notDone<boolean>": null,
+  "notDoneReasonCodeableConcept<CodeableConcept>": null,
+  "notDoneReasonReference<Reference(DetectedIssue)>": null,
+  "eventHistory<list::Reference(Provenance)>": null
+}

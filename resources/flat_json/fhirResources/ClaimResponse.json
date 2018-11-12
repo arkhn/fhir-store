@@ -1,0 +1,87 @@
+{
+  "resourceType" : "ClaimResponse",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "patient<Reference(Patient)>": null,
+  "created<dateTime>": null,
+  "insurer<Reference(Organization)>": null,
+  "requestProvider<Reference(Practitioner)>": null,
+  "requestOrganization<Reference(Organization)>": null,
+  "request<Reference(Claim)>": null,
+  "outcome<CodeableConcept>": null,
+  "disposition<string>": null,
+  "payeeType<CodeableConcept>": null,
+  "item<list>": [{
+    "sequenceLinkId<positiveInt>": null,
+    "noteNumber<list::positiveInt>": null,
+    "adjudication<list>": [{
+      "category<CodeableConcept>": null,
+      "reason<CodeableConcept>": null,
+      "amount<Money>": null,
+      "value<decimal>": null
+    }],
+    "detail<list>": [{
+      "sequenceLinkId<positiveInt>": null,
+      "noteNumber<list::positiveInt>": null,
+      "adjudication<list::Content as for ClaimResponse.item.adjudication>": null,
+      "subDetail<list>": [{
+        "sequenceLinkId<positiveInt>": null,
+        "noteNumber<list::positiveInt>": null,
+        "adjudication<list::Content as for ClaimResponse.item.adjudication>": null
+      }]
+    }]
+  }],
+  "addItem<list>": [{
+    "sequenceLinkId<list::positiveInt>": null,
+    "revenue<CodeableConcept>": null,
+    "category<CodeableConcept>": null,
+    "service<CodeableConcept>": null,
+    "modifier<list::CodeableConcept>": null,
+    "fee<Money>": null,
+    "noteNumber<list::positiveInt>": null,
+    "adjudication<list::Content as for ClaimResponse.item.adjudication>": null,
+    "detail<list>": [{
+      "revenue<CodeableConcept>": null,
+      "category<CodeableConcept>": null,
+      "service<CodeableConcept>": null,
+      "modifier<list::CodeableConcept>": null,
+      "fee<Money>": null,
+      "noteNumber<list::positiveInt>": null,
+      "adjudication<list::Content as for ClaimResponse.item.adjudication>": null
+    }]
+  }],
+  "error<list>": [{
+    "sequenceLinkId<positiveInt>": null,
+    "detailSequenceLinkId<positiveInt>": null,
+    "subdetailSequenceLinkId<positiveInt>": null,
+    "code<CodeableConcept>": null
+  }],
+  "totalCost<Money>": null,
+  "unallocDeductable<Money>": null,
+  "totalBenefit<Money>": null,
+  "payment" : { 
+    "type<CodeableConcept>": null,
+    "adjustment<Money>": null,
+    "adjustmentReason<CodeableConcept>": null,
+    "date<date>": null,
+    "amount<Money>": null,
+    "identifier<Identifier>": null
+  },
+  "reserved<Coding>": null,
+  "form<CodeableConcept>": null,
+  "processNote<list>": [{
+    "number<positiveInt>": null,
+    "type<CodeableConcept>": null,
+    "text<string>": null,
+    "language<CodeableConcept>": null
+  }],
+  "communicationRequest<list::Reference(CommunicationRequest)>": null,
+  "insurance<list>": [{
+    "sequence<positiveInt>": null,
+    "focal<boolean>": null,
+    "coverage<Reference(Coverage)>": null,
+    "businessArrangement<string>": null,
+    "preAuthRef<list::string>": null,
+    "claimResponse<Reference(ClaimResponse)>": null
+  }]
+}

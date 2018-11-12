@@ -1,0 +1,23 @@
+{
+  "resourceType" : "MedicationStatement",
+  "identifier<list::Identifier>": null,
+  "basedOn<list::Reference(MedicationRequest|CarePlan|ProcedureRequest|ReferralRequest)>": null,
+  "partOf<list::Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "status<code=active|completed|entered-in-error|intended|stopped|on-hold>": null,
+  "category<CodeableConcept>": null,
+  "medicationCodeableConcept<CodeableConcept>": null,
+  "medicationReference<Reference(Medication)>": null,
+  "effectiveDateTime<dateTime>": null,
+  "effectivePeriod<Period>": null,
+  "dateAsserted<dateTime>": null,
+  "informationSource<Reference(Patient|Practitioner|RelatedPerson|Organization)>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "derivedFrom<list::Reference(Any)>": null,
+  "taken<code=y|n|unk|na>": null,
+  "reasonNotTaken<list::CodeableConcept>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "note<list::Annotation>": null,
+  "dosage<list::Dosage>": null
+}

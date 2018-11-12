@@ -1,0 +1,17 @@
+{
+  "resourceType" : "DeviceComponent",
+  "identifier<Identifier>": null,
+  "type<CodeableConcept>": null,
+  "lastSystemChange<instant>": null,
+  "source<Reference(Device)>": null,
+  "parent<Reference(DeviceComponent)>": null,
+  "operationalStatus<list::CodeableConcept>": null,
+  "parameterGroup<CodeableConcept>": null,
+  "measurementPrinciple<code=other|chemical|electrical|impedance|nuclear|optical|thermal|biological|mechanical|acoustical>": null,
+  "productionSpecification<list>": [{
+    "specType<CodeableConcept>": null,
+    "componentId<Identifier>": null,
+    "productionSpec<string>": null
+  }],
+  "languageCode<CodeableConcept>": null
+}

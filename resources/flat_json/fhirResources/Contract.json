@@ -1,0 +1,80 @@
+{
+  "resourceType" : "Contract",
+  "identifier<Identifier>": null,
+  "status<code=amended|appended|cancelled|disputed|entered-in-error|executable|executed|negotiable|offered|policy|rejected|renewed|revoked|resolved|terminated>": null,
+  "issued<dateTime>": null,
+  "applies<Period>": null,
+  "subject<list::Reference(Any)>": null,
+  "topic<list::Reference(Any)>": null,
+  "authority<list::Reference(Organization)>": null,
+  "domain<list::Reference(Location)>": null,
+  "type<CodeableConcept>": null,
+  "subType<list::CodeableConcept>": null,
+  "action<list::CodeableConcept>": null,
+  "actionReason<list::CodeableConcept>": null,
+  "decisionType<CodeableConcept>": null,
+  "contentDerivative<CodeableConcept>": null,
+  "securityLabel<list::Coding>": null,
+  "agent<list>": [{
+    "actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>": null,
+    "role<list::CodeableConcept>": null
+  }],
+  "signer<list>": [{
+    "type<Coding>": null,
+    "party<Reference(Organization|Patient|Practitioner|RelatedPerson)>": null,
+    "signature<list::Signature>": null
+  }],
+  "valuedItem<list>": [{
+    "entityCodeableConcept<CodeableConcept>": null,
+    "entityReference<Reference(Any)>": null,
+    "identifier<Identifier>": null,
+    "effectiveTime<dateTime>": null,
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "unitPrice<Money>": null,
+    "factor<decimal>": null,
+    "points<decimal>": null,
+    "net<Money>": null
+  }],
+  "term<list>": [{
+    "identifier<Identifier>": null,
+    "issued<dateTime>": null,
+    "applies<Period>": null,
+    "type<CodeableConcept>": null,
+    "subType<CodeableConcept>": null,
+    "topic<list::Reference(Any)>": null,
+    "action<list::CodeableConcept>": null,
+    "actionReason<list::CodeableConcept>": null,
+    "securityLabel<list::Coding>": null,
+    "agent<list>": [{
+      "actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>": null,
+      "role<list::CodeableConcept>": null
+    }],
+    "text<string>": null,
+    "valuedItem<list>": [{
+      "entityCodeableConcept<CodeableConcept>": null,
+      "entityReference<Reference(Any)>": null,
+      "identifier<Identifier>": null,
+      "effectiveTime<dateTime>": null,
+      "quantity<Quantity(SimpleQuantity)>": null,
+      "unitPrice<Money>": null,
+      "factor<decimal>": null,
+      "points<decimal>": null,
+      "net<Money>": null
+    }],
+    "group<list::Content as for Contract.term>": null
+  }],
+  "bindingAttachment<Attachment>": null,
+  "bindingReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>": null,
+  "friendly<list>": [{
+    "contentAttachment<Attachment>": null,
+    "contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>": null
+  }],
+  "legal<list>": [{
+    "contentAttachment<Attachment>": null,
+    "contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>": null
+  }],
+  "rule<list>": [{
+    "contentAttachment<Attachment>": null,
+    "contentReference<Reference(DocumentReference)>": null
+  }]
+}

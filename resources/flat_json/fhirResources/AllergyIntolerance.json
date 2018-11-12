@@ -1,0 +1,30 @@
+{
+  "resourceType" : "AllergyIntolerance",
+  "identifier<list::Identifier>": null,
+  "clinicalStatus<code=active|inactive|resolved>": null,
+  "verificationStatus<code=unconfirmed|confirmed|refuted|entered-in-error>": null,
+  "type<code=allergy|intolerance>": null,
+  "category<list::code=food|medication|environment|biologic>": null,
+  "criticality<code=low|high|unable-to-assess>": null,
+  "code<CodeableConcept>": null,
+  "patient<Reference(Patient)>": null,
+  "onsetDateTime<dateTime>": null,
+  "onsetAge<Age>": null,
+  "onsetPeriod<Period>": null,
+  "onsetRange<Range>": null,
+  "onsetString<string>": null,
+  "assertedDate<dateTime>": null,
+  "recorder<Reference(Practitioner|Patient)>": null,
+  "asserter<Reference(Patient|RelatedPerson|Practitioner)>": null,
+  "lastOccurrence<dateTime>": null,
+  "note<list::Annotation>": null,
+  "reaction<list>": [{
+    "substance<CodeableConcept>": null,
+    "manifestation<list::CodeableConcept>": null,
+    "description<string>": null,
+    "onset<dateTime>": null,
+    "severity<code=mild|moderate|severe>": null,
+    "exposureRoute<CodeableConcept>": null,
+    "note<list::Annotation>": null
+  }]
+}

@@ -1,0 +1,10 @@
+{
+  "resourceType": "HumanName",
+  "use<code=usual|official|temp|nickname|anonymous|old|maiden>": null,
+  "text": null,
+  "family": null,
+  "given<list>": null,
+  "prefix<list>": null,
+  "suffix<list>": null,
+  "period<Period>": null
+}

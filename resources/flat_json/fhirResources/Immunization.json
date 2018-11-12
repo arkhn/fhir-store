@@ -1,0 +1,43 @@
+{
+  "resourceType" : "Immunization",
+  "identifier<list::Identifier>": null,
+  "status<code=completed|entered-in-error>": null,
+  "notGiven<boolean>": null,
+  "vaccineCode<CodeableConcept>": null,
+  "patient<Reference(Patient)>": null,
+  "encounter<Reference(Encounter)>": null,
+  "date<dateTime>": null,
+  "primarySource<boolean>": null,
+  "reportOrigin<CodeableConcept>": null,
+  "location<Reference(Location)>": null,
+  "manufacturer<Reference(Organization)>": null,
+  "lotNumber<string>": null,
+  "expirationDate<date>": null,
+  "site<CodeableConcept>": null,
+  "route<CodeableConcept>": null,
+  "doseQuantity<Quantity(SimpleQuantity)>": null,
+  "practitioner<list>": [{
+    "role<CodeableConcept>": null,
+    "actor<Reference(Practitioner)>": null
+  }],
+  "note<list::Annotation>": null,
+  "explanation" : { 
+    "reason<list::CodeableConcept>": null,
+    "reasonNotGiven<list::CodeableConcept>": null
+  },
+  "reaction<list>": [{
+    "date<dateTime>": null,
+    "detail<Reference(Observation)>": null,
+    "reported<boolean>": null
+  }],
+  "vaccinationProtocol<list>": [{
+    "doseSequence<positiveInt>": null,
+    "description<string>": null,
+    "authority<Reference(Organization)>": null,
+    "series<string>": null,
+    "seriesDoses<positiveInt>": null,
+    "targetDisease<list::CodeableConcept>": null,
+    "doseStatus<CodeableConcept>": null,
+    "doseStatusReason<CodeableConcept>": null
+  }]
+}

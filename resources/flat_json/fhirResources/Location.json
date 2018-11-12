@@ -1,0 +1,22 @@
+{
+  "resourceType" : "Location",
+  "identifier<list::Identifier>": null,
+  "status<code=active|suspended|inactive>": null,
+  "operationalStatus<Coding>": null,
+  "name<string>": null,
+  "alias<list::string>": null,
+  "description<string>": null,
+  "mode<code=instance|kind>": null,
+  "type<CodeableConcept>": null,
+  "telecom<list::ContactPoint>": null,
+  "address<Address>": null,
+  "physicalType<CodeableConcept>": null,
+  "position" : { 
+    "longitude<decimal>": null,
+    "latitude<decimal>": null,
+    "altitude<decimal>": null
+  },
+  "managingOrganization<Reference(Organization)>": null,
+  "partOf<Reference(Location)>": null,
+  "endpoint<list::Reference(Endpoint)>": null
+}

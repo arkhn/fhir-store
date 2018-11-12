@@ -1,0 +1,8 @@
+{
+  "use<code=usual|official|temp|secondary>": null,
+  "type<CodeableConcept>": null,
+  "system<uri>": null,
+  "value<string>": null,
+  "period<Period>": null,
+  "assigner<Reference(Organization)>": null
+}

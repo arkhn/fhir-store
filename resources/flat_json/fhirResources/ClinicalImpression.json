@@ -1,0 +1,30 @@
+{
+  "resourceType" : "ClinicalImpression",
+  "identifier<list::Identifier>": null,
+  "status<code=draft|completed|entered-in-error>": null,
+  "code<CodeableConcept>": null,
+  "description<string>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "effectiveDateTime<dateTime>": null,
+  "effectivePeriod<Period>": null,
+  "date<dateTime>": null,
+  "assessor<Reference(Practitioner)>": null,
+  "previous<Reference(ClinicalImpression)>": null,
+  "problem<list::Reference(Condition|AllergyIntolerance)>": null,
+  "investigation<list>": [{
+    "code<CodeableConcept>": null,
+    "item<list::Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport|RiskAssessment|ImagingStudy)>": null
+  }],
+  "protocol<list::uri>": null,
+  "summary<string>": null,
+  "finding<list>": [{
+    "itemCodeableConcept<CodeableConcept>": null,
+    "itemReference<Reference(Condition|Observation)>": null,
+    "basis<string>": null
+  }],
+  "prognosisCodeableConcept<list::CodeableConcept>": null,
+  "prognosisReference<list::Reference(RiskAssessment)>": null,
+  "action<list::Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|Appointment)>": null,
+  "note<list::Annotation>": null
+}

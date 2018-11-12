@@ -1,0 +1,24 @@
+{
+  "resourceType" : "ImmunizationRecommendation",
+  "identifier<list::Identifier>": null,
+  "patient<Reference(Patient)>": null,
+  "recommendation<list>": [{
+    "date<dateTime>": null,
+    "vaccineCode<CodeableConcept>": null,
+    "targetDisease<CodeableConcept>": null,
+    "doseNumber<positiveInt>": null,
+    "forecastStatus<CodeableConcept>": null,
+    "dateCriterion<list>": [{
+      "code<CodeableConcept>": null,
+      "value<dateTime>": null
+    }],
+    "protocol" : { 
+      "doseSequence<positiveInt>": null,
+      "description<string>": null,
+      "authority<Reference(Organization)>": null,
+      "series<string>": null
+    },
+    "supportingImmunization<list::Reference(Immunization)>": null,
+    "supportingPatientInformation<list::Reference(Observation|AllergyIntolerance)>": null
+  }]
+}

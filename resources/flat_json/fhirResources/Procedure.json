@@ -1,0 +1,37 @@
+{
+  "resourceType" : "Procedure",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(PlanDefinition|ActivityDefinition|HealthcareService)>": null,
+  "basedOn<list::Reference(CarePlan|ProcedureRequest|ReferralRequest)>": null,
+  "partOf<list::Reference(Procedure|Observation|MedicationAdministration)>": null,
+  "status<code=preparation|in-progress|suspended|aborted|completed|entered-in-error|unknown>": null,
+  "notDone<boolean>": null,
+  "notDoneReason<CodeableConcept>": null,
+  "category<CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "performedDateTime<dateTime>": null,
+  "performedPeriod<Period>": null,
+  "performer<list>": [{
+    "role<CodeableConcept>": null,
+    "actor<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  }],
+  "location<Reference(Location)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "bodySite<list::CodeableConcept>": null,
+  "outcome<CodeableConcept>": null,
+  "report<list::Reference(DiagnosticReport)>": null,
+  "complication<list::CodeableConcept>": null,
+  "complicationDetail<list::Reference(Condition)>": null,
+  "followUp<list::CodeableConcept>": null,
+  "note<list::Annotation>": null,
+  "focalDevice<list>": [{
+    "action<CodeableConcept>": null,
+    "manipulated<Reference(Device)>": null
+  }],
+  "usedReference<list::Reference(Device|Medication|Substance)>": null,
+  "usedCode<list::CodeableConcept>": null
+}

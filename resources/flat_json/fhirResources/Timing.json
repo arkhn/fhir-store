@@ -1,0 +1,24 @@
+{
+  "resourceType": "Timing",
+  "event<list::dateTime>": null,
+  "repeat": {
+    "boundsDuration<Duration>": null,
+    "boundsRange<Range>": null,
+    "boundsPeriod<Period>": null,
+    "count<integer>": null,
+    "countMax<integer>": null,
+    "duration<decimal>": null,
+    "durationMax<decimal>": null,
+    "durationUnit<code=s|min|h|d|wk|mo|a>": null,
+    "frequency<integer>": null,
+    "frequencyMax<integer>": null,
+    "period<decimal>": null,
+    "periodMax<decimal>": null,
+    "periodUnit<code=s|min|h|d|wk|mo|a>": null,
+    "dayOfWeek<list::code=mon|tue|wed|thu|fri|sat|sun>": null,
+    "timeOfDay<list::time>": null,
+    "when<list::code>": null,
+    "offset<unsignedInt>": null
+  },
+  "code<CodeableConcept>": null
+}

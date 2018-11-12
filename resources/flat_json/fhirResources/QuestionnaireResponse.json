@@ -1,0 +1,35 @@
+{
+  "resourceType" : "QuestionnaireResponse",
+  "identifier<Identifier>": null,
+  "basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>": null,
+  "parent<list::Reference(Observation|Procedure)>": null,
+  "questionnaire<Reference(Questionnaire)>": null,
+  "status<code=in-progress|completed|amended|entered-in-error|stopped>": null,
+  "subject<Reference(Any)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "authored<dateTime>": null,
+  "author<Reference(Device|Practitioner|Patient|RelatedPerson)>": null,
+  "source<Reference(Patient|Practitioner|RelatedPerson)>": null,
+  "item<list>": [{
+    "linkId<string>": null,
+    "definition<uri>": null,
+    "text<string>": null,
+    "subject<Reference(Any)>": null,
+    "answer<list>": [{
+      "valueBoolean<boolean>": null,
+      "valueDecimal<decimal>": null,
+      "valueInteger<integer>": null,
+      "valueDate<date>": null,
+      "valueDateTime<dateTime>": null,
+      "valueTime<time>": null,
+      "valueString<string>": null,
+      "valueUri<uri>": null,
+      "valueAttachment<Attachment>": null,
+      "valueCoding<Coding>": null,
+      "valueQuantity<Quantity>": null,
+      "valueReference<Reference(Any)>": null,
+      "item<list::Content as for QuestionnaireResponse.item>": null
+    }],
+    "item<list::Content as for QuestionnaireResponse.item>": null
+  }]
+}

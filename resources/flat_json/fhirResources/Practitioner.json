@@ -1,0 +1,18 @@
+{
+  "resourceType" : "Practitioner",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "name<list::HumanName>": null,
+  "telecom<list::ContactPoint>": null,
+  "address<list::Address>": null,
+  "gender<code=male|female|other|unknown>": null,
+  "birthDate<date>": null,
+  "photo<list::Attachment>": null,
+  "qualification<list>": [{
+    "identifier<list::Identifier>": null,
+    "code<CodeableConcept>": null,
+    "period<Period>": null,
+    "issuer<Reference(Organization)>": null
+  }],
+  "communication<list::CodeableConcept>": null
+}

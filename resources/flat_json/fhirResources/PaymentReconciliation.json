@@ -1,0 +1,28 @@
+{
+  "resourceType" : "PaymentReconciliation",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "period<Period>": null,
+  "created<dateTime>": null,
+  "organization<Reference(Organization)>": null,
+  "request<Reference(ProcessRequest)>": null,
+  "outcome<CodeableConcept>": null,
+  "disposition<string>": null,
+  "requestProvider<Reference(Practitioner)>": null,
+  "requestOrganization<Reference(Organization)>": null,
+  "detail<list>": [{
+    "type<CodeableConcept>": null,
+    "request<Reference(Any)>": null,
+    "response<Reference(Any)>": null,
+    "submitter<Reference(Organization)>": null,
+    "payee<Reference(Organization)>": null,
+    "date<date>": null,
+    "amount<Money>": null
+  }],
+  "form<CodeableConcept>": null,
+  "total<Money>": null,
+  "processNote<list>": [{
+    "type<CodeableConcept>": null,
+    "text<string>": null
+  }]
+}

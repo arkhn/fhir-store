@@ -1,0 +1,30 @@
+{
+  "resourceType" : "ReferralRequest",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>": null,
+  "basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>": null,
+  "replaces<list::Reference(ReferralRequest)>": null,
+  "groupIdentifier<Identifier>": null,
+  "status<code=draft|active|suspended|cancelled|completed|entered-in-error|unknown>": null,
+  "intent<code=proposal|plan|order>": null,
+  "type<CodeableConcept>": null,
+  "priority<code>": null,
+  "serviceRequested<list::CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "authoredOn<dateTime>": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  },
+  "specialty<CodeableConcept>": null,
+  "recipient<list::Reference(Practitioner|Organization|HealthcareService)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "description<string>": null,
+  "supportingInfo<list::Reference(Any)>": null,
+  "note<list::Annotation>": null,
+  "relevantHistory<list::Reference(Provenance)>": null
+}

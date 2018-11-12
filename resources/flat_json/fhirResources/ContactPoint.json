@@ -1,0 +1,8 @@
+{
+  "resourceType": "ContactPoint",
+  "system<code=phone|fax|email|pager|url|sms|other>": null,
+  "value": null,
+  "use<code=home|work|temp|old|mobile>": null,
+  "rank<positiveInt>": null,
+  "period<Period>": null
+}

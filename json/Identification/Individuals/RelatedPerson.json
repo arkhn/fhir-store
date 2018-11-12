@@ -1,0 +1,14 @@
+{
+  "resourceType" : "RelatedPerson",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "patient<Reference(Patient)>": null,
+  "relationship<CodeableConcept>": null,
+  "name<list::HumanName>": null,
+  "telecom<list::ContactPoint>": null,
+  "gender<code=male|female|other|unknown>": null,
+  "birthDate<date>": null,
+  "address<list::Address>": null,
+  "photo<list::Attachment>": null,
+  "period<Period>": null
+}

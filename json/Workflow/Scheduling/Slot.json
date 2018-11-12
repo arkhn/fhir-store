@@ -1,0 +1,14 @@
+{
+  "resourceType" : "Slot",
+  "identifier<list::Identifier>": null,
+  "serviceCategory<CodeableConcept>": null,
+  "serviceType<list::CodeableConcept>": null,
+  "specialty<list::CodeableConcept>": null,
+  "appointmentType<CodeableConcept>": null,
+  "schedule<Reference(Schedule)>": null,
+  "status<code=busy|free|busy-unavailable|busy-tentative|entered-in-error>": null,
+  "start<instant>": null,
+  "end<instant>": null,
+  "overbooked<boolean>": null,
+  "comment<string>": null
+}

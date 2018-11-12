@@ -1,0 +1,15 @@
+resourceType: "Organization"
+identifier<list::Identifier>:
+active<boolean>:
+type<list::CodeableConcept>:
+name<string>:
+alias<list::string>:
+telecom<list::ContactPoint>:
+address<list::Address>:
+partOf<Reference(Organization)>:
+contact<list>:
+  - purpose<CodeableConcept>:
+    name<HumanName>:
+    telecom<list::ContactPoint>:
+    address<Address>:
+endpoint<list::Reference(Endpoint)>:

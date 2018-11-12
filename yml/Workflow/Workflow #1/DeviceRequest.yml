@@ -1,0 +1,27 @@
+resourceType: "DeviceRequest"
+identifier<list::Identifier>:
+definition<list::Reference(ActivityDefinition|PlanDefinition)>:
+basedOn<list::Reference(Any)>:
+priorRequest<list::Reference(Any)>:
+groupIdentifier<Identifier>:
+status<code=draft|active|suspended|completed|entered-in-error|cancelled>:
+intent<CodeableConcept>:
+priority<code>:
+codeReference<Reference(Device)>:
+codeCodeableConcept<CodeableConcept>:
+subject<Reference(Patient|Group|Location|Device)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+occurrenceTiming<Timing>:
+authoredOn<dateTime>:
+requester:
+    agent<Reference(Device|Practitioner|Organization)>:
+    onBehalfOf<Reference(Organization)>:
+performerType<CodeableConcept>:
+performer<Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Any)>:
+supportingInfo<list::Reference(Any)>:
+note<list::Annotation>:
+relevantHistory<list::Reference(Provenance)>:

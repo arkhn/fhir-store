@@ -1,0 +1,16 @@
+resourceType: "ImagingManifest"
+identifier<Identifier>:
+patient<Reference(Patient)>:
+authoringTime<dateTime>:
+author<Reference(Practitioner|Device|Organization|Patient|RelatedPerson)>:
+description<string>:
+study<list>:
+  - uid<oid>:
+    imagingStudy<Reference(ImagingStudy)>:
+    endpoint<list::Reference(Endpoint)>:
+    series<list>:
+      - uid<oid>:
+        endpoint<list::Reference(Endpoint)>:
+        instance<list>:
+          - sopClass<oid>:
+            uid<oid>:

@@ -1,0 +1,10 @@
+{
+  "resourceType" : "BodySite",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "code<CodeableConcept>": null,
+  "qualifier<list::CodeableConcept>": null,
+  "description<string>": null,
+  "image<list::Attachment>": null,
+  "patient<Reference(Patient)>": null
+}

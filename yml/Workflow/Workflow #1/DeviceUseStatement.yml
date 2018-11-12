@@ -1,0 +1,14 @@
+resourceType: "DeviceUseStatement"
+identifier<list::Identifier>:
+status<code=active|completed|entered-in-error>:
+subject<Reference(Patient|Group)>:
+whenUsed<Period>:
+timingTiming<Timing>:
+timingPeriod<Period>:
+timingDateTime<dateTime>:
+recordedOn<dateTime>:
+source<Reference(Patient|Practitioner|RelatedPerson)>:
+device<Reference(Device)>:
+indication<list::CodeableConcept>:
+bodySite<CodeableConcept>:
+note<list::Annotation>:

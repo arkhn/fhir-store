@@ -1,0 +1,16 @@
+resourceType: "ProcessResponse"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+created<dateTime>:
+organization<Reference(Organization)>:
+request<Reference(Any)>:
+outcome<CodeableConcept>:
+disposition<string>:
+requestProvider<Reference(Practitioner)>:
+requestOrganization<Reference(Organization)>:
+form<CodeableConcept>:
+processNote<list>:
+  - type<CodeableConcept>:
+    text<string>:
+error<list::CodeableConcept>:
+communicationRequest<list::Reference(CommunicationRequest)>:

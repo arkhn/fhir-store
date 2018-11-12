@@ -1,0 +1,24 @@
+{
+  "resourceType" : "Group",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "type<code=person|animal|practitioner|device|medication|substance>": null,
+  "actual<boolean>": null,
+  "code<CodeableConcept>": null,
+  "name<string>": null,
+  "quantity<unsignedInt>": null,
+  "characteristic<list>": [{
+    "code<CodeableConcept>": null,
+    "valueCodeableConcept<CodeableConcept>": null,
+    "valueBoolean<boolean>": null,
+    "valueQuantity<Quantity>": null,
+    "valueRange<Range>": null,
+    "exclude<boolean>": null,
+    "period<Period>": null
+  }],
+  "member<list>": [{
+    "entity<Reference(Patient|Practitioner|Device|Medication|Substance)>": null,
+    "period<Period>": null,
+    "inactive<boolean>": null
+  }]
+}

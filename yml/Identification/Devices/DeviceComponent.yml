@@ -1,0 +1,14 @@
+resourceType: "DeviceComponent"
+identifier<Identifier>:
+type<CodeableConcept>:
+lastSystemChange<instant>:
+source<Reference(Device)>:
+parent<Reference(DeviceComponent)>:
+operationalStatus<list::CodeableConcept>:
+parameterGroup<CodeableConcept>:
+measurementPrinciple<code=other|chemical|electrical|impedance|nuclear|optical|thermal|biological|mechanical|acoustical>:
+productionSpecification<list>:
+  - specType<CodeableConcept>:
+    componentId<Identifier>:
+    productionSpec<string>:
+languageCode<CodeableConcept>:

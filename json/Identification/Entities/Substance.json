@@ -1,0 +1,18 @@
+{
+  "resourceType" : "Substance",
+  "identifier<list::Identifier>": null,
+  "status<code=active|inactive|entered-in-error>": null,
+  "category<list::CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "description<string>": null,
+  "instance<list>": [{
+    "identifier<Identifier>": null,
+    "expiry<dateTime>": null,
+    "quantity<Quantity(SimpleQuantity)>": null
+  }],
+  "ingredient<list>": [{
+    "quantity<Ratio>": null,
+    "substanceCodeableConcept<CodeableConcept>": null,
+    "substanceReference<Reference(Substance)>": null
+  }]
+}

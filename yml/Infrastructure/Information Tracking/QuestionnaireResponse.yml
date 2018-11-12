@@ -1,0 +1,31 @@
+resourceType: "QuestionnaireResponse"
+identifier<Identifier>:
+basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>:
+parent<list::Reference(Observation|Procedure)>:
+questionnaire<Reference(Questionnaire)>:
+status<code=in-progress|completed|amended|entered-in-error|stopped>:
+subject<Reference(Any)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+authored<dateTime>:
+author<Reference(Device|Practitioner|Patient|RelatedPerson)>:
+source<Reference(Patient|Practitioner|RelatedPerson)>:
+item<list>:
+  - linkId<string>:
+    definition<uri>:
+    text<string>:
+    subject<Reference(Any)>:
+    answer<list>:
+      - valueBoolean<boolean>:
+        valueDecimal<decimal>:
+        valueInteger<integer>:
+        valueDate<date>:
+        valueDateTime<dateTime>:
+        valueTime<time>:
+        valueString<string>:
+        valueUri<uri>:
+        valueAttachment<Attachment>:
+        valueCoding<Coding>:
+        valueQuantity<Quantity>:
+        valueReference<Reference(Any)>:
+        item<list::Content as for QuestionnaireResponse.item>:
+    item<list::Content as for QuestionnaireResponse.item>:

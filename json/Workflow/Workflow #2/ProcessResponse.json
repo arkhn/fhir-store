@@ -1,0 +1,19 @@
+{
+  "resourceType" : "ProcessResponse",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "created<dateTime>": null,
+  "organization<Reference(Organization)>": null,
+  "request<Reference(Any)>": null,
+  "outcome<CodeableConcept>": null,
+  "disposition<string>": null,
+  "requestProvider<Reference(Practitioner)>": null,
+  "requestOrganization<Reference(Organization)>": null,
+  "form<CodeableConcept>": null,
+  "processNote<list>": [{
+    "type<CodeableConcept>": null,
+    "text<string>": null
+  }],
+  "error<list::CodeableConcept>": null,
+  "communicationRequest<list::Reference(CommunicationRequest)>": null
+}

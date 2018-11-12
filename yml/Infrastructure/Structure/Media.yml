@@ -1,0 +1,20 @@
+resourceType: "Media"
+identifier<list::Identifier>:
+basedOn<list::Reference(ProcedureRequest)>:
+type<code=photo|video|audio>:
+subtype<CodeableConcept>:
+view<CodeableConcept>:
+subject<Reference(Patient|Practitioner|Group|Device|Specimen)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+operator<Reference(Practitioner)>:
+reasonCode<list::CodeableConcept>:
+bodySite<CodeableConcept>:
+device<Reference(Device|DeviceMetric)>:
+height<positiveInt>:
+width<positiveInt>:
+frames<positiveInt>:
+duration<unsignedInt>:
+content<Attachment>:
+note<list::Annotation>:

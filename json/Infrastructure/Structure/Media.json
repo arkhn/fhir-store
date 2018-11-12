@@ -1,0 +1,22 @@
+{
+  "resourceType" : "Media",
+  "identifier<list::Identifier>": null,
+  "basedOn<list::Reference(ProcedureRequest)>": null,
+  "type<code=photo|video|audio>": null,
+  "subtype<CodeableConcept>": null,
+  "view<CodeableConcept>": null,
+  "subject<Reference(Patient|Practitioner|Group|Device|Specimen)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "operator<Reference(Practitioner)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "bodySite<CodeableConcept>": null,
+  "device<Reference(Device|DeviceMetric)>": null,
+  "height<positiveInt>": null,
+  "width<positiveInt>": null,
+  "frames<positiveInt>": null,
+  "duration<unsignedInt>": null,
+  "content<Attachment>": null,
+  "note<list::Annotation>": null
+}

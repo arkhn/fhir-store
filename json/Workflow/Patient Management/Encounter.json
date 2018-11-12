@@ -1,0 +1,52 @@
+{
+  "resourceType" : "Encounter",
+  "identifier<list::Identifier>": null,
+  "status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>": null,
+  "statusHistory<list>": [{
+    "status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>": null,
+    "period<Period>": null
+  }],
+  "class<Coding>": null,
+  "classHistory<list>": [{
+    "class<Coding>": null,
+    "period<Period>": null
+  }],
+  "type<list::CodeableConcept>": null,
+  "priority<CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "episodeOfCare<list::Reference(EpisodeOfCare)>": null,
+  "incomingReferral<list::Reference(ReferralRequest)>": null,
+  "participant<list>": [{
+    "type<list::CodeableConcept>": null,
+    "period<Period>": null,
+    "individual<Reference(Practitioner|RelatedPerson)>": null
+  }],
+  "appointment<Reference(Appointment)>": null,
+  "period<Period>": null,
+  "length<Duration>": null,
+  "reason<list::CodeableConcept>": null,
+  "diagnosis<list>": [{
+    "condition<Reference(Condition|Procedure)>": null,
+    "role<CodeableConcept>": null,
+    "rank<positiveInt>": null
+  }],
+  "account<list::Reference(Account)>": null,
+  "hospitalization" : { 
+    "preAdmissionIdentifier<Identifier>": null,
+    "origin<Reference(Location)>": null,
+    "admitSource<CodeableConcept>": null,
+    "reAdmission<CodeableConcept>": null,
+    "dietPreference<list::CodeableConcept>": null,
+    "specialCourtesy<list::CodeableConcept>": null,
+    "specialArrangement<list::CodeableConcept>": null,
+    "destination<Reference(Location)>": null,
+    "dischargeDisposition<CodeableConcept>": null
+  },
+  "location<list>": [{
+    "location<Reference(Location)>": null,
+    "status<code=planned|active|reserved|completed>": null,
+    "period<Period>": null
+  }],
+  "serviceProvider<Reference(Organization)>": null,
+  "partOf<Reference(Encounter)>": null
+}

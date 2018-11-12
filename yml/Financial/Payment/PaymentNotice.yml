@@ -1,0 +1,11 @@
+resourceType: "PaymentNotice"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+request<Reference(Any)>:
+response<Reference(Any)>:
+statusDate<date>:
+created<dateTime>:
+target<Reference(Organization)>:
+provider<Reference(Practitioner)>:
+organization<Reference(Organization)>:
+paymentStatus<CodeableConcept>:

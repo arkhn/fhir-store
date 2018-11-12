@@ -1,0 +1,18 @@
+{
+  "resourceType" : "DetectedIssue",
+  "identifier<Identifier>": null,
+  "status<code=registered|preliminary|final|amended>": null,
+  "category<CodeableConcept>": null,
+  "severity<code=high|moderate|low>": null,
+  "patient<Reference(Patient)>": null,
+  "date<dateTime>": null,
+  "author<Reference(Practitioner|Device)>": null,
+  "implicated<list::Reference(Any)>": null,
+  "detail<string>": null,
+  "reference<uri>": null,
+  "mitigation<list>": [{
+    "action<CodeableConcept>": null,
+    "date<dateTime>": null,
+    "author<Reference(Practitioner)>": null
+  }]
+}

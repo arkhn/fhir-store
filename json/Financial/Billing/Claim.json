@@ -1,0 +1,131 @@
+{
+  "resourceType" : "Claim",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "subType<list::CodeableConcept>": null,
+  "use<code=complete|proposed|exploratory|other>": null,
+  "patient<Reference(Patient)>": null,
+  "billablePeriod<Period>": null,
+  "created<dateTime>": null,
+  "enterer<Reference(Practitioner)>": null,
+  "insurer<Reference(Organization)>": null,
+  "provider<Reference(Practitioner)>": null,
+  "organization<Reference(Organization)>": null,
+  "priority<CodeableConcept>": null,
+  "fundsReserve<CodeableConcept>": null,
+  "related<list>": [{
+    "claim<Reference(Claim)>": null,
+    "relationship<CodeableConcept>": null,
+    "reference<Identifier>": null
+  }],
+  "prescription<Reference(MedicationRequest|VisionPrescription)>": null,
+  "originalPrescription<Reference(MedicationRequest)>": null,
+  "payee" : { 
+    "type<CodeableConcept>": null,
+    "resourceType<Coding>": null,
+    "party<Reference(Practitioner|Organization|Patient|RelatedPerson)>": null
+  },
+  "referral<Reference(ReferralRequest)>": null,
+  "facility<Reference(Location)>": null,
+  "careTeam<list>": [{
+    "sequence<positiveInt>": null,
+    "provider<Reference(Practitioner|Organization)>": null,
+    "responsible<boolean>": null,
+    "role<CodeableConcept>": null,
+    "qualification<CodeableConcept>": null
+  }],
+  "information<list>": [{
+    "sequence<positiveInt>": null,
+    "category<CodeableConcept>": null,
+    "code<CodeableConcept>": null,
+    "timingDate<date>": null,
+    "timingPeriod<Period>": null,
+    "valueString<string>": null,
+    "valueQuantity<Quantity>": null,
+    "valueAttachment<Attachment>": null,
+    "valueReference<Reference(Any)>": null,
+    "reason<CodeableConcept>": null
+  }],
+  "diagnosis<list>": [{
+    "sequence<positiveInt>": null,
+    "diagnosisCodeableConcept<CodeableConcept>": null,
+    "diagnosisReference<Reference(Condition)>": null,
+    "type<list::CodeableConcept>": null,
+    "packageCode<CodeableConcept>": null
+  }],
+  "procedure<list>": [{
+    "sequence<positiveInt>": null,
+    "date<dateTime>": null,
+    "procedureCodeableConcept<CodeableConcept>": null,
+    "procedureReference<Reference(Procedure)>": null
+  }],
+  "insurance<list>": [{
+    "sequence<positiveInt>": null,
+    "focal<boolean>": null,
+    "coverage<Reference(Coverage)>": null,
+    "businessArrangement<string>": null,
+    "preAuthRef<list::string>": null,
+    "claimResponse<Reference(ClaimResponse)>": null
+  }],
+  "accident" : { 
+    "date<date>": null,
+    "type<CodeableConcept>": null,
+    "locationAddress<Address>": null,
+    "locationReference<Reference(Location)>": null
+  },
+  "employmentImpacted<Period>": null,
+  "hospitalization<Period>": null,
+  "item<list>": [{
+    "sequence<positiveInt>": null,
+    "careTeamLinkId<list::positiveInt>": null,
+    "diagnosisLinkId<list::positiveInt>": null,
+    "procedureLinkId<list::positiveInt>": null,
+    "informationLinkId<list::positiveInt>": null,
+    "revenue<CodeableConcept>": null,
+    "category<CodeableConcept>": null,
+    "service<CodeableConcept>": null,
+    "modifier<list::CodeableConcept>": null,
+    "programCode<list::CodeableConcept>": null,
+    "servicedDate<date>": null,
+    "servicedPeriod<Period>": null,
+    "locationCodeableConcept<CodeableConcept>": null,
+    "locationAddress<Address>": null,
+    "locationReference<Reference(Location)>": null,
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "unitPrice<Money>": null,
+    "factor<decimal>": null,
+    "net<Money>": null,
+    "udi<list::Reference(Device)>": null,
+    "bodySite<CodeableConcept>": null,
+    "subSite<list::CodeableConcept>": null,
+    "encounter<list::Reference(Encounter)>": null,
+    "detail<list>": [{
+      "sequence<positiveInt>": null,
+      "revenue<CodeableConcept>": null,
+      "category<CodeableConcept>": null,
+      "service<CodeableConcept>": null,
+      "modifier<list::CodeableConcept>": null,
+      "programCode<list::CodeableConcept>": null,
+      "quantity<Quantity(SimpleQuantity)>": null,
+      "unitPrice<Money>": null,
+      "factor<decimal>": null,
+      "net<Money>": null,
+      "udi<list::Reference(Device)>": null,
+      "subDetail<list>": [{
+        "sequence<positiveInt>": null,
+        "revenue<CodeableConcept>": null,
+        "category<CodeableConcept>": null,
+        "service<CodeableConcept>": null,
+        "modifier<list::CodeableConcept>": null,
+        "programCode<list::CodeableConcept>": null,
+        "quantity<Quantity(SimpleQuantity)>": null,
+        "unitPrice<Money>": null,
+        "factor<decimal>": null,
+        "net<Money>": null,
+        "udi<list::Reference(Device)>": null
+      }]
+    }]
+  }],
+  "total<Money>": null
+}

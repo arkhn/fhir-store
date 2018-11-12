@@ -1,0 +1,75 @@
+resourceType: "ClaimResponse"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+patient<Reference(Patient)>:
+created<dateTime>:
+insurer<Reference(Organization)>:
+requestProvider<Reference(Practitioner)>:
+requestOrganization<Reference(Organization)>:
+request<Reference(Claim)>:
+outcome<CodeableConcept>:
+disposition<string>:
+payeeType<CodeableConcept>:
+item<list>:
+  - sequenceLinkId<positiveInt>:
+    noteNumber<list::positiveInt>:
+    adjudication<list>:
+      - category<CodeableConcept>:
+        reason<CodeableConcept>:
+        amount<Money>:
+        value<decimal>:
+    detail<list>:
+      - sequenceLinkId<positiveInt>:
+        noteNumber<list::positiveInt>:
+        adjudication<list::Content as for ClaimResponse.item.adjudication>:
+        subDetail<list>:
+          - sequenceLinkId<positiveInt>:
+            noteNumber<list::positiveInt>:
+            adjudication<list::Content as for ClaimResponse.item.adjudication>:
+addItem<list>:
+  - sequenceLinkId<list::positiveInt>:
+    revenue<CodeableConcept>:
+    category<CodeableConcept>:
+    service<CodeableConcept>:
+    modifier<list::CodeableConcept>:
+    fee<Money>:
+    noteNumber<list::positiveInt>:
+    adjudication<list::Content as for ClaimResponse.item.adjudication>:
+    detail<list>:
+      - revenue<CodeableConcept>:
+        category<CodeableConcept>:
+        service<CodeableConcept>:
+        modifier<list::CodeableConcept>:
+        fee<Money>:
+        noteNumber<list::positiveInt>:
+        adjudication<list::Content as for ClaimResponse.item.adjudication>:
+error<list>:
+  - sequenceLinkId<positiveInt>:
+    detailSequenceLinkId<positiveInt>:
+    subdetailSequenceLinkId<positiveInt>:
+    code<CodeableConcept>:
+totalCost<Money>:
+unallocDeductable<Money>:
+totalBenefit<Money>:
+payment:
+    type<CodeableConcept>:
+    adjustment<Money>:
+    adjustmentReason<CodeableConcept>:
+    date<date>:
+    amount<Money>:
+    identifier<Identifier>:
+reserved<Coding>:
+form<CodeableConcept>:
+processNote<list>:
+  - number<positiveInt>:
+    type<CodeableConcept>:
+    text<string>:
+    language<CodeableConcept>:
+communicationRequest<list::Reference(CommunicationRequest)>:
+insurance<list>:
+  - sequence<positiveInt>:
+    focal<boolean>:
+    coverage<Reference(Coverage)>:
+    businessArrangement<string>:
+    preAuthRef<list::string>:
+    claimResponse<Reference(ClaimResponse)>:

@@ -1,0 +1,27 @@
+{
+  "resourceType" : "Communication",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(PlanDefinition|ActivityDefinition)>": null,
+  "basedOn<list::Reference(Any)>": null,
+  "partOf<list::Reference(Any)>": null,
+  "status<code=preparation|in-progress|suspended|aborted|completed|entered-in-error>": null,
+  "notDone<boolean>": null,
+  "notDoneReason<CodeableConcept>": null,
+  "category<list::CodeableConcept>": null,
+  "medium<list::CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)>": null,
+  "topic<list::Reference(Any)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "sent<dateTime>": null,
+  "received<dateTime>": null,
+  "sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "payload<list>": [{
+    "contentString<string>": null,
+    "contentAttachment<Attachment>": null,
+    "contentReference<Reference(Any)>": null
+  }],
+  "note<list::Annotation>": null
+}

@@ -1,0 +1,28 @@
+resourceType: "Parameters"
+parameter<list>:
+  - name<string>:
+    valueInteger<integer>:
+    valueDecimal<decimal>:
+    valueDateTime<dateTime>:
+    valueDate<date>:
+    valueInstant<instant>:
+    valueString<string>:
+    valueUri<uri>:
+    valueBoolean<boolean>:
+    valueCode<code>:
+    valueBase64Binary<base64Binary>:
+    valueCoding<Coding>:
+    valueCodeableConcept<CodeableConcept>:
+    valueAttachment<Attachment>:
+    valueIdentifier<Identifier>:
+    valueQuantity<Quantity>:
+    valueRange<Range>:
+    valuePeriod<Period>:
+    valueRatio<Ratio>:
+    valueHumanName<HumanName>:
+    valueAddress<Address>:
+    valueContactPoint<ContactPoint>:
+    valueSchedule<Schedule>:
+    valueReference<Reference>:
+    resource<Resource>:
+    part<list::Content as for Parameters.parameter>:

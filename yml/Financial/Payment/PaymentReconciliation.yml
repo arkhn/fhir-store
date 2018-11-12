@@ -1,0 +1,24 @@
+resourceType: "PaymentReconciliation"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+period<Period>:
+created<dateTime>:
+organization<Reference(Organization)>:
+request<Reference(ProcessRequest)>:
+outcome<CodeableConcept>:
+disposition<string>:
+requestProvider<Reference(Practitioner)>:
+requestOrganization<Reference(Organization)>:
+detail<list>:
+  - type<CodeableConcept>:
+    request<Reference(Any)>:
+    response<Reference(Any)>:
+    submitter<Reference(Organization)>:
+    payee<Reference(Organization)>:
+    date<date>:
+    amount<Money>:
+form<CodeableConcept>:
+total<Money>:
+processNote<list>:
+  - type<CodeableConcept>:
+    text<string>:

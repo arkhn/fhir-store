@@ -1,0 +1,27 @@
+resourceType: "AllergyIntolerance"
+identifier<list::Identifier>:
+clinicalStatus<code=active|inactive|resolved>:
+verificationStatus<code=unconfirmed|confirmed|refuted|entered-in-error>:
+type<code=allergy|intolerance>:
+category<list::code=food|medication|environment|biologic>:
+criticality<code=low|high|unable-to-assess>:
+code<CodeableConcept>:
+patient<Reference(Patient)>:
+onsetDateTime<dateTime>:
+onsetAge<Age>:
+onsetPeriod<Period>:
+onsetRange<Range>:
+onsetString<string>:
+assertedDate<dateTime>:
+recorder<Reference(Practitioner|Patient)>:
+asserter<Reference(Patient|RelatedPerson|Practitioner)>:
+lastOccurrence<dateTime>:
+note<list::Annotation>:
+reaction<list>:
+  - substance<CodeableConcept>:
+    manifestation<list::CodeableConcept>:
+    description<string>:
+    onset<dateTime>:
+    severity<code=mild|moderate|severe>:
+    exposureRoute<CodeableConcept>:
+    note<list::Annotation>:

@@ -1,0 +1,12 @@
+resourceType: "RelatedPerson"
+identifier<list::Identifier>:
+active<boolean>:
+patient<Reference(Patient)>:
+relationship<CodeableConcept>:
+name<list::HumanName>:
+telecom<list::ContactPoint>:
+gender<code=male|female|other|unknown>:
+birthDate<date>:
+address<list::Address>:
+photo<list::Attachment>:
+period<Period>:

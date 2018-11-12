@@ -1,0 +1,44 @@
+resourceType: "ConceptMap"
+url<uri>:
+identifier<Identifier>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+copyright<markdown>:
+sourceUri<uri>:
+sourceReference<Reference(ValueSet)>:
+targetUri<uri>:
+targetReference<Reference(ValueSet)>:
+group<list>:
+  - source<uri>:
+    sourceVersion<string>:
+    target<uri>:
+    targetVersion<string>:
+    element<list>:
+      - code<code>:
+        display<string>:
+        target<list>:
+          - code<code>:
+            display<string>:
+            equivalence<code=relatedto|equivalent|equal|wider|subsumes|narrower|specializes|inexact|unmatched|disjoint>:
+            comment<string>:
+            dependsOn<list>:
+              - property<uri>:
+                system<uri>:
+                code<string>:
+                display<string>:
+            product<list::Content as for ConceptMap.group.element.target.dependsOn>:
+    unmapped:
+        mode<code=provided|fixed|other-map>:
+        code<code>:
+        display<string>:
+        url<uri>:

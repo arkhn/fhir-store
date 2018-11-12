@@ -2,7 +2,7 @@ import pytest
 import os
 import json
 
-from process import clean_json
+from process import Clean
 from process import json_to_yml
 
 CLEAN_DATA_FOLDER = 'tests/data/clean'
@@ -13,7 +13,7 @@ FILES = ['patient.json']
 @pytest.fixture(scope="module",
                 params=[os.path.join(CORRUPTED_DATA_FOLDER, filename) for filename in FILES])
 def cleaned_json(request):
-    return clean_json(request.param)
+    return Clean().clean_json(request.param)
 
 
 @pytest.fixture(scope="module")

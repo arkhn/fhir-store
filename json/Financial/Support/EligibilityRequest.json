@@ -1,0 +1,19 @@
+{
+  "resourceType" : "EligibilityRequest",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "priority<CodeableConcept>": null,
+  "patient<Reference(Patient)>": null,
+  "servicedDate<date>": null,
+  "servicedPeriod<Period>": null,
+  "created<dateTime>": null,
+  "enterer<Reference(Practitioner)>": null,
+  "provider<Reference(Practitioner)>": null,
+  "organization<Reference(Organization)>": null,
+  "insurer<Reference(Organization)>": null,
+  "facility<Reference(Location)>": null,
+  "coverage<Reference(Coverage)>": null,
+  "businessArrangement<string>": null,
+  "benefitCategory<CodeableConcept>": null,
+  "benefitSubCategory<CodeableConcept>": null
+}

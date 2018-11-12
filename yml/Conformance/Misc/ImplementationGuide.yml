@@ -1,0 +1,40 @@
+resourceType: "ImplementationGuide"
+url<uri>:
+version<string>:
+name<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+copyright<markdown>:
+fhirVersion<id>:
+dependency<list>:
+  - type<code=reference|inclusion>:
+    uri<uri>:
+package<list>:
+  - name<string>:
+    description<string>:
+    resource<list>:
+      - example<boolean>:
+        name<string>:
+        description<string>:
+        acronym<string>:
+        sourceUri<uri>:
+        sourceReference<Reference(Any)>:
+        exampleFor<Reference(StructureDefinition)>:
+global<list>:
+  - type<code>:
+    profile<Reference(StructureDefinition)>:
+binary<list::uri>:
+page:
+    source<uri>:
+    title<string>:
+    kind<code=page|example|list|include|directory|dictionary|toc|resource>:
+    type<list::code>:
+    package<list::string>:
+    format<code>:
+    page<list::Content as for ImplementationGuide.page>:

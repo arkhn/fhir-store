@@ -1,0 +1,39 @@
+resourceType: "OperationDefinition"
+url<uri>:
+version<string>:
+name<string>:
+status<code=draft|active|retired|unknown>:
+kind<code=operation|query>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+idempotent<boolean>:
+code<code>:
+comment<string>:
+base<Reference(OperationDefinition)>:
+resource<list::code>:
+system<boolean>:
+type<boolean>:
+instance<boolean>:
+parameter<list>:
+  - name<code>:
+    use<code=in|out>:
+    min<integer>:
+    max<string>:
+    documentation<string>:
+    type<code>:
+    searchType<code=number|date|string|token|reference|composite|quantity|uri>:
+    profile<Reference(StructureDefinition)>:
+    binding:
+        strength<code=required|extensible|preferred|example>:
+        valueSetUri<uri>:
+        valueSetReference<Reference(ValueSet)>:
+    part<list::Content as for OperationDefinition.parameter>:
+overload<list>:
+  - parameterName<list::string>:
+    comment<string>:

@@ -1,0 +1,35 @@
+{
+  "resourceType" : "HealthcareService",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "providedBy<Reference(Organization)>": null,
+  "category<CodeableConcept>": null,
+  "type<list::CodeableConcept>": null,
+  "specialty<list::CodeableConcept>": null,
+  "location<list::Reference(Location)>": null,
+  "name<string>": null,
+  "comment<string>": null,
+  "extraDetails<string>": null,
+  "photo<Attachment>": null,
+  "telecom<list::ContactPoint>": null,
+  "coverageArea<list::Reference(Location)>": null,
+  "serviceProvisionCode<list::CodeableConcept>": null,
+  "eligibility<CodeableConcept>": null,
+  "eligibilityNote<string>": null,
+  "programName<list::string>": null,
+  "characteristic<list::CodeableConcept>": null,
+  "referralMethod<list::CodeableConcept>": null,
+  "appointmentRequired<boolean>": null,
+  "availableTime<list>": [{
+    "daysOfWeek<list::code=mon|tue|wed|thu|fri|sat|sun>": null,
+    "allDay<boolean>": null,
+    "availableStartTime<time>": null,
+    "availableEndTime<time>": null
+  }],
+  "notAvailable<list>": [{
+    "description<string>": null,
+    "during<Period>": null
+  }],
+  "availabilityExceptions<string>": null,
+  "endpoint<list::Reference(Endpoint)>": null
+}

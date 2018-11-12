@@ -1,0 +1,13 @@
+resourceType: "Person"
+identifier<list::Identifier>:
+name<list::HumanName>:
+telecom<list::ContactPoint>:
+gender<code=male|female|other|unknown>:
+birthDate<date>:
+address<list::Address>:
+photo<Attachment>:
+managingOrganization<Reference(Organization)>:
+active<boolean>:
+link<list>:
+  - target<Reference(Patient|Practitioner|RelatedPerson|Person)>:
+    assurance<code>:

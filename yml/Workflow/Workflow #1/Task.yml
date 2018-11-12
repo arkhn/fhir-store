@@ -1,0 +1,82 @@
+resourceType: "Task"
+identifier<list::Identifier>:
+definitionUri<uri>:
+definitionReference<Reference(ActivityDefinition)>:
+basedOn<list::Reference(Any)>:
+groupIdentifier<Identifier>:
+partOf<list::Reference(Task)>:
+status<code=draft|requested|received|accepted>:
+statusReason<CodeableConcept>:
+businessStatus<CodeableConcept>:
+intent<code=proposal|plan|order>:
+priority<code=normal|urgent|asap|stat>:
+code<CodeableConcept>:
+description<string>:
+focus<Reference(Any)>:
+for<Reference(Any)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+executionPeriod<Period>:
+authoredOn<dateTime>:
+lastModified<dateTime>:
+requester:
+    agent<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>:
+    onBehalfOf<Reference(Organization)>:
+performerType<list::CodeableConcept>:
+owner<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>:
+reason<CodeableConcept>:
+note<list::Annotation>:
+relevantHistory<list::Reference(Provenance)>:
+restriction:
+    repetitions<positiveInt>:
+    period<Period>:
+    recipient<list::Reference(Patient|Practitioner|RelatedPerson|Group|Organization)>:
+input<list>:
+  - type<CodeableConcept>:
+    valueInteger<integer>:
+    valueDecimal<decimal>:
+    valueDateTime<dateTime>:
+    valueDate<date>:
+    valueInstant<instant>:
+    valueString<string>:
+    valueUri<uri>:
+    valueBoolean<boolean>:
+    valueCode<code>:
+    valueBase64Binary<base64Binary>:
+    valueCoding<Coding>:
+    valueCodeableConcept<CodeableConcept>:
+    valueAttachment<Attachment>:
+    valueIdentifier<Identifier>:
+    valueQuantity<Quantity>:
+    valueRange<Range>:
+    valuePeriod<Period>:
+    valueRatio<Ratio>:
+    valueHumanName<HumanName>:
+    valueAddress<Address>:
+    valueContactPoint<ContactPoint>:
+    valueSchedule<Schedule>:
+    valueReference<Reference>:
+output<list>:
+  - type<CodeableConcept>:
+    valueInteger<integer>:
+    valueDecimal<decimal>:
+    valueDateTime<dateTime>:
+    valueDate<date>:
+    valueInstant<instant>:
+    valueString<string>:
+    valueUri<uri>:
+    valueBoolean<boolean>:
+    valueCode<code>:
+    valueBase64Binary<base64Binary>:
+    valueCoding<Coding>:
+    valueCodeableConcept<CodeableConcept>:
+    valueAttachment<Attachment>:
+    valueIdentifier<Identifier>:
+    valueQuantity<Quantity>:
+    valueRange<Range>:
+    valuePeriod<Period>:
+    valueRatio<Ratio>:
+    valueHumanName<HumanName>:
+    valueAddress<Address>:
+    valueContactPoint<ContactPoint>:
+    valueSchedule<Schedule>:
+    valueReference<Reference>:

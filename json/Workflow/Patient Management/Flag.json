@@ -1,0 +1,11 @@
+{
+  "resourceType" : "Flag",
+  "identifier<list::Identifier>": null,
+  "status<code=active|inactive|entered-in-error>": null,
+  "category<CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Patient|Location|Group|Organization|Practitioner|PlanDefinition|Medication|Procedure)>": null,
+  "period<Period>": null,
+  "encounter<Reference(Encounter)>": null,
+  "author<Reference(Device|Organization|Patient|Practitioner)>": null
+}

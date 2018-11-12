@@ -1,0 +1,18 @@
+resourceType: "EpisodeOfCare"
+identifier<list::Identifier>:
+status<code=planned|waitlist|active|onhold|finished|cancelled|entered-in-error>:
+statusHistory<list>:
+  - status<code=planned|waitlist|active|onhold|finished|cancelled|entered-in-error>:
+    period<Period>:
+type<list::CodeableConcept>:
+diagnosis<list>:
+  - condition<Reference(Condition)>:
+    role<CodeableConcept>:
+    rank<positiveInt>:
+patient<Reference(Patient)>:
+managingOrganization<Reference(Organization)>:
+period<Period>:
+referralRequest<list::Reference(ReferralRequest)>:
+careManager<Reference(Practitioner)>:
+team<list::Reference(CareTeam)>:
+account<list::Reference(Account)>:

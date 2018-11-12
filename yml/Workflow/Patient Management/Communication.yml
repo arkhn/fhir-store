@@ -1,0 +1,24 @@
+resourceType: "Communication"
+identifier<list::Identifier>:
+definition<list::Reference(PlanDefinition|ActivityDefinition)>:
+basedOn<list::Reference(Any)>:
+partOf<list::Reference(Any)>:
+status<code=preparation|in-progress|suspended|aborted|completed|entered-in-error>:
+notDone<boolean>:
+notDoneReason<CodeableConcept>:
+category<list::CodeableConcept>:
+medium<list::CodeableConcept>:
+subject<Reference(Patient|Group)>:
+recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)>:
+topic<list::Reference(Any)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+sent<dateTime>:
+received<dateTime>:
+sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+payload<list>:
+  - contentString<string>:
+    contentAttachment<Attachment>:
+    contentReference<Reference(Any)>:
+note<list::Annotation>:

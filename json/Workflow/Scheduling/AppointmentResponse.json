@@ -1,0 +1,11 @@
+{
+  "resourceType" : "AppointmentResponse",
+  "identifier<list::Identifier>": null,
+  "appointment<Reference(Appointment)>": null,
+  "start<instant>": null,
+  "end<instant>": null,
+  "participantType<list::CodeableConcept>": null,
+  "actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>": null,
+  "participantStatus<code=accepted|declined|tentative|in-process|completed|needs-action|entered-in-error>": null,
+  "comment<string>": null
+}

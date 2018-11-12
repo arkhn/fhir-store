@@ -1,0 +1,25 @@
+{
+  "resourceType" : "SupplyRequest",
+  "identifier<Identifier>": null,
+  "status<code=draft|active|suspended>": null,
+  "category<CodeableConcept>": null,
+  "priority<code=routine|urgent|asap|stat>": null,
+  "orderedItem" : { 
+    "quantity<Quantity>": null,
+    "itemCodeableConcept<CodeableConcept>": null,
+    "itemReference<Reference(Medication|Substance|Device)>": null
+  },
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "occurrenceTiming<Timing>": null,
+  "authoredOn<dateTime>": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  },
+  "supplier<list::Reference(Organization)>": null,
+  "reasonCodeableConcept<CodeableConcept>": null,
+  "reasonReference<Reference(Any)>": null,
+  "deliverFrom<Reference(Organization|Location)>": null,
+  "deliverTo<Reference(Organization|Location|Patient)>": null
+}

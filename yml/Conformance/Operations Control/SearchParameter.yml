@@ -1,0 +1,27 @@
+resourceType: "SearchParameter"
+url<uri>:
+version<string>:
+name<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+code<code>:
+base<list::code>:
+type<code=number|date|string|token|reference|composite|quantity|uri>:
+derivedFrom<uri>:
+description<markdown>:
+expression<string>:
+xpath<string>:
+xpathUsage<code=normal|phonetic|nearby|distance|other>:
+target<list::code>:
+comparator<list::code=eq|ne|gt|lt|ge|le|sa|eb|ap>:
+modifier<list::code=missing|exact|contains|not|text|in|not-in|below|above|type>:
+chain<list::string>:
+component<list>:
+  - definition<Reference(SearchParameter)>:
+    expression<string>:

@@ -1,0 +1,23 @@
+resourceType: "DiagnosticReport"
+identifier<list::Identifier>:
+basedOn<list::Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest)>:
+status<code=registered|partial|preliminary|final>:
+category<CodeableConcept>:
+code<CodeableConcept>:
+subject<Reference(Patient|Group|Device|Location)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+effectiveDateTime<dateTime>:
+effectivePeriod<Period>:
+issued<instant>:
+performer<list>:
+  - role<CodeableConcept>:
+    actor<Reference(Practitioner|Organization)>:
+specimen<list::Reference(Specimen)>:
+result<list::Reference(Observation)>:
+imagingStudy<list::Reference(ImagingStudy|ImagingManifest)>:
+image<list>:
+  - comment<string>:
+    link<Reference(Media)>:
+conclusion<string>:
+codedDiagnosis<list::CodeableConcept>:
+presentedForm<list::Attachment>:

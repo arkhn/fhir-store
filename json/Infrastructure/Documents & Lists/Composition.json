@@ -1,0 +1,39 @@
+{
+  "resourceType" : "Composition",
+  "identifier<Identifier>": null,
+  "status<code=preliminary|final|amended|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "class<CodeableConcept>": null,
+  "subject<Reference(Any)>": null,
+  "encounter<Reference(Encounter)>": null,
+  "date<dateTime>": null,
+  "author<list::Reference(Practitioner|Device|Patient|RelatedPerson)>": null,
+  "title<string>": null,
+  "confidentiality<code>": null,
+  "attester<list>": [{
+    "mode<list::code=personal|professional|legal|official>": null,
+    "time<dateTime>": null,
+    "party<Reference(Patient|Practitioner|Organization)>": null
+  }],
+  "custodian<Reference(Organization)>": null,
+  "relatesTo<list>": [{
+    "code<code=replaces|transforms|signs|appends>": null,
+    "targetIdentifier<Identifier>": null,
+    "targetReference<Reference(Composition)>": null
+  }],
+  "event<list>": [{
+    "code<list::CodeableConcept>": null,
+    "period<Period>": null,
+    "detail<list::Reference(Any)>": null
+  }],
+  "section<list>": [{
+    "title<string>": null,
+    "code<CodeableConcept>": null,
+    "text<Narrative>": null,
+    "mode<code=working|snapshot|changes>": null,
+    "orderedBy<CodeableConcept>": null,
+    "entry<list::Reference(Any)>": null,
+    "emptyReason<CodeableConcept>": null,
+    "section<list::Content as for Composition.section>": null
+  }]
+}

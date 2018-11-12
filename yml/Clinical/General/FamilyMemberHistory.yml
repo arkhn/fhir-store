@@ -1,0 +1,34 @@
+resourceType: "FamilyMemberHistory"
+identifier<list::Identifier>:
+definition<list::Reference(PlanDefinition|Questionnaire)>:
+status<code=partial|completed|entered-in-error|health-unknown>:
+notDone<boolean>:
+notDoneReason<CodeableConcept>:
+patient<Reference(Patient)>:
+date<dateTime>:
+name<string>:
+relationship<CodeableConcept>:
+gender<code=male|female|other|unknown>:
+bornPeriod<Period>:
+bornDate<date>:
+bornString<string>:
+ageAge<Age>:
+ageRange<Range>:
+ageString<string>:
+estimatedAge<boolean>:
+deceasedBoolean<boolean>:
+deceasedAge<Age>:
+deceasedRange<Range>:
+deceasedDate<date>:
+deceasedString<string>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation|AllergyIntolerance|QuestionnaireResponse)>:
+note<list::Annotation>:
+condition<list>:
+  - code<CodeableConcept>:
+    outcome<CodeableConcept>:
+    onsetAge<Age>:
+    onsetRange<Range>:
+    onsetPeriod<Period>:
+    onsetString<string>:
+    note<list::Annotation>:

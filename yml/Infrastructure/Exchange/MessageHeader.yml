@@ -1,0 +1,24 @@
+resourceType: "MessageHeader"
+event<Coding>:
+destination<list>:
+  - name<string>:
+    target<Reference(Device)>:
+    endpoint<uri>:
+receiver<Reference(Practitioner|Organization)>:
+sender<Reference(Practitioner|Organization)>:
+timestamp<instant>:
+enterer<Reference(Practitioner)>:
+author<Reference(Practitioner)>:
+source:
+    name<string>:
+    software<string>:
+    version<string>:
+    contact<ContactPoint>:
+    endpoint<uri>:
+responsible<Reference(Practitioner|Organization)>:
+reason<CodeableConcept>:
+response:
+    identifier<id>:
+    code<code=ok|transient-error|fatal-error>:
+    details<Reference(OperationOutcome)>:
+focus<list::Reference(Any)>:

@@ -1,0 +1,17 @@
+resourceType: "DocumentManifest"
+masterIdentifier<Identifier>:
+identifier<list::Identifier>:
+status<code=current|superseded|entered-in-error>:
+type<CodeableConcept>:
+subject<Reference(Patient|Practitioner|Group|Device)>:
+created<dateTime>:
+author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>:
+recipient<list::Reference(Patient|Practitioner|RelatedPerson|Organization)>:
+source<uri>:
+description<string>:
+content<list>:
+  - pAttachment<Attachment>:
+    pReference<Reference(Any)>:
+related<list>:
+  - identifier<Identifier>:
+    ref<Reference(Any)>:

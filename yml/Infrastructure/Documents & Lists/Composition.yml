@@ -1,0 +1,33 @@
+resourceType: "Composition"
+identifier<Identifier>:
+status<code=preliminary|final|amended|entered-in-error>:
+type<CodeableConcept>:
+class<CodeableConcept>:
+subject<Reference(Any)>:
+encounter<Reference(Encounter)>:
+date<dateTime>:
+author<list::Reference(Practitioner|Device|Patient|RelatedPerson)>:
+title<string>:
+confidentiality<code>:
+attester<list>:
+  - mode<list::code=personal|professional|legal|official>:
+    time<dateTime>:
+    party<Reference(Patient|Practitioner|Organization)>:
+custodian<Reference(Organization)>:
+relatesTo<list>:
+  - code<code=replaces|transforms|signs|appends>:
+    targetIdentifier<Identifier>:
+    targetReference<Reference(Composition)>:
+event<list>:
+  - code<list::CodeableConcept>:
+    period<Period>:
+    detail<list::Reference(Any)>:
+section<list>:
+  - title<string>:
+    code<CodeableConcept>:
+    text<Narrative>:
+    mode<code=working|snapshot|changes>:
+    orderedBy<CodeableConcept>:
+    entry<list::Reference(Any)>:
+    emptyReason<CodeableConcept>:
+    section<list::Content as for Composition.section>:

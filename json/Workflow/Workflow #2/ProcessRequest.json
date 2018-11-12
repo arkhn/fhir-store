@@ -1,0 +1,20 @@
+{
+  "resourceType" : "ProcessRequest",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "action<code=cancel|poll|reprocess|status>": null,
+  "target<Reference(Organization)>": null,
+  "created<dateTime>": null,
+  "provider<Reference(Practitioner)>": null,
+  "organization<Reference(Organization)>": null,
+  "request<Reference(Any)>": null,
+  "response<Reference(Any)>": null,
+  "nullify<boolean>": null,
+  "reference<string>": null,
+  "item<list>": [{
+    "sequenceLinkId<integer>": null
+  }],
+  "include<list::string>": null,
+  "exclude<list::string>": null,
+  "period<Period>": null
+}

@@ -1,0 +1,36 @@
+{
+  "resourceType" : "MedicationAdministration",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(PlanDefinition|ActivityDefinition)>": null,
+  "partOf<list::Reference(MedicationAdministration|Procedure)>": null,
+  "status<code=in-progress|on-hold|completed|entered-in-error|stopped|unknown>": null,
+  "category<CodeableConcept>": null,
+  "medicationCodeableConcept<CodeableConcept>": null,
+  "medicationReference<Reference(Medication)>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "supportingInformation<list::Reference(Any)>": null,
+  "effectiveDateTime<dateTime>": null,
+  "effectivePeriod<Period>": null,
+  "performer<list>": [{
+    "actor<Reference(Practitioner|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  }],
+  "notGiven<boolean>": null,
+  "reasonNotGiven<list::CodeableConcept>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "prescription<Reference(MedicationRequest)>": null,
+  "device<list::Reference(Device)>": null,
+  "note<list::Annotation>": null,
+  "dosage" : { 
+    "text<string>": null,
+    "site<CodeableConcept>": null,
+    "route<CodeableConcept>": null,
+    "method<CodeableConcept>": null,
+    "dose<Quantity(SimpleQuantity)>": null,
+    "rateRatio<Ratio>": null,
+    "rateQuantity<Quantity(SimpleQuantity)>": null
+  },
+  "eventHistory<list::Reference(Provenance)>": null
+}

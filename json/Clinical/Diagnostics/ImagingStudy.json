@@ -1,0 +1,40 @@
+{
+  "resourceType" : "ImagingStudy",
+  "uid<oid>": null,
+  "accession<Identifier>": null,
+  "identifier<list::Identifier>": null,
+  "availability<code=ONLINE|OFFLINE|NEARLINE|UNAVAILABLE>": null,
+  "modalityList<list::Coding>": null,
+  "patient<Reference(Patient)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "started<dateTime>": null,
+  "basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>": null,
+  "referrer<Reference(Practitioner)>": null,
+  "interpreter<list::Reference(Practitioner)>": null,
+  "endpoint<list::Reference(Endpoint)>": null,
+  "numberOfSeries<unsignedInt>": null,
+  "numberOfInstances<unsignedInt>": null,
+  "procedureReference<list::Reference(Procedure)>": null,
+  "procedureCode<list::CodeableConcept>": null,
+  "reason<CodeableConcept>": null,
+  "description<string>": null,
+  "series<list>": [{
+    "uid<oid>": null,
+    "number<unsignedInt>": null,
+    "modality<Coding>": null,
+    "description<string>": null,
+    "numberOfInstances<unsignedInt>": null,
+    "availability<code=ONLINE|OFFLINE|NEARLINE|UNAVAILABLE>": null,
+    "endpoint<list::Reference(Endpoint)>": null,
+    "bodySite<Coding>": null,
+    "laterality<Coding>": null,
+    "started<dateTime>": null,
+    "performer<list::Reference(Practitioner)>": null,
+    "instance<list>": [{
+      "uid<oid>": null,
+      "number<unsignedInt>": null,
+      "sopClass<oid>": null,
+      "title<string>": null
+    }]
+  }]
+}

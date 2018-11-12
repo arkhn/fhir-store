@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Medication",
+  "code<CodeableConcept>": null,
+  "status<code=active|inactive|entered-in-error>": null,
+  "isBrand<boolean>": null,
+  "isOverTheCounter<boolean>": null,
+  "manufacturer<Reference(Organization)>": null,
+  "form<CodeableConcept>": null,
+  "ingredient<list>": [{
+    "itemCodeableConcept<CodeableConcept>": null,
+    "itemReference<Reference(Substance|Medication)>": null,
+    "isActive<boolean>": null,
+    "amount<Ratio>": null
+  }],
+  "package" : { 
+    "container<CodeableConcept>": null,
+    "content<list>": [{
+      "itemCodeableConcept<CodeableConcept>": null,
+      "itemReference<Reference(Medication)>": null,
+      "amount<Quantity(SimpleQuantity)>": null
+    }],
+    "batch<list>": [{
+      "lotNumber<string>": null,
+      "expirationDate<dateTime>": null
+    }]
+  },
+  "image<list::Attachment>": null
+}

@@ -1,0 +1,26 @@
+resourceType: "ClinicalImpression"
+identifier<list::Identifier>:
+status<code=draft|completed|entered-in-error>:
+code<CodeableConcept>:
+description<string>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+effectiveDateTime<dateTime>:
+effectivePeriod<Period>:
+date<dateTime>:
+assessor<Reference(Practitioner)>:
+previous<Reference(ClinicalImpression)>:
+problem<list::Reference(Condition|AllergyIntolerance)>:
+investigation<list>:
+  - code<CodeableConcept>:
+    item<list::Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport|RiskAssessment|ImagingStudy)>:
+protocol<list::uri>:
+summary<string>:
+finding<list>:
+  - itemCodeableConcept<CodeableConcept>:
+    itemReference<Reference(Condition|Observation)>:
+    basis<string>:
+prognosisCodeableConcept<list::CodeableConcept>:
+prognosisReference<list::Reference(RiskAssessment)>:
+action<list::Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|Appointment)>:
+note<list::Annotation>:

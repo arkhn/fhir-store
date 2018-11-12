@@ -1,0 +1,9 @@
+resourceType: "EnrollmentRequest"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+created<dateTime>:
+insurer<Reference(Organization)>:
+provider<Reference(Practitioner)>:
+organization<Reference(Organization)>:
+subject<Reference(Patient)>:
+coverage<Reference(Coverage)>:

@@ -13,9 +13,38 @@ lists = []
 # List all available resources for all possible extensions
 for extension in EXTENSIONS:
     list = []
+
+    # Iterate through actual fhir resources
+    resultDict = {}
+
     for filepath in glob.iglob('{}/{}/*/*/*.{}'.format(RESOURCES, extension, extension), recursive=True):
-        filename = os.path.splitext(os.path.basename(filepath))[0]
+        path, filename = os.path.split(filepath)
+        filename = os.path.splitext(filename)[0]
+
+        usefulPath = path.split('/')[3:]
+
+        resultDict[filename] = None
+
         list.append(filename)
+
+    with open(os.path.join(RESOURCES, extension, 'resource_list.json'), 'w+') as f:
+        f.write(json.dumps(resultDict))
+
+    # Iterate through fhir datatypes
+    resultDict = {}
+
+    for filepath in glob.iglob('{}/{}/*/*.{}'.format(RESOURCES, extension, extension), recursive=True):
+        path, filename = os.path.split(filepath)
+        filename = os.path.splitext(filename)[0]
+
+        usefulPath = path.split('/')[3:]
+
+        resultDict[filename] = None
+
+        list.append(filename)
+
+    with open(os.path.join(RESOURCES, extension, 'datatypes_list.json'), 'w+') as f:
+        f.write(json.dumps(resultDict))
 
     lists.append(list)
     print('Listed {} {} fhir resources appart from datatypes.'.format(len(list), extension))
@@ -30,11 +59,3 @@ for a, b in combinations(range(len(lists)), 2):
             raise('error')
 
 print('Comparison test passed.')
-
-# Outputs result dictionary to json file
-resultDict = {}
-for x in lists[0]:
-    resultDict[x] = None
-
-with open(os.path.join(RESOURCES, 'resource_list.json'), 'w+') as f:
-    f.write(json.dumps(resultDict))

@@ -11,8 +11,7 @@ pytest = "*"
 ipython = "*"
 
 [packages]
-Scrapy = "*"
 "beautifulsoup4" = "*"
+scrapy = "*"
+inscriptis = "*"
 
-[requires]
-python_version = "3.5"

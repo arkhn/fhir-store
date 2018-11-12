@@ -1,12 +1,18 @@
+[![Build Status](https://travis-ci.com/arkhn/fhir-store.svg?branch=master)](https://travis-ci.com/arkhn/fhir-store)
+[![GitHub license](https://img.shields.io/github/license/arkhn/fhir-pipe.svg)](https://github.com/arkhn/fhir-pipe/blob/master/LICENSE)
+[![Website arkhn.org](https://img.shields.io/website-up-down-green-red/https/arkhn.org.svg)](http://arkhn.org/)
+
 # FHIR Store: the FHIR standard in your favourite format
 
 FHIR Store provides the FHIR standard in several formats, including `json` and `yml`.
 
 ## `yml` standard
 
-We are currently converting the FHIR specification available [on this hl7 page](https://www.hl7.org/fhir/resourcelist.html) (See **R2 Layout** tab), into the `yml` format.
+We have converted the FHIR specification available [on this hl7 page](https://www.hl7.org/fhir/resourcelist.html) (See **R2 Layout** tab) into the `yml` format.
 
 The folders follows the hierarchy described in the R2 Layout, and an additional folder `DataTypes` retrieves the complex types detailed [on this hl7 page](https://www.hl7.org/fhir/datatypes.html)
+
+ Note that the **`json` format** is also available, which can be more easy for api calls. Oh, actually we already built an API [just here](https://github.com/arkhn/fhir-ball-server)!
 
 
 ### Typing convention

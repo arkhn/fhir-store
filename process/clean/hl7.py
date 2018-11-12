@@ -2,8 +2,7 @@ import re
 
 
 class Clean():
-
-   def clean_json(filename, output_file=None):
+    def clean_json(filename, output_file=None):
         with open(filename) as input_file:
 
             input_file.readline()
@@ -23,15 +22,20 @@ class Clean():
             new_lines = []
             for i, line in enumerate(lines):
                 # One line case [{ }]
-                m = re.match('''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*([^}]*)\s+\}\](,*)''', line)
+                m = re.match(
+                    '''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*([^}]*)\s+\}\](,*)''',
+                    line)
                 if m is not None:
-                    new_lines.append('{}"{}<list::{}>": null{}'.format(m.group(1), m.group(2), m.group(3), m.group(4)))
+                    new_lines.append('{}"{}<list::{}>": null{}'.format(
+                        m.group(1), m.group(2), m.group(3), m.group(4)))
                     continue
 
                 # One line case { }
-                m = re.match('''(\s*)"([^"]*)"\s*:\s*{\s*([^}]*)\s+}(,*)''', line)
+                m = re.match('''(\s*)"([^"]*)"\s*:\s*{\s*([^}]*)\s+}(,*)''',
+                             line)
                 if m is not None:
-                    new_lines.append('{}"{}<{}>": null{}'.format(m.group(1), m.group(2), m.group(3), m.group(4)))
+                    new_lines.append('{}"{}<{}>": null{}'.format(
+                        m.group(1), m.group(2), m.group(3), m.group(4)))
                     continue
 
                 # One line case { } exception with a \n in it
@@ -48,7 +52,8 @@ class Clean():
                 # Multi line case [{ \n ... \n }]
                 m = re.match('''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*''', line)
                 if m is not None:
-                    new_lines.append('{}"{}<list>": {}'.format(m.group(1), m.group(2), '[{'))
+                    new_lines.append('{}"{}<list>": {}'.format(
+                        m.group(1), m.group(2), '[{'))
                     continue
                 else:
                     new_lines.append(line)
@@ -57,25 +62,32 @@ class Clean():
             lines = new_lines
             new_lines = []
             for i, line in enumerate(lines):
-                match = re.match('''(\s*)"([^"]*)"\s*:\s*\[?"?<([^>]*)>"?\]?(,*)''', line)
+                match = re.match(
+                    '''(\s*)"([^"]*)"\s*:\s*\[?"?<([^>]*)>"?\]?(,*)''', line)
                 if match is not None:
                     given_type = match.group(3)
                     # Test if [ ] present
-                    if re.match('''(\s*)"([^"]*)"\s*:\s*\["?<([^>]*)>"?\](,*)''', line):
+                    if re.match(
+                            '''(\s*)"([^"]*)"\s*:\s*\["?<([^>]*)>"?\](,*)''',
+                            line):
                         list_marker = 'list::'
                     else:
                         list_marker = ''
 
                     if given_type == 'code':  # We need to get the code options given in comments
                         comment = comments[i]
-                        code_match = re.match('''[^|]*(\s[A-Za-z\-]+\s(?:\|\s[A-Za-z\-]+\s)+)[^|]*''', comment)
+                        code_match = re.match(
+                            '''[^|]*(\s[A-Za-z\-]+\s(?:\|\s[A-Za-z\-]+\s)+)[^|]*''',
+                            comment)
                         if code_match is not None:
                             codes = code_match.group(1).strip().split(' | ')
                             given_type += '=' + '|'.join(codes)
                         else:
                             raise TypeError('No code provided', match)
 
-                    new_lines.append('{}"{}<{}{}>": null{}'.format(match.group(1), match.group(2), list_marker, given_type, match.group(4)))
+                    new_lines.append('{}"{}<{}{}>": null{}'.format(
+                        match.group(1), match.group(2), list_marker,
+                        given_type, match.group(4)))
                     continue
                 else:
                     new_lines.append(line)

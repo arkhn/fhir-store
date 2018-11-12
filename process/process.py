@@ -7,7 +7,6 @@ from scrap.scrap.spiders.hl7_spider import Hl7Spider
 from clean.hl7 import Clean
 from convert import yml
 
-
 # # Scrap the JSON text from hl7 reference
 # process = CrawlerProcess({
 #     "USER_AGENT":
@@ -21,7 +20,8 @@ FILE_PATH = os.path.dirname(__file__)
 ROOT_FOLDER_SRC_NAME = "json"
 ROOT_FOLDER_DEST_NAME = "yaml"
 ROOT_FOLDER_SRC_PATH = os.path.join(FILE_PATH, os.pardir, ROOT_FOLDER_SRC_NAME)
-ROOT_FOLDER_DEST_PATH = os.path.join(FILE_PATH, os.pardir, ROOT_FOLDER_DEST_NAME)
+ROOT_FOLDER_DEST_PATH = os.path.join(FILE_PATH, os.pardir,
+                                     ROOT_FOLDER_DEST_NAME)
 
 for root, dirs, files in os.walk(ROOT_FOLDER_SRC_PATH):
     for fname in files:
@@ -37,4 +37,3 @@ for root, dirs, files in os.walk(ROOT_FOLDER_SRC_PATH):
             new_yaml_file = json_to_yml(input_file)
             with open(yaml_file_path, 'w') as output_file:
                 output_file.write(new_yaml_file)
-

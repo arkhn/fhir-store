@@ -3,3 +3,4 @@ inscriptis==0.0.3.2
 Scrapy==1.5.1
 pytest==3.3.2
 beautifulsoup4==4.6.3
+attrs==17.4.0

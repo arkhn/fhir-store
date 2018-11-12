@@ -1,0 +1,29 @@
+resourceType: "Coverage"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+type<CodeableConcept>:
+policyHolder<Reference(Patient|RelatedPerson|Organization)>:
+subscriber<Reference(Patient|RelatedPerson)>:
+subscriberId<string>:
+beneficiary<Reference(Patient)>:
+relationship<CodeableConcept>:
+period<Period>:
+payor<list::Reference(Organization|Patient|RelatedPerson)>:
+grouping:
+    group<string>:
+    groupDisplay<string>:
+    subGroup<string>:
+    subGroupDisplay<string>:
+    plan<string>:
+    planDisplay<string>:
+    subPlan<string>:
+    subPlanDisplay<string>:
+    class<string>:
+    classDisplay<string>:
+    subClass<string>:
+    subClassDisplay<string>:
+dependent<string>:
+sequence<string>:
+order<positiveInt>:
+network<string>:
+contract<list::Reference(Contract)>:

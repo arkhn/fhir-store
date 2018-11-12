@@ -1,0 +1,35 @@
+resourceType: "StructureDefinition"
+url<uri>:
+identifier<list::Identifier>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+copyright<markdown>:
+keyword<list::Coding>:
+fhirVersion<id>:
+mapping<list>:
+  - identity<id>:
+    uri<uri>:
+    name<string>:
+    comment<string>:
+kind<code=primitive-type|complex-type|resource|logical>:
+abstract<boolean>:
+contextType<code=resource|datatype|extension>:
+context<list::string>:
+contextInvariant<list::string>:
+type<code>:
+baseDefinition<uri>:
+derivation<code=specialization|constraint>:
+snapshot:
+    element<list::ElementDefinition>:
+differential:
+    element<list::ElementDefinition>:

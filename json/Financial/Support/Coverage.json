@@ -1,0 +1,32 @@
+{
+  "resourceType" : "Coverage",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "policyHolder<Reference(Patient|RelatedPerson|Organization)>": null,
+  "subscriber<Reference(Patient|RelatedPerson)>": null,
+  "subscriberId<string>": null,
+  "beneficiary<Reference(Patient)>": null,
+  "relationship<CodeableConcept>": null,
+  "period<Period>": null,
+  "payor<list::Reference(Organization|Patient|RelatedPerson)>": null,
+  "grouping" : { 
+    "group<string>": null,
+    "groupDisplay<string>": null,
+    "subGroup<string>": null,
+    "subGroupDisplay<string>": null,
+    "plan<string>": null,
+    "planDisplay<string>": null,
+    "subPlan<string>": null,
+    "subPlanDisplay<string>": null,
+    "class<string>": null,
+    "classDisplay<string>": null,
+    "subClass<string>": null,
+    "subClassDisplay<string>": null
+  },
+  "dependent<string>": null,
+  "sequence<string>": null,
+  "order<positiveInt>": null,
+  "network<string>": null,
+  "contract<list::Reference(Contract)>": null
+}

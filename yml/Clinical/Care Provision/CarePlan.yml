@@ -1,0 +1,45 @@
+resourceType: "CarePlan"
+identifier<list::Identifier>:
+definition<list::Reference(PlanDefinition|Questionnaire)>:
+basedOn<list::Reference(CarePlan)>:
+replaces<list::Reference(CarePlan)>:
+partOf<list::Reference(CarePlan)>:
+status<code=draft|active|suspended|completed|entered-in-error|cancelled|unknown>:
+intent<code=proposal|plan|order|option>:
+category<list::CodeableConcept>:
+title<string>:
+description<string>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+period<Period>:
+author<list::Reference(Patient|Practitioner|RelatedPerson|Organization|CareTeam)>:
+careTeam<list::Reference(CareTeam)>:
+addresses<list::Reference(Condition)>:
+supportingInfo<list::Reference(Any)>:
+goal<list::Reference(Goal)>:
+activity<list>:
+  - outcomeCodeableConcept<list::CodeableConcept>:
+    outcomeReference<list::Reference(Any)>:
+    progress<list::Annotation>:
+    reference<Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcedureRequest|ReferralRequest|VisionPrescription|RequestGroup)>:
+    detail:
+        category<CodeableConcept>:
+        definition<Reference(PlanDefinition|ActivityDefinition|Questionnaire)>:
+        code<CodeableConcept>:
+        reasonCode<list::CodeableConcept>:
+        reasonReference<list::Reference(Condition)>:
+        goal<list::Reference(Goal)>:
+        status<code=not-started|scheduled|in-progress|on-hold|completed|cancelled|unknown>:
+        statusReason<string>:
+        prohibited<boolean>:
+        scheduledTiming<Timing>:
+        scheduledPeriod<Period>:
+        scheduledString<string>:
+        location<Reference(Location)>:
+        performer<list::Reference(Practitioner|Organization|RelatedPerson|Patient|CareTeam)>:
+        productCodeableConcept<CodeableConcept>:
+        productReference<Reference(Medication|Substance)>:
+        dailyAmount<Quantity(SimpleQuantity)>:
+        quantity<Quantity(SimpleQuantity)>:
+        description<string>:
+note<list::Annotation>:

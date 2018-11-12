@@ -1,0 +1,8 @@
+{
+  "resourceType" : "Basic",
+  "identifier<list::Identifier>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Any)>": null,
+  "created<date>": null,
+  "author<Reference(Practitioner|Patient|RelatedPerson)>": null
+}

@@ -1,0 +1,69 @@
+resourceType: "Contract"
+identifier<Identifier>:
+status<code=amended|appended|cancelled|disputed|entered-in-error|executable|executed|negotiable|offered|policy|rejected|renewed|revoked|resolved|terminated>:
+issued<dateTime>:
+applies<Period>:
+subject<list::Reference(Any)>:
+topic<list::Reference(Any)>:
+authority<list::Reference(Organization)>:
+domain<list::Reference(Location)>:
+type<CodeableConcept>:
+subType<list::CodeableConcept>:
+action<list::CodeableConcept>:
+actionReason<list::CodeableConcept>:
+decisionType<CodeableConcept>:
+contentDerivative<CodeableConcept>:
+securityLabel<list::Coding>:
+agent<list>:
+  - actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>:
+    role<list::CodeableConcept>:
+signer<list>:
+  - type<Coding>:
+    party<Reference(Organization|Patient|Practitioner|RelatedPerson)>:
+    signature<list::Signature>:
+valuedItem<list>:
+  - entityCodeableConcept<CodeableConcept>:
+    entityReference<Reference(Any)>:
+    identifier<Identifier>:
+    effectiveTime<dateTime>:
+    quantity<Quantity(SimpleQuantity)>:
+    unitPrice<Money>:
+    factor<decimal>:
+    points<decimal>:
+    net<Money>:
+term<list>:
+  - identifier<Identifier>:
+    issued<dateTime>:
+    applies<Period>:
+    type<CodeableConcept>:
+    subType<CodeableConcept>:
+    topic<list::Reference(Any)>:
+    action<list::CodeableConcept>:
+    actionReason<list::CodeableConcept>:
+    securityLabel<list::Coding>:
+    agent<list>:
+      - actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>:
+        role<list::CodeableConcept>:
+    text<string>:
+    valuedItem<list>:
+      - entityCodeableConcept<CodeableConcept>:
+        entityReference<Reference(Any)>:
+        identifier<Identifier>:
+        effectiveTime<dateTime>:
+        quantity<Quantity(SimpleQuantity)>:
+        unitPrice<Money>:
+        factor<decimal>:
+        points<decimal>:
+        net<Money>:
+    group<list::Content as for Contract.term>:
+bindingAttachment<Attachment>:
+bindingReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>:
+friendly<list>:
+  - contentAttachment<Attachment>:
+    contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>:
+legal<list>:
+  - contentAttachment<Attachment>:
+    contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>:
+rule<list>:
+  - contentAttachment<Attachment>:
+    contentReference<Reference(DocumentReference)>:

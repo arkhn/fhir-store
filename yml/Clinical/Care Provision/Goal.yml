@@ -1,0 +1,23 @@
+resourceType: "Goal"
+identifier<list::Identifier>:
+status<code=proposed|accepted|planned|in-progress|on-target|ahead-of-target|behind-target|sustaining|achieved|on-hold|cancelled|entered-in-error|rejected>:
+category<list::CodeableConcept>:
+priority<CodeableConcept>:
+description<CodeableConcept>:
+subject<Reference(Patient|Group|Organization)>:
+startDate<date>:
+startCodeableConcept<CodeableConcept>:
+target:
+    measure<CodeableConcept>:
+    detailQuantity<Quantity>:
+    detailRange<Range>:
+    detailCodeableConcept<CodeableConcept>:
+    dueDate<date>:
+    dueDuration<Duration>:
+statusDate<date>:
+statusReason<string>:
+expressedBy<Reference(Patient|Practitioner|RelatedPerson)>:
+addresses<list::Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)>:
+note<list::Annotation>:
+outcomeCode<list::CodeableConcept>:
+outcomeReference<list::Reference(Observation)>:

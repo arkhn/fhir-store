@@ -1,0 +1,21 @@
+{
+  "resourceType" : "DocumentManifest",
+  "masterIdentifier<Identifier>": null,
+  "identifier<list::Identifier>": null,
+  "status<code=current|superseded|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "subject<Reference(Patient|Practitioner|Group|Device)>": null,
+  "created<dateTime>": null,
+  "author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>": null,
+  "recipient<list::Reference(Patient|Practitioner|RelatedPerson|Organization)>": null,
+  "source<uri>": null,
+  "description<string>": null,
+  "content<list>": [{
+    "pAttachment<Attachment>": null,
+    "pReference<Reference(Any)>": null
+  }],
+  "related<list>": [{
+    "identifier<Identifier>": null,
+    "ref<Reference(Any)>": null
+  }]
+}

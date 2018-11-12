@@ -1,0 +1,176 @@
+resourceType: "ExplanationOfBenefit"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+type<CodeableConcept>:
+subType<list::CodeableConcept>:
+patient<Reference(Patient)>:
+billablePeriod<Period>:
+created<dateTime>:
+enterer<Reference(Practitioner)>:
+insurer<Reference(Organization)>:
+provider<Reference(Practitioner)>:
+organization<Reference(Organization)>:
+referral<Reference(ReferralRequest)>:
+facility<Reference(Location)>:
+claim<Reference(Claim)>:
+claimResponse<Reference(ClaimResponse)>:
+outcome<CodeableConcept>:
+disposition<string>:
+related<list>:
+  - claim<Reference(Claim)>:
+    relationship<CodeableConcept>:
+    reference<Identifier>:
+prescription<Reference(MedicationRequest|VisionPrescription)>:
+originalPrescription<Reference(MedicationRequest)>:
+payee:
+    type<CodeableConcept>:
+    resourceType<CodeableConcept>:
+    party<Reference(Practitioner|Organization|Patient|RelatedPerson)>:
+information<list>:
+  - sequence<positiveInt>:
+    category<CodeableConcept>:
+    code<CodeableConcept>:
+    timingDate<date>:
+    timingPeriod<Period>:
+    valueString<string>:
+    valueQuantity<Quantity>:
+    valueAttachment<Attachment>:
+    valueReference<Reference(Any)>:
+    reason<Coding>:
+careTeam<list>:
+  - sequence<positiveInt>:
+    provider<Reference(Practitioner|Organization)>:
+    responsible<boolean>:
+    role<CodeableConcept>:
+    qualification<CodeableConcept>:
+diagnosis<list>:
+  - sequence<positiveInt>:
+    diagnosisCodeableConcept<CodeableConcept>:
+    diagnosisReference<Reference(Condition)>:
+    type<list::CodeableConcept>:
+    packageCode<CodeableConcept>:
+procedure<list>:
+  - sequence<positiveInt>:
+    date<dateTime>:
+    procedureCodeableConcept<CodeableConcept>:
+    procedureReference<Reference(Procedure)>:
+precedence<positiveInt>:
+insurance:
+    coverage<Reference(Coverage)>:
+    preAuthRef<list::string>:
+accident:
+    date<date>:
+    type<CodeableConcept>:
+    locationAddress<Address>:
+    locationReference<Reference(Location)>:
+employmentImpacted<Period>:
+hospitalization<Period>:
+item<list>:
+  - sequence<positiveInt>:
+    careTeamLinkId<list::positiveInt>:
+    diagnosisLinkId<list::positiveInt>:
+    procedureLinkId<list::positiveInt>:
+    informationLinkId<list::positiveInt>:
+    revenue<CodeableConcept>:
+    category<CodeableConcept>:
+    service<CodeableConcept>:
+    modifier<list::CodeableConcept>:
+    programCode<list::CodeableConcept>:
+    servicedDate<date>:
+    servicedPeriod<Period>:
+    locationCodeableConcept<CodeableConcept>:
+    locationAddress<Address>:
+    locationReference<Reference(Location)>:
+    quantity<Quantity(SimpleQuantity)>:
+    unitPrice<Money>:
+    factor<decimal>:
+    net<Money>:
+    udi<list::Reference(Device)>:
+    bodySite<CodeableConcept>:
+    subSite<list::CodeableConcept>:
+    encounter<list::Reference(Encounter)>:
+    noteNumber<list::positiveInt>:
+    adjudication<list>:
+      - category<CodeableConcept>:
+        reason<CodeableConcept>:
+        amount<Money>:
+        value<decimal>:
+    detail<list>:
+      - sequence<positiveInt>:
+        type<CodeableConcept>:
+        revenue<CodeableConcept>:
+        category<CodeableConcept>:
+        service<CodeableConcept>:
+        modifier<list::CodeableConcept>:
+        programCode<list::CodeableConcept>:
+        quantity<Quantity(SimpleQuantity)>:
+        unitPrice<Money>:
+        factor<decimal>:
+        net<Money>:
+        udi<list::Reference(Device)>:
+        noteNumber<list::positiveInt>:
+        adjudication<list::Content as for ExplanationOfBenefit.item.adjudication>:
+        subDetail<list>:
+          - sequence<positiveInt>:
+            type<CodeableConcept>:
+            revenue<CodeableConcept>:
+            category<CodeableConcept>:
+            service<CodeableConcept>:
+            modifier<list::CodeableConcept>:
+            programCode<list::CodeableConcept>:
+            quantity<Quantity(SimpleQuantity)>:
+            unitPrice<Money>:
+            factor<decimal>:
+            net<Money>:
+            udi<list::Reference(Device)>:
+            noteNumber<list::positiveInt>:
+            adjudication<list::Content as for ExplanationOfBenefit.item.adjudication>:
+addItem<list>:
+  - sequenceLinkId<list::positiveInt>:
+    revenue<CodeableConcept>:
+    category<CodeableConcept>:
+    service<CodeableConcept>:
+    modifier<list::CodeableConcept>:
+    fee<Money>:
+    noteNumber<list::positiveInt>:
+    adjudication<list::Content as for ExplanationOfBenefit.item.adjudication>:
+    detail<list>:
+      - revenue<CodeableConcept>:
+        category<CodeableConcept>:
+        service<CodeableConcept>:
+        modifier<list::CodeableConcept>:
+        fee<Money>:
+        noteNumber<list::positiveInt>:
+        adjudication<list::Content as for ExplanationOfBenefit.item.adjudication>:
+totalCost<Money>:
+unallocDeductable<Money>:
+totalBenefit<Money>:
+payment:
+    type<CodeableConcept>:
+    adjustment<Money>:
+    adjustmentReason<CodeableConcept>:
+    date<date>:
+    amount<Money>:
+    identifier<Identifier>:
+form<CodeableConcept>:
+processNote<list>:
+  - number<positiveInt>:
+    type<CodeableConcept>:
+    text<string>:
+    language<CodeableConcept>:
+benefitBalance<list>:
+  - category<CodeableConcept>:
+    subCategory<CodeableConcept>:
+    excluded<boolean>:
+    name<string>:
+    description<string>:
+    network<CodeableConcept>:
+    unit<CodeableConcept>:
+    term<CodeableConcept>:
+    financial<list>:
+      - type<CodeableConcept>:
+        allowedUnsignedInt<unsignedInt>:
+        allowedString<string>:
+        allowedMoney<Money>:
+        usedUnsignedInt<unsignedInt>:
+        usedMoney<Money>:

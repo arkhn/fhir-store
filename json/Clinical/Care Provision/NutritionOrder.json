@@ -1,0 +1,49 @@
+{
+  "resourceType" : "NutritionOrder",
+  "identifier<list::Identifier>": null,
+  "status<code=proposed|draft|planned|requested|active|on-hold|completed|cancelled|entered-in-error>": null,
+  "patient<Reference(Patient)>": null,
+  "encounter<Reference(Encounter)>": null,
+  "dateTime<dateTime>": null,
+  "orderer<Reference(Practitioner)>": null,
+  "allergyIntolerance<list::Reference(AllergyIntolerance)>": null,
+  "foodPreferenceModifier<list::CodeableConcept>": null,
+  "excludeFoodModifier<list::CodeableConcept>": null,
+  "oralDiet" : { 
+    "type<list::CodeableConcept>": null,
+    "schedule<list::Timing>": null,
+    "nutrient<list>": [{
+      "modifier<CodeableConcept>": null,
+      "amount<Quantity(SimpleQuantity)>": null
+    }],
+    "texture<list>": [{
+      "modifier<CodeableConcept>": null,
+      "foodType<CodeableConcept>": null
+    }],
+    "fluidConsistencyType<list::CodeableConcept>": null,
+    "instruction<string>": null
+  },
+  "supplement<list>": [{
+    "type<CodeableConcept>": null,
+    "productName<string>": null,
+    "schedule<list::Timing>": null,
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "instruction<string>": null
+  }],
+  "enteralFormula" : { 
+    "baseFormulaType<CodeableConcept>": null,
+    "baseFormulaProductName<string>": null,
+    "additiveType<CodeableConcept>": null,
+    "additiveProductName<string>": null,
+    "caloricDensity<Quantity(SimpleQuantity)>": null,
+    "routeofAdministration<CodeableConcept>": null,
+    "administration<list>": [{
+      "schedule<Timing>": null,
+      "quantity<Quantity(SimpleQuantity)>": null,
+      "rateQuantity<Quantity(SimpleQuantity)>": null,
+      "rateRatio<Ratio>": null
+    }],
+    "maxVolumeToDeliver<Quantity(SimpleQuantity)>": null,
+    "administrationInstruction<string>": null
+  }
+}

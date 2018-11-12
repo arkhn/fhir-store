@@ -1,0 +1,27 @@
+resourceType: "RiskAssessment"
+identifier<Identifier>:
+basedOn<Reference(Any)>:
+parent<Reference(Any)>:
+status<code=registered|preliminary|final|amended>:
+method<CodeableConcept>:
+code<CodeableConcept>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+condition<Reference(Condition)>:
+performer<Reference(Practitioner|Device)>:
+reasonCodeableConcept<CodeableConcept>:
+reasonReference<Reference(Any)>:
+basis<list::Reference(Any)>:
+prediction<list>:
+  - outcome<CodeableConcept>:
+    probabilityDecimal<decimal>:
+    probabilityRange<Range>:
+    qualitativeRisk<CodeableConcept>:
+    relativeRisk<decimal>:
+    whenPeriod<Period>:
+    whenRange<Range>:
+    rationale<string>:
+mitigation<string>:
+comment<string>:

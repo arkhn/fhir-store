@@ -1,0 +1,9 @@
+resourceType: "Schedule"
+identifier<list::Identifier>:
+active<boolean>:
+serviceCategory<CodeableConcept>:
+serviceType<list::CodeableConcept>:
+specialty<list::CodeableConcept>:
+actor<list::Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Device|HealthcareService|Location)>:
+planningHorizon<Period>:
+comment<string>:

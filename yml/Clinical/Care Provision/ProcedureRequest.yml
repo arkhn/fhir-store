@@ -1,0 +1,32 @@
+resourceType: "ProcedureRequest"
+identifier<list::Identifier>:
+definition<list::Reference(ActivityDefinition|PlanDefinition)>:
+basedOn<list::Reference(Any)>:
+replaces<list::Reference(Any)>:
+requisition<Identifier>:
+status<code=draft|active|suspended|completed|entered-in-error|cancelled>:
+intent<code=proposal|plan|order>:
+priority<code=routine|urgent|asap|stat>:
+doNotPerform<boolean>:
+category<list::CodeableConcept>:
+code<CodeableConcept>:
+subject<Reference(Patient|Group|Location|Device)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+occurrenceTiming<Timing>:
+asNeededBoolean<boolean>:
+asNeededCodeableConcept<CodeableConcept>:
+authoredOn<dateTime>:
+requester:
+    agent<Reference(Device|Practitioner|Organization)>:
+    onBehalfOf<Reference(Organization)>:
+performerType<CodeableConcept>:
+performer<Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+supportingInfo<list::Reference(Any)>:
+specimen<list::Reference(Specimen)>:
+bodySite<list::CodeableConcept>:
+note<list::Annotation>:
+relevantHistory<list::Reference(Provenance)>:

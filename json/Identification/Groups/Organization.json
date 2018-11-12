@@ -1,0 +1,18 @@
+{
+  "resourceType" : "Organization",
+  "identifier<list::Identifier>": null,
+  "active<boolean>": null,
+  "type<list::CodeableConcept>": null,
+  "name<string>": null,
+  "alias<list::string>": null,
+  "telecom<list::ContactPoint>": null,
+  "address<list::Address>": null,
+  "partOf<Reference(Organization)>": null,
+  "contact<list>": [{
+    "purpose<CodeableConcept>": null,
+    "name<HumanName>": null,
+    "telecom<list::ContactPoint>": null,
+    "address<Address>": null
+  }],
+  "endpoint<list::Reference(Endpoint)>": null
+}

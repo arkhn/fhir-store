@@ -1,0 +1,31 @@
+resourceType: "HealthcareService"
+identifier<list::Identifier>:
+active<boolean>:
+providedBy<Reference(Organization)>:
+category<CodeableConcept>:
+type<list::CodeableConcept>:
+specialty<list::CodeableConcept>:
+location<list::Reference(Location)>:
+name<string>:
+comment<string>:
+extraDetails<string>:
+photo<Attachment>:
+telecom<list::ContactPoint>:
+coverageArea<list::Reference(Location)>:
+serviceProvisionCode<list::CodeableConcept>:
+eligibility<CodeableConcept>:
+eligibilityNote<string>:
+programName<list::string>:
+characteristic<list::CodeableConcept>:
+referralMethod<list::CodeableConcept>:
+appointmentRequired<boolean>:
+availableTime<list>:
+  - daysOfWeek<list::code=mon|tue|wed|thu|fri|sat|sun>:
+    allDay<boolean>:
+    availableStartTime<time>:
+    availableEndTime<time>:
+notAvailable<list>:
+  - description<string>:
+    during<Period>:
+availabilityExceptions<string>:
+endpoint<list::Reference(Endpoint)>:

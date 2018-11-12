@@ -1,4 +1,4 @@
-resourceType: 'Practitioner'
+resourceType: "Practitioner"
 identifier<list::Identifier>:
 active<boolean>:
 name<list::HumanName>:
@@ -13,4 +13,3 @@ qualification<list>:
     period<Period>:
     issuer<Reference(Organization)>:
 communication<list::CodeableConcept>:
-

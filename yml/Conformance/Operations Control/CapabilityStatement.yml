@@ -1,0 +1,91 @@
+resourceType: "CapabilityStatement"
+url<uri>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+copyright<markdown>:
+kind<code=instance|capability|requirements>:
+instantiates<list::uri>:
+software:
+    name<string>:
+    version<string>:
+    releaseDate<dateTime>:
+implementation:
+    description<string>:
+    url<uri>:
+fhirVersion<id>:
+acceptUnknown<code=no|extensions|elements|both>:
+format<list::code>:
+patchFormat<list::code>:
+implementationGuide<list::uri>:
+profile<list::Reference(StructureDefinition)>:
+rest<list>:
+  - mode<code=client|server>:
+    documentation<string>:
+    security:
+        cors<boolean>:
+        service<list::CodeableConcept>:
+        description<string>:
+        certificate<list>:
+          - type<code>:
+            blob<base64Binary>:
+    resource<list>:
+      - type<code>:
+        profile<Reference(StructureDefinition)>:
+        documentation<markdown>:
+        interaction<list>:
+          - code<code=read|vread|update|patch|delete|history-instance|history-type|create|search-type>:
+            documentation<string>:
+        versioning<code=no-version|versioned|versioned-update>:
+        readHistory<boolean>:
+        updateCreate<boolean>:
+        conditionalCreate<boolean>:
+        conditionalRead<code=not-supported|modified-since|not-match|full-support>:
+        conditionalUpdate<boolean>:
+        conditionalDelete<code=not-supported|single|multiple>:
+        referencePolicy<list::code=literal|logical|resolves|enforced|local>:
+        searchInclude<list::string>:
+        searchRevInclude<list::string>:
+        searchParam<list>:
+          - name<string>:
+            definition<uri>:
+            type<code=number|date|string|token|reference|composite|quantity|uri>:
+            documentation<string>:
+    interaction<list>:
+      - code<code=transaction|batch|search-system|history-system>:
+        documentation<string>:
+    searchParam<list::Content as for CapabilityStatement.rest.resource.searchParam>:
+    operation<list>:
+      - name<string>:
+        definition<Reference(OperationDefinition)>:
+    compartment<list::uri>:
+messaging<list>:
+  - endpoint<list>:
+      - protocol<Coding>:
+        address<uri>:
+    reliableCache<unsignedInt>:
+    documentation<string>:
+    supportedMessage<list>:
+      - mode<code=sender|receiver>:
+        definition<Reference(MessageDefinition)>:
+    event<list>:
+      - code<Coding>:
+        category<code=Consequence|Currency|Notification>:
+        mode<code=sender|receiver>:
+        focus<code>:
+        request<Reference(StructureDefinition)>:
+        response<Reference(StructureDefinition)>:
+        documentation<string>:
+document<list>:
+  - mode<code=producer|consumer>:
+    documentation<string>:
+    profile<Reference(StructureDefinition)>:

@@ -1,0 +1,19 @@
+resourceType: "Location"
+identifier<list::Identifier>:
+status<code=active|suspended|inactive>:
+operationalStatus<Coding>:
+name<string>:
+alias<list::string>:
+description<string>:
+mode<code=instance|kind>:
+type<CodeableConcept>:
+telecom<list::ContactPoint>:
+address<Address>:
+physicalType<CodeableConcept>:
+position:
+    longitude<decimal>:
+    latitude<decimal>:
+    altitude<decimal>:
+managingOrganization<Reference(Organization)>:
+partOf<Reference(Location)>:
+endpoint<list::Reference(Endpoint)>:

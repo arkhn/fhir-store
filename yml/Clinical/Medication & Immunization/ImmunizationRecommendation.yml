@@ -1,0 +1,19 @@
+resourceType: "ImmunizationRecommendation"
+identifier<list::Identifier>:
+patient<Reference(Patient)>:
+recommendation<list>:
+  - date<dateTime>:
+    vaccineCode<CodeableConcept>:
+    targetDisease<CodeableConcept>:
+    doseNumber<positiveInt>:
+    forecastStatus<CodeableConcept>:
+    dateCriterion<list>:
+      - code<CodeableConcept>:
+        value<dateTime>:
+    protocol:
+        doseSequence<positiveInt>:
+        description<string>:
+        authority<Reference(Organization)>:
+        series<string>:
+    supportingImmunization<list::Reference(Immunization)>:
+    supportingPatientInformation<list::Reference(Observation|AllergyIntolerance)>:

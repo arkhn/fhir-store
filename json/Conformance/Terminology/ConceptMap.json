@@ -1,0 +1,51 @@
+{
+  "resourceType" : "ConceptMap",
+  "url<uri>": null,
+  "identifier<Identifier>": null,
+  "version<string>": null,
+  "name<string>": null,
+  "title<string>": null,
+  "status<code=draft|active|retired|unknown>": null,
+  "experimental<boolean>": null,
+  "date<dateTime>": null,
+  "publisher<string>": null,
+  "contact<list::ContactDetail>": null,
+  "description<markdown>": null,
+  "useContext<list::UsageContext>": null,
+  "jurisdiction<list::CodeableConcept>": null,
+  "purpose<markdown>": null,
+  "copyright<markdown>": null,
+  "sourceUri<uri>": null,
+  "sourceReference<Reference(ValueSet)>": null,
+  "targetUri<uri>": null,
+  "targetReference<Reference(ValueSet)>": null,
+  "group<list>": [{
+    "source<uri>": null,
+    "sourceVersion<string>": null,
+    "target<uri>": null,
+    "targetVersion<string>": null,
+    "element<list>": [{
+      "code<code>": null,
+      "display<string>": null,
+      "target<list>": [{
+        "code<code>": null,
+        "display<string>": null,
+        "equivalence<code=relatedto|equivalent|equal|wider|subsumes|narrower|specializes|inexact|unmatched|disjoint>": null,
+        "comment<string>": null,
+        "dependsOn<list>": [{
+          "property<uri>": null,
+          "system<uri>": null,
+          "code<string>": null,
+          "display<string>": null
+        }],
+        "product<list::Content as for ConceptMap.group.element.target.dependsOn>": null
+      }]
+    }],
+    "unmapped" : { 
+      "mode<code=provided|fixed|other-map>": null,
+      "code<code>": null,
+      "display<string>": null,
+      "url<uri>": null
+    }
+  }]
+}

@@ -1,0 +1,22 @@
+resourceType: "Provenance"
+target<list::Reference(Any)>:
+period<Period>:
+recorded<instant>:
+policy<list::uri>:
+location<Reference(Location)>:
+reason<list::Coding>:
+activity<Coding>:
+agent<list>:
+  - role<list::CodeableConcept>:
+    whoUri<uri>:
+    whoReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>:
+    onBehalfOfUri<uri>:
+    onBehalfOfReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>:
+    relatedAgentType<CodeableConcept>:
+entity<list>:
+  - role<code=derivation|revision|quotation|source|removal>:
+    whatUri<uri>:
+    whatReference<Reference(Any)>:
+    whatIdentifier<Identifier>:
+    agent<list::Content as for Provenance.agent>:
+signature<list::Signature>:

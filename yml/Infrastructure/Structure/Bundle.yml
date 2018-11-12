@@ -1,0 +1,28 @@
+resourceType: "Bundle"
+identifier<Identifier>:
+type<code=document|message|transaction|transaction-response|batch|batch-response|history|searchset|collection>:
+total<unsignedInt>:
+link<list>:
+  - relation<string>:
+    url<uri>:
+entry<list>:
+  - link<list::Content as for Bundle.link>:
+    fullUrl<uri>:
+    resource<Resource>:
+    search:
+        mode<code=match|include|outcome>:
+        score<decimal>:
+    request:
+        method<code=GET|POST|PUT|DELETE>:
+        url<uri>:
+        ifNoneMatch<string>:
+        ifModifiedSince<instant>:
+        ifMatch<string>:
+        ifNoneExist<string>:
+    response:
+        status<string>:
+        location<uri>:
+        etag<string>:
+        lastModified<instant>:
+        outcome<Resource>:
+signature<Signature>:

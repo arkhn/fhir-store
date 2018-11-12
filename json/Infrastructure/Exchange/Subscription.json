@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Subscription",
+  "status<code=requested|active|error|off>": null,
+  "contact<list::ContactPoint>": null,
+  "end<instant>": null,
+  "reason<string>": null,
+  "criteria<string>": null,
+  "error<string>": null,
+  "channel" : { 
+    "type<code=rest-hook|websocket|email|sms|message>": null,
+    "endpoint<uri>": null,
+    "payload<string>": null,
+    "header<list::string>": null
+  },
+  "tag<list::Coding>": null
+}

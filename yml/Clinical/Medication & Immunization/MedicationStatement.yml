@@ -1,0 +1,21 @@
+resourceType: "MedicationStatement"
+identifier<list::Identifier>:
+basedOn<list::Reference(MedicationRequest|CarePlan|ProcedureRequest|ReferralRequest)>:
+partOf<list::Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+status<code=active|completed|entered-in-error|intended|stopped|on-hold>:
+category<CodeableConcept>:
+medicationCodeableConcept<CodeableConcept>:
+medicationReference<Reference(Medication)>:
+effectiveDateTime<dateTime>:
+effectivePeriod<Period>:
+dateAsserted<dateTime>:
+informationSource<Reference(Patient|Practitioner|RelatedPerson|Organization)>:
+subject<Reference(Patient|Group)>:
+derivedFrom<list::Reference(Any)>:
+taken<code=y|n|unk|na>:
+reasonNotTaken<list::CodeableConcept>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+note<list::Annotation>:
+dosage<list::Dosage>:

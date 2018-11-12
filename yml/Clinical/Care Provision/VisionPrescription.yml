@@ -1,0 +1,25 @@
+resourceType: "VisionPrescription"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+patient<Reference(Patient)>:
+encounter<Reference(Encounter)>:
+dateWritten<dateTime>:
+prescriber<Reference(Practitioner)>:
+reasonCodeableConcept<CodeableConcept>:
+reasonReference<Reference(Condition)>:
+dispense<list>:
+  - product<CodeableConcept>:
+    eye<code=right|left>:
+    sphere<decimal>:
+    cylinder<decimal>:
+    axis<integer>:
+    prism<decimal>:
+    base<code=up|down|in|out>:
+    add<decimal>:
+    power<decimal>:
+    backCurve<decimal>:
+    diameter<decimal>:
+    duration<Quantity(SimpleQuantity)>:
+    color<string>:
+    brand<string>:
+    note<list::Annotation>:

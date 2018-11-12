@@ -1,0 +1,10 @@
+resourceType: "EnrollmentResponse"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+request<Reference(EnrollmentRequest)>:
+outcome<CodeableConcept>:
+disposition<string>:
+created<dateTime>:
+organization<Reference(Organization)>:
+requestProvider<Reference(Practitioner)>:
+requestOrganization<Reference(Organization)>:

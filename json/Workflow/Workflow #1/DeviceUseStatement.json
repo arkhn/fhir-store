@@ -1,0 +1,16 @@
+{
+  "resourceType" : "DeviceUseStatement",
+  "identifier<list::Identifier>": null,
+  "status<code=active|completed|entered-in-error>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "whenUsed<Period>": null,
+  "timingTiming<Timing>": null,
+  "timingPeriod<Period>": null,
+  "timingDateTime<dateTime>": null,
+  "recordedOn<dateTime>": null,
+  "source<Reference(Patient|Practitioner|RelatedPerson)>": null,
+  "device<Reference(Device)>": null,
+  "indication<list::CodeableConcept>": null,
+  "bodySite<CodeableConcept>": null,
+  "note<list::Annotation>": null
+}

@@ -1,0 +1,14 @@
+resourceType: "DeviceMetric"
+identifier<Identifier>:
+type<CodeableConcept>:
+unit<CodeableConcept>:
+source<Reference(Device)>:
+parent<Reference(DeviceComponent)>:
+operationalStatus<code=on|off|standby|entered-in-error>:
+color<code=black|red|green|yellow|blue|magenta|cyan|white>:
+category<code=measurement|setting|calculation|unspecified>:
+measurementPeriod<Timing>:
+calibration<list>:
+  - type<code=unspecified|offset|gain|two-point>:
+    state<code=not-calibrated|calibration-required|calibrated|unspecified>:
+    time<instant>:

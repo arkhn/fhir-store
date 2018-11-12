@@ -1,0 +1,27 @@
+{
+  "resourceType" : "DiagnosticReport",
+  "identifier<list::Identifier>": null,
+  "basedOn<list::Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest)>": null,
+  "status<code=registered|partial|preliminary|final>": null,
+  "category<CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Patient|Group|Device|Location)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "effectiveDateTime<dateTime>": null,
+  "effectivePeriod<Period>": null,
+  "issued<instant>": null,
+  "performer<list>": [{
+    "role<CodeableConcept>": null,
+    "actor<Reference(Practitioner|Organization)>": null
+  }],
+  "specimen<list::Reference(Specimen)>": null,
+  "result<list::Reference(Observation)>": null,
+  "imagingStudy<list::Reference(ImagingStudy|ImagingManifest)>": null,
+  "image<list>": [{
+    "comment<string>": null,
+    "link<Reference(Media)>": null
+  }],
+  "conclusion<string>": null,
+  "codedDiagnosis<list::CodeableConcept>": null,
+  "presentedForm<list::Attachment>": null
+}

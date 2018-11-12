@@ -1,0 +1,33 @@
+resourceType: "EligibilityResponse"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+created<dateTime>:
+requestProvider<Reference(Practitioner)>:
+requestOrganization<Reference(Organization)>:
+request<Reference(EligibilityRequest)>:
+outcome<CodeableConcept>:
+disposition<string>:
+insurer<Reference(Organization)>:
+inforce<boolean>:
+insurance<list>:
+  - coverage<Reference(Coverage)>:
+    contract<Reference(Contract)>:
+    benefitBalance<list>:
+      - category<CodeableConcept>:
+        subCategory<CodeableConcept>:
+        excluded<boolean>:
+        name<string>:
+        description<string>:
+        network<CodeableConcept>:
+        unit<CodeableConcept>:
+        term<CodeableConcept>:
+        financial<list>:
+          - type<CodeableConcept>:
+            allowedUnsignedInt<unsignedInt>:
+            allowedString<string>:
+            allowedMoney<Money>:
+            usedUnsignedInt<unsignedInt>:
+            usedMoney<Money>:
+form<CodeableConcept>:
+error<list>:
+  - code<CodeableConcept>:

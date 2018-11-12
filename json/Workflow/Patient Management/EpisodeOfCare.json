@@ -1,0 +1,22 @@
+{
+  "resourceType" : "EpisodeOfCare",
+  "identifier<list::Identifier>": null,
+  "status<code=planned|waitlist|active|onhold|finished|cancelled|entered-in-error>": null,
+  "statusHistory<list>": [{
+    "status<code=planned|waitlist|active|onhold|finished|cancelled|entered-in-error>": null,
+    "period<Period>": null
+  }],
+  "type<list::CodeableConcept>": null,
+  "diagnosis<list>": [{
+    "condition<Reference(Condition)>": null,
+    "role<CodeableConcept>": null,
+    "rank<positiveInt>": null
+  }],
+  "patient<Reference(Patient)>": null,
+  "managingOrganization<Reference(Organization)>": null,
+  "period<Period>": null,
+  "referralRequest<list::Reference(ReferralRequest)>": null,
+  "careManager<Reference(Practitioner)>": null,
+  "team<list::Reference(CareTeam)>": null,
+  "account<list::Reference(Account)>": null
+}

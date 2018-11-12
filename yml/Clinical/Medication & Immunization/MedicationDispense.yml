@@ -1,0 +1,33 @@
+resourceType: "MedicationDispense"
+identifier<list::Identifier>:
+partOf<list::Reference(Procedure)>:
+status<code=preparation|in-progress|on-hold|completed|entered-in-error|stopped>:
+category<CodeableConcept>:
+medicationCodeableConcept<CodeableConcept>:
+medicationReference<Reference(Medication)>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+supportingInformation<list::Reference(Any)>:
+performer<list>:
+  - actor<Reference(Practitioner|Organization|Patient|Device|RelatedPerson)>:
+    onBehalfOf<Reference(Organization)>:
+authorizingPrescription<list::Reference(MedicationRequest)>:
+type<CodeableConcept>:
+quantity<Quantity(SimpleQuantity)>:
+daysSupply<Quantity(SimpleQuantity)>:
+whenPrepared<dateTime>:
+whenHandedOver<dateTime>:
+destination<Reference(Location)>:
+receiver<list::Reference(Patient|Practitioner)>:
+note<list::Annotation>:
+dosageInstruction<list::Dosage>:
+substitution:
+    wasSubstituted<boolean>:
+    type<CodeableConcept>:
+    reason<list::CodeableConcept>:
+    responsibleParty<list::Reference(Practitioner)>:
+detectedIssue<list::Reference(DetectedIssue)>:
+notDone<boolean>:
+notDoneReasonCodeableConcept<CodeableConcept>:
+notDoneReasonReference<Reference(DetectedIssue)>:
+eventHistory<list::Reference(Provenance)>:

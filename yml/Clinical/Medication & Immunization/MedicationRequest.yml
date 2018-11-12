@@ -1,0 +1,35 @@
+resourceType: "MedicationRequest"
+identifier<list::Identifier>:
+definition<list::Reference(ActivityDefinition|PlanDefinition)>:
+basedOn<list::Reference(CarePlan|MedicationRequest|ProcedureRequest|ReferralRequest)>:
+groupIdentifier<Identifier>:
+status<code=active|on-hold|cancelled|completed|entered-in-error|stopped|draft|unknown>:
+intent<code=proposal|plan|order|instance-order>:
+category<CodeableConcept>:
+priority<code=routine|urgent|stat|asap>:
+medicationCodeableConcept<CodeableConcept>:
+medicationReference<Reference(Medication)>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+supportingInformation<list::Reference(Any)>:
+authoredOn<dateTime>:
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>:
+    onBehalfOf<Reference(Organization)>:
+recorder<Reference(Practitioner)>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+note<list::Annotation>:
+dosageInstruction<list::Dosage>:
+dispenseRequest:
+    validityPeriod<Period>:
+    numberOfRepeatsAllowed<positiveInt>:
+    quantity<Quantity(SimpleQuantity)>:
+    expectedSupplyDuration<Duration>:
+    performer<Reference(Organization)>:
+substitution:
+    allowed<boolean>:
+    reason<CodeableConcept>:
+priorPrescription<Reference(MedicationRequest)>:
+detectedIssue<list::Reference(DetectedIssue)>:
+eventHistory<list::Reference(Provenance)>:

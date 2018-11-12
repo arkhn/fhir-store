@@ -1,0 +1,13 @@
+resourceType: "Subscription"
+status<code=requested|active|error|off>:
+contact<list::ContactPoint>:
+end<instant>:
+reason<string>:
+criteria<string>:
+error<string>:
+channel:
+    type<code=rest-hook|websocket|email|sms|message>:
+    endpoint<uri>:
+    payload<string>:
+    header<list::string>:
+tag<list::Coding>:

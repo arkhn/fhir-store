@@ -1,0 +1,17 @@
+{
+  "resourceType" : "DeviceMetric",
+  "identifier<Identifier>": null,
+  "type<CodeableConcept>": null,
+  "unit<CodeableConcept>": null,
+  "source<Reference(Device)>": null,
+  "parent<Reference(DeviceComponent)>": null,
+  "operationalStatus<code=on|off|standby|entered-in-error>": null,
+  "color<code=black|red|green|yellow|blue|magenta|cyan|white>": null,
+  "category<code=measurement|setting|calculation|unspecified>": null,
+  "measurementPeriod<Timing>": null,
+  "calibration<list>": [{
+    "type<code=unspecified|offset|gain|two-point>": null,
+    "state<code=not-calibrated|calibration-required|calibrated|unspecified>": null,
+    "time<instant>": null
+  }]
+}

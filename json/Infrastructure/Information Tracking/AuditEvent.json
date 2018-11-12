@@ -1,0 +1,46 @@
+{
+  "resourceType" : "AuditEvent",
+  "type<Coding>": null,
+  "subtype<list::Coding>": null,
+  "action<code>": null,
+  "recorded<instant>": null,
+  "outcome<code>": null,
+  "outcomeDesc<string>": null,
+  "purposeOfEvent<list::CodeableConcept>": null,
+  "agent<list>": [{
+    "role<list::CodeableConcept>": null,
+    "reference<Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>": null,
+    "userId<Identifier>": null,
+    "altId<string>": null,
+    "name<string>": null,
+    "requestor<boolean>": null,
+    "location<Reference(Location)>": null,
+    "policy<list::uri>": null,
+    "media<Coding>": null,
+    "network" : { 
+      "address<string>": null,
+      "type<code>": null
+    },
+    "purposeOfUse<list::CodeableConcept>": null
+  }],
+  "source" : { 
+    "site<string>": null,
+    "identifier<Identifier>": null,
+    "type<list::Coding>": null
+  },
+  "entity<list>": [{
+    "identifier<Identifier>": null,
+    "reference<Reference(Any)>": null,
+    "type<Coding>": null,
+    "role<Coding>": null,
+    "lifecycle<Coding>": null,
+    "securityLabel<list::Coding>": null,
+    "name<string>": null,
+    "description<string>": null,
+    "query<base64Binary>": null,
+    "detail<list>": [{
+      "type<string>": null,
+      "value<base64Binary>": null
+    }]
+  }]
+}

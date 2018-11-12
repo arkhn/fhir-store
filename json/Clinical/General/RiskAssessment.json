@@ -1,0 +1,30 @@
+{
+  "resourceType" : "RiskAssessment",
+  "identifier<Identifier>": null,
+  "basedOn<Reference(Any)>": null,
+  "parent<Reference(Any)>": null,
+  "status<code=registered|preliminary|final|amended>": null,
+  "method<CodeableConcept>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "condition<Reference(Condition)>": null,
+  "performer<Reference(Practitioner|Device)>": null,
+  "reasonCodeableConcept<CodeableConcept>": null,
+  "reasonReference<Reference(Any)>": null,
+  "basis<list::Reference(Any)>": null,
+  "prediction<list>": [{
+    "outcome<CodeableConcept>": null,
+    "probabilityDecimal<decimal>": null,
+    "probabilityRange<Range>": null,
+    "qualitativeRisk<CodeableConcept>": null,
+    "relativeRisk<decimal>": null,
+    "whenPeriod<Period>": null,
+    "whenRange<Range>": null,
+    "rationale<string>": null
+  }],
+  "mitigation<string>": null,
+  "comment<string>": null
+}

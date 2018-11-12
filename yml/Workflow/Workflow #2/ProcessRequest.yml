@@ -1,0 +1,17 @@
+resourceType: "ProcessRequest"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+action<code=cancel|poll|reprocess|status>:
+target<Reference(Organization)>:
+created<dateTime>:
+provider<Reference(Practitioner)>:
+organization<Reference(Organization)>:
+request<Reference(Any)>:
+response<Reference(Any)>:
+nullify<boolean>:
+reference<string>:
+item<list>:
+  - sequenceLinkId<integer>:
+include<list::string>:
+exclude<list::string>:
+period<Period>:

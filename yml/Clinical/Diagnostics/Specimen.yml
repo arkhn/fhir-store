@@ -1,0 +1,31 @@
+resourceType: "Specimen"
+identifier<list::Identifier>:
+accessionIdentifier<Identifier>:
+status<code=available|unavailable|unsatisfactory|entered-in-error>:
+type<CodeableConcept>:
+subject<Reference(Patient|Group|Device|Substance)>:
+receivedTime<dateTime>:
+parent<list::Reference(Specimen)>:
+request<list::Reference(ProcedureRequest)>:
+collection:
+    collector<Reference(Practitioner)>:
+    collectedDateTime<dateTime>:
+    collectedPeriod<Period>:
+    quantity<Quantity(SimpleQuantity)>:
+    method<CodeableConcept>:
+    bodySite<CodeableConcept>:
+processing<list>:
+  - description<string>:
+    procedure<CodeableConcept>:
+    additive<list::Reference(Substance)>:
+    timeDateTime<dateTime>:
+    timePeriod<Period>:
+container<list>:
+  - identifier<list::Identifier>:
+    description<string>:
+    type<CodeableConcept>:
+    capacity<Quantity(SimpleQuantity)>:
+    specimenQuantity<Quantity(SimpleQuantity)>:
+    additiveCodeableConcept<CodeableConcept>:
+    additiveReference<Reference(Substance)>:
+note<list::Annotation>:

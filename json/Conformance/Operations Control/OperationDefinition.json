@@ -1,0 +1,44 @@
+{
+  "resourceType" : "OperationDefinition",
+  "url<uri>": null,
+  "version<string>": null,
+  "name<string>": null,
+  "status<code=draft|active|retired|unknown>": null,
+  "kind<code=operation|query>": null,
+  "experimental<boolean>": null,
+  "date<dateTime>": null,
+  "publisher<string>": null,
+  "contact<list::ContactDetail>": null,
+  "description<markdown>": null,
+  "useContext<list::UsageContext>": null,
+  "jurisdiction<list::CodeableConcept>": null,
+  "purpose<markdown>": null,
+  "idempotent<boolean>": null,
+  "code<code>": null,
+  "comment<string>": null,
+  "base<Reference(OperationDefinition)>": null,
+  "resource<list::code>": null,
+  "system<boolean>": null,
+  "type<boolean>": null,
+  "instance<boolean>": null,
+  "parameter<list>": [{
+    "name<code>": null,
+    "use<code=in|out>": null,
+    "min<integer>": null,
+    "max<string>": null,
+    "documentation<string>": null,
+    "type<code>": null,
+    "searchType<code=number|date|string|token|reference|composite|quantity|uri>": null,
+    "profile<Reference(StructureDefinition)>": null,
+    "binding" : { 
+      "strength<code=required|extensible|preferred|example>": null,
+      "valueSetUri<uri>": null,
+      "valueSetReference<Reference(ValueSet)>": null
+    },
+    "part<list::Content as for OperationDefinition.parameter>": null
+  }],
+  "overload<list>": [{
+    "parameterName<list::string>": null,
+    "comment<string>": null
+  }]
+}

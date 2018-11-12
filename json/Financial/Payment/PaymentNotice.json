@@ -1,0 +1,13 @@
+{
+  "resourceType" : "PaymentNotice",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "request<Reference(Any)>": null,
+  "response<Reference(Any)>": null,
+  "statusDate<date>": null,
+  "created<dateTime>": null,
+  "target<Reference(Organization)>": null,
+  "provider<Reference(Practitioner)>": null,
+  "organization<Reference(Organization)>": null,
+  "paymentStatus<CodeableConcept>": null
+}

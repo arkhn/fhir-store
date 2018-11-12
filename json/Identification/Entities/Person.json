@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Person",
+  "identifier<list::Identifier>": null,
+  "name<list::HumanName>": null,
+  "telecom<list::ContactPoint>": null,
+  "gender<code=male|female|other|unknown>": null,
+  "birthDate<date>": null,
+  "address<list::Address>": null,
+  "photo<Attachment>": null,
+  "managingOrganization<Reference(Organization)>": null,
+  "active<boolean>": null,
+  "link<list>": [{
+    "target<Reference(Patient|Practitioner|RelatedPerson|Person)>": null,
+    "assurance<code>": null
+  }]
+}

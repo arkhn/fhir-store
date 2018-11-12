@@ -1,0 +1,9 @@
+resourceType: "AppointmentResponse"
+identifier<list::Identifier>:
+appointment<Reference(Appointment)>:
+start<instant>:
+end<instant>:
+participantType<list::CodeableConcept>:
+actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>:
+participantStatus<code=accepted|declined|tentative|in-process|completed|needs-action|entered-in-error>:
+comment<string>:

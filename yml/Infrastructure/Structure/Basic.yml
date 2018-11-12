@@ -1,0 +1,6 @@
+resourceType: "Basic"
+identifier<list::Identifier>:
+code<CodeableConcept>:
+subject<Reference(Any)>:
+created<date>:
+author<Reference(Practitioner|Patient|RelatedPerson)>:

@@ -1,0 +1,8 @@
+resourceType: "OperationOutcome"
+issue<list>:
+  - severity<code=fatal|error|warning|information>:
+    code<code>:
+    details<CodeableConcept>:
+    diagnostics<string>:
+    location<list::string>:
+    expression<list::string>:

@@ -1,0 +1,31 @@
+{
+  "resourceType" : "CommunicationRequest",
+  "identifier<list::Identifier>": null,
+  "basedOn<list::Reference(Any)>": null,
+  "replaces<list::Reference(CommunicationRequest)>": null,
+  "groupIdentifier<Identifier>": null,
+  "status<code=draft|active|suspended|cancelled|completed|entered-in-error|unknown>": null,
+  "category<list::CodeableConcept>": null,
+  "priority<code>": null,
+  "medium<list::CodeableConcept>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)>": null,
+  "topic<list::Reference(Any)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "payload<list>": [{
+    "contentString<string>": null,
+    "contentAttachment<Attachment>": null,
+    "contentReference<Reference(Any)>": null
+  }],
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "authoredOn<dateTime>": null,
+  "sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  },
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "note<list::Annotation>": null
+}

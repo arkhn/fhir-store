@@ -1,0 +1,39 @@
+{
+  "resourceType" : "EligibilityResponse",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "created<dateTime>": null,
+  "requestProvider<Reference(Practitioner)>": null,
+  "requestOrganization<Reference(Organization)>": null,
+  "request<Reference(EligibilityRequest)>": null,
+  "outcome<CodeableConcept>": null,
+  "disposition<string>": null,
+  "insurer<Reference(Organization)>": null,
+  "inforce<boolean>": null,
+  "insurance<list>": [{
+    "coverage<Reference(Coverage)>": null,
+    "contract<Reference(Contract)>": null,
+    "benefitBalance<list>": [{
+      "category<CodeableConcept>": null,
+      "subCategory<CodeableConcept>": null,
+      "excluded<boolean>": null,
+      "name<string>": null,
+      "description<string>": null,
+      "network<CodeableConcept>": null,
+      "unit<CodeableConcept>": null,
+      "term<CodeableConcept>": null,
+      "financial<list>": [{
+        "type<CodeableConcept>": null,
+        "allowedUnsignedInt<unsignedInt>": null,
+        "allowedString<string>": null,
+        "allowedMoney<Money>": null,
+        "usedUnsignedInt<unsignedInt>": null,
+        "usedMoney<Money>": null
+      }]
+    }]
+  }],
+  "form<CodeableConcept>": null,
+  "error<list>": [{
+    "code<CodeableConcept>": null
+  }]
+}

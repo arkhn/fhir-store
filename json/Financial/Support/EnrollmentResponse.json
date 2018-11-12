@@ -1,0 +1,12 @@
+{
+  "resourceType" : "EnrollmentResponse",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "request<Reference(EnrollmentRequest)>": null,
+  "outcome<CodeableConcept>": null,
+  "disposition<string>": null,
+  "created<dateTime>": null,
+  "organization<Reference(Organization)>": null,
+  "requestProvider<Reference(Practitioner)>": null,
+  "requestOrganization<Reference(Organization)>": null
+}

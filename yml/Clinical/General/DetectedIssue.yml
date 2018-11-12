@@ -1,0 +1,15 @@
+resourceType: "DetectedIssue"
+identifier<Identifier>:
+status<code=registered|preliminary|final|amended>:
+category<CodeableConcept>:
+severity<code=high|moderate|low>:
+patient<Reference(Patient)>:
+date<dateTime>:
+author<Reference(Practitioner|Device)>:
+implicated<list::Reference(Any)>:
+detail<string>:
+reference<uri>:
+mitigation<list>:
+  - action<CodeableConcept>:
+    date<dateTime>:
+    author<Reference(Practitioner)>:

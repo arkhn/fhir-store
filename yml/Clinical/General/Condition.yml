@@ -1,0 +1,30 @@
+resourceType: "Condition"
+identifier<list::Identifier>:
+clinicalStatus<code=active|recurrence|inactive|remission|resolved>:
+verificationStatus<code=provisional|differential|confirmed|refuted|entered-in-error|unknown>:
+category<list::CodeableConcept>:
+severity<CodeableConcept>:
+code<CodeableConcept>:
+bodySite<list::CodeableConcept>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+onsetDateTime<dateTime>:
+onsetAge<Age>:
+onsetPeriod<Period>:
+onsetRange<Range>:
+onsetString<string>:
+abatementDateTime<dateTime>:
+abatementAge<Age>:
+abatementBoolean<boolean>:
+abatementPeriod<Period>:
+abatementRange<Range>:
+abatementString<string>:
+assertedDate<dateTime>:
+asserter<Reference(Practitioner|Patient|RelatedPerson)>:
+stage:
+    summary<CodeableConcept>:
+    assessment<list::Reference(ClinicalImpression|DiagnosticReport|Observation)>:
+evidence<list>:
+  - code<list::CodeableConcept>:
+    detail<list::Reference(Any)>:
+note<list::Annotation>:

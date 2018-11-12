@@ -1,0 +1,28 @@
+{
+  "resourceType" : "VisionPrescription",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "patient<Reference(Patient)>": null,
+  "encounter<Reference(Encounter)>": null,
+  "dateWritten<dateTime>": null,
+  "prescriber<Reference(Practitioner)>": null,
+  "reasonCodeableConcept<CodeableConcept>": null,
+  "reasonReference<Reference(Condition)>": null,
+  "dispense<list>": [{
+    "product<CodeableConcept>": null,
+    "eye<code=right|left>": null,
+    "sphere<decimal>": null,
+    "cylinder<decimal>": null,
+    "axis<integer>": null,
+    "prism<decimal>": null,
+    "base<code=up|down|in|out>": null,
+    "add<decimal>": null,
+    "power<decimal>": null,
+    "backCurve<decimal>": null,
+    "diameter<decimal>": null,
+    "duration<Quantity(SimpleQuantity)>": null,
+    "color<string>": null,
+    "brand<string>": null,
+    "note<list::Annotation>": null
+  }]
+}

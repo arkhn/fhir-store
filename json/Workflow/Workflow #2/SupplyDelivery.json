@@ -1,0 +1,20 @@
+{
+  "resourceType" : "SupplyDelivery",
+  "identifier<Identifier>": null,
+  "basedOn<list::Reference(SupplyRequest)>": null,
+  "partOf<list::Reference(SupplyDelivery|Contract)>": null,
+  "status<code=in-progress|completed|abandoned|entered-in-error>": null,
+  "patient<Reference(Patient)>": null,
+  "type<CodeableConcept>": null,
+  "suppliedItem" : { 
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "itemCodeableConcept<CodeableConcept>": null,
+    "itemReference<Reference(Medication|Substance|Device)>": null
+  },
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "occurrenceTiming<Timing>": null,
+  "supplier<Reference(Practitioner|Organization)>": null,
+  "destination<Reference(Location)>": null,
+  "receiver<list::Reference(Practitioner)>": null
+}

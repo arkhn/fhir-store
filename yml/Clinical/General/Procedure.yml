@@ -1,0 +1,33 @@
+resourceType: "Procedure"
+identifier<list::Identifier>:
+definition<list::Reference(PlanDefinition|ActivityDefinition|HealthcareService)>:
+basedOn<list::Reference(CarePlan|ProcedureRequest|ReferralRequest)>:
+partOf<list::Reference(Procedure|Observation|MedicationAdministration)>:
+status<code=preparation|in-progress|suspended|aborted|completed|entered-in-error|unknown>:
+notDone<boolean>:
+notDoneReason<CodeableConcept>:
+category<CodeableConcept>:
+code<CodeableConcept>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+performedDateTime<dateTime>:
+performedPeriod<Period>:
+performer<list>:
+  - role<CodeableConcept>:
+    actor<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>:
+    onBehalfOf<Reference(Organization)>:
+location<Reference(Location)>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+bodySite<list::CodeableConcept>:
+outcome<CodeableConcept>:
+report<list::Reference(DiagnosticReport)>:
+complication<list::CodeableConcept>:
+complicationDetail<list::Reference(Condition)>:
+followUp<list::CodeableConcept>:
+note<list::Annotation>:
+focalDevice<list>:
+  - action<CodeableConcept>:
+    manipulated<Reference(Device)>:
+usedReference<list::Reference(Device|Medication|Substance)>:
+usedCode<list::CodeableConcept>:

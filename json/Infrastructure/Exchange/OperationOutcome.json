@@ -1,0 +1,11 @@
+{
+  "resourceType" : "OperationOutcome",
+  "issue<list>": [{
+    "severity<code=fatal|error|warning|information>": null,
+    "code<code>": null,
+    "details<CodeableConcept>": null,
+    "diagnostics<string>": null,
+    "location<list::string>": null,
+    "expression<list::string>": null
+  }]
+}

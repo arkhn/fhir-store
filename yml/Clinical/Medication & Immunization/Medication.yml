@@ -1,0 +1,22 @@
+resourceType: "Medication"
+code<CodeableConcept>:
+status<code=active|inactive|entered-in-error>:
+isBrand<boolean>:
+isOverTheCounter<boolean>:
+manufacturer<Reference(Organization)>:
+form<CodeableConcept>:
+ingredient<list>:
+  - itemCodeableConcept<CodeableConcept>:
+    itemReference<Reference(Substance|Medication)>:
+    isActive<boolean>:
+    amount<Ratio>:
+package:
+    container<CodeableConcept>:
+    content<list>:
+      - itemCodeableConcept<CodeableConcept>:
+        itemReference<Reference(Medication)>:
+        amount<Quantity(SimpleQuantity)>:
+    batch<list>:
+      - lotNumber<string>:
+        expirationDate<dateTime>:
+image<list::Attachment>:

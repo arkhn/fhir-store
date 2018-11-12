@@ -1,9 +1,0 @@
-{
-  "origin<Quantity>": null,
-  "period<decimal>": null,
-  "factor<decimal>": null,
-  "lowerLimit<decimal>": null,
-  "upperLimit<decimal>": null,
-  "dimensions<positiveInt>": null,
-  "data": null
-}

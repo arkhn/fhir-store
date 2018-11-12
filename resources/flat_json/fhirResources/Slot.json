@@ -1,14 +1,1 @@
-{
-  "resourceType" : "Slot",
-  "identifier<list::Identifier>": null,
-  "serviceCategory<CodeableConcept>": null,
-  "serviceType<list::CodeableConcept>": null,
-  "specialty<list::CodeableConcept>": null,
-  "appointmentType<CodeableConcept>": null,
-  "schedule<Reference(Schedule)>": null,
-  "status<code=busy|free|busy-unavailable|busy-tentative|entered-in-error>": null,
-  "start<instant>": null,
-  "end<instant>": null,
-  "overbooked<boolean>": null,
-  "comment<string>": null
-}
+{"resourceType": "Slot", "identifier<list::Identifier>": {"use<code=usual|official|temp|secondary>": null, "type<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "system<uri>": null, "value<string>": null, "period<Period>": {"start<dateTime>": null, "end<dateTime>": null}, "assigner<Reference(Organization)>": null}, "serviceCategory<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "serviceType<list::CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "specialty<list::CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "appointmentType<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "schedule<Reference(Schedule)>": null, "status<code=busy|free|busy-unavailable|busy-tentative|entered-in-error>": null, "start<instant>": null, "end<instant>": null, "overbooked<boolean>": null, "comment<string>": null}

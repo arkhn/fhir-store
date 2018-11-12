@@ -1,16 +1,1 @@
-{
-  "resourceType" : "Subscription",
-  "status<code=requested|active|error|off>": null,
-  "contact<list::ContactPoint>": null,
-  "end<instant>": null,
-  "reason<string>": null,
-  "criteria<string>": null,
-  "error<string>": null,
-  "channel" : { 
-    "type<code=rest-hook|websocket|email|sms|message>": null,
-    "endpoint<uri>": null,
-    "payload<string>": null,
-    "header<list::string>": null
-  },
-  "tag<list::Coding>": null
-}
+{"resourceType": "Subscription", "status<code=requested|active|error|off>": null, "contact<list::ContactPoint>": {"resourceType": "ContactPoint", "system<code=phone|fax|email|pager|url|sms|other>": null, "value": null, "use<code=home|work|temp|old|mobile>": null, "rank<positiveInt>": null, "period<Period>": {"start<dateTime>": null, "end<dateTime>": null}}, "end<instant>": null, "reason<string>": null, "criteria<string>": null, "error<string>": null, "channel": {"type<code=rest-hook|websocket|email|sms|message>": null, "endpoint<uri>": null, "payload<string>": null, "header<list::string>": null}, "tag<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}}

@@ -1,11 +1,1 @@
-{
-  "resourceType" : "OperationOutcome",
-  "issue<list>": [{
-    "severity<code=fatal|error|warning|information>": null,
-    "code<code>": null,
-    "details<CodeableConcept>": null,
-    "diagnostics<string>": null,
-    "location<list::string>": null,
-    "expression<list::string>": null
-  }]
-}
+{"resourceType": "OperationOutcome", "issue<list>": [{"severity<code=fatal|error|warning|information>": null, "code<code>": null, "details<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "diagnostics<string>": null, "location<list::string>": null, "expression<list::string>": null}]}

@@ -1,11 +1,1 @@
-{
-  "resourceType" : "Schedule",
-  "identifier<list::Identifier>": null,
-  "active<boolean>": null,
-  "serviceCategory<CodeableConcept>": null,
-  "serviceType<list::CodeableConcept>": null,
-  "specialty<list::CodeableConcept>": null,
-  "actor<list::Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Device|HealthcareService|Location)>": null,
-  "planningHorizon<Period>": null,
-  "comment<string>": null
-}
+{"resourceType": "Schedule", "identifier<list::Identifier>": {"use<code=usual|official|temp|secondary>": null, "type<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "system<uri>": null, "value<string>": null, "period<Period>": {"start<dateTime>": null, "end<dateTime>": null}, "assigner<Reference(Organization)>": null}, "active<boolean>": null, "serviceCategory<CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "serviceType<list::CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "specialty<list::CodeableConcept>": {"coding<list::Coding>": {"system<uri>": null, "version": null, "code<code>": null, "display": null, "userSelected<boolean>": null}, "text": null}, "actor<list::Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Device|HealthcareService|Location)>": null, "planningHorizon<Period>": {"start<dateTime>": null, "end<dateTime>": null}, "comment<string>": null}

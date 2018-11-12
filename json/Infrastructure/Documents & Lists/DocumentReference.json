@@ -1,0 +1,37 @@
+{
+  "resourceType" : "DocumentReference",
+  "masterIdentifier<Identifier>": null,
+  "identifier<list::Identifier>": null,
+  "status<code=current|superseded|entered-in-error>": null,
+  "docStatus<code=preliminary|final|appended|amended|entered-in-error>": null,
+  "type<CodeableConcept>": null,
+  "class<CodeableConcept>": null,
+  "subject<Reference(Patient|Practitioner|Group|Device)>": null,
+  "created<dateTime>": null,
+  "indexed<instant>": null,
+  "author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>": null,
+  "authenticator<Reference(Practitioner|Organization)>": null,
+  "custodian<Reference(Organization)>": null,
+  "relatesTo<list>": [{
+    "code<code=replaces|transforms|signs|appends>": null,
+    "target<Reference(DocumentReference)>": null
+  }],
+  "description<string>": null,
+  "securityLabel<list::CodeableConcept>": null,
+  "content<list>": [{
+    "attachment<Attachment>": null,
+    "format<Coding>": null
+  }],
+  "context" : { 
+    "encounter<Reference(Encounter)>": null,
+    "event<list::CodeableConcept>": null,
+    "period<Period>": null,
+    "facilityType<CodeableConcept>": null,
+    "practiceSetting<CodeableConcept>": null,
+    "sourcePatientInfo<Reference(Patient)>": null,
+    "related<list>": [{
+      "identifier<Identifier>": null,
+      "ref<Reference(Any)>": null
+    }]
+  }
+}

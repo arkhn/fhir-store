@@ -1,0 +1,9 @@
+resourceType: "Flag"
+identifier<list::Identifier>:
+status<code=active|inactive|entered-in-error>:
+category<CodeableConcept>:
+code<CodeableConcept>:
+subject<Reference(Patient|Location|Group|Organization|Practitioner|PlanDefinition|Medication|Procedure)>:
+period<Period>:
+encounter<Reference(Encounter)>:
+author<Reference(Device|Organization|Patient|Practitioner)>:

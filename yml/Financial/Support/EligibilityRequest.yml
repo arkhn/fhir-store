@@ -1,0 +1,17 @@
+resourceType: "EligibilityRequest"
+identifier<list::Identifier>:
+status<code=active|cancelled|draft|entered-in-error>:
+priority<CodeableConcept>:
+patient<Reference(Patient)>:
+servicedDate<date>:
+servicedPeriod<Period>:
+created<dateTime>:
+enterer<Reference(Practitioner)>:
+provider<Reference(Practitioner)>:
+organization<Reference(Organization)>:
+insurer<Reference(Organization)>:
+facility<Reference(Location)>:
+coverage<Reference(Coverage)>:
+businessArrangement<string>:
+benefitCategory<CodeableConcept>:
+benefitSubCategory<CodeableConcept>:

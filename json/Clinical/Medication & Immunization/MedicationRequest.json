@@ -1,0 +1,40 @@
+{
+  "resourceType" : "MedicationRequest",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>": null,
+  "basedOn<list::Reference(CarePlan|MedicationRequest|ProcedureRequest|ReferralRequest)>": null,
+  "groupIdentifier<Identifier>": null,
+  "status<code=active|on-hold|cancelled|completed|entered-in-error|stopped|draft|unknown>": null,
+  "intent<code=proposal|plan|order|instance-order>": null,
+  "category<CodeableConcept>": null,
+  "priority<code=routine|urgent|stat|asap>": null,
+  "medicationCodeableConcept<CodeableConcept>": null,
+  "medicationReference<Reference(Medication)>": null,
+  "subject<Reference(Patient|Group)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "supportingInformation<list::Reference(Any)>": null,
+  "authoredOn<dateTime>": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  },
+  "recorder<Reference(Practitioner)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Condition|Observation)>": null,
+  "note<list::Annotation>": null,
+  "dosageInstruction<list::Dosage>": null,
+  "dispenseRequest" : { 
+    "validityPeriod<Period>": null,
+    "numberOfRepeatsAllowed<positiveInt>": null,
+    "quantity<Quantity(SimpleQuantity)>": null,
+    "expectedSupplyDuration<Duration>": null,
+    "performer<Reference(Organization)>": null
+  },
+  "substitution" : { 
+    "allowed<boolean>": null,
+    "reason<CodeableConcept>": null
+  },
+  "priorPrescription<Reference(MedicationRequest)>": null,
+  "detectedIssue<list::Reference(DetectedIssue)>": null,
+  "eventHistory<list::Reference(Provenance)>": null
+}

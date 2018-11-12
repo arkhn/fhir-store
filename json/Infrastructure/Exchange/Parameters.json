@@ -1,0 +1,31 @@
+{
+  "resourceType" : "Parameters",
+  "parameter<list>": [{
+    "name<string>": null,
+    "valueInteger<integer>": null,
+    "valueDecimal<decimal>": null,
+    "valueDateTime<dateTime>": null,
+    "valueDate<date>": null,
+    "valueInstant<instant>": null,
+    "valueString<string>": null,
+    "valueUri<uri>": null,
+    "valueBoolean<boolean>": null,
+    "valueCode<code>": null,
+    "valueBase64Binary<base64Binary>": null,
+    "valueCoding<Coding>": null,
+    "valueCodeableConcept<CodeableConcept>": null,
+    "valueAttachment<Attachment>": null,
+    "valueIdentifier<Identifier>": null,
+    "valueQuantity<Quantity>": null,
+    "valueRange<Range>": null,
+    "valuePeriod<Period>": null,
+    "valueRatio<Ratio>": null,
+    "valueHumanName<HumanName>": null,
+    "valueAddress<Address>": null,
+    "valueContactPoint<ContactPoint>": null,
+    "valueSchedule<Schedule>": null,
+    "valueReference<Reference>": null,
+    "resource<Resource>": null,
+    "part<list::Content as for Parameters.parameter>": null
+  }]
+}

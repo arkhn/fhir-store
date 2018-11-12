@@ -1,0 +1,21 @@
+{
+  "resourceType" : "List",
+  "identifier<list::Identifier>": null,
+  "status<code=current|retired|entered-in-error>": null,
+  "mode<code=working|snapshot|changes>": null,
+  "title<string>": null,
+  "code<CodeableConcept>": null,
+  "subject<Reference(Patient|Group|Device|Location)>": null,
+  "encounter<Reference(Encounter)>": null,
+  "date<dateTime>": null,
+  "source<Reference(Practitioner|Patient|Device)>": null,
+  "orderedBy<CodeableConcept>": null,
+  "note<list::Annotation>": null,
+  "entry<list>": [{
+    "flag<CodeableConcept>": null,
+    "deleted<boolean>": null,
+    "date<dateTime>": null,
+    "item<Reference(Any)>": null
+  }],
+  "emptyReason<CodeableConcept>": null
+}

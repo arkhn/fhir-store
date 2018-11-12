@@ -1,0 +1,59 @@
+resourceType: "ValueSet"
+url<uri>:
+identifier<list::Identifier>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+immutable<boolean>:
+purpose<markdown>:
+copyright<markdown>:
+extensible<boolean>:
+compose:
+    lockedDate<date>:
+    inactive<boolean>:
+    include<list>:
+      - system<uri>:
+        version<string>:
+        concept<list>:
+          - code<code>:
+            display<string>:
+            designation<list>:
+              - language<code>:
+                use<Coding>:
+                value<string>:
+        filter<list>:
+          - property<code>:
+            op<code>:
+            value<code>:
+        valueSet<list::uri>:
+    exclude<list::Content as for ValueSet.compose.include>:
+expansion:
+    identifier<uri>:
+    timestamp<dateTime>:
+    total<integer>:
+    offset<integer>:
+    parameter<list>:
+      - name<string>:
+        valueString<string>:
+        valueBoolean<boolean>:
+        valueInteger<integer>:
+        valueDecimal<decimal>:
+        valueUri<uri>:
+        valueCode<code>:
+    contains<list>:
+      - system<uri>:
+        abstract<boolean>:
+        inactive<boolean>:
+        version<string>:
+        code<code>:
+        display<string>:
+        designation<list::Content as for ValueSet.compose.include.concept.designation>:
+        contains<list::Content as for ValueSet.expansion.contains>:

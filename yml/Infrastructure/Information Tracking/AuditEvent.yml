@@ -1,0 +1,39 @@
+resourceType: "AuditEvent"
+type<Coding>:
+subtype<list::Coding>:
+action<code>:
+recorded<instant>:
+outcome<code>:
+outcomeDesc<string>:
+purposeOfEvent<list::CodeableConcept>:
+agent<list>:
+  - role<list::CodeableConcept>:
+    reference<Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>:
+    userId<Identifier>:
+    altId<string>:
+    name<string>:
+    requestor<boolean>:
+    location<Reference(Location)>:
+    policy<list::uri>:
+    media<Coding>:
+    network:
+        address<string>:
+        type<code>:
+    purposeOfUse<list::CodeableConcept>:
+source:
+    site<string>:
+    identifier<Identifier>:
+    type<list::Coding>:
+entity<list>:
+  - identifier<Identifier>:
+    reference<Reference(Any)>:
+    type<Coding>:
+    role<Coding>:
+    lifecycle<Coding>:
+    securityLabel<list::Coding>:
+    name<string>:
+    description<string>:
+    query<base64Binary>:
+    detail<list>:
+      - type<string>:
+        value<base64Binary>:

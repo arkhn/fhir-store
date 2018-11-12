@@ -1,0 +1,67 @@
+resourceType: "Questionnaire"
+url<uri>:
+identifier<list::Identifier>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+description<markdown>:
+purpose<markdown>:
+approvalDate<date>:
+lastReviewDate<date>:
+effectivePeriod<Period>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+contact<list::ContactDetail>:
+copyright<markdown>:
+code<list::Coding>:
+subjectType<list::code>:
+item<list>:
+  - linkId<string>:
+    definition<uri>:
+    code<list::Coding>:
+    prefix<string>:
+    text<string>:
+    type<code=group|display|boolean|decimal|integer|date|dateTime>:
+    enableWhen<list>:
+      - question<string>:
+        hasAnswer<boolean>:
+        answerBoolean<boolean>:
+        answerDecimal<decimal>:
+        answerInteger<integer>:
+        answerDate<date>:
+        answerDateTime<dateTime>:
+        answerTime<time>:
+        answerString<string>:
+        answerUri<uri>:
+        answerAttachment<Attachment>:
+        answerCoding<Coding>:
+        answerQuantity<Quantity>:
+        answerReference<Reference(Any)>:
+    required<boolean>:
+    repeats<boolean>:
+    readOnly<boolean>:
+    maxLength<integer>:
+    options<Reference(ValueSet)>:
+    option<list>:
+      - valueInteger<integer>:
+        valueDate<date>:
+        valueTime<time>:
+        valueString<string>:
+        valueCoding<Coding>:
+    initialBoolean<boolean>:
+    initialDecimal<decimal>:
+    initialInteger<integer>:
+    initialDate<date>:
+    initialDateTime<dateTime>:
+    initialTime<time>:
+    initialString<string>:
+    initialUri<uri>:
+    initialAttachment<Attachment>:
+    initialCoding<Coding>:
+    initialQuantity<Quantity>:
+    initialReference<Reference(Any)>:
+    item<list::Content as for Questionnaire.item>:

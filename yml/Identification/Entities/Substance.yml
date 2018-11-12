@@ -1,0 +1,14 @@
+resourceType: "Substance"
+identifier<list::Identifier>:
+status<code=active|inactive|entered-in-error>:
+category<list::CodeableConcept>:
+code<CodeableConcept>:
+description<string>:
+instance<list>:
+  - identifier<Identifier>:
+    expiry<dateTime>:
+    quantity<Quantity(SimpleQuantity)>:
+ingredient<list>:
+  - quantity<Ratio>:
+    substanceCodeableConcept<CodeableConcept>:
+    substanceReference<Reference(Substance)>:

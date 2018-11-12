@@ -1,0 +1,23 @@
+{
+  "resourceType" : "NamingSystem",
+  "name<string>": null,
+  "status<code=draft|active|retired|unknown>": null,
+  "kind<code=codesystem|identifier|root>": null,
+  "date<dateTime>": null,
+  "publisher<string>": null,
+  "contact<list::ContactDetail>": null,
+  "responsible<string>": null,
+  "type<CodeableConcept>": null,
+  "description<markdown>": null,
+  "useContext<list::UsageContext>": null,
+  "jurisdiction<list::CodeableConcept>": null,
+  "usage<string>": null,
+  "uniqueId<list>": [{
+    "type<code=oid|uuid|uri|other>": null,
+    "value<string>": null,
+    "preferred<boolean>": null,
+    "comment<string>": null,
+    "period<Period>": null
+  }],
+  "replacedBy<Reference(NamingSystem)>": null
+}

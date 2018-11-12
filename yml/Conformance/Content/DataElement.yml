@@ -1,0 +1,21 @@
+resourceType: "DataElement"
+url<uri>:
+identifier<list::Identifier>:
+version<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+name<string>:
+title<string>:
+contact<list::ContactDetail>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+copyright<markdown>:
+stringency<code=comparable|fully-specified|equivalent|convertable|scaleable|flexible>:
+mapping<list>:
+  - identity<id>:
+    uri<uri>:
+    name<string>:
+    comment<string>:
+element<list::ElementDefinition>:

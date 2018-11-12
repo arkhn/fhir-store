@@ -1,0 +1,37 @@
+resourceType: "Immunization"
+identifier<list::Identifier>:
+status<code=completed|entered-in-error>:
+notGiven<boolean>:
+vaccineCode<CodeableConcept>:
+patient<Reference(Patient)>:
+encounter<Reference(Encounter)>:
+date<dateTime>:
+primarySource<boolean>:
+reportOrigin<CodeableConcept>:
+location<Reference(Location)>:
+manufacturer<Reference(Organization)>:
+lotNumber<string>:
+expirationDate<date>:
+site<CodeableConcept>:
+route<CodeableConcept>:
+doseQuantity<Quantity(SimpleQuantity)>:
+practitioner<list>:
+  - role<CodeableConcept>:
+    actor<Reference(Practitioner)>:
+note<list::Annotation>:
+explanation:
+    reason<list::CodeableConcept>:
+    reasonNotGiven<list::CodeableConcept>:
+reaction<list>:
+  - date<dateTime>:
+    detail<Reference(Observation)>:
+    reported<boolean>:
+vaccinationProtocol<list>:
+  - doseSequence<positiveInt>:
+    description<string>:
+    authority<Reference(Organization)>:
+    series<string>:
+    seriesDoses<positiveInt>:
+    targetDisease<list::CodeableConcept>:
+    doseStatus<CodeableConcept>:
+    doseStatusReason<CodeableConcept>:

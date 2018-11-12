@@ -1,0 +1,8 @@
+resourceType: "BodySite"
+identifier<list::Identifier>:
+active<boolean>:
+code<CodeableConcept>:
+qualifier<list::CodeableConcept>:
+description<string>:
+image<list::Attachment>:
+patient<Reference(Patient)>:

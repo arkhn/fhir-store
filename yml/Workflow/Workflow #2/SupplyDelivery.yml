@@ -1,0 +1,17 @@
+resourceType: "SupplyDelivery"
+identifier<Identifier>:
+basedOn<list::Reference(SupplyRequest)>:
+partOf<list::Reference(SupplyDelivery|Contract)>:
+status<code=in-progress|completed|abandoned|entered-in-error>:
+patient<Reference(Patient)>:
+type<CodeableConcept>:
+suppliedItem:
+    quantity<Quantity(SimpleQuantity)>:
+    itemCodeableConcept<CodeableConcept>:
+    itemReference<Reference(Medication|Substance|Device)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+occurrenceTiming<Timing>:
+supplier<Reference(Practitioner|Organization)>:
+destination<Reference(Location)>:
+receiver<list::Reference(Practitioner)>:

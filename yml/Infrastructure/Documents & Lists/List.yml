@@ -1,0 +1,18 @@
+resourceType: "List"
+identifier<list::Identifier>:
+status<code=current|retired|entered-in-error>:
+mode<code=working|snapshot|changes>:
+title<string>:
+code<CodeableConcept>:
+subject<Reference(Patient|Group|Device|Location)>:
+encounter<Reference(Encounter)>:
+date<dateTime>:
+source<Reference(Practitioner|Patient|Device)>:
+orderedBy<CodeableConcept>:
+note<list::Annotation>:
+entry<list>:
+  - flag<CodeableConcept>:
+    deleted<boolean>:
+    date<dateTime>:
+    item<Reference(Any)>:
+emptyReason<CodeableConcept>:

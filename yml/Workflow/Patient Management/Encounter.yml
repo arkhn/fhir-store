@@ -1,0 +1,44 @@
+resourceType: "Encounter"
+identifier<list::Identifier>:
+status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>:
+statusHistory<list>:
+  - status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>:
+    period<Period>:
+class<Coding>:
+classHistory<list>:
+  - class<Coding>:
+    period<Period>:
+type<list::CodeableConcept>:
+priority<CodeableConcept>:
+subject<Reference(Patient|Group)>:
+episodeOfCare<list::Reference(EpisodeOfCare)>:
+incomingReferral<list::Reference(ReferralRequest)>:
+participant<list>:
+  - type<list::CodeableConcept>:
+    period<Period>:
+    individual<Reference(Practitioner|RelatedPerson)>:
+appointment<Reference(Appointment)>:
+period<Period>:
+length<Duration>:
+reason<list::CodeableConcept>:
+diagnosis<list>:
+  - condition<Reference(Condition|Procedure)>:
+    role<CodeableConcept>:
+    rank<positiveInt>:
+account<list::Reference(Account)>:
+hospitalization:
+    preAdmissionIdentifier<Identifier>:
+    origin<Reference(Location)>:
+    admitSource<CodeableConcept>:
+    reAdmission<CodeableConcept>:
+    dietPreference<list::CodeableConcept>:
+    specialCourtesy<list::CodeableConcept>:
+    specialArrangement<list::CodeableConcept>:
+    destination<Reference(Location)>:
+    dischargeDisposition<CodeableConcept>:
+location<list>:
+  - location<Reference(Location)>:
+    status<code=planned|active|reserved|completed>:
+    period<Period>:
+serviceProvider<Reference(Organization)>:
+partOf<Reference(Encounter)>:

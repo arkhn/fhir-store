@@ -1,0 +1,35 @@
+{
+  "resourceType" : "Bundle",
+  "identifier<Identifier>": null,
+  "type<code=document|message|transaction|transaction-response|batch|batch-response|history|searchset|collection>": null,
+  "total<unsignedInt>": null,
+  "link<list>": [{
+    "relation<string>": null,
+    "url<uri>": null
+  }],
+  "entry<list>": [{
+    "link<list::Content as for Bundle.link>": null,
+    "fullUrl<uri>": null,
+    "resource<Resource>": null,
+    "search" : { 
+      "mode<code=match|include|outcome>": null,
+      "score<decimal>": null
+    },
+    "request" : { 
+      "method<code=GET|POST|PUT|DELETE>": null,
+      "url<uri>": null,
+      "ifNoneMatch<string>": null,
+      "ifModifiedSince<instant>": null,
+      "ifMatch<string>": null,
+      "ifNoneExist<string>": null
+    },
+    "response" : { 
+      "status<string>": null,
+      "location<uri>": null,
+      "etag<string>": null,
+      "lastModified<instant>": null,
+      "outcome<Resource>": null
+    }
+  }],
+  "signature<Signature>": null
+}

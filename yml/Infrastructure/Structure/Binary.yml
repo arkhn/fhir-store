@@ -1,0 +1,4 @@
+resourceType: "Binary"
+contentType<code>:
+securityContext<Reference(Any)>:
+content<base64Binary>:

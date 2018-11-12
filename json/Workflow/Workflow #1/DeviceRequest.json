@@ -1,0 +1,30 @@
+{
+  "resourceType" : "DeviceRequest",
+  "identifier<list::Identifier>": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>": null,
+  "basedOn<list::Reference(Any)>": null,
+  "priorRequest<list::Reference(Any)>": null,
+  "groupIdentifier<Identifier>": null,
+  "status<code=draft|active|suspended|completed|entered-in-error|cancelled>": null,
+  "intent<CodeableConcept>": null,
+  "priority<code>": null,
+  "codeReference<Reference(Device)>": null,
+  "codeCodeableConcept<CodeableConcept>": null,
+  "subject<Reference(Patient|Group|Location|Device)>": null,
+  "context<Reference(Encounter|EpisodeOfCare)>": null,
+  "occurrenceDateTime<dateTime>": null,
+  "occurrencePeriod<Period>": null,
+  "occurrenceTiming<Timing>": null,
+  "authoredOn<dateTime>": null,
+  "requester" : { 
+    "agent<Reference(Device|Practitioner|Organization)>": null,
+    "onBehalfOf<Reference(Organization)>": null
+  },
+  "performerType<CodeableConcept>": null,
+  "performer<Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)>": null,
+  "reasonCode<list::CodeableConcept>": null,
+  "reasonReference<list::Reference(Any)>": null,
+  "supportingInfo<list::Reference(Any)>": null,
+  "note<list::Annotation>": null,
+  "relevantHistory<list::Reference(Provenance)>": null
+}

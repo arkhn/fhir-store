@@ -1,0 +1,31 @@
+resourceType: "DocumentReference"
+masterIdentifier<Identifier>:
+identifier<list::Identifier>:
+status<code=current|superseded|entered-in-error>:
+docStatus<code=preliminary|final|appended|amended|entered-in-error>:
+type<CodeableConcept>:
+class<CodeableConcept>:
+subject<Reference(Patient|Practitioner|Group|Device)>:
+created<dateTime>:
+indexed<instant>:
+author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>:
+authenticator<Reference(Practitioner|Organization)>:
+custodian<Reference(Organization)>:
+relatesTo<list>:
+  - code<code=replaces|transforms|signs|appends>:
+    target<Reference(DocumentReference)>:
+description<string>:
+securityLabel<list::CodeableConcept>:
+content<list>:
+  - attachment<Attachment>:
+    format<Coding>:
+context:
+    encounter<Reference(Encounter)>:
+    event<list::CodeableConcept>:
+    period<Period>:
+    facilityType<CodeableConcept>:
+    practiceSetting<CodeableConcept>:
+    sourcePatientInfo<Reference(Patient)>:
+    related<list>:
+      - identifier<Identifier>:
+        ref<Reference(Any)>:

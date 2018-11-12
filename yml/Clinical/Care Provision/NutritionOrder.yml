@@ -1,0 +1,41 @@
+resourceType: "NutritionOrder"
+identifier<list::Identifier>:
+status<code=proposed|draft|planned|requested|active|on-hold|completed|cancelled|entered-in-error>:
+patient<Reference(Patient)>:
+encounter<Reference(Encounter)>:
+dateTime<dateTime>:
+orderer<Reference(Practitioner)>:
+allergyIntolerance<list::Reference(AllergyIntolerance)>:
+foodPreferenceModifier<list::CodeableConcept>:
+excludeFoodModifier<list::CodeableConcept>:
+oralDiet:
+    type<list::CodeableConcept>:
+    schedule<list::Timing>:
+    nutrient<list>:
+      - modifier<CodeableConcept>:
+        amount<Quantity(SimpleQuantity)>:
+    texture<list>:
+      - modifier<CodeableConcept>:
+        foodType<CodeableConcept>:
+    fluidConsistencyType<list::CodeableConcept>:
+    instruction<string>:
+supplement<list>:
+  - type<CodeableConcept>:
+    productName<string>:
+    schedule<list::Timing>:
+    quantity<Quantity(SimpleQuantity)>:
+    instruction<string>:
+enteralFormula:
+    baseFormulaType<CodeableConcept>:
+    baseFormulaProductName<string>:
+    additiveType<CodeableConcept>:
+    additiveProductName<string>:
+    caloricDensity<Quantity(SimpleQuantity)>:
+    routeofAdministration<CodeableConcept>:
+    administration<list>:
+      - schedule<Timing>:
+        quantity<Quantity(SimpleQuantity)>:
+        rateQuantity<Quantity(SimpleQuantity)>:
+        rateRatio<Ratio>:
+    maxVolumeToDeliver<Quantity(SimpleQuantity)>:
+    administrationInstruction<string>:

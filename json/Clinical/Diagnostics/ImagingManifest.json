@@ -1,0 +1,21 @@
+{
+  "resourceType" : "ImagingManifest",
+  "identifier<Identifier>": null,
+  "patient<Reference(Patient)>": null,
+  "authoringTime<dateTime>": null,
+  "author<Reference(Practitioner|Device|Organization|Patient|RelatedPerson)>": null,
+  "description<string>": null,
+  "study<list>": [{
+    "uid<oid>": null,
+    "imagingStudy<Reference(ImagingStudy)>": null,
+    "endpoint<list::Reference(Endpoint)>": null,
+    "series<list>": [{
+      "uid<oid>": null,
+      "endpoint<list::Reference(Endpoint)>": null,
+      "instance<list>": [{
+        "sopClass<oid>": null,
+        "uid<oid>": null
+      }]
+    }]
+  }]
+}

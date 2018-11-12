@@ -1,0 +1,36 @@
+resourceType: "ImagingStudy"
+uid<oid>:
+accession<Identifier>:
+identifier<list::Identifier>:
+availability<code=ONLINE|OFFLINE|NEARLINE|UNAVAILABLE>:
+modalityList<list::Coding>:
+patient<Reference(Patient)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+started<dateTime>:
+basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>:
+referrer<Reference(Practitioner)>:
+interpreter<list::Reference(Practitioner)>:
+endpoint<list::Reference(Endpoint)>:
+numberOfSeries<unsignedInt>:
+numberOfInstances<unsignedInt>:
+procedureReference<list::Reference(Procedure)>:
+procedureCode<list::CodeableConcept>:
+reason<CodeableConcept>:
+description<string>:
+series<list>:
+  - uid<oid>:
+    number<unsignedInt>:
+    modality<Coding>:
+    description<string>:
+    numberOfInstances<unsignedInt>:
+    availability<code=ONLINE|OFFLINE|NEARLINE|UNAVAILABLE>:
+    endpoint<list::Reference(Endpoint)>:
+    bodySite<Coding>:
+    laterality<Coding>:
+    started<dateTime>:
+    performer<list::Reference(Practitioner)>:
+    instance<list>:
+      - uid<oid>:
+        number<unsignedInt>:
+        sopClass<oid>:
+        title<string>:

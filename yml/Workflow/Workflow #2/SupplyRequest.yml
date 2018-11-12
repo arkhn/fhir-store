@@ -1,0 +1,21 @@
+resourceType: "SupplyRequest"
+identifier<Identifier>:
+status<code=draft|active|suspended>:
+category<CodeableConcept>:
+priority<code=routine|urgent|asap|stat>:
+orderedItem:
+    quantity<Quantity>:
+    itemCodeableConcept<CodeableConcept>:
+    itemReference<Reference(Medication|Substance|Device)>:
+occurrenceDateTime<dateTime>:
+occurrencePeriod<Period>:
+occurrenceTiming<Timing>:
+authoredOn<dateTime>:
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>:
+    onBehalfOf<Reference(Organization)>:
+supplier<list::Reference(Organization)>:
+reasonCodeableConcept<CodeableConcept>:
+reasonReference<Reference(Any)>:
+deliverFrom<Reference(Organization|Location)>:
+deliverTo<Reference(Organization|Location|Patient)>:

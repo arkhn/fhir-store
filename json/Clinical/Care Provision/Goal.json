@@ -1,0 +1,26 @@
+{
+  "resourceType" : "Goal",
+  "identifier<list::Identifier>": null,
+  "status<code=proposed|accepted|planned|in-progress|on-target|ahead-of-target|behind-target|sustaining|achieved|on-hold|cancelled|entered-in-error|rejected>": null,
+  "category<list::CodeableConcept>": null,
+  "priority<CodeableConcept>": null,
+  "description<CodeableConcept>": null,
+  "subject<Reference(Patient|Group|Organization)>": null,
+  "startDate<date>": null,
+  "startCodeableConcept<CodeableConcept>": null,
+  "target" : { 
+    "measure<CodeableConcept>": null,
+    "detailQuantity<Quantity>": null,
+    "detailRange<Range>": null,
+    "detailCodeableConcept<CodeableConcept>": null,
+    "dueDate<date>": null,
+    "dueDuration<Duration>": null
+  },
+  "statusDate<date>": null,
+  "statusReason<string>": null,
+  "expressedBy<Reference(Patient|Practitioner|RelatedPerson)>": null,
+  "addresses<list::Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)>": null,
+  "note<list::Annotation>": null,
+  "outcomeCode<list::CodeableConcept>": null,
+  "outcomeReference<list::Reference(Observation)>": null
+}

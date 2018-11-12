@@ -1,0 +1,20 @@
+resourceType: "NamingSystem"
+name<string>:
+status<code=draft|active|retired|unknown>:
+kind<code=codesystem|identifier|root>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+responsible<string>:
+type<CodeableConcept>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+usage<string>:
+uniqueId<list>:
+  - type<code=oid|uuid|uri|other>:
+    value<string>:
+    preferred<boolean>:
+    comment<string>:
+    period<Period>:
+replacedBy<Reference(NamingSystem)>:

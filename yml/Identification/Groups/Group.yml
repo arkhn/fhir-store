@@ -1,0 +1,20 @@
+resourceType: "Group"
+identifier<list::Identifier>:
+active<boolean>:
+type<code=person|animal|practitioner|device|medication|substance>:
+actual<boolean>:
+code<CodeableConcept>:
+name<string>:
+quantity<unsignedInt>:
+characteristic<list>:
+  - code<CodeableConcept>:
+    valueCodeableConcept<CodeableConcept>:
+    valueBoolean<boolean>:
+    valueQuantity<Quantity>:
+    valueRange<Range>:
+    exclude<boolean>:
+    period<Period>:
+member<list>:
+  - entity<Reference(Patient|Practitioner|Device|Medication|Substance)>:
+    period<Period>:
+    inactive<boolean>:

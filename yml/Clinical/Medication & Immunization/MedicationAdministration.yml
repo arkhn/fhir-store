@@ -1,0 +1,32 @@
+resourceType: "MedicationAdministration"
+identifier<list::Identifier>:
+definition<list::Reference(PlanDefinition|ActivityDefinition)>:
+partOf<list::Reference(MedicationAdministration|Procedure)>:
+status<code=in-progress|on-hold|completed|entered-in-error|stopped|unknown>:
+category<CodeableConcept>:
+medicationCodeableConcept<CodeableConcept>:
+medicationReference<Reference(Medication)>:
+subject<Reference(Patient|Group)>:
+context<Reference(Encounter|EpisodeOfCare)>:
+supportingInformation<list::Reference(Any)>:
+effectiveDateTime<dateTime>:
+effectivePeriod<Period>:
+performer<list>:
+  - actor<Reference(Practitioner|Patient|RelatedPerson|Device)>:
+    onBehalfOf<Reference(Organization)>:
+notGiven<boolean>:
+reasonNotGiven<list::CodeableConcept>:
+reasonCode<list::CodeableConcept>:
+reasonReference<list::Reference(Condition|Observation)>:
+prescription<Reference(MedicationRequest)>:
+device<list::Reference(Device)>:
+note<list::Annotation>:
+dosage:
+    text<string>:
+    site<CodeableConcept>:
+    route<CodeableConcept>:
+    method<CodeableConcept>:
+    dose<Quantity(SimpleQuantity)>:
+    rateRatio<Ratio>:
+    rateQuantity<Quantity(SimpleQuantity)>:
+eventHistory<list::Reference(Provenance)>:

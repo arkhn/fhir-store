@@ -1,0 +1,125 @@
+resourceType: "TestScript"
+url<uri>:
+identifier<Identifier>:
+version<string>:
+name<string>:
+title<string>:
+status<code=draft|active|retired|unknown>:
+experimental<boolean>:
+date<dateTime>:
+publisher<string>:
+contact<list::ContactDetail>:
+description<markdown>:
+useContext<list::UsageContext>:
+jurisdiction<list::CodeableConcept>:
+purpose<markdown>:
+copyright<markdown>:
+origin<list>:
+  - index<integer>:
+    profile<Coding>:
+destination<list>:
+  - index<integer>:
+    profile<Coding>:
+metadata:
+    link<list>:
+      - url<uri>:
+        description<string>:
+    capability<list>:
+      - required<boolean>:
+        validated<boolean>:
+        description<string>:
+        origin<list::integer>:
+        destination<integer>:
+        link<list::uri>:
+        capabilities<Reference(CapabilityStatement)>:
+fixture<list>:
+  - autocreate<boolean>:
+    autodelete<boolean>:
+    resource<Reference(Any)>:
+profile<list::Reference(Any)>:
+variable<list>:
+  - name<string>:
+    defaultValue<string>:
+    description<string>:
+    expression<string>:
+    headerField<string>:
+    hint<string>:
+    path<string>:
+    sourceId<id>:
+rule<list>:
+  - resource<Reference(Any)>:
+    param<list>:
+      - name<string>:
+        value<string>:
+ruleset<list>:
+  - resource<Reference(Any)>:
+    rule<list>:
+      - ruleId<id>:
+        param<list>:
+          - name<string>:
+            value<string>:
+setup:
+    action<list>:
+      - operation:
+            type<Coding>:
+            resource<code>:
+            label<string>:
+            description<string>:
+            accept<code=xml|json|ttl|none>:
+            contentType<code=xml|json|ttl|none>:
+            destination<integer>:
+            encodeRequestUrl<boolean>:
+            origin<integer>:
+            params<string>:
+            requestHeader<list>:
+              - field<string>:
+                value<string>:
+            requestId<id>:
+            responseId<id>:
+            sourceId<id>:
+            targetId<id>:
+            url<string>:
+        assert:
+            label<string>:
+            description<string>:
+            direction<code=response|request>:
+            compareToSourceId<string>:
+            compareToSourceExpression<string>:
+            compareToSourcePath<string>:
+            contentType<code=xml|json|ttl|none>:
+            expression<string>:
+            headerField<string>:
+            minimumId<string>:
+            navigationLinks<boolean>:
+            operator<code=equals|notEquals|in|notIn|greaterThan|lessThan|empty|notEmpty|contains|notContains|eval>:
+            path<string>:
+            requestMethod<code=delete|get|options|patch|post|put>:
+            requestURL<string>:
+            resource<code>:
+            response<code=okay|created|noContent|notModified|bad|forbidden|notFound|methodNotAllowed|conflict|gone|preconditionFailed|unprocessable>:
+            responseCode<string>:
+            rule:
+                ruleId<id>:
+                param<list>:
+                  - name<string>:
+                    value<string>:
+            ruleset:
+                rulesetId<id>:
+                rule<list>:
+                  - ruleId<id>:
+                    param<list>:
+                      - name<string>:
+                        value<string>:
+            sourceId<id>:
+            validateProfileId<id>:
+            value<string>:
+            warningOnly<boolean>:
+test<list>:
+  - name<string>:
+    description<string>:
+    action<list>:
+      - operation<Content as for TestScript.setup.action.operation>:
+        assert<Content as for TestScript.setup.action.assert>:
+teardown:
+    action<list>:
+      - operation<Content as for TestScript.setup.action.operation>:

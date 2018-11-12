@@ -1,0 +1,25 @@
+resourceType: "Device"
+identifier<list::Identifier>:
+udi:
+    deviceIdentifier<string>:
+    name<string>:
+    jurisdiction<uri>:
+    carrierHRF<string>:
+    carrierAIDC<base64Binary>:
+    issuer<uri>:
+    entryType<code=barcode|rfid|manual>:
+status<code=active|inactive|entered-in-error|unknown>:
+type<CodeableConcept>:
+lotNumber<string>:
+manufacturer<string>:
+manufactureDate<dateTime>:
+expirationDate<dateTime>:
+model<string>:
+version<string>:
+patient<Reference(Patient)>:
+owner<Reference(Organization)>:
+contact<list::ContactPoint>:
+location<Reference(Location)>:
+url<uri>:
+note<list::Annotation>:
+safety<list::CodeableConcept>:

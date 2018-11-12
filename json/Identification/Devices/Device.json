@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Device",
+  "identifier<list::Identifier>": null,
+  "udi" : { 
+    "deviceIdentifier<string>": null,
+    "name<string>": null,
+    "jurisdiction<uri>": null,
+    "carrierHRF<string>": null,
+    "carrierAIDC<base64Binary>": null,
+    "issuer<uri>": null,
+    "entryType<code=barcode|rfid|manual>": null
+  },
+  "status<code=active|inactive|entered-in-error|unknown>": null,
+  "type<CodeableConcept>": null,
+  "lotNumber<string>": null,
+  "manufacturer<string>": null,
+  "manufactureDate<dateTime>": null,
+  "expirationDate<dateTime>": null,
+  "model<string>": null,
+  "version<string>": null,
+  "patient<Reference(Patient)>": null,
+  "owner<Reference(Organization)>": null,
+  "contact<list::ContactPoint>": null,
+  "location<Reference(Location)>": null,
+  "url<uri>": null,
+  "note<list::Annotation>": null,
+  "safety<list::CodeableConcept>": null
+}

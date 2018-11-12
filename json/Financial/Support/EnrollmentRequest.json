@@ -1,0 +1,11 @@
+{
+  "resourceType" : "EnrollmentRequest",
+  "identifier<list::Identifier>": null,
+  "status<code=active|cancelled|draft|entered-in-error>": null,
+  "created<dateTime>": null,
+  "insurer<Reference(Organization)>": null,
+  "provider<Reference(Practitioner)>": null,
+  "organization<Reference(Organization)>": null,
+  "subject<Reference(Patient)>": null,
+  "coverage<Reference(Coverage)>": null
+}

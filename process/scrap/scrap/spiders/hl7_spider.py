@@ -13,7 +13,7 @@ def get_parent_dir(path):
 FILE_PATH = os.path.dirname(__file__)
 PROJECT_PATH = get_parent_dir(
     get_parent_dir(get_parent_dir(get_parent_dir(FILE_PATH))))
-SAVING_DIRECTORY = "json"
+SAVING_DIRECTORY = "scrap_files"
 
 
 class Hl7Spider(scrapy.Spider):
@@ -22,13 +22,12 @@ class Hl7Spider(scrapy.Spider):
     saving_path = os.path.join(PROJECT_PATH, SAVING_DIRECTORY)
 
     custom_settings = {
-        'DOWNLOAD_DELAY':
-        2,
-        'USER_AGENT':
-        'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+        'DOWNLOAD_DELAY': 1
     }
 
     def start_requests(self):
+        if not os.path.exists(self.saving_path):
+            os.mkdir(self.saving_path)
         urls = [
             urllib.parse.urljoin(self.root_url, 'resourcelist.html'),
         ]
@@ -90,7 +89,7 @@ class Hl7Spider(scrapy.Spider):
         if json_html:
             json_html = json_html.strip()
             json_text = BeautifulSoup(json_html, 'lxml').text
-            self.log(json_text)
+            # self.log(json_text)
 
             filename = '{}.json'.format(title)
             filepath = os.path.join(self.saving_path, parent_category,

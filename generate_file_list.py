@@ -39,11 +39,15 @@ for extension in EXTENSIONS:
 
         usefulPath = path.split('/')[3:]
 
-        resultDict[filename] = None
+        if extension == 'json':
+            with open(filepath) as datatype_file:
+                resultDict[filename] = json.load(datatype_file)
+        else:
+            resultDict[filename] = None
 
         list.append(filename)
 
-    with open(os.path.join(RESOURCES, extension, 'datatypes_list.json'), 'w+') as f:
+    with open(os.path.join(RESOURCES, extension, 'datatypes.json'), 'w+') as f:
         f.write(json.dumps(resultDict))
 
     lists.append(list)

@@ -5,6 +5,6 @@
   "url<uri>": null,
   "size<unsignedInt>": null,
   "hash<base64Binary>": null,
-  "title": null,
+  "title<string>": null,
   "creation<dateTime>": null
 }

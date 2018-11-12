@@ -1,4 +1,4 @@
 {
-  "low<Quantity>": null,
-  "high<Quantity>": null
+  "low<Quantity(SimpleQuantity)>": null,
+  "high<Quantity(SimpleQuantity)>": null
 }

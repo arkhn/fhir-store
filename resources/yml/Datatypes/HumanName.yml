@@ -1,8 +1,8 @@
 resourceType: "HumanName"
 use<code=usual|official|temp|nickname|anonymous|old|maiden>:
-text:
-family:
-given<list>:
-prefix<list>:
-suffix<list>:
+text<string>:
+family<string>:
+given<list::string>:
+prefix<list::string>:
+suffix<list::string>:
 period<Period>:

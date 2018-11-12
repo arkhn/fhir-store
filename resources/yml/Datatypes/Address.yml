@@ -1,0 +1,11 @@
+resourceType: "Address"
+use<code=home|work|temp|old>:
+type<code=postal|physical|both>:
+text<string>:
+line<list::string>:
+city<string>:
+district<string>:
+state<string>:
+postalCode<string>:
+country<string>:
+period<Period>:

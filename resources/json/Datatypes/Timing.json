@@ -1,7 +1,7 @@
 {
-  "resourceType": "Timing",
+  "resourceType" : "Timing",
   "event<list::dateTime>": null,
-  "repeat": {
+  "repeat" : { 
     "boundsDuration<Duration>": null,
     "boundsRange<Range>": null,
     "boundsPeriod<Period>": null,

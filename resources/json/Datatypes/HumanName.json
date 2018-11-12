@@ -1,10 +1,10 @@
 {
-  "resourceType": "HumanName",
+  "resourceType" : "HumanName",
   "use<code=usual|official|temp|nickname|anonymous|old|maiden>": null,
-  "text": null,
-  "family": null,
-  "given<list>": null,
-  "prefix<list>": null,
-  "suffix<list>": null,
+  "text<string>": null,
+  "family<string>": null,
+  "given<list::string>": null,
+  "prefix<list::string>": null,
+  "suffix<list::string>": null,
   "period<Period>": null
 }

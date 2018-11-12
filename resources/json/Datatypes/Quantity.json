@@ -1,7 +1,7 @@
 {
   "value<decimal>": null,
   "comparator<code>": null,
-  "unit": null,
+  "unit<string>": null,
   "system<uri>": null,
   "code<code>": null
 }

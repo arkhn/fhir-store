@@ -34,6 +34,30 @@ class Hl7Spider(scrapy.Spider):
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
+        urls = [
+            urllib.parse.urljoin(self.root_url, 'datatypes.html'),
+        ]
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse_datatypes)
+
+    def parse_datatypes(self, response):
+        title_elements = response.css("h2.self-link-parent::text").extract()
+        titles = []
+        for title_element in title_elements:
+            title = BeautifulSoup(title_element.strip(), 'lxml').text
+            titles.append(title)
+            self.log(title)
+
+        titles = titles[2:]
+
+        parent_category = 'Datatypes'
+        category = '.'
+
+        json_htmls = response.css("#json").css("#json-inner").css("pre").extract()
+        for i, json_html in enumerate(json_htmls):
+            title = titles[i]
+            self.dump_json_to_file(response, json_html, parent_category, category, title)
+
     def parse(self, response):
         R2_table_rows = response.css("#tabs-3").css("tr")
         for tr in R2_table_rows:
@@ -86,6 +110,9 @@ class Hl7Spider(scrapy.Spider):
 
         json_html = response.css("#json").css("#json-inner").css(
             "pre").extract_first()
+        self.dump_json_to_file(response, json_html, parent_category, category, title)
+
+    def dump_json_to_file(self, response, json_html, parent_category, category, title):
         if json_html:
             json_html = json_html.strip()
             json_text = BeautifulSoup(json_html, 'lxml').text

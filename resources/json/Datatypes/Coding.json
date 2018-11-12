@@ -1,7 +1,7 @@
 {
   "system<uri>": null,
-  "version": null,
+  "version<string>": null,
   "code<code>": null,
-  "display": null,
+  "display<string>": null,
   "userSelected<boolean>": null
 }

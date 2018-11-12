@@ -1,6 +1,6 @@
 {
   "authorReference<Reference(Practitioner|Patient|RelatedPerson)>": null,
-  "authorString": null,
+  "authorString<string>": null,
   "time<dateTime>": null,
-  "text": null
+  "text<string>": null
 }

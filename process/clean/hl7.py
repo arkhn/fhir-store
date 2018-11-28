@@ -110,7 +110,7 @@ class Clean:
             indents = []
             for i, line in enumerate(lines):
                 match = re.match('''^(\s*).*''', line)
-                indent = len(match[1])
+                indent = len(match.group(1))
                 last_indent = indents[-1] if len(indents) > 0 else 0
                 if last_indent <= indent:
                     if not ',' in line:

@@ -8,12 +8,12 @@ from process import Clean, Hl7Spider
 from process import hl7_spider, json_to_yml
 
 # 1. Scrap the JSON text from hl7 reference
-process = CrawlerProcess({
-    "USER_AGENT":
-    "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-})
-process.crawl(Hl7Spider)
-process.start()
+# process = CrawlerProcess({
+#     "USER_AGENT":
+#     "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+# })
+# process.crawl(Hl7Spider)
+# process.start()
 
 # 2. Clean files to have proper json and also convert to yml
 FILE_PATH = os.path.dirname(__file__)
@@ -23,14 +23,18 @@ ROOT_FOLDER_SRC_PATH = os.path.join(FILE_PATH, os.pardir, ROOT_FOLDER_SRC_NAME)
 ROOT_FOLDER_DEST_PATH = os.path.join(FILE_PATH, os.pardir,
                                      ROOT_FOLDER_DEST_NAME)
 cleaner = Clean()
+
+maxDepth = 0
 for root, dirs, files in os.walk(ROOT_FOLDER_SRC_PATH):
+
     for fname in files:
         print('Cleaning', root, fname)
         # Clean JSON file
         file_path = os.path.join(root, fname)
         json_file_path = file_path.replace(ROOT_FOLDER_SRC_NAME, 'json')
         yml_file_path = json_file_path.replace("json", "yml")
-        cleaner.clean_json(file_path, json_file_path)
+        depth = cleaner.clean_json(file_path, json_file_path)
+        maxDepth = max(maxDepth, depth)
 
         # Convert to YAML
         with open(json_file_path) as input_file:
@@ -40,3 +44,5 @@ for root, dirs, files in os.walk(ROOT_FOLDER_SRC_PATH):
                 os.makedirs(os.path.dirname(yml_file_path))
             with open(yml_file_path, 'w') as output_file:
                 output_file.write(new_yml_file)
+
+print(maxDepth)

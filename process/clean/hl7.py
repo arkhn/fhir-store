@@ -1,5 +1,8 @@
 import re
 import os
+import json
+
+GRAPHQL_COMMANDS_FOLDER = './graphql'
 
 class Clean:
     @staticmethod
@@ -16,27 +19,35 @@ class Clean:
                 # remove empty lines, and remove \n
                 if l[0] not in '         ':
                     new_lines.append(l[0].replace("\n", ""))
-                    comments.append(l[1] if len(l) >= 2 else '')
+                    comments.append(l[1].replace("\n", "").strip() if len(l) >= 2 else '')
 
             # Handle [{ }] {} from FHIR convention
             lines = new_lines
             new_lines = []
+            corindex = 0
             for i, line in enumerate(lines):
                 # One line case [{ }]
+                # espaces, guillemets, crochets, après
                 m = re.match(
                     '''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*([^}]*)\s+\}\](,*)''',
                     line)
                 if m is not None:
-                    new_lines.append('{}"{}<list::{}>": null{}'.format(
-                        m.group(1), m.group(2), m.group(3), m.group(4)))
+                    lll = '{}"{}<list::{}>$({}$)": null{}'.format(
+                        m.group(1), m.group(2), m.group(3),
+                        comments[i].replace("\"", "\\\""), m.group(4))
+                    # print(lll)
+                    new_lines.append(lll)
                     continue
 
                 # One line case { }
                 m = re.match('''(\s*)"([^"]*)"\s*:\s*{\s*([^}]*)\s+}(,*)''',
                              line)
                 if m is not None:
-                    new_lines.append('{}"{}<{}>": null{}'.format(
-                        m.group(1), m.group(2), m.group(3), m.group(4)))
+                    lll = '{}"{}<{}>$({}$)": null{}'.format(
+                        m.group(1), m.group(2), m.group(3),
+                        comments[i].replace("\"", "\\\""), m.group(4))
+                    # print(lll)
+                    new_lines.append(lll)
                     continue
 
                 # One line case { } / [{ }] exception with a \n in it
@@ -47,17 +58,24 @@ class Clean:
                     m_next = re.match('''\s*(\w.*)$''', next_line)
                     lines[i + 1] = m.group(1) + m_next.group(1)
                     # also romove the line in comments
-                    del comments[i]
+                    # del comments[corindex]
+                    # corindex -= 1
                     continue
 
                 # Multi line case [{ \n ... \n }]
                 m = re.match('''(\s*)\"([^"]*)\"\s*\:\s*\[\{\s*''', line)
                 if m is not None:
-                    new_lines.append('{}"{}<list>": {}'.format(
-                        m.group(1), m.group(2), '[{'))
+                    lll = '{}"{}<list>$({}$)": {}'.format(
+                        m.group(1), m.group(2),
+                        comments[i].replace("\"", "\\\""), '[{')
+                    # print(lll)
+                    new_lines.append(lll)
                     continue
-                else:
-                    new_lines.append(line)
+
+                # default behavior
+                new_lines.append(line)
+
+            corindex += 1
 
             # Handle < > type extraction and codes handling
             lines = new_lines
@@ -87,9 +105,9 @@ class Clean:
                         # else:
                         #    raise TypeError('No code provided', match)
 
-                    new_lines.append('{}"{}<{}{}>": null{}'.format(
+                    new_lines.append('{}"{}<{}{}>$({}$)": null{}'.format(
                         match.group(1), match.group(2), list_marker,
-                        given_type, match.group(4)))
+                        given_type, comments[i].replace("\"", "\\\""), match.group(4)))
                     continue
                 else:
                     new_lines.append(line)
@@ -123,6 +141,149 @@ class Clean:
                 new_lines.append(line)
                 indents.append(indent)
 
+            jj = json.loads('\n'.join(new_lines))
+
+            fhirDataTypes = [
+                'Address',
+                'Annotation',
+                'Attachment',
+                'CodeableConcept',
+                'Coding',
+                'ContactDetail',
+                'ContactPoint',
+                'Contributor',
+                'DataRequirement',
+                'Dosage',
+                'ElementDefinition',
+                'HumanName',
+                'Identifier',
+                'ParameterDefinition',
+                'Period',
+                'Quantity',
+                'Range',
+                'Ratio',
+                'Reference',
+                'RelatedArtifact',
+                'SampledData',
+                'Signature',
+                'Timing',
+                'TriggerDefinition',
+                'UsageContext'
+            ]
+
+            DATATYPES_PATH = './json/DataTypes'
+            maxDepth = 0
+
+            def recAttribute(key, tree, depth):
+                node = dict({
+                    'depth': depth
+                })
+
+                if (depth > 10):
+                    print(depth, key)
+
+                if key == "resourceType":
+                    print('ALERT', tree, key, depth)
+                    return tree
+
+                isDataType = False
+                isDataTypeList = False
+                beginning = None
+
+                # get comment
+                match = re.match(
+                    '''(.*)\$\((.*)\$\)''', key)
+                if match is not None:
+                    beginning = match.group(1)
+                    comment = match.group(2)
+                    node['comment'] = comment
+
+                # get type
+                match2 = re.match('''(.*)<(.*)>''', beginning if beginning is not None else key)
+                if match2:
+                    name = match2.group(1)
+                    type = match2.group(2)
+
+                    isDataType = type in fhirDataTypes
+
+                    match3 = re.match('''list::(.*)''', type)
+                    if match3:
+                        datatype = match3.group(1)
+                        isDataTypeList = datatype in fhirDataTypes
+                        # else:
+                        #     raise '{} not in fhirDataTypes'.format(datatype)
+                else:
+                    name = key
+                    type = key
+
+                node['name'] = name
+                node['type'] = type
+
+                if isDataType:
+                    with open(os.path.join(DATATYPES_PATH, '{}.json'.format(type)), 'r') as datatype_file:
+                        datatype_content = json.load(datatype_file)
+                        node['attributes'] = {
+                            'create': []
+                        }
+                        for key2 in datatype_content:
+                            if key2 != "resourceType":
+                                node['attributes']['create'].append(
+                                    recAttribute(key2, datatype_content[key2], depth+1)
+                                )
+                elif isDataTypeList:
+                    with open(os.path.join(DATATYPES_PATH, '{}.json'.format(datatype)), 'r') as datatype_file:
+                        datatype_content = json.load(datatype_file)
+                        node['attributes'] = {
+                            'create': [
+                                {
+                                    'depth': depth+1,
+                                    'name': '{}_0'.format(datatype),
+                                    'type': datatype,
+                                    'isProfile': True,
+                                    'attributes': {
+                                        'create': []
+                                    }
+                                }
+                            ]
+                        }
+                        for key2 in datatype_content:
+                            if key2 != "resourceType":
+                                node['attributes']['create'][0]['attributes']['create'].append(
+                                    recAttribute(key2, datatype_content[key2], depth+2)
+                                )
+                elif isinstance(tree, list):
+                    node['attributes'] = {
+                        'create': [recAttribute(key2, tree[0][key2], depth+1) for key2 in tree[0]]
+                    }
+                elif tree is not None:
+                    node['attributes'] = {
+                        'create' : [recAttribute(key2, tree[key2], depth+1) for key2 in tree]
+                    }
+
+                return node
+
+            resource = dict()
+            resource['attributes'] = {
+                'create': []
+            }
+            for key in jj:
+                if key == 'resourceType':
+                    resource['name'] = jj[key]
+                else:
+                    resource['attributes']['create'].append(recAttribute(key, jj[key], 1))
+
+            if (filename == 'process/../scrap_files/Identification/Individuals/Patient.json'):
+                print(json.dumps(resource, indent=2))
+
+            command_file = os.path.join(GRAPHQL_COMMANDS_FOLDER, os.path.basename(filename))
+            if not os.path.exists(os.path.dirname(command_file)):
+                os.makedirs(os.path.dirname(command_file))
+            with open(command_file, 'w') as f:
+                f.write(json.dumps(resource, indent=2))
+
+            # print(allTypes)
+            print()
+
             if output_file is not None:
                 if not os.path.exists(os.path.dirname(output_file)):
                     os.makedirs(os.path.dirname(output_file))
@@ -130,3 +291,5 @@ class Clean:
                     output_file.write('\n'.join(new_lines))
             else:
                 return '\n'.join(new_lines)
+
+            return maxDepth

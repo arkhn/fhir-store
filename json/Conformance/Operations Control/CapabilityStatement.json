@@ -1,0 +1,108 @@
+{
+  "resourceType" : "CapabilityStatement",
+  "url<uri>$(Logical URI to reference this capability statement (globally unique)$)": null,
+  "version<string>$(Business version of the capability statement$)": null,
+  "name<string>$(Name for this capability statement (computer friendly)$)": null,
+  "title<string>$(Name for this capability statement (human friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(R!  Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(C? Natural language description of the capability statement$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for capability statement (if applicable)$)": null,
+  "purpose<markdown>$(Why this capability statement is defined$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "kind<code=instance|capability>$(R!  instance | capability | requirements$)": null,
+  "instantiates<list::uri>$(Canonical URL of another capability statement this implements$)": null,
+  "software" : { 
+    "name<string>$(R!  A name the software is known by$)": null,
+    "version<string>$(Version covered by this statement$)": null,
+    "releaseDate<dateTime>$(Date this version released$)": null
+  },
+  "implementation" : { 
+    "description<string>$(R!  Describes this specific instance$)": null,
+    "url<uri>$(Base URL for the installation$)": null
+  },
+  "fhirVersion<id>$(R!  FHIR Version the system uses$)": null,
+  "acceptUnknown<code=no|extensions|elements>$(R!  no | extensions | elements | both$)": null,
+  "format<list::code>$(R!  formats supported (xml | json | ttl | mime type)$)": null,
+  "patchFormat<list::code>$(Patch formats supported$)": null,
+  "implementationGuide<list::uri>$(Implementation guides supported$)": null,
+  "profile<list::Reference(StructureDefinition)>$(Profiles for use cases supported$)": null,
+  "rest<list>$(C? If the endpoint is a RESTful one$)": [{
+    "mode<code>$(R!  client | server$)": null,
+    "documentation<string>$(General description of implementation$)": null,
+    "security" : { 
+      "cors<boolean>$(Adds CORS Headers (http://enable-cors.org/)$)": null,
+      "service<list::CodeableConcept>$(OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates$)": null,
+      "description<string>$(General description of how security works$)": null,
+      "certificate<list>$(Certificates associated with security profiles$)": [{
+        "type<code>$(Mime type for certificates$)": null,
+        "blob<base64Binary>$(Actual certificate$)": null
+      }]
+    },
+    "resource<list>$(Resource served on the REST interface$)": [{
+      "type<code>$(R!  A resource type that is supported$)": null,
+      "profile<Reference(StructureDefinition)>$(Base System profile for all uses of resource$)": null,
+      "documentation<markdown>$(Additional information about the use of the resource type$)": null,
+      "interaction<list>$(R!  What operations are supported?$)": [{
+        "code<code=read|vread|update|patch|delete|history-instance|history-type|create>$(R!  read | vread | update | patch | delete | history-instance | history-type | create | search-type$)": null,
+        "documentation<string>$(Anything special about operation behavior$)": null
+      }],
+      "versioning<code>$(no-version | versioned | versioned-update$)": null,
+      "readHistory<boolean>$(Whether vRead can return past versions$)": null,
+      "updateCreate<boolean>$(If update can commit to a new identity$)": null,
+      "conditionalCreate<boolean>$(If allows/uses conditional create$)": null,
+      "conditionalRead<code>$(not-supported | modified-since | not-match | full-support$)": null,
+      "conditionalUpdate<boolean>$(If allows/uses conditional update$)": null,
+      "conditionalDelete<code>$(not-supported | single | multiple - how conditional delete is supported$)": null,
+      "referencePolicy<list::code>$(literal | logical | resolves | enforced | local$)": null,
+      "searchInclude<list::string>$(_include values supported by the server$)": null,
+      "searchRevInclude<list::string>$(_revinclude values supported by the server$)": null,
+      "searchParam<list>$(Search parameters supported by implementation$)": [{
+        "name<string>$(R!  Name of search parameter$)": null,
+        "definition<uri>$(Source of definition for parameter$)": null,
+        "type<code=number|date|string|token|reference|composite|quantity>$(R!  number | date | string | token | reference | composite | quantity | uri$)": null,
+        "documentation<string>$(Server-specific usage$)": null
+      }]
+    }],
+    "interaction<list>$(What operations are supported?$)": [{
+      "code<code=transaction|batch|search-system>$(R!  transaction | batch | search-system | history-system$)": null,
+      "documentation<string>$(Anything special about operation behavior$)": null
+    }],
+    "searchParam<list::Content as for CapabilityStatement.rest.resource.searchParam>$(Search parameters for searching all resources$)": null,
+    "operation<list>$(Definition of an operation or a custom query$)": [{
+      "name<string>$(R!  Name by which the operation/query is invoked$)": null,
+      "definition<Reference(OperationDefinition)>$(R!  The defined operation/query$)": null
+    }],
+    "compartment<list::uri>$(Compartments served/used by system$)": null
+  }],
+  "messaging<list>$(C? If messaging is supported$)": [{
+    "endpoint<list>$(Where messages should be sent$)": [{
+      "protocol<Coding>$(R!  http | ftp | mllp +$)": null,
+      "address<uri>$(R!  Network address or identifier of the end-point$)": null
+    }],
+    "reliableCache<unsignedInt>$(Reliable Message Cache Length (min)$)": null,
+    "documentation<string>$(Messaging interface behavior details$)": null,
+    "supportedMessage<list>$(Messages supported by this system$)": [{
+      "mode<code>$(R!  sender | receiver$)": null,
+      "definition<Reference(MessageDefinition)>$(R!  Message supported by this system$)": null
+    }],
+    "event<list>$(Declare support for this event$)": [{
+      "code<Coding>$(R!  Event type$)": null,
+      "category<code>$(Consequence | Currency | Notification$)": null,
+      "mode<code>$(R!  sender | receiver$)": null,
+      "focus<code>$(R!  Resource that's focus of message$)": null,
+      "request<Reference(StructureDefinition)>$(R!  Profile that describes the request$)": null,
+      "response<Reference(StructureDefinition)>$(R!  Profile that describes the response$)": null,
+      "documentation<string>$(Endpoint-specific event documentation$)": null
+    }]
+  }],
+  "document<list>$(C? Document definition$)": [{
+    "mode<code>$(R!  producer | consumer$)": null,
+    "documentation<string>$(Description of document support$)": null,
+    "profile<Reference(StructureDefinition)>$(R!  Constraint on a resource used in the document$)": null
+  }]
+}

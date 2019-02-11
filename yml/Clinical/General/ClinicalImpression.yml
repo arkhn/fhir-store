@@ -1,0 +1,26 @@
+resourceType: "ClinicalImpression"
+identifier<list::Identifier>$(Business identifier$):
+status<code=draft|completed>$(R!  draft | completed | entered-in-error$):
+code<CodeableConcept>$(Kind of assessment performed$):
+description<string>$(Why/how the assessment was performed$):
+subject<Reference(Patient|Group)>$(R!  Patient or group assessed$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode created from$):
+effectiveDateTime<dateTime>$($):
+effectivePeriod<Period>$($):
+date<dateTime>$(When the assessment was documented$):
+assessor<Reference(Practitioner)>$(The clinician performing the assessment$):
+previous<Reference(ClinicalImpression)>$(Reference to last assessment$):
+problem<list::Reference(Condition|AllergyIntolerance)>$(Relevant impressions of patient state$):
+investigation<list>$(One or more sets of investigations (signs symptions etc.)$):
+  - code<CodeableConcept>$(R!  A name/code for the set$):
+    item<list::Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport|RiskAssessment|ImagingStudy)>$(Record of a specific investigation$):
+protocol<list::uri>$($):
+summary<string>$(Clinical Protocol followed$):
+finding<list>$(Possible or likely findings and diagnoses$):
+  - itemCodeableConcept<CodeableConcept>$($):
+    itemReference<Reference(Condition|Observation)>$($):
+    basis<string>$($):
+prognosisCodeableConcept<list::CodeableConcept>$(Estimate of likely outcome$):
+prognosisReference<list::Reference(RiskAssessment)>$(RiskAssessment expressing likely outcome$):
+action<list::Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|Appointment)>$(Action taken as part of assessment procedure$):
+note<list::Annotation>$(Comments made about the ClinicalImpression$):

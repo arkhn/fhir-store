@@ -1,0 +1,16 @@
+{
+  "resourceType" : "Subscription",
+  "status<code=requested|active|error>$(R!  requested | active | error | off$)": null,
+  "contact<list::ContactPoint>$(Contact details for source (e.g. troubleshooting)$)": null,
+  "end<instant>$(When to automatically delete the subscription$)": null,
+  "reason<string>$(R!  Description of why this subscription was created$)": null,
+  "criteria<string>$(R!  Rule for server push criteria$)": null,
+  "error<string>$(Latest error note$)": null,
+  "channel" : { 
+    "type<code=rest-hook|websocket|email|sms>$(R!  rest-hook | websocket | email | sms | message$)": null,
+    "endpoint<uri>$(Where the channel points to$)": null,
+    "payload<string>$(Mimetype to send, or omit for no payload$)": null,
+    "header<list::string>$(Usage depends on the channel type$)": null
+  },
+  "tag<list::Coding>$(A tag to add to matching resources$)": null
+}

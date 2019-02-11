@@ -1,0 +1,32 @@
+{
+  "resourceType" : "Coverage",
+  "identifier<list::Identifier>$(The primary coverage ID$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "type<CodeableConcept>$(Type of coverage such as medical or accident$)": null,
+  "policyHolder<Reference(Patient|RelatedPerson|Organization)>$(Owner of the policy$)": null,
+  "subscriber<Reference(Patient|RelatedPerson)>$(Subscriber to the policy$)": null,
+  "subscriberId<string>$(ID assigned to the Subscriber$)": null,
+  "beneficiary<Reference(Patient)>$(Plan Beneficiary$)": null,
+  "relationship<CodeableConcept>$(Beneficiary relationship to the Subscriber$)": null,
+  "period<Period>$(Coverage start and end dates$)": null,
+  "payor<list::Reference(Organization|Patient|RelatedPerson)>$(Identifier for the plan or agreement issuer$)": null,
+  "grouping" : { 
+    "group<string>$(An identifier for the group$)": null,
+    "groupDisplay<string>$(Display text for an identifier for the group$)": null,
+    "subGroup<string>$(An identifier for the subsection of the group$)": null,
+    "subGroupDisplay<string>$(Display text for the subsection of the group$)": null,
+    "plan<string>$(An identifier for the plan$)": null,
+    "planDisplay<string>$(Display text for the plan$)": null,
+    "subPlan<string>$(An identifier for the subsection of the plan$)": null,
+    "subPlanDisplay<string>$(Display text for the subsection of the plan$)": null,
+    "class<string>$(An identifier for the class$)": null,
+    "classDisplay<string>$(Display text for the class$)": null,
+    "subClass<string>$(An identifier for the subsection of the class$)": null,
+    "subClassDisplay<string>$(Display text for the subsection of the subclass$)": null
+  },
+  "dependent<string>$(Dependent number$)": null,
+  "sequence<string>$(The plan instance or sequence counter$)": null,
+  "order<positiveInt>$(Relative order of the coverage$)": null,
+  "network<string>$(Insurer network$)": null,
+  "contract<list::Reference(Contract)>$(Contract details$)": null
+}

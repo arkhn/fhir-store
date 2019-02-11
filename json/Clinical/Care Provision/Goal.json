@@ -1,0 +1,26 @@
+{
+  "resourceType" : "Goal",
+  "identifier<list::Identifier>$(External Ids for this goal$)": null,
+  "status<code=proposed|accepted|planned|in-progress|on-target|ahead-of-target|behind-target|sustaining|achieved|on-hold|cancelled|entered-in-error>$(R!  proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected$)": null,
+  "category<list::CodeableConcept>$(E.g. Treatment, dietary, behavioral, etc.$)": null,
+  "priority<CodeableConcept>$(high-priority | medium-priority | low-priority$)": null,
+  "description<CodeableConcept>$(R!  Code or text describing goal$)": null,
+  "subject<Reference(Patient|Group|Organization)>$(Who this goal is intended for$)": null,
+  "startDate<date>$($)": null,
+  "startCodeableConcept<CodeableConcept>$($)": null,
+  "target" : { 
+    "measure<CodeableConcept>$(C? The parameter whose value is being tracked$)": null,
+    "detailQuantity<Quantity>$($)": null,
+    "detailRange<Range>$($)": null,
+    "detailCodeableConcept<CodeableConcept>$($)": null,
+    "dueDate<date>$($)": null,
+    "dueDuration<Duration>$($)": null
+  },
+  "statusDate<date>$(When goal status took effect$)": null,
+  "statusReason<string>$(Reason for current status$)": null,
+  "expressedBy<Reference(Patient|Practitioner|RelatedPerson)>$(Who's responsible for creating Goal?$)": null,
+  "addresses<list::Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)>$(Issues addressed by this goal$)": null,
+  "note<list::Annotation>$(Comments about the goal$)": null,
+  "outcomeCode<list::CodeableConcept>$(What result was achieved regarding the goal?$)": null,
+  "outcomeReference<list::Reference(Observation)>$(Observation that resulted from goal$)": null
+}

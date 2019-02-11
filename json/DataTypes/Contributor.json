@@ -1,0 +1,6 @@
+{
+  "resourceType" : "Contributor",
+  "type<code=author|editor|reviewer>$(R!  author | editor | reviewer | endorser$)": null,
+  "name<string>$(R!  Who contributed the content$)": null,
+  "contact<list::ContactDetail>$(Contact details of the contributor$)": null
+}

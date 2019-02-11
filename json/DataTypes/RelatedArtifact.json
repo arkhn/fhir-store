@@ -1,0 +1,9 @@
+{
+  "resourceType" : "RelatedArtifact",
+  "type<code=documentation|justification|citation|predecessor|successor|derived-from|depends-on>$(R!  documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of$)": null,
+  "display<string>$(Brief description of the related artifact$)": null,
+  "citation<string>$(Bibliographic citation for the artifact$)": null,
+  "url<uri>$(Where the artifact can be accessed$)": null,
+  "document<Attachment>$(What document is being referenced$)": null,
+  "resource<Reference(Any)>$(What resource is being referenced$)": null
+}

@@ -1,0 +1,15 @@
+
+{
+  "resourceType" : "AppointmentResponse",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Ids for this item
+  "appointment" : { Reference(Appointment) }, // R!  Appointment this response relates to
+  "start" : "<instant>", // Time from appointment, or requested new start time
+  "end" : "<instant>", // Time from appointment, or requested new end time
+  "participantType" : [{ CodeableConcept }], // Role of participant in the appointment
+  "actor" : { Reference(Patient|Practitioner|RelatedPerson|Device|
+   HealthcareService|Location) }, // Person, Location/HealthcareService or Device
+  "participantStatus" : "<code>", // R!  accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
+  "comment" : "<string>" // Additional comments
+}

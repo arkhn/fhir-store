@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Appointment",
+  "identifier<list::Identifier>$(External Ids for this item$)": null,
+  "status<code=proposed|pending|booked|arrived|fulfilled|cancelled|noshow>$(R!  proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error$)": null,
+  "serviceCategory<CodeableConcept>$(A broad categorisation of the service that is to be performed during this appointment$)": null,
+  "serviceType<list::CodeableConcept>$(The specific service that is to be performed during this appointment$)": null,
+  "specialty<list::CodeableConcept>$(The specialty of a practitioner that would be required to perform the service requested in this appointment$)": null,
+  "appointmentType<CodeableConcept>$(The style of appointment or patient that has been booked in the slot (not service type)$)": null,
+  "reason<list::CodeableConcept>$(Reason this appointment is scheduled$)": null,
+  "indication<list::Reference(Condition|Procedure)>$(Reason the appointment is to takes place (resource)$)": null,
+  "priority<unsignedInt>$(Used to make informed decisions if needing to re-prioritize$)": null,
+  "description<string>$(Shown on a subject line in a meeting request, or appointment list$)": null,
+  "supportingInformation<list::Reference(Any)>$(Additional information to support the appointment$)": null,
+  "start<instant>$(When appointment is to take place$)": null,
+  "end<instant>$(When appointment is to conclude$)": null,
+  "minutesDuration<positiveInt>$(Can be less than start/end (e.g. estimate)$)": null,
+  "slot<list::Reference(Slot)>$(The slots that this appointment is filling$)": null,
+  "created<dateTime>$(The date that this appointment was initially created$)": null,
+  "comment<string>$(Additional comments$)": null,
+  "incomingReferral<list::Reference(ReferralRequest)>$(The ReferralRequest provided as information to allocate to the Encounter$)": null,
+  "participant<list>$(R!  Participants involved in appointment$)": [{
+    "type<list::CodeableConcept>$(Role of participant in the appointment$)": null,
+    "actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>$(Person, Location/HealthcareService or Device$)": null,
+    "required<code>$(Person, Location/HealthcareService or Device$)": null,
+    "status<code>$(required | optional | information-only$)": null
+  }],
+  "requestedPeriod<list::Period>$(Potential date/time interval(s) requested to allocate the appointment within$)": null
+}

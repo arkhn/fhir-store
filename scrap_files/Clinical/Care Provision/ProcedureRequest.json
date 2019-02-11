@@ -1,0 +1,41 @@
+
+{
+  "resourceType" : "ProcedureRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Identifiers assigned to this order
+  "definition" : [{ Reference(ActivityDefinition|PlanDefinition) }], // Protocol or definition
+  "basedOn" : [{ Reference(Any) }], // What request fulfills
+  "replaces" : [{ Reference(Any) }], // What request replaces
+  "requisition" : { Identifier }, // Composite Request ID
+  "status" : "<code>", // R!  draft | active | suspended | completed | entered-in-error | cancelled
+  "intent" : "<code>", // R!  proposal | plan | order +
+  "priority" : "<code>", // routine | urgent | asap | stat
+  "doNotPerform" : <boolean>, // True if procedure should not be performed
+  "category" : [{ CodeableConcept }], // Classification of procedure
+  "code" : { CodeableConcept }, // R!  What is being requested/ordered
+  "subject" : { Reference(Patient|Group|Location|Device) }, // R!  Individual the service is ordered for
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or Episode during which request was created
+  // occurrence[x]: When procedure should occur. One of these 3:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "occurrenceTiming" : { Timing },
+  // asNeeded[x]: Preconditions for procedure or diagnostic. One of these 2:
+  "asNeededBoolean" : <boolean>,
+  "asNeededCodeableConcept" : { CodeableConcept },
+  "authoredOn" : "<dateTime>", // Date request signed
+  "requester" : { // Who/what is requesting procedure or diagnostic
+    "agent" : { Reference(Device|Practitioner|Organization) }, // R!  Individual making the request
+    "onBehalfOf" : { Reference(Organization) } // Organization agent is acting for
+  },
+  "performerType" : { CodeableConcept }, // Performer role
+  "performer" : { Reference(Practitioner|Organization|Patient|Device|
+   RelatedPerson|HealthcareService) }, // Requested perfomer
+  "reasonCode" : [{ CodeableConcept }], // Explanation/Justification for test
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Explanation/Justification for test
+  "supportingInfo" : [{ Reference(Any) }], // Additional clinical information
+  "specimen" : [{ Reference(Specimen) }], // Procedure Samples
+  "bodySite" : [{ CodeableConcept }], // Location on Body
+  "note" : [{ Annotation }], // Comments
+  "relevantHistory" : [{ Reference(Provenance) }] // Request provenance
+}

@@ -1,0 +1,153 @@
+{
+  "resourceType" : "TestScript",
+  "url<uri>$(R!  Logical URI to reference this test script (globally unique)$)": null,
+  "identifier<Identifier>$(Additional identifier for the test script$)": null,
+  "version<string>$(Business version of the test script$)": null,
+  "name<string>$(R!  Name for this test script (computer friendly)$)": null,
+  "title<string>$(Name for this test script (human friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(Natural language description of the test script$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for test script (if applicable)$)": null,
+  "purpose<markdown>$(Why this test script is defined$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "origin<list>$(An abstract server representing a client or sender in a message exchange$)": [{
+    "index<integer>$(R!  The index of the abstract origin server starting at 1$)": null,
+    "profile<Coding>$(R!  FHIR-Client | FHIR-SDC-FormFiller$)": null
+  }],
+  "destination<list>$(An abstract server representing a destination or receiver in a message exchange$)": [{
+    "index<integer>$(R!  The index of the abstract destination server starting at 1$)": null,
+    "profile<Coding>$(R!  FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor$)": null
+  }],
+  "metadata" : { 
+    "link<list>$(Links to the FHIR specification$)": [{
+      "url<uri>$(R!  URL to the specification$)": null,
+      "description<string>$(Short description$)": null
+    }],
+    "capability<list>$(R!  Capabilities  that are assumed to function correctly on the FHIR server being tested$)": [{
+      "required<boolean>$(Are the capabilities required?$)": null,
+      "validated<boolean>$(Are the capabilities validated?$)": null,
+      "description<string>$(The expected capabilities of the server$)": null,
+      "origin<list::integer>$(Which origin server these requirements apply to$)": null,
+      "destination<integer>$(Which server these requirements apply to$)": null,
+      "link<list::uri>$(Links to the FHIR specification$)": null,
+      "capabilities<Reference(CapabilityStatement)>$(R!  Required Capability Statement$)": null
+    }]
+  },
+  "fixture<list>$(Fixture in the test script - by reference (uri)$)": [{
+    "autocreate<boolean>$(Whether or not to implicitly create the fixture during setup$)": null,
+    "autodelete<boolean>$(Whether or not to implicitly delete the fixture during teardown$)": null,
+    "resource<Reference(Any)>$(Reference of the resource$)": null
+  }],
+  "profile<list::Reference(Any)>$(Reference of the validation profile$)": null,
+  "variable<list>$(Placeholder for evaluated elements$)": [{
+    "name<string>$(R!  Descriptive name for this variable$)": null,
+    "defaultValue<string>$(Default, hard-coded, or user-defined value for this variable$)": null,
+    "description<string>$(Natural language description of the variable$)": null,
+    "expression<string>$(The fluentpath expression against the fixture body$)": null,
+    "headerField<string>$(HTTP header field name for source$)": null,
+    "hint<string>$(Hint help text for default value to enter$)": null,
+    "path<string>$(XPath or JSONPath against the fixture body$)": null,
+    "sourceId<id>$(Fixture Id of source expression or headerField within this variable$)": null
+  }],
+  "rule<list>$(Assert rule used within the test script$)": [{
+    "resource<Reference(Any)>$(R!  Assert rule resource reference$)": null,
+    "param<list>$(Rule parameter template$)": [{
+      "name<string>$(R!  Parameter name matching external assert rule parameter$)": null,
+      "value<string>$(Parameter value defined either explicitly or dynamically$)": null
+    }]
+  }],
+  "ruleset<list>$(Assert ruleset used within the test script$)": [{
+    "resource<Reference(Any)>$(R!  Assert ruleset resource reference$)": null,
+    "rule<list>$(R!  The referenced rule within the ruleset$)": [{
+      "ruleId<id>$(R!  Id of referenced rule within the ruleset$)": null,
+      "param<list>$(Ruleset rule parameter template$)": [{
+        "name<string>$(R!  Parameter name matching external assert ruleset rule parameter$)": null,
+        "value<string>$(Parameter value defined either explicitly or dynamically$)": null
+      }]
+    }]
+  }],
+  "setup" : { 
+    "action<list>$(R!  A setup operation or assert to perform$)": [{
+      "operation" : { 
+        "type<Coding>$(The operation code type that will be executed$)": null,
+        "resource<code>$(Resource type$)": null,
+        "label<string>$(Tracking/logging operation label$)": null,
+        "description<string>$(Tracking/reporting operation description$)": null,
+        "accept<code>$(xml | json | ttl | none$)": null,
+        "contentType<code>$(xml | json | ttl | none$)": null,
+        "destination<integer>$(Server responding to the request$)": null,
+        "encodeRequestUrl<boolean>$(Whether or not to send the request url in encoded format$)": null,
+        "origin<integer>$(Server initiating the request$)": null,
+        "params<string>$(Explicitly defined path parameters$)": null,
+        "requestHeader<list>$(Each operation can have one or more header elements$)": [{
+          "field<string>$(R!  HTTP header field name$)": null,
+          "value<string>$(R!  HTTP headerfield value$)": null
+        }],
+        "requestId<id>$(Fixture Id of mapped request$)": null,
+        "responseId<id>$(Fixture Id of mapped response$)": null,
+        "sourceId<id>$(Fixture Id of body for PUT and POST requests$)": null,
+        "targetId<id>$(Id of fixture used for extracting the [id],  [type], and [vid] for GET requests$)": null,
+        "url<string>$(Request URL$)": null
+      },
+      "assert" : { 
+        "label<string>$(Tracking/logging assertion label$)": null,
+        "description<string>$(Tracking/reporting assertion description$)": null,
+        "direction<code>$(response | request$)": null,
+        "compareToSourceId<string>$(Id of the source fixture to be evaluated$)": null,
+        "compareToSourceExpression<string>$(The fluentpath expression to evaluate against the source fixture$)": null,
+        "compareToSourcePath<string>$(XPath or JSONPath expression to evaluate against the source fixture$)": null,
+        "contentType<code>$(xml | json | ttl | none$)": null,
+        "expression<string>$(The fluentpath expression to be evaluated$)": null,
+        "headerField<string>$(HTTP header field name$)": null,
+        "minimumId<string>$(Fixture Id of minimum content resource$)": null,
+        "navigationLinks<boolean>$(Perform validation on navigation links?$)": null,
+        "operator<code>$(equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval$)": null,
+        "path<string>$(XPath or JSONPath expression$)": null,
+        "requestMethod<code>$(delete | get | options | patch | post | put$)": null,
+        "requestURL<string>$(Request URL comparison value$)": null,
+        "resource<code>$(Resource type$)": null,
+        "response<code>$(okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable$)": null,
+        "responseCode<string>$(HTTP response code to test$)": null,
+        "rule" : { 
+          "ruleId<id>$(R!  Id of the TestScript.rule$)": null,
+          "param<list>$(Rule parameter template$)": [{
+            "name<string>$(R!  Parameter name matching external assert rule parameter$)": null,
+            "value<string>$(R!  Parameter value defined either explicitly or dynamically$)": null
+          }]
+        },
+        "ruleset" : { 
+          "rulesetId<id>$(R!  Id of the TestScript.ruleset$)": null,
+          "rule<list>$(The referenced rule within the ruleset$)": [{
+            "ruleId<id>$(R!  Id of referenced rule within the ruleset$)": null,
+            "param<list>$(Rule parameter template$)": [{
+              "name<string>$(R!  Parameter name matching external assert ruleset rule parameter$)": null,
+              "value<string>$(R!  Parameter value defined either explicitly or dynamically$)": null
+            }]
+          }]
+        },
+        "sourceId<id>$(Fixture Id of source expression or headerField$)": null,
+        "validateProfileId<id>$(Profile Id of validation profile reference$)": null,
+        "value<string>$(The value to compare to$)": null,
+        "warningOnly<boolean>$(Will this assert produce a warning only on error?$)": null
+      }
+    }]
+  },
+  "test<list>$(A test in this script$)": [{
+    "name<string>$(Tracking/logging name of this test$)": null,
+    "description<string>$(Tracking/reporting short description of the test$)": null,
+    "action<list>$(R!  A test operation or assert to perform$)": [{
+      "operation<Content as for TestScript.setup.action.operation>$(The setup operation to perform$)": null,
+      "assert<Content as for TestScript.setup.action.assert>$(The setup assertion to perform$)": null
+    }]
+  }],
+  "teardown" : { 
+    "action<list>$(R!  One or more teardown operations to perform$)": [{
+      "operation<Content as for TestScript.setup.action.operation>$(R!  The teardown operation to perform$)": null
+    }]
+  }
+}

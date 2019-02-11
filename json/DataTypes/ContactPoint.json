@@ -1,0 +1,8 @@
+{
+  "resourceType" : "ContactPoint",
+  "system<code=phone|fax|email|pager|url|sms>$(C? phone | fax | email | pager | url | sms | other$)": null,
+  "value<string>$(The actual contact point details$)": null,
+  "use<code>$(home | work | temp | old | mobile - purpose of this contact point$)": null,
+  "rank<positiveInt>$(Specify preferred order of use (1 = highest)$)": null,
+  "period<Period>$(Time period when the contact point was/is in use$)": null
+}

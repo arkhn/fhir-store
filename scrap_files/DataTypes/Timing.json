@@ -1,0 +1,27 @@
+
+{
+  "resourceType" : "Timing",
+  // from Element: extension
+  "event" : ["<dateTime>"], // When the event occurs
+  "repeat" : { // When the event is to occur
+    // bounds[x]: Length/Range of lengths, or (Start and/or end) limits. One of these 3:
+    "boundsDuration" : { Duration },
+    "boundsRange" : { Range },
+    "boundsPeriod" : { Period },
+    "count" : <integer>, // Number of times to repeat
+    "countMax" : <integer>, // Maximum number of times to repeat
+    "duration" : <decimal>, // How long when it happens
+    "durationMax" : <decimal>, // How long when it happens (Max)
+    "durationUnit" : "<code>", // s | min | h | d | wk | mo | a - unit of time (UCUM)
+    "frequency" : <integer>, // Event occurs frequency times per period
+    "frequencyMax" : <integer>, // Event occurs up to frequencyMax times per period
+    "period" : <decimal>, // Event occurs frequency times per period
+    "periodMax" : <decimal>, // Upper limit of period (3-4 hours)
+    "periodUnit" : "<code>", // s | min | h | d | wk | mo | a - unit of time (UCUM)
+    "dayOfWeek" : ["<code>"], // mon | tue | wed | thu | fri | sat | sun
+    "timeOfDay" : ["<time>"], // Time of day for action
+    "when" : ["<code>"], // Regular life events the event is tied to
+    "offset" : "<unsignedInt>" // Minutes from event (before or after)
+  },
+  "code" : { CodeableConcept } // BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +
+}

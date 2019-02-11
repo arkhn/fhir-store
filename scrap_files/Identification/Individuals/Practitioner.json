@@ -1,0 +1,21 @@
+
+{
+  "resourceType" : "Practitioner",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // A identifier for the person as this agent
+  "active" : <boolean>, // Whether this practitioner's record is in active use
+  "name" : [{ HumanName }], // The name(s) associated with the practitioner
+  "telecom" : [{ ContactPoint }], // A contact detail for the practitioner (that apply to all roles)
+  "address" : [{ Address }], // Address(es) of the practitioner that are not role specific (typically home address)
+  "gender" : "<code>", // male | female | other | unknown
+  "birthDate" : "<date>", // The date  on which the practitioner was born
+  "photo" : [{ Attachment }], // Image of the person
+  "qualification" : [{ // Qualifications obtained by training and certification
+    "identifier" : [{ Identifier }], // An identifier for this qualification for the practitioner
+    "code" : { CodeableConcept }, // R!  Coded representation of the qualification
+    "period" : { Period }, // Period during which the qualification is valid
+    "issuer" : { Reference(Organization) } // Organization that regulates and issues the qualification
+  }],
+  "communication" : [{ CodeableConcept }] // A language the practitioner is able to use in patient communication
+}

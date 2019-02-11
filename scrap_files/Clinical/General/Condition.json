@@ -1,0 +1,39 @@
+
+{
+  "resourceType" : "Condition",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Ids for this condition
+  "clinicalStatus" : "<code>", // C? active | recurrence | inactive | remission | resolved
+  "verificationStatus" : "<code>", // C? provisional | differential | confirmed | refuted | entered-in-error | unknown
+  "category" : [{ CodeableConcept }], // problem-list-item | encounter-diagnosis
+  "severity" : { CodeableConcept }, // Subjective severity of condition
+  "code" : { CodeableConcept }, // Identification of the condition, problem or diagnosis
+  "bodySite" : [{ CodeableConcept }], // Anatomical location, if relevant
+  "subject" : { Reference(Patient|Group) }, // R!  Who has the condition?
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or episode when condition first asserted
+  // onset[x]: Estimated or actual date,  date-time, or age. One of these 5:
+  "onsetDateTime" : "<dateTime>",
+  "onsetAge" : { Age },
+  "onsetPeriod" : { Period },
+  "onsetRange" : { Range },
+  "onsetString" : "<string>",
+  // abatement[x]: If/when in resolution/remission. One of these 6:
+  "abatementDateTime" : "<dateTime>",
+  "abatementAge" : { Age },
+  "abatementBoolean" : <boolean>,
+  "abatementPeriod" : { Period },
+  "abatementRange" : { Range },
+  "abatementString" : "<string>",
+  "assertedDate" : "<dateTime>", // Date record was believed accurate
+  "asserter" : { Reference(Practitioner|Patient|RelatedPerson) }, // Person who asserts this condition
+  "stage" : { // Stage/grade, usually assessed formally
+    "summary" : { CodeableConcept }, // C? Simple summary (disease specific)
+    "assessment" : [{ Reference(ClinicalImpression|DiagnosticReport|Observation) }] // C? Formal record of assessment
+  },
+  "evidence" : [{ // Supporting evidence
+    "code" : [{ CodeableConcept }], // C? Manifestation/symptom
+    "detail" : [{ Reference(Any) }] // C? Supporting information found elsewhere
+  }],
+  "note" : [{ Annotation }] // Additional information about the Condition
+}

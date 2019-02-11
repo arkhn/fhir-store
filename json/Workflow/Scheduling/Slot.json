@@ -1,0 +1,14 @@
+{
+  "resourceType" : "Slot",
+  "identifier<list::Identifier>$(External Ids for this item$)": null,
+  "serviceCategory<CodeableConcept>$(A broad categorisation of the service that is to be performed during this appointment$)": null,
+  "serviceType<list::CodeableConcept>$(The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource$)": null,
+  "specialty<list::CodeableConcept>$(The specialty of a practitioner that would be required to perform the service requested in this appointment$)": null,
+  "appointmentType<CodeableConcept>$(The style of appointment or patient that may be booked in the slot (not service type)$)": null,
+  "schedule<Reference(Schedule)>$(R!  The schedule resource that this slot defines an interval of status information$)": null,
+  "status<code=busy|free|busy-unavailable|busy-tentative>$(R!  busy | free | busy-unavailable | busy-tentative | entered-in-error$)": null,
+  "start<instant>$(R!  Date/Time that the slot is to begin$)": null,
+  "end<instant>$(R!  Date/Time that the slot is to conclude$)": null,
+  "overbooked<boolean>$(This slot has already been overbooked, appointments are unlikely to be accepted for this time$)": null,
+  "comment<string>$(Comments on the slot to describe any extended information. Such as custom constraints on the slot$)": null
+}

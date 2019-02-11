@@ -1,0 +1,27 @@
+{
+  "resourceType" : "DiagnosticReport",
+  "identifier<list::Identifier>$(Business identifier for report$)": null,
+  "basedOn<list::Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest)>$(What was requested$)": null,
+  "status<code>$(What was requested$)": null,
+  "category<CodeableConcept>$(Service category$)": null,
+  "code<CodeableConcept>$(R!  Name/Code for this diagnostic report$)": null,
+  "subject<Reference(Patient|Group|Device|Location)>$(The subject of the report - usually, but not always, the patient$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Health care event when test ordered$)": null,
+  "effectiveDateTime<dateTime>$(Health care event when test ordered$)": null,
+  "effectivePeriod<Period>$($)": null,
+  "issued<instant>$($)": null,
+  "performer<list>$(Participants in producing the report$)": [{
+    "role<CodeableConcept>$(Type of performer$)": null,
+    "actor<Reference(Practitioner|Organization)>$(R!  Practitioner or Organization  participant$)": null
+  }],
+  "specimen<list::Reference(Specimen)>$(Specimens this report is based on$)": null,
+  "result<list::Reference(Observation)>$(Observations - simple, or complex nested groups$)": null,
+  "imagingStudy<list::Reference(ImagingStudy|ImagingManifest)>$(Reference to full details of imaging associated with the diagnostic report$)": null,
+  "image<list>$(Key images associated with this report$)": [{
+    "comment<string>$(Key images associated with this report$)": null,
+    "link<Reference(Media)>$(R!  Reference to the image source$)": null
+  }],
+  "conclusion<string>$($)": null,
+  "codedDiagnosis<list::CodeableConcept>$(Codes for the conclusion$)": null,
+  "presentedForm<list::Attachment>$(Entire report as issued$)": null
+}

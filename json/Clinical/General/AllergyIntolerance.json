@@ -1,0 +1,30 @@
+{
+  "resourceType" : "AllergyIntolerance",
+  "identifier<list::Identifier>$(External ids for this item$)": null,
+  "clinicalStatus<code=active|inactive>$(C? active | inactive | resolved$)": null,
+  "verificationStatus<code=unconfirmed|confirmed|refuted>$(C? R!  unconfirmed | confirmed | refuted | entered-in-error$)": null,
+  "type<code>$(allergy | intolerance - Underlying mechanism (if known)$)": null,
+  "category<list::code>$(food | medication | environment | biologic$)": null,
+  "criticality<code>$(low | high | unable-to-assess$)": null,
+  "code<CodeableConcept>$(Code that identifies the allergy or intolerance$)": null,
+  "patient<Reference(Patient)>$(R!  Who the sensitivity is for$)": null,
+  "onsetDateTime<dateTime>$($)": null,
+  "onsetAge<Age>$($)": null,
+  "onsetPeriod<Period>$($)": null,
+  "onsetRange<Range>$($)": null,
+  "onsetString<string>$($)": null,
+  "assertedDate<dateTime>$(Date record was believed accurate$)": null,
+  "recorder<Reference(Practitioner|Patient)>$(Who recorded the sensitivity$)": null,
+  "asserter<Reference(Patient|RelatedPerson|Practitioner)>$(Source of the information about the allergy$)": null,
+  "lastOccurrence<dateTime>$(Date(/time) of last known occurrence of a reaction$)": null,
+  "note<list::Annotation>$(Additional text not captured in other fields$)": null,
+  "reaction<list>$(Adverse Reaction Events linked to exposure to substance$)": [{
+    "substance<CodeableConcept>$(Specific substance or pharmaceutical product considered to be responsible for event$)": null,
+    "manifestation<list::CodeableConcept>$(R!  Clinical symptoms/signs associated with the Event$)": null,
+    "description<string>$(Description of the event as a whole$)": null,
+    "onset<dateTime>$(Date(/time) when manifestations showed$)": null,
+    "severity<code>$(mild | moderate | severe (of event as a whole)$)": null,
+    "exposureRoute<CodeableConcept>$(How the subject was exposed to the substance$)": null,
+    "note<list::Annotation>$(Text about event not captured in other fields$)": null
+  }]
+}

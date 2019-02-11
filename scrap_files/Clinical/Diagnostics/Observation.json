@@ -1,0 +1,67 @@
+
+{
+  "resourceType" : "Observation",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier for observation
+  "basedOn" : [{ Reference(CarePlan|DeviceRequest|ImmunizationRecommendation|
+   MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest) }], // Fulfills plan, proposal or order
+  "status" : "<code>", // R!  registered | preliminary | final | amended +
+  "category" : [{ CodeableConcept }], // Classification of  type of observation
+  "code" : { CodeableConcept }, // R!  Type of observation (code / type)
+  "subject" : { Reference(Patient|Group|Device|Location) }, // Who and/or what this is about
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Healthcare event during which this observation is made
+  // effective[x]: Clinically relevant time/time-period for observation. One of these 2:
+  "effectiveDateTime" : "<dateTime>",
+  "effectivePeriod" : { Period },
+  "issued" : "<instant>", // Date/Time this was made available
+  "performer" : [{ Reference(Practitioner|Organization|Patient|RelatedPerson) }], // Who is responsible for the observation
+  // value[x]: Actual result. One of these 11:
+  "valueQuantity" : { Quantity },
+  "valueCodeableConcept" : { CodeableConcept },
+  "valueString" : "<string>",
+  "valueBoolean" : <boolean>,
+  "valueRange" : { Range },
+  "valueRatio" : { Ratio },
+  "valueSampledData" : { SampledData },
+  "valueAttachment" : { Attachment },
+  "valueTime" : "<time>",
+  "valueDateTime" : "<dateTime>",
+  "valuePeriod" : { Period },
+  "dataAbsentReason" : { CodeableConcept }, // C? Why the result is missing
+  "interpretation" : { CodeableConcept }, // High, low, normal, etc.
+  "comment" : "<string>", // Comments about result
+  "bodySite" : { CodeableConcept }, // Observed body part
+  "method" : { CodeableConcept }, // How it was done
+  "specimen" : { Reference(Specimen) }, // Specimen used for this observation
+  "device" : { Reference(Device|DeviceMetric) }, // (Measurement) Device
+  "referenceRange" : [{ // Provides guide for interpretation
+    "low" : { Quantity(SimpleQuantity) }, // C? Low Range, if relevant
+    "high" : { Quantity(SimpleQuantity) }, // C? High Range, if relevant
+    "type" : { CodeableConcept }, // Reference range qualifier
+    "appliesTo" : [{ CodeableConcept }], // Reference range population
+    "age" : { Range }, // Applicable age range, if relevant
+    "text" : "<string>" // Text based reference range in an observation
+  }],
+  "related" : [{ // Resource related to this observation
+    "type" : "<code>", // has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by
+    "target" : { Reference(Observation|QuestionnaireResponse|Sequence) } // R!  Resource that is related to this one
+  }],
+  "component" : [{ // Component results
+    "code" : { CodeableConcept }, // R!  Type of component observation (code / type)
+    // value[x]: Actual component result. One of these 10:
+    "valueQuantity" : { Quantity },
+    "valueCodeableConcept" : { CodeableConcept },
+    "valueString" : "<string>",
+    "valueRange" : { Range },
+    "valueRatio" : { Ratio },
+    "valueSampledData" : { SampledData },
+    "valueAttachment" : { Attachment },
+    "valueTime" : "<time>",
+    "valueDateTime" : "<dateTime>",
+    "valuePeriod" : { Period },
+    "dataAbsentReason" : { CodeableConcept }, // C? Why the component result is missing
+    "interpretation" : { CodeableConcept }, // High, low, normal, etc.
+    "referenceRange" : [{ Content as for Observation.referenceRange }] // Provides guide for interpretation of component result
+  }]
+}

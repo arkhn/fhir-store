@@ -1,0 +1,3 @@
+resourceType: "ContactDetail"
+name<string>$(Name of an individual to contact$):
+telecom<list::ContactPoint>$(Contact details for individual or organization$):

@@ -1,0 +1,25 @@
+
+{
+  "resourceType" : "ImagingManifest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // SOP Instance UID
+  "patient" : { Reference(Patient) }, // R!  Patient of the selected objects
+  "authoringTime" : "<dateTime>", // Time when the selection of instances was made
+  "author" : { Reference(Practitioner|Device|Organization|Patient|
+   RelatedPerson) }, // Author (human or machine)
+  "description" : "<string>", // Description text
+  "study" : [{ // R!  Study identity of the selected instances
+    "uid" : "<oid>", // R!  Study instance UID
+    "imagingStudy" : { Reference(ImagingStudy) }, // Reference to ImagingStudy
+    "endpoint" : [{ Reference(Endpoint) }], // Study access service endpoint
+    "series" : [{ // R!  Series identity of the selected instances
+      "uid" : "<oid>", // R!  Series instance UID
+      "endpoint" : [{ Reference(Endpoint) }], // Series access endpoint
+      "instance" : [{ // R!  The selected instance
+        "sopClass" : "<oid>", // R!  SOP class UID of instance
+        "uid" : "<oid>" // R!  Selected instance UID
+      }]
+    }]
+  }]
+}

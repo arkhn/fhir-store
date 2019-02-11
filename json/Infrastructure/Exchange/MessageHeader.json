@@ -1,0 +1,29 @@
+{
+  "resourceType" : "MessageHeader",
+  "event<Coding>$(R!  Code for the event this message represents$)": null,
+  "destination<list>$(Message destination application(s)$)": [{
+    "name<string>$(Name of system$)": null,
+    "target<Reference(Device)>$(Particular delivery destination within the destination$)": null,
+    "endpoint<uri>$(R!  Actual destination address or id$)": null
+  }],
+  "receiver<Reference(Practitioner|Organization)>$(Intended \"real-world\" recipient for the data$)": null,
+  "sender<Reference(Practitioner|Organization)>$(Real world sender of the message$)": null,
+  "timestamp<instant>$(R!  Time that the message was sent$)": null,
+  "enterer<Reference(Practitioner)>$(The source of the data entry$)": null,
+  "author<Reference(Practitioner)>$(The source of the decision$)": null,
+  "source" : { 
+    "name<string>$(Name of system$)": null,
+    "software<string>$(Name of software running the system$)": null,
+    "version<string>$(Version of software running$)": null,
+    "contact<ContactPoint>$(Human contact for problems$)": null,
+    "endpoint<uri>$(R!  Actual message source address or id$)": null
+  },
+  "responsible<Reference(Practitioner|Organization)>$(Final responsibility for event$)": null,
+  "reason<CodeableConcept>$(Cause of event$)": null,
+  "response" : { 
+    "identifier<id>$(R!  Id of original message$)": null,
+    "code<code=ok|transient-error>$(R!  ok | transient-error | fatal-error$)": null,
+    "details<Reference(OperationOutcome)>$(Specific list of hints/warnings/errors$)": null
+  },
+  "focus<list::Reference(Any)>$(The actual content of the message$)": null
+}

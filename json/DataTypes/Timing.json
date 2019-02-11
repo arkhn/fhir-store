@@ -1,0 +1,24 @@
+{
+  "resourceType" : "Timing",
+  "event<list::dateTime>$(When the event occurs$)": null,
+  "repeat" : { 
+    "boundsDuration<Duration>$($)": null,
+    "boundsRange<Range>$($)": null,
+    "boundsPeriod<Period>$($)": null,
+    "count<integer>$(Number of times to repeat$)": null,
+    "countMax<integer>$(Maximum number of times to repeat$)": null,
+    "duration<decimal>$(How long when it happens$)": null,
+    "durationMax<decimal>$(How long when it happens (Max)$)": null,
+    "durationUnit<code>$(s | min | h | d | wk | mo | a - unit of time (UCUM)$)": null,
+    "frequency<integer>$(Event occurs frequency times per period$)": null,
+    "frequencyMax<integer>$(Event occurs up to frequencyMax times per period$)": null,
+    "period<decimal>$(Event occurs frequency times per period$)": null,
+    "periodMax<decimal>$(Upper limit of period (3-4 hours)$)": null,
+    "periodUnit<code>$(s | min | h | d | wk | mo | a - unit of time (UCUM)$)": null,
+    "dayOfWeek<list::code>$(mon | tue | wed | thu | fri | sat | sun$)": null,
+    "timeOfDay<list::time>$(Time of day for action$)": null,
+    "when<list::code>$(Regular life events the event is tied to$)": null,
+    "offset<unsignedInt>$(Minutes from event (before or after)$)": null
+  },
+  "code<CodeableConcept>$(BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +$)": null
+}

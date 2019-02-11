@@ -1,0 +1,91 @@
+resourceType: "CapabilityStatement"
+url<uri>$(Logical URI to reference this capability statement (globally unique)$):
+version<string>$(Business version of the capability statement$):
+name<string>$(Name for this capability statement (computer friendly)$):
+title<string>$(Name for this capability statement (human friendly)$):
+status<code=draft|active|retired>$(R!  draft | active | retired | unknown$):
+experimental<boolean>$(For testing purposes, not real usage$):
+date<dateTime>$(R!  Date this was last changed$):
+publisher<string>$(Name of the publisher (organization or individual)$):
+contact<list::ContactDetail>$(Contact details for the publisher$):
+description<markdown>$(C? Natural language description of the capability statement$):
+useContext<list::UsageContext>$(Context the content is intended to support$):
+jurisdiction<list::CodeableConcept>$(Intended jurisdiction for capability statement (if applicable)$):
+purpose<markdown>$(Why this capability statement is defined$):
+copyright<markdown>$(Use and/or publishing restrictions$):
+kind<code=instance|capability>$(R!  instance | capability | requirements$):
+instantiates<list::uri>$(Canonical URL of another capability statement this implements$):
+software:
+    name<string>$(R!  A name the software is known by$):
+    version<string>$(Version covered by this statement$):
+    releaseDate<dateTime>$(Date this version released$):
+implementation:
+    description<string>$(R!  Describes this specific instance$):
+    url<uri>$(Base URL for the installation$):
+fhirVersion<id>$(R!  FHIR Version the system uses$):
+acceptUnknown<code=no|extensions|elements>$(R!  no | extensions | elements | both$):
+format<list::code>$(R!  formats supported (xml | json | ttl | mime type)$):
+patchFormat<list::code>$(Patch formats supported$):
+implementationGuide<list::uri>$(Implementation guides supported$):
+profile<list::Reference(StructureDefinition)>$(Profiles for use cases supported$):
+rest<list>$(C? If the endpoint is a RESTful one$):
+  - mode<code>$(R!  client | server$):
+    documentation<string>$(General description of implementation$):
+    security:
+        cors<boolean>$(Adds CORS Headers (http://enable-cors.org/)$):
+        service<list::CodeableConcept>$(OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates$):
+        description<string>$(General description of how security works$):
+        certificate<list>$(Certificates associated with security profiles$):
+          - type<code>$(Mime type for certificates$):
+            blob<base64Binary>$(Actual certificate$):
+    resource<list>$(Resource served on the REST interface$):
+      - type<code>$(R!  A resource type that is supported$):
+        profile<Reference(StructureDefinition)>$(Base System profile for all uses of resource$):
+        documentation<markdown>$(Additional information about the use of the resource type$):
+        interaction<list>$(R!  What operations are supported?$):
+          - code<code=read|vread|update|patch|delete|history-instance|history-type|create>$(R!  read | vread | update | patch | delete | history-instance | history-type | create | search-type$):
+            documentation<string>$(Anything special about operation behavior$):
+        versioning<code>$(no-version | versioned | versioned-update$):
+        readHistory<boolean>$(Whether vRead can return past versions$):
+        updateCreate<boolean>$(If update can commit to a new identity$):
+        conditionalCreate<boolean>$(If allows/uses conditional create$):
+        conditionalRead<code>$(not-supported | modified-since | not-match | full-support$):
+        conditionalUpdate<boolean>$(If allows/uses conditional update$):
+        conditionalDelete<code>$(not-supported | single | multiple - how conditional delete is supported$):
+        referencePolicy<list::code>$(literal | logical | resolves | enforced | local$):
+        searchInclude<list::string>$(_include values supported by the server$):
+        searchRevInclude<list::string>$(_revinclude values supported by the server$):
+        searchParam<list>$(Search parameters supported by implementation$):
+          - name<string>$(R!  Name of search parameter$):
+            definition<uri>$(Source of definition for parameter$):
+            type<code=number|date|string|token|reference|composite|quantity>$(R!  number | date | string | token | reference | composite | quantity | uri$):
+            documentation<string>$(Server-specific usage$):
+    interaction<list>$(What operations are supported?$):
+      - code<code=transaction|batch|search-system>$(R!  transaction | batch | search-system | history-system$):
+        documentation<string>$(Anything special about operation behavior$):
+    searchParam<list::Content as for CapabilityStatement.rest.resource.searchParam>$(Search parameters for searching all resources$):
+    operation<list>$(Definition of an operation or a custom query$):
+      - name<string>$(R!  Name by which the operation/query is invoked$):
+        definition<Reference(OperationDefinition)>$(R!  The defined operation/query$):
+    compartment<list::uri>$(Compartments served/used by system$):
+messaging<list>$(C? If messaging is supported$):
+  - endpoint<list>$(Where messages should be sent$):
+      - protocol<Coding>$(R!  http | ftp | mllp +$):
+        address<uri>$(R!  Network address or identifier of the end-point$):
+    reliableCache<unsignedInt>$(Reliable Message Cache Length (min)$):
+    documentation<string>$(Messaging interface behavior details$):
+    supportedMessage<list>$(Messages supported by this system$):
+      - mode<code>$(R!  sender | receiver$):
+        definition<Reference(MessageDefinition)>$(R!  Message supported by this system$):
+    event<list>$(Declare support for this event$):
+      - code<Coding>$(R!  Event type$):
+        category<code>$(Consequence | Currency | Notification$):
+        mode<code>$(R!  sender | receiver$):
+        focus<code>$(R!  Resource that's focus of message$):
+        request<Reference(StructureDefinition)>$(R!  Profile that describes the request$):
+        response<Reference(StructureDefinition)>$(R!  Profile that describes the response$):
+        documentation<string>$(Endpoint-specific event documentation$):
+document<list>$(C? Document definition$):
+  - mode<code>$(R!  producer | consumer$):
+    documentation<string>$(Description of document support$):
+    profile<Reference(StructureDefinition)>$(R!  Constraint on a resource used in the document$):

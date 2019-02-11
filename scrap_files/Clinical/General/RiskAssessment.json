@@ -1,0 +1,37 @@
+
+{
+  "resourceType" : "RiskAssessment",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // Unique identifier for the assessment
+  "basedOn" : { Reference(Any) }, // Request fulfilled by this assessment
+  "parent" : { Reference(Any) }, // Part of this occurrence
+  "status" : "<code>", // R!  registered | preliminary | final | amended +
+  "method" : { CodeableConcept }, // Evaluation mechanism
+  "code" : { CodeableConcept }, // Type of assessment
+  "subject" : { Reference(Patient|Group) }, // Who/what does assessment apply to?
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Where was assessment performed?
+  // occurrence[x]: When was assessment made?. One of these 2:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "condition" : { Reference(Condition) }, // Condition assessed
+  "performer" : { Reference(Practitioner|Device) }, // Who did assessment?
+  // reason[x]: Why the assessment was necessary?. One of these 2:
+  "reasonCodeableConcept" : { CodeableConcept },
+  "reasonReference" : { Reference(Any) },
+  "basis" : [{ Reference(Any) }], // Information used in assessment
+  "prediction" : [{ // Outcome predicted
+    "outcome" : { CodeableConcept }, // R!  Possible outcome for the subject
+    // probability[x]: Likelihood of specified outcome. One of these 2:
+    "probabilityDecimal" : <decimal>,
+    "probabilityRange" : { Range },
+    "qualitativeRisk" : { CodeableConcept }, // Likelihood of specified outcome as a qualitative value
+    "relativeRisk" : <decimal>, // Relative likelihood
+    // when[x]: Timeframe or age range. One of these 2:
+    "whenPeriod" : { Period },
+    "whenRange" : { Range },
+    "rationale" : "<string>" // Explanation of prediction
+  }],
+  "mitigation" : "<string>", // How to reduce risk
+  "comment" : "<string>" // Comments on the risk assessment
+}

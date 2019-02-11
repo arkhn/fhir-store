@@ -1,0 +1,131 @@
+{
+  "resourceType" : "Claim",
+  "identifier<list::Identifier>$(Claim number$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "type<CodeableConcept>$(Type or discipline$)": null,
+  "subType<list::CodeableConcept>$(Finer grained claim type information$)": null,
+  "use<code>$(complete | proposed | exploratory | other$)": null,
+  "patient<Reference(Patient)>$(The subject of the Products and Services$)": null,
+  "billablePeriod<Period>$(Period for charge submission$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "enterer<Reference(Practitioner)>$(Author$)": null,
+  "insurer<Reference(Organization)>$(Target$)": null,
+  "provider<Reference(Practitioner)>$(Responsible provider$)": null,
+  "organization<Reference(Organization)>$(Responsible organization$)": null,
+  "priority<CodeableConcept>$(Desired processing priority$)": null,
+  "fundsReserve<CodeableConcept>$(Funds requested to be reserved$)": null,
+  "related<list>$(Related Claims which may be revelant to processing this claimn$)": [{
+    "claim<Reference(Claim)>$(Reference to the related claim$)": null,
+    "relationship<CodeableConcept>$(How the reference claim is related$)": null,
+    "reference<Identifier>$(Related file or case reference$)": null
+  }],
+  "prescription<Reference(MedicationRequest|VisionPrescription)>$(Prescription authorizing services or products$)": null,
+  "originalPrescription<Reference(MedicationRequest)>$(Original prescription if superceded by fulfiller$)": null,
+  "payee" : { 
+    "type<CodeableConcept>$(R!  Type of party: Subscriber, Provider, other$)": null,
+    "resourceType<Coding>$(organization | patient | practitioner | relatedperson$)": null,
+    "party<Reference(Practitioner|Organization|Patient|RelatedPerson)>$(Party to receive the payable$)": null
+  },
+  "referral<Reference(ReferralRequest)>$(Treatment Referral$)": null,
+  "facility<Reference(Location)>$(Servicing Facility$)": null,
+  "careTeam<list>$(Members of the care team$)": [{
+    "sequence<positiveInt>$(R!  Number to covey order of careTeam$)": null,
+    "provider<Reference(Practitioner|Organization)>$(R!  Provider individual or organization$)": null,
+    "responsible<boolean>$(Billing provider$)": null,
+    "role<CodeableConcept>$(Role on the team$)": null,
+    "qualification<CodeableConcept>$(Type classification or Specialization$)": null
+  }],
+  "information<list>$(Exceptions special considerations the condition situation prior or concurrent issues$)": [{
+    "sequence<positiveInt>$(R!  Information instance identifier$)": null,
+    "category<CodeableConcept>$(R!  General class of information$)": null,
+    "code<CodeableConcept>$(Type of information$)": null,
+    "timingDate<date>$($)": null,
+    "timingPeriod<Period>$($)": null,
+    "valueString<string>$($)": null,
+    "valueQuantity<Quantity>$($)": null,
+    "valueAttachment<Attachment>$($)": null,
+    "valueReference<Reference(Any)>$($)": null,
+    "reason<CodeableConcept>$(Reason associated with the information$)": null
+  }],
+  "diagnosis<list>$(List of Diagnosis$)": [{
+    "sequence<positiveInt>$(R!  Number to covey order of diagnosis$)": null,
+    "diagnosisCodeableConcept<CodeableConcept>$($)": null,
+    "diagnosisReference<Reference(Condition)>$($)": null,
+    "type<list::CodeableConcept>$(Timing or nature of the diagnosis$)": null,
+    "packageCode<CodeableConcept>$(Package billing code$)": null
+  }],
+  "procedure<list>$(Procedures performed$)": [{
+    "sequence<positiveInt>$(R!  Procedure sequence for reference$)": null,
+    "date<dateTime>$(When the procedure was performed$)": null,
+    "procedureCodeableConcept<CodeableConcept>$($)": null,
+    "procedureReference<Reference(Procedure)>$($)": null
+  }],
+  "insurance<list>$(Insurance or medical plan$)": [{
+    "sequence<positiveInt>$(R!  Service instance identifier$)": null,
+    "focal<boolean>$(R!  Is the focal Coverage$)": null,
+    "coverage<Reference(Coverage)>$(R!  Insurance information$)": null,
+    "businessArrangement<string>$(Business agreement$)": null,
+    "preAuthRef<list::string>$(Pre-Authorization/Determination Reference$)": null,
+    "claimResponse<Reference(ClaimResponse)>$(Adjudication results$)": null
+  }],
+  "accident" : { 
+    "date<date>$(R!  When the accident occurred$)": null,
+    "type<CodeableConcept>$(The nature of the accident$)": null,
+    "locationAddress<Address>$($)": null,
+    "locationReference<Reference(Location)>$($)": null
+  },
+  "employmentImpacted<Period>$(Period unable to work$)": null,
+  "hospitalization<Period>$(Period in hospital$)": null,
+  "item<list>$(Goods and Services$)": [{
+    "sequence<positiveInt>$(R!  Service instance$)": null,
+    "careTeamLinkId<list::positiveInt>$(Applicable careTeam members$)": null,
+    "diagnosisLinkId<list::positiveInt>$(Applicable diagnoses$)": null,
+    "procedureLinkId<list::positiveInt>$(Applicable procedures$)": null,
+    "informationLinkId<list::positiveInt>$(Applicable exception and supporting information$)": null,
+    "revenue<CodeableConcept>$(Revenue or cost center code$)": null,
+    "category<CodeableConcept>$(Type of service or product$)": null,
+    "service<CodeableConcept>$(Billing Code$)": null,
+    "modifier<list::CodeableConcept>$(Service/Product billing modifiers$)": null,
+    "programCode<list::CodeableConcept>$(Program specific reason for item inclusion$)": null,
+    "servicedDate<date>$($)": null,
+    "servicedPeriod<Period>$($)": null,
+    "locationCodeableConcept<CodeableConcept>$($)": null,
+    "locationAddress<Address>$($)": null,
+    "locationReference<Reference(Location)>$($)": null,
+    "quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$)": null,
+    "unitPrice<Money>$(Fee, charge or cost per point$)": null,
+    "factor<decimal>$(Price scaling factor$)": null,
+    "net<Money>$(Total item cost$)": null,
+    "udi<list::Reference(Device)>$(Unique Device Identifier$)": null,
+    "bodySite<CodeableConcept>$(Service Location$)": null,
+    "subSite<list::CodeableConcept>$(Service Sub-location$)": null,
+    "encounter<list::Reference(Encounter)>$(Encounters related to this billed item$)": null,
+    "detail<list>$(Additional items$)": [{
+      "sequence<positiveInt>$(R!  Service instance$)": null,
+      "revenue<CodeableConcept>$(Revenue or cost center code$)": null,
+      "category<CodeableConcept>$(Type of service or product$)": null,
+      "service<CodeableConcept>$(Billing Code$)": null,
+      "modifier<list::CodeableConcept>$(Service/Product billing modifiers$)": null,
+      "programCode<list::CodeableConcept>$(Program specific reason for item inclusion$)": null,
+      "quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$)": null,
+      "unitPrice<Money>$(Fee, charge or cost per point$)": null,
+      "factor<decimal>$(Price scaling factor$)": null,
+      "net<Money>$(Total additional item cost$)": null,
+      "udi<list::Reference(Device)>$(Unique Device Identifier$)": null,
+      "subDetail<list>$(Additional items$)": [{
+        "sequence<positiveInt>$(R!  Service instance$)": null,
+        "revenue<CodeableConcept>$(Revenue or cost center code$)": null,
+        "category<CodeableConcept>$(Type of service or product$)": null,
+        "service<CodeableConcept>$(Billing Code$)": null,
+        "modifier<list::CodeableConcept>$(Service/Product billing modifiers$)": null,
+        "programCode<list::CodeableConcept>$(Program specific reason for item inclusion$)": null,
+        "quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$)": null,
+        "unitPrice<Money>$(Fee, charge or cost per point$)": null,
+        "factor<decimal>$(Price scaling factor$)": null,
+        "net<Money>$(Net additional item cost$)": null,
+        "udi<list::Reference(Device)>$(Unique Device Identifier$)": null
+      }]
+    }]
+  }],
+  "total<Money>$(Total claim cost$)": null
+}

@@ -1,0 +1,26 @@
+
+{
+  "resourceType" : "NamingSystem",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "name" : "<string>", // R!  Name for this naming system (computer friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "kind" : "<code>", // R!  codesystem | identifier | root
+  "date" : "<dateTime>", // R!  Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "responsible" : "<string>", // Who maintains system namespace?
+  "type" : { CodeableConcept }, // e.g. driver,  provider,  patient, bank etc.
+  "description" : "<markdown>", // Natural language description of the naming system
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for naming system (if applicable)
+  "usage" : "<string>", // How/where is it used
+  "uniqueId" : [{ // R!  Unique identifiers used for system
+    "type" : "<code>", // R!  oid | uuid | uri | other
+    "value" : "<string>", // R!  The unique identifier
+    "preferred" : <boolean>, // Is this the id that should be used for this type
+    "comment" : "<string>", // Notes about identifier usage
+    "period" : { Period } // When is identifier valid?
+  }],
+  "replacedBy" : { Reference(NamingSystem) } // C? Use this instead
+}

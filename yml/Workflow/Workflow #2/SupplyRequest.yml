@@ -1,0 +1,21 @@
+resourceType: "SupplyRequest"
+identifier<Identifier>$(Unique identifier$):
+status<code>$(draft | active | suspended +$):
+category<CodeableConcept>$(The kind of supply (central, non-stock, etc.)$):
+priority<code>$(routine | urgent | asap | stat$):
+orderedItem:
+    quantity<Quantity>$(R!  The requested amount of the item indicated$):
+    itemCodeableConcept<CodeableConcept>$($):
+    itemReference<Reference(Medication|Substance|Device)>$($):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+occurrenceTiming<Timing>$($):
+authoredOn<dateTime>$(When the request was made$):
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$):
+    onBehalfOf<Reference(Organization)>$(Organization agent is acting for$):
+supplier<list::Reference(Organization)>$(Who is intended to fulfill the request$):
+reasonCodeableConcept<CodeableConcept>$($):
+reasonReference<Reference(Any)>$($):
+deliverFrom<Reference(Organization|Location)>$(The origin of the supply$):
+deliverTo<Reference(Organization|Location|Patient)>$(The destination of the supply$):

@@ -1,0 +1,20 @@
+
+{
+  "resourceType" : "DeviceComponent",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // R!  Instance id assigned by the software stack
+  "type" : { CodeableConcept }, // R!  What kind of component it is
+  "lastSystemChange" : "<instant>", // Recent system change timestamp
+  "source" : { Reference(Device) }, // Top-level device resource link
+  "parent" : { Reference(DeviceComponent) }, // Parent resource link
+  "operationalStatus" : [{ CodeableConcept }], // Current operational status of the component, for example On, Off or Standby
+  "parameterGroup" : { CodeableConcept }, // Current supported parameter group
+  "measurementPrinciple" : "<code>", // other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
+  "productionSpecification" : [{ // Specification details such as Component Revisions, or Serial Numbers
+    "specType" : { CodeableConcept }, // Type or kind of production specification, for example serial number or software revision
+    "componentId" : { Identifier }, // Internal component unique identification
+    "productionSpec" : "<string>" // A printable string defining the component
+  }],
+  "languageCode" : { CodeableConcept } // Language code for the human-readable text strings produced by the device
+}

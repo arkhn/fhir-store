@@ -1,0 +1,30 @@
+{
+  "resourceType" : "SearchParameter",
+  "url<uri>$(R!  Logical URI to reference this search parameter (globally unique)$)": null,
+  "version<string>$(Business version of the search parameter$)": null,
+  "name<string>$(R!  Name for this search parameter (computer friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for search parameter (if applicable)$)": null,
+  "purpose<markdown>$(Why this search parameter is defined$)": null,
+  "code<code>$(R!  Code used in URL$)": null,
+  "base<list::code>$(R!  The resource type(s) this search parameter applies to$)": null,
+  "type<code=number|date|string|token|reference|composite|quantity>$(R!  number | date | string | token | reference | composite | quantity | uri$)": null,
+  "derivedFrom<uri>$(Original Definition for the search parameter$)": null,
+  "description<markdown>$(R!  Natural language description of the search parameter$)": null,
+  "expression<string>$(C? FHIRPath expression that extracts the values$)": null,
+  "xpath<string>$(C? XPath that extracts the values$)": null,
+  "xpathUsage<code=normal|phonetic|nearby|distance>$(C? normal | phonetic | nearby | distance | other$)": null,
+  "target<list::code>$(Types of resource (if a resource reference)$)": null,
+  "comparator<list::code>$(eq | ne | gt | lt | ge | le | sa | eb | ap$)": null,
+  "modifier<list::code>$(missing | exact | contains | not | text | in | not-in | below | above | type$)": null,
+  "chain<list::string>$(Chained names supported$)": null,
+  "component<list>$(For Composite resources to define the parts$)": [{
+    "definition<Reference(SearchParameter)>$(R!  Defines how the part works$)": null,
+    "expression<string>$(R!  Subexpression relative to main expression$)": null
+  }]
+}

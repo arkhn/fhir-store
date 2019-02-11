@@ -1,0 +1,6 @@
+
+{
+  // from Element: extension
+  "numerator" : { Quantity }, // Numerator value
+  "denominator" : { Quantity } // Denominator value
+}

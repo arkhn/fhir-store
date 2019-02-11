@@ -1,0 +1,51 @@
+{
+  "resourceType" : "ConceptMap",
+  "url<uri>$(Logical URI to reference this concept map (globally unique)$)": null,
+  "identifier<Identifier>$(Additional identifier for the concept map$)": null,
+  "version<string>$(Business version of the concept map$)": null,
+  "name<string>$(Name for this concept map (computer friendly)$)": null,
+  "title<string>$(Name for this concept map (human friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(Natural language description of the concept map$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for concept map (if applicable)$)": null,
+  "purpose<markdown>$(Why this concept map is defined$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "sourceUri<uri>$($)": null,
+  "sourceReference<Reference(ValueSet)>$($)": null,
+  "targetUri<uri>$($)": null,
+  "targetReference<Reference(ValueSet)>$($)": null,
+  "group<list>$(Same source and target systems$)": [{
+    "source<uri>$(Code System (if value set crosses code systems)$)": null,
+    "sourceVersion<string>$(Specific version of the  code system$)": null,
+    "target<uri>$(System of the target (if necessary)$)": null,
+    "targetVersion<string>$(Specific version of the  code system$)": null,
+    "element<list>$(R!  Mappings for a concept from the source set$)": [{
+      "code<code>$(Identifies element being mapped$)": null,
+      "display<string>$(Display for the code$)": null,
+      "target<list>$(Concept in target system for element$)": [{
+        "code<code>$(Code that identifies the target element$)": null,
+        "display<string>$(Display for the code$)": null,
+        "equivalence<code>$(relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint$)": null,
+        "comment<string>$(C? Description of status/issues in mapping$)": null,
+        "dependsOn<list>$(Other elements required for this mapping (from context)$)": [{
+          "property<uri>$(R!  Reference to property mapping depends on$)": null,
+          "system<uri>$(Code System (if necessary)$)": null,
+          "code<string>$(R!  Value of the referenced element$)": null,
+          "display<string>$(Display for the code$)": null
+        }],
+        "product<list::Content as for ConceptMap.group.element.target.dependsOn>$(Other concepts that this mapping also produces$)": null
+      }]
+    }],
+    "unmapped" : { 
+      "mode<code=provided|fixed>$(R!  provided | fixed | other-map$)": null,
+      "code<code>$(Fixed code when mode = fixed$)": null,
+      "display<string>$(Display for the code$)": null,
+      "url<uri>$(Canonical URL for other concept map$)": null
+    }
+  }]
+}

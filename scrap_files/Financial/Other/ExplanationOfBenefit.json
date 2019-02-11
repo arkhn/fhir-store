@@ -1,0 +1,208 @@
+
+{
+  "resourceType" : "ExplanationOfBenefit",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "type" : { CodeableConcept }, // Type or discipline
+  "subType" : [{ CodeableConcept }], // Finer grained claim type information
+  "patient" : { Reference(Patient) }, // The subject of the Products and Services
+  "billablePeriod" : { Period }, // Period for charge submission
+  "created" : "<dateTime>", // Creation date
+  "enterer" : { Reference(Practitioner) }, // Author
+  "insurer" : { Reference(Organization) }, // Insurer responsible for the EOB
+  "provider" : { Reference(Practitioner) }, // Responsible provider for the claim
+  "organization" : { Reference(Organization) }, // Responsible organization for the claim
+  "referral" : { Reference(ReferralRequest) }, // Treatment Referral
+  "facility" : { Reference(Location) }, // Servicing Facility
+  "claim" : { Reference(Claim) }, // Claim reference
+  "claimResponse" : { Reference(ClaimResponse) }, // Claim response reference
+  "outcome" : { CodeableConcept }, // complete | error | partial
+  "disposition" : "<string>", // Disposition Message
+  "related" : [{ // Related Claims which may be revelant to processing this claim
+    "claim" : { Reference(Claim) }, // Reference to the related claim
+    "relationship" : { CodeableConcept }, // How the reference claim is related
+    "reference" : { Identifier } // Related file or case reference
+  }],
+  "prescription" : { Reference(MedicationRequest|VisionPrescription) }, // Prescription authorizing services or products
+  "originalPrescription" : { Reference(MedicationRequest) }, // Original prescription if superceded by fulfiller
+  "payee" : { // Party to be paid any benefits payable
+    "type" : { CodeableConcept }, // Type of party: Subscriber, Provider, other
+    "resourceType" : { CodeableConcept }, // organization | patient | practitioner | relatedperson
+    "party" : { Reference(Practitioner|Organization|Patient|RelatedPerson) } // Party to receive the payable
+  },
+  "information" : [{ // Exceptions, special considerations, the condition, situation, prior or concurrent issues
+    "sequence" : "<positiveInt>", // R!  Information instance identifier
+    "category" : { CodeableConcept }, // R!  General class of information
+    "code" : { CodeableConcept }, // Type of information
+    // timing[x]: When it occurred. One of these 2:
+    "timingDate" : "<date>",
+    "timingPeriod" : { Period },
+    // value[x]: Additional Data or supporting information. One of these 4:
+    "valueString" : "<string>",
+    "valueQuantity" : { Quantity },
+    "valueAttachment" : { Attachment },
+    "valueReference" : { Reference(Any) },
+    "reason" : { Coding } // Reason associated with the information
+  }],
+  "careTeam" : [{ // Care Team members
+    "sequence" : "<positiveInt>", // R!  Number to covey order of careteam
+    "provider" : { Reference(Practitioner|Organization) }, // R!  Member of the Care Team
+    "responsible" : <boolean>, // Billing practitioner
+    "role" : { CodeableConcept }, // Role on the team
+    "qualification" : { CodeableConcept } // Type, classification or Specialization
+  }],
+  "diagnosis" : [{ // List of Diagnosis
+    "sequence" : "<positiveInt>", // R!  Number to covey order of diagnosis
+    // diagnosis[x]: Patient's diagnosis. One of these 2:
+    "diagnosisCodeableConcept" : { CodeableConcept },
+    "diagnosisReference" : { Reference(Condition) },
+    "type" : [{ CodeableConcept }], // Timing or nature of the diagnosis
+    "packageCode" : { CodeableConcept } // Package billing code
+  }],
+  "procedure" : [{ // Procedures performed
+    "sequence" : "<positiveInt>", // R!  Procedure sequence for reference
+    "date" : "<dateTime>", // When the procedure was performed
+    // procedure[x]: Patient's list of procedures performed. One of these 2:
+    "procedureCodeableConcept" : { CodeableConcept }
+    "procedureReference" : { Reference(Procedure) }
+  }],
+  "precedence" : "<positiveInt>", // Precedence (primary, secondary, etc.)
+  "insurance" : { // Insurance or medical plan
+    "coverage" : { Reference(Coverage) }, // Insurance information
+    "preAuthRef" : ["<string>"] // Pre-Authorization/Determination Reference
+  },
+  "accident" : { // Details of an accident
+    "date" : "<date>", // When the accident occurred
+    "type" : { CodeableConcept }, // The nature of the accident
+    // location[x]: Accident Place. One of these 2:
+    "locationAddress" : { Address }
+    "locationReference" : { Reference(Location) }
+  },
+  "employmentImpacted" : { Period }, // Period unable to work
+  "hospitalization" : { Period }, // Period in hospital
+  "item" : [{ // Goods and Services
+    "sequence" : "<positiveInt>", // R!  Service instance
+    "careTeamLinkId" : ["<positiveInt>"], // Applicable careteam members
+    "diagnosisLinkId" : ["<positiveInt>"], // Applicable diagnoses
+    "procedureLinkId" : ["<positiveInt>"], // Applicable procedures
+    "informationLinkId" : ["<positiveInt>"], // Applicable exception and supporting information
+    "revenue" : { CodeableConcept }, // Revenue or cost center code
+    "category" : { CodeableConcept }, // Type of service or product
+    "service" : { CodeableConcept }, // Billing Code
+    "modifier" : [{ CodeableConcept }], // Service/Product billing modifiers
+    "programCode" : [{ CodeableConcept }], // Program specific reason for item inclusion
+    // serviced[x]: Date or dates of Service. One of these 2:
+    "servicedDate" : "<date>",
+    "servicedPeriod" : { Period },
+    // location[x]: Place of service. One of these 3:
+    "locationCodeableConcept" : { CodeableConcept },
+    "locationAddress" : { Address },
+    "locationReference" : { Reference(Location) },
+    "quantity" : { Quantity(SimpleQuantity) }, // Count of Products or Services
+    "unitPrice" : { Money }, // Fee, charge or cost per point
+    "factor" : <decimal>, // Price scaling factor
+    "net" : { Money }, // Total item cost
+    "udi" : [{ Reference(Device) }], // Unique Device Identifier
+    "bodySite" : { CodeableConcept }, // Service Location
+    "subSite" : [{ CodeableConcept }], // Service Sub-location
+    "encounter" : [{ Reference(Encounter) }], // Encounters related to this billed item
+    "noteNumber" : ["<positiveInt>"], // List of note numbers which apply
+    "adjudication" : [{ // Adjudication details
+      "category" : { CodeableConcept }, // R!  Adjudication category such as co-pay, eligible, benefit, etc.
+      "reason" : { CodeableConcept }, // Explanation of Adjudication outcome
+      "amount" : { Money }, // Monetary amount
+      "value" : <decimal> // Non-monitory value
+    }],
+    "detail" : [{ // Additional items
+      "sequence" : "<positiveInt>", // R!  Service instance
+      "type" : { CodeableConcept }, // R!  Group or type of product or service
+      "revenue" : { CodeableConcept }, // Revenue or cost center code
+      "category" : { CodeableConcept }, // Type of service or product
+      "service" : { CodeableConcept }, // Billing Code
+      "modifier" : [{ CodeableConcept }], // Service/Product billing modifiers
+      "programCode" : [{ CodeableConcept }], // Program specific reason for item inclusion
+      "quantity" : { Quantity(SimpleQuantity) }, // Count of Products or Services
+      "unitPrice" : { Money }, // Fee, charge or cost per point
+      "factor" : <decimal>, // Price scaling factor
+      "net" : { Money }, // Total additional item cost
+      "udi" : [{ Reference(Device) }], // Unique Device Identifier
+      "noteNumber" : ["<positiveInt>"], // List of note numbers which apply
+      "adjudication" : [{ Content as for ExplanationOfBenefit.item.adjudication }], // Detail level adjudication details
+      "subDetail" : [{ // Additional items
+        "sequence" : "<positiveInt>", // R!  Service instance
+        "type" : { CodeableConcept }, // R!  Type of product or service
+        "revenue" : { CodeableConcept }, // Revenue or cost center code
+        "category" : { CodeableConcept }, // Type of service or product
+        "service" : { CodeableConcept }, // Billing Code
+        "modifier" : [{ CodeableConcept }], // Service/Product billing modifiers
+        "programCode" : [{ CodeableConcept }], // Program specific reason for item inclusion
+        "quantity" : { Quantity(SimpleQuantity) }, // Count of Products or Services
+        "unitPrice" : { Money }, // Fee, charge or cost per point
+        "factor" : <decimal>, // Price scaling factor
+        "net" : { Money }, // Net additional item cost
+        "udi" : [{ Reference(Device) }], // Unique Device Identifier
+        "noteNumber" : ["<positiveInt>"], // List of note numbers which apply
+        "adjudication" : [{ Content as for ExplanationOfBenefit.item.adjudication }] // Language if different from the resource
+      }]
+    }]
+  }],
+  "addItem" : [{ // Insurer added line items
+    "sequenceLinkId" : ["<positiveInt>"], // Service instances
+    "revenue" : { CodeableConcept }, // Revenue or cost center code
+    "category" : { CodeableConcept }, // Type of service or product
+    "service" : { CodeableConcept }, // Billing Code
+    "modifier" : [{ CodeableConcept }], // Service/Product billing modifiers
+    "fee" : { Money }, // Professional fee or Product charge
+    "noteNumber" : ["<positiveInt>"], // List of note numbers which apply
+    "adjudication" : [{ Content as for ExplanationOfBenefit.item.adjudication }], // Added items adjudication
+    "detail" : [{ // Added items details
+      "revenue" : { CodeableConcept }, // Revenue or cost center code
+      "category" : { CodeableConcept }, // Type of service or product
+      "service" : { CodeableConcept }, // Billing Code
+      "modifier" : [{ CodeableConcept }], // Service/Product billing modifiers
+      "fee" : { Money }, // Professional fee or Product charge
+      "noteNumber" : ["<positiveInt>"], // List of note numbers which apply
+      "adjudication" : [{ Content as for ExplanationOfBenefit.item.adjudication }] // Added items detail adjudication
+    }]
+  }],
+  "totalCost" : { Money }, // Total Cost of service from the Claim
+  "unallocDeductable" : { Money }, // Unallocated deductable
+  "totalBenefit" : { Money }, // Total benefit payable for the Claim
+  "payment" : { // Payment (if paid)
+    "type" : { CodeableConcept }, // Partial or Complete
+    "adjustment" : { Money }, // Payment adjustment for non-Claim issues
+    "adjustmentReason" : { CodeableConcept }, // Explanation for the non-claim adjustment
+    "date" : "<date>", // Expected date of Payment
+    "amount" : { Money }, // Payable amount after adjustment
+    "identifier" : { Identifier } // Identifier of the payment instrument
+  },
+  "form" : { CodeableConcept }, // Printed Form Identifier
+  "processNote" : [{ // Processing notes
+    "number" : "<positiveInt>", // Sequence number for this note
+    "type" : { CodeableConcept }, // display | print | printoper
+    "text" : "<string>", // Note explanitory text
+    "language" : { CodeableConcept } // Language if different from the resource
+  }],
+  "benefitBalance" : [{ // Balance by Benefit Category
+    "category" : { CodeableConcept }, // R!  Type of services covered
+    "subCategory" : { CodeableConcept }, // Detailed services covered within the type
+    "excluded" : <boolean>, // Excluded from the plan
+    "name" : "<string>", // Short name for the benefit
+    "description" : "<string>", // Description of the benefit or services covered
+    "network" : { CodeableConcept }, // In or out of network
+    "unit" : { CodeableConcept }, // Individual or family
+    "term" : { CodeableConcept }, // Annual or lifetime
+    "financial" : [{ // Benefit Summary
+      "type" : { CodeableConcept }, // R!  Deductable, visits, benefit amount
+      // allowed[x]: Benefits allowed. One of these 3:
+      "allowedUnsignedInt" : "<unsignedInt>",
+      "allowedString" : "<string>",
+      "allowedMoney" : { Money },
+      // used[x]: Benefits used. One of these 2:
+      "usedUnsignedInt" : "<unsignedInt>"
+      "usedMoney" : { Money }
+    }]
+  }]
+}

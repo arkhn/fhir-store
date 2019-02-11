@@ -1,0 +1,25 @@
+resourceType: "VisionPrescription"
+identifier<list::Identifier>$(Business identifier$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+patient<Reference(Patient)>$(Who prescription is for$):
+encounter<Reference(Encounter)>$(Created during encounter / admission / stay$):
+dateWritten<dateTime>$(When prescription was authorized$):
+prescriber<Reference(Practitioner)>$(Who authorizes the vision product$):
+reasonCodeableConcept<CodeableConcept>$($):
+reasonReference<Reference(Condition)>$($):
+dispense<list>$(Vision supply authorization$):
+  - product<CodeableConcept>$(Product to be supplied$):
+    eye<code>$(right | left$):
+    sphere<decimal>$(Lens sphere$):
+    cylinder<decimal>$(Lens cylinder$):
+    axis<integer>$(Lens axis$):
+    prism<decimal>$(Lens prism$):
+    base<code>$(up | down | in | out$):
+    add<decimal>$(Lens add$):
+    power<decimal>$(Contact lens power$):
+    backCurve<decimal>$(Contact lens back curvature$):
+    diameter<decimal>$(Contact lens diameter$):
+    duration<Quantity(SimpleQuantity)>$(Lens wear duration$):
+    color<string>$(Color required$):
+    brand<string>$(Brand required$):
+    note<list::Annotation>$(Notes for coatings$):

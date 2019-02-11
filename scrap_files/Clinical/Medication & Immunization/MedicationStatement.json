@@ -1,0 +1,31 @@
+
+{
+  "resourceType" : "MedicationStatement",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External identifier
+  "basedOn" : [{ Reference(MedicationRequest|CarePlan|ProcedureRequest|
+   ReferralRequest) }], // Fulfils plan, proposal or order
+  "partOf" : [{ Reference(MedicationAdministration|MedicationDispense|
+   MedicationStatement|Procedure|Observation) }], // Part of referenced event
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter / Episode associated with MedicationStatement
+  "status" : "<code>", // R!  active | completed | entered-in-error | intended | stopped | on-hold
+  "category" : { CodeableConcept }, // Type of medication usage
+  // medication[x]: What medication was taken. One of these 2:
+  "medicationCodeableConcept" : { CodeableConcept },
+  "medicationReference" : { Reference(Medication) },
+  // effective[x]: The date/time or interval when the medication was taken. One of these 2:
+  "effectiveDateTime" : "<dateTime>",
+  "effectivePeriod" : { Period },
+  "dateAsserted" : "<dateTime>", // When the statement was asserted?
+  "informationSource" : { Reference(Patient|Practitioner|RelatedPerson|
+   Organization) }, // Person or organization that provided the information about the taking of this medication
+  "subject" : { Reference(Patient|Group) }, // R!  Who is/was taking  the medication
+  "derivedFrom" : [{ Reference(Any) }], // Additional supporting information
+  "taken" : "<code>", // R!  y | n | unk | na
+  "reasonNotTaken" : [{ CodeableConcept }], // C? True if asserting medication was not given
+  "reasonCode" : [{ CodeableConcept }], // Reason for why the medication is being/was taken
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Condition or observation that supports why the medication is being/was taken
+  "note" : [{ Annotation }], // Further information about the statement
+  "dosage" : [{ Dosage }] // Details of how medication is/was taken or should be taken
+}

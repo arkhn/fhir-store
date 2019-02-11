@@ -1,0 +1,10 @@
+{
+  "resourceType" : "HumanName",
+  "use<code>$(usual | official | temp | nickname | anonymous | old | maiden$)": null,
+  "text<string>$(Text representation of the full name$)": null,
+  "family<string>$(Family name (often called 'Surname')$)": null,
+  "given<list::string>$(Given names (not always 'first'). Includes middle names$)": null,
+  "prefix<list::string>$(Parts that come before the name$)": null,
+  "suffix<list::string>$(Parts that come after the name$)": null,
+  "period<Period>$(Time period when name was/is in use$)": null
+}

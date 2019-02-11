@@ -1,0 +1,10 @@
+{
+  "resourceType" : "BodySite",
+  "identifier<list::Identifier>$(Bodysite identifier$)": null,
+  "active<boolean>$(Whether this body site record is in active use$)": null,
+  "code<CodeableConcept>$(Named anatomical location$)": null,
+  "qualifier<list::CodeableConcept>$(Modification to location code$)": null,
+  "description<string>$(Anatomical location description$)": null,
+  "image<list::Attachment>$(Attached images$)": null,
+  "patient<Reference(Patient)>$(R!  Who this is about$)": null
+}

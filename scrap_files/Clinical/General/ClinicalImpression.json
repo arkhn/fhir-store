@@ -1,0 +1,37 @@
+
+{
+  "resourceType" : "ClinicalImpression",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier
+  "status" : "<code>", // R!  draft | completed | entered-in-error
+  "code" : { CodeableConcept }, // Kind of assessment performed
+  "description" : "<string>", // Why/how the assessment was performed
+  "subject" : { Reference(Patient|Group) }, // R!  Patient or group assessed
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or Episode created from
+  // effective[x]: Time of assessment. One of these 2:
+  "effectiveDateTime" : "<dateTime>",
+  "effectivePeriod" : { Period },
+  "date" : "<dateTime>", // When the assessment was documented
+  "assessor" : { Reference(Practitioner) }, // The clinician performing the assessment
+  "previous" : { Reference(ClinicalImpression) }, // Reference to last assessment
+  "problem" : [{ Reference(Condition|AllergyIntolerance) }], // Relevant impressions of patient state
+  "investigation" : [{ // One or more sets of investigations (signs, symptions, etc.)
+    "code" : { CodeableConcept }, // R!  A name/code for the set
+    "item" : [{ Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|
+    DiagnosticReport|RiskAssessment|ImagingStudy) }] // Record of a specific investigation
+  }],
+  "protocol" : ["<uri>"], // Clinical Protocol followed
+  "summary" : "<string>", // Summary of the assessment
+  "finding" : [{ // Possible or likely findings and diagnoses
+    // item[x]: What was found. One of these 2:
+    "itemCodeableConcept" : { CodeableConcept },
+    "itemReference" : { Reference(Condition|Observation) },
+    "basis" : "<string>" // Which investigations support finding
+  }],
+  "prognosisCodeableConcept" : [{ CodeableConcept }], // Estimate of likely outcome
+  "prognosisReference" : [{ Reference(RiskAssessment) }], // RiskAssessment expressing likely outcome
+  "action" : [{ Reference(ReferralRequest|ProcedureRequest|Procedure|
+   MedicationRequest|Appointment) }], // Action taken as part of assessment procedure
+  "note" : [{ Annotation }] // Comments made about the ClinicalImpression
+}

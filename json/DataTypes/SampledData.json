@@ -1,0 +1,9 @@
+{
+  "origin<Quantity(SimpleQuantity)>$(R!  Zero value and units$)": null,
+  "period<decimal>$(R!  Number of milliseconds between samples$)": null,
+  "factor<decimal>$(Multiply data by this before adding to origin$)": null,
+  "lowerLimit<decimal>$(Lower limit of detection$)": null,
+  "upperLimit<decimal>$(Upper limit of detection$)": null,
+  "dimensions<positiveInt>$(R!  Number of sample points at each time point$)": null,
+  "data<string>$(R!  Decimal values with spaces or \"E\" | \"U\" | \"L\"$)": null
+}

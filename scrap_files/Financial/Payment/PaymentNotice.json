@@ -1,0 +1,16 @@
+
+{
+  "resourceType" : "PaymentNotice",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "request" : { Reference(Any) }, // Request reference
+  "response" : { Reference(Any) }, // Response reference
+  "statusDate" : "<date>", // Payment or clearing date
+  "created" : "<dateTime>", // Creation date
+  "target" : { Reference(Organization) }, // Insurer or Regulatory body
+  "provider" : { Reference(Practitioner) }, // Responsible practitioner
+  "organization" : { Reference(Organization) }, // Responsible organization
+  "paymentStatus" : { CodeableConcept } // Whether payment has been sent or cleared
+}

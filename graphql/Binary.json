@@ -1,0 +1,25 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "R!  MimeType of the binary content",
+        "name": "contentType",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "Access Control Management",
+        "name": "securityContext",
+        "type": "Reference(Any)"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  The actual content",
+        "name": "content",
+        "type": "base64Binary"
+      }
+    ]
+  },
+  "name": "Binary"
+}

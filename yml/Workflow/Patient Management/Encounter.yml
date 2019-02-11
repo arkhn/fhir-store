@@ -1,0 +1,44 @@
+resourceType: "Encounter"
+identifier<list::Identifier>$(Identifier(s) by which this encounter is known$):
+status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>$(R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +$):
+statusHistory<list>$(List of past encounter statuses$):
+  - status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>$(R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +$):
+    period<Period>$(R!  The time that the episode was in the specified status$):
+class<Coding>$(inpatient | outpatient | ambulatory | emergency +$):
+classHistory<list>$(List of past encounter classes$):
+  - class<Coding>$(R!  inpatient | outpatient | ambulatory | emergency +$):
+    period<Period>$(R!  The time that the episode was in the specified class$):
+type<list::CodeableConcept>$(Specific type of encounter$):
+priority<CodeableConcept>$(Indicates the urgency of the encounter$):
+subject<Reference(Patient|Group)>$(The patient ro group present at the encounter$):
+episodeOfCare<list::Reference(EpisodeOfCare)>$(Episode(s) of care that this encounter should be recorded against$):
+incomingReferral<list::Reference(ReferralRequest)>$(The ReferralRequest that initiated this encounter$):
+participant<list>$(List of participants involved in the encounter$):
+  - type<list::CodeableConcept>$(Role of participant in encounter$):
+    period<Period>$(Period of time during the encounter that the participant participated$):
+    individual<Reference(Practitioner|RelatedPerson)>$(Persons involved in the encounter other than the patient$):
+appointment<Reference(Appointment)>$(The appointment that scheduled this encounter$):
+period<Period>$(The start and end time of the encounter$):
+length<Duration>$(Quantity of time the encounter lasted (less time absent)$):
+reason<list::CodeableConcept>$(Reason the encounter takes place (code)$):
+diagnosis<list>$(The list of diagnosis relevant to this encounter$):
+  - condition<Reference(Condition|Procedure)>$(R!  Reason the encounter takes place (resource)$):
+    role<CodeableConcept>$(Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)$):
+    rank<positiveInt>$(Ranking of the diagnosis (for each role type)$):
+account<list::Reference(Account)>$(The set of accounts that may be used for billing for this Encounter$):
+hospitalization:
+    preAdmissionIdentifier<Identifier>$(Pre-admission identifier$):
+    origin<Reference(Location)>$(The location from which the patient came before admission$):
+    admitSource<CodeableConcept>$(From where patient was admitted (physician referral, transfer)$):
+    reAdmission<CodeableConcept>$(The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission$):
+    dietPreference<list::CodeableConcept>$(Diet preferences reported by the patient$):
+    specialCourtesy<list::CodeableConcept>$(Special courtesies (VIP, board member)$):
+    specialArrangement<list::CodeableConcept>$(Wheelchair, translator, stretcher, etc.$):
+    destination<Reference(Location)>$(Location to which the patient is discharged$):
+    dischargeDisposition<CodeableConcept>$(Category or kind of location after discharge$):
+location<list>$(List of locations where the patient has been$):
+  - location<Reference(Location)>$(R!  Location the encounter takes place$):
+    status<code>$(planned | active | reserved | completed$):
+    period<Period>$(Time period during which the patient was present at the location$):
+serviceProvider<Reference(Organization)>$(The custodian organization of this Encounter record$):
+partOf<Reference(Encounter)>$(Another Encounter this encounter is part of$):

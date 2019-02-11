@@ -1,0 +1,6 @@
+{
+  "authorReference<Reference(Practitioner|Patient|RelatedPerson)>$($)": null,
+  "authorString<string>$($)": null,
+  "time<dateTime>$(When the annotation was made$)": null,
+  "text<string>$(R!  The annotation  - text content$)": null
+}

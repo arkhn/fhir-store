@@ -1,0 +1,16 @@
+resourceType: "ImagingManifest"
+identifier<Identifier>$(SOP Instance UID$):
+patient<Reference(Patient)>$(R!  Patient of the selected objects$):
+authoringTime<dateTime>$(Time when the selection of instances was made$):
+author<Reference(Practitioner|Device|Organization|Patient|RelatedPerson)>$(Author (human or machine)$):
+description<string>$(Author (human or machine)$):
+study<list>$(R!  Study identity of the selected instances$):
+  - uid<oid>$(R!  Study identity of the selected instances$):
+    imagingStudy<Reference(ImagingStudy)>$(Reference to ImagingStudy$):
+    endpoint<list::Reference(Endpoint)>$(Study access service endpoint$):
+    series<list>$(R!  Series identity of the selected instances$):
+      - uid<oid>$(R!  Series identity of the selected instances$):
+        endpoint<list::Reference(Endpoint)>$(Series access endpoint$):
+        instance<list>$(R!  The selected instance$):
+          - sopClass<oid>$(R!  The selected instance$):
+            uid<oid>$(R!  SOP class UID of instance$):

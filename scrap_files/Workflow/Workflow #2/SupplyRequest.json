@@ -1,0 +1,32 @@
+
+{
+  "resourceType" : "SupplyRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // Unique identifier
+  "status" : "<code>", // draft | active | suspended +
+  "category" : { CodeableConcept }, // The kind of supply (central, non-stock, etc.)
+  "priority" : "<code>", // routine | urgent | asap | stat
+  "orderedItem" : { // The item being requested
+    "quantity" : { Quantity }, // R!  The requested amount of the item indicated
+    // item[x]: Medication, Substance, or Device requested to be supplied. One of these 2:
+    "itemCodeableConcept" : { CodeableConcept }
+    "itemReference" : { Reference(Medication|Substance|Device) }
+  },
+  // occurrence[x]: When the request should be fulfilled. One of these 3:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "occurrenceTiming" : { Timing },
+  "authoredOn" : "<dateTime>", // When the request was made
+  "requester" : { // Who/what is requesting service
+    "agent" : { Reference(Practitioner|Organization|Patient|RelatedPerson|
+    Device) }, // R!  Individual making the request
+    "onBehalfOf" : { Reference(Organization) } // Organization agent is acting for
+  },
+  "supplier" : [{ Reference(Organization) }], // Who is intended to fulfill the request
+  // reason[x]: Why the supply item was requested. One of these 2:
+  "reasonCodeableConcept" : { CodeableConcept },
+  "reasonReference" : { Reference(Any) },
+  "deliverFrom" : { Reference(Organization|Location) }, // The origin of the supply
+  "deliverTo" : { Reference(Organization|Location|Patient) } // The destination of the supply
+}

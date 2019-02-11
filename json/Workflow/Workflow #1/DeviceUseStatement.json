@@ -1,0 +1,16 @@
+{
+  "resourceType" : "DeviceUseStatement",
+  "identifier<list::Identifier>$(External identifier for this record$)": null,
+  "status<code=active|completed|entered-in-error>$(R!  active | completed | entered-in-error +$)": null,
+  "subject<Reference(Patient|Group)>$(R!  Patient using device$)": null,
+  "whenUsed<Period>$(Period device was used$)": null,
+  "timingTiming<Timing>$($)": null,
+  "timingPeriod<Period>$($)": null,
+  "timingDateTime<dateTime>$($)": null,
+  "recordedOn<dateTime>$(When statement was recorded$)": null,
+  "source<Reference(Patient|Practitioner|RelatedPerson)>$(Who made the statement$)": null,
+  "device<Reference(Device)>$(R!  Reference to device used$)": null,
+  "indication<list::CodeableConcept>$(Why device was used$)": null,
+  "bodySite<CodeableConcept>$(Target body site$)": null,
+  "note<list::Annotation>$(Addition details (comments instructions)$)": null
+}

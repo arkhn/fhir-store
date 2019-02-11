@@ -1,0 +1,20 @@
+{
+  "resourceType" : "ProcessRequest",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "action<code>$(cancel | poll | reprocess | status$)": null,
+  "target<Reference(Organization)>$(Party which is the target of the request$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "provider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "organization<Reference(Organization)>$(Responsible organization$)": null,
+  "request<Reference(Any)>$(Reference to the Request resource$)": null,
+  "response<Reference(Any)>$(Reference to the Response resource$)": null,
+  "nullify<boolean>$(Remove history$)": null,
+  "reference<string>$(Reference number/string$)": null,
+  "item<list>$(Items to re-adjudicate$)": [{
+    "sequenceLinkId<integer>$(R!  Service instance$)": null
+  }],
+  "include<list::string>$(Resource type(s) to include$)": null,
+  "exclude<list::string>$(Resource type(s) to exclude$)": null,
+  "period<Period>$(Selection period$)": null
+}

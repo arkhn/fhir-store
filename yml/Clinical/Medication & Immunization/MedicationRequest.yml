@@ -1,0 +1,35 @@
+resourceType: "MedicationRequest"
+identifier<list::Identifier>$(External ids for this request$):
+definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Protocol or definition$):
+basedOn<list::Reference(CarePlan|MedicationRequest|ProcedureRequest|ReferralRequest)>$(What request fulfills$):
+groupIdentifier<Identifier>$(Composite request this is part of$):
+status<code>$(Composite request this is part of$):
+intent<code>$(active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown$):
+category<CodeableConcept>$(Type of medication usage$):
+priority<code>$(Type of medication usage$):
+medicationCodeableConcept<CodeableConcept>$($):
+medicationReference<Reference(Medication)>$($):
+subject<Reference(Patient|Group)>$(R!  Who or group medication request is for$):
+context<Reference(Encounter|EpisodeOfCare)>$(Created during encounter/admission/stay$):
+supportingInformation<list::Reference(Any)>$(Information to support ordering of the medication$):
+authoredOn<dateTime>$(Information to support ordering of the medication$):
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Who ordered the initial medication(s)$):
+    onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$):
+recorder<Reference(Practitioner)>$(Person who entered the request$):
+reasonCode<list::CodeableConcept>$(Reason or indication for writing the prescription$):
+reasonReference<list::Reference(Condition|Observation)>$(Condition or Observation that supports why the prescription is being written$):
+note<list::Annotation>$(Information about the prescription$):
+dosageInstruction<list::Dosage>$(How the medication should be taken$):
+dispenseRequest:
+    validityPeriod<Period>$(Time period supply is authorized for$):
+    numberOfRepeatsAllowed<positiveInt>$(Medication supply authorization$):
+    quantity<Quantity(SimpleQuantity)>$(Amount of medication to supply per dispense$):
+    expectedSupplyDuration<Duration>$(Number of days supply per dispense$):
+    performer<Reference(Organization)>$(Intended dispenser$):
+substitution:
+    allowed<boolean>$($):
+    reason<CodeableConcept>$(Why should (not) substitution be made$):
+priorPrescription<Reference(MedicationRequest)>$(An order/prescription that is being replaced$):
+detectedIssue<list::Reference(DetectedIssue)>$(Clinical Issue with action$):
+eventHistory<list::Reference(Provenance)>$(A list of events of interest in the lifecycle$):

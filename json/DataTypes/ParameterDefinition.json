@@ -1,0 +1,9 @@
+{
+  "name<code>$(Name used to access the parameter value$)": null,
+  "use<code>$(R!  in | out$)": null,
+  "min<integer>$(Minimum cardinality$)": null,
+  "max<string>$(Maximum cardinality (a number of *)$)": null,
+  "documentation<string>$(A brief description of the parameter$)": null,
+  "type<code>$(R!  What type of value$)": null,
+  "profile<Reference(StructureDefinition)>$(What profile the value is expected to be$)": null
+}

@@ -1,0 +1,22 @@
+
+{
+  "resourceType" : "Substance",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Unique identifier
+  "status" : "<code>", // active | inactive | entered-in-error
+  "category" : [{ CodeableConcept }], // What class/type of substance this is
+  "code" : { CodeableConcept }, // R!  What substance this is
+  "description" : "<string>", // Textual description of the substance, comments
+  "instance" : [{ // If this describes a specific package/container of the substance
+    "identifier" : { Identifier }, // Identifier of the package/container
+    "expiry" : "<dateTime>", // When no longer valid to use
+    "quantity" : { Quantity(SimpleQuantity) } // Amount of substance in the package
+  }],
+  "ingredient" : [{ // Composition information about the substance
+    "quantity" : { Ratio }, // Optional amount (concentration)
+    // substance[x]: A component of the substance. One of these 2:
+    "substanceCodeableConcept" : { CodeableConcept },
+    "substanceReference" : { Reference(Substance) }
+  }]
+}

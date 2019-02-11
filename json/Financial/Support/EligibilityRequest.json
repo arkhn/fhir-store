@@ -1,0 +1,19 @@
+{
+  "resourceType" : "EligibilityRequest",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "priority<CodeableConcept>$(Desired processing priority$)": null,
+  "patient<Reference(Patient)>$(The subject of the Products and Services$)": null,
+  "servicedDate<date>$($)": null,
+  "servicedPeriod<Period>$($)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "enterer<Reference(Practitioner)>$(Author$)": null,
+  "provider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "organization<Reference(Organization)>$(Responsible organization$)": null,
+  "insurer<Reference(Organization)>$(Target$)": null,
+  "facility<Reference(Location)>$(Servicing Facility$)": null,
+  "coverage<Reference(Coverage)>$(Insurance or medical plan$)": null,
+  "businessArrangement<string>$(Business agreement$)": null,
+  "benefitCategory<CodeableConcept>$(Type of services covered$)": null,
+  "benefitSubCategory<CodeableConcept>$(Detailed services covered within the type$)": null
+}

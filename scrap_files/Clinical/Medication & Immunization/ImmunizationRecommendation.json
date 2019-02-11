@@ -1,0 +1,28 @@
+
+{
+  "resourceType" : "ImmunizationRecommendation",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier
+  "patient" : { Reference(Patient) }, // R!  Who this profile is for
+  "recommendation" : [{ // R!  Vaccine administration recommendations
+    "date" : "<dateTime>", // R!  Date recommendation created
+    "vaccineCode" : { CodeableConcept }, // Vaccine recommendation applies to
+    "targetDisease" : { CodeableConcept }, // Disease to be immunized against
+    "doseNumber" : "<positiveInt>", // Recommended dose number
+    "forecastStatus" : { CodeableConcept }, // R!  Vaccine administration status
+    "dateCriterion" : [{ // Dates governing proposed immunization
+      "code" : { CodeableConcept }, // R!  Type of date
+      "value" : "<dateTime>" // R!  Recommended date
+    }],
+    "protocol" : { // Protocol used by recommendation
+      "doseSequence" : "<positiveInt>", // Dose number within sequence
+      "description" : "<string>", // Protocol details
+      "authority" : { Reference(Organization) }, // Who is responsible for protocol
+      "series" : "<string>" // Name of vaccination series
+    },
+    "supportingImmunization" : [{ Reference(Immunization) }], // Past immunizations supporting recommendation
+    "supportingPatientInformation" : [{ Reference(Observation|
+    AllergyIntolerance) }] // Patient observations supporting recommendation
+  }]
+}

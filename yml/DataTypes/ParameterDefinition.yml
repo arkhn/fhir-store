@@ -1,0 +1,7 @@
+name<code>$(Name used to access the parameter value$):
+use<code>$(R!  in | out$):
+min<integer>$(Minimum cardinality$):
+max<string>$(Maximum cardinality (a number of *)$):
+documentation<string>$(A brief description of the parameter$):
+type<code>$(R!  What type of value$):
+profile<Reference(StructureDefinition)>$(What profile the value is expected to be$):

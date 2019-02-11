@@ -1,0 +1,167 @@
+path<string>$(R!  Path of the element in the hierarchy of elements$):
+representation<list::code>$(xmlAttr | xmlText | typeAttr | cdaText | xhtml$):
+sliceName<string>$(Name for this particular element (in a set of slices)$):
+label<string>$(Name for element to display with or prompt for element$):
+code<list::Coding>$(Corresponding codes in terminologies$):
+slicing:
+    discriminator<list>$(Element values that are used to distinguish the slices$):
+      - type<code=value|exists|pattern|type>$(R!  value | exists | pattern | type | profile$):
+        path<string>$(R!  Path to element value$):
+    description<string>$(C? Text description of how slicing works (or not)$):
+    ordered<boolean>$(If elements must be in same order as slices$):
+    rules<code=closed|open>$(R!  closed | open | openAtEnd$):
+short<string>$(Concise definition for space-constrained presentation$):
+definition<markdown>$(Full formal definition as narrative text$):
+comment<markdown>$(Comments about the use of this element$):
+requirements<markdown>$(Why this resource has been created$):
+alias<list::string>$(Other names$):
+min<unsignedInt>$(C? Minimum Cardinality$):
+max<string>$(C? Maximum Cardinality (a number or *)$):
+base:
+    path<string>$(R!  Path that identifies the base element$):
+    min<unsignedInt>$(R!  Min cardinality of the base element$):
+    max<string>$(R!  Max cardinality of the base element$):
+contentReference<uri>$(C? Reference to definition of content for the element$):
+type<list>$(C? Data type and Profile for this element$):
+  - code<uri>$(R!  Data type or Resource (reference to definition)$):
+    profile<uri>$(Profile (StructureDefinition) to apply (or IG)$):
+    targetProfile<uri>$(Profile (StructureDefinition) to apply to reference target (or IG)$):
+    aggregation<list::code=contained|referenced|bundled>$(C? contained | referenced | bundled - how aggregated$):
+    versioning<code>$(either | independent | specific$):
+defaultValueInteger<integer>$($):
+defaultValueDecimal<decimal>$($):
+defaultValueDateTime<dateTime>$($):
+defaultValueDate<date>$($):
+defaultValueInstant<instant>$($):
+defaultValueString<string>$($):
+defaultValueUri<uri>$($):
+defaultValueBoolean<boolean>$($):
+defaultValueCode<code>$($):
+defaultValueBase64Binary<base64Binary>$($):
+defaultValueCoding<Coding>$($):
+defaultValueCodeableConcept<CodeableConcept>$($):
+defaultValueAttachment<Attachment>$($):
+defaultValueIdentifier<Identifier>$($):
+defaultValueQuantity<Quantity>$($):
+defaultValueRange<Range>$($):
+defaultValuePeriod<Period>$($):
+defaultValueRatio<Ratio>$($):
+defaultValueHumanName<HumanName>$($):
+defaultValueAddress<Address>$($):
+defaultValueContactPoint<ContactPoint>$($):
+defaultValueSchedule<Schedule>$($):
+defaultValueReference<Reference>$($):
+meaningWhenMissing<markdown>$(C? Implicit meaning when this element is missing$):
+orderMeaning<string>$(What the order of the elements means$):
+fixedInteger<integer>$($):
+fixedDecimal<decimal>$($):
+fixedDateTime<dateTime>$($):
+fixedDate<date>$($):
+fixedInstant<instant>$($):
+fixedString<string>$($):
+fixedUri<uri>$($):
+fixedBoolean<boolean>$($):
+fixedCode<code>$($):
+fixedBase64Binary<base64Binary>$($):
+fixedCoding<Coding>$($):
+fixedCodeableConcept<CodeableConcept>$($):
+fixedAttachment<Attachment>$($):
+fixedIdentifier<Identifier>$($):
+fixedQuantity<Quantity>$($):
+fixedRange<Range>$($):
+fixedPeriod<Period>$($):
+fixedRatio<Ratio>$($):
+fixedHumanName<HumanName>$($):
+fixedAddress<Address>$($):
+fixedContactPoint<ContactPoint>$($):
+fixedSchedule<Schedule>$($):
+fixedReference<Reference>$($):
+patternInteger<integer>$($):
+patternDecimal<decimal>$($):
+patternDateTime<dateTime>$($):
+patternDate<date>$($):
+patternInstant<instant>$($):
+patternString<string>$($):
+patternUri<uri>$($):
+patternBoolean<boolean>$($):
+patternCode<code>$($):
+patternBase64Binary<base64Binary>$($):
+patternCoding<Coding>$($):
+patternCodeableConcept<CodeableConcept>$($):
+patternAttachment<Attachment>$($):
+patternIdentifier<Identifier>$($):
+patternQuantity<Quantity>$($):
+patternRange<Range>$($):
+patternPeriod<Period>$($):
+patternRatio<Ratio>$($):
+patternHumanName<HumanName>$($):
+patternAddress<Address>$($):
+patternContactPoint<ContactPoint>$($):
+patternSchedule<Schedule>$($):
+patternReference<Reference>$($):
+example<list>$(Example value (as defined for type)$):
+  - label<string>$(R!  Describes the purpose of this example$):
+    valueInteger<integer>$($):
+    valueDecimal<decimal>$($):
+    valueDateTime<dateTime>$($):
+    valueDate<date>$($):
+    valueInstant<instant>$($):
+    valueString<string>$($):
+    valueUri<uri>$($):
+    valueBoolean<boolean>$($):
+    valueCode<code>$($):
+    valueBase64Binary<base64Binary>$($):
+    valueCoding<Coding>$($):
+    valueCodeableConcept<CodeableConcept>$($):
+    valueAttachment<Attachment>$($):
+    valueIdentifier<Identifier>$($):
+    valueQuantity<Quantity>$($):
+    valueRange<Range>$($):
+    valuePeriod<Period>$($):
+    valueRatio<Ratio>$($):
+    valueHumanName<HumanName>$($):
+    valueAddress<Address>$($):
+    valueContactPoint<ContactPoint>$($):
+    valueSchedule<Schedule>$($):
+    valueReference<Reference>$($):
+minValueDate<date>$($):
+minValueDateTime<dateTime>$($):
+minValueInstant<instant>$($):
+minValueTime<time>$($):
+minValueDecimal<decimal>$($):
+minValueInteger<integer>$($):
+minValuePositiveInt<positiveInt>$($):
+minValueUnsignedInt<unsignedInt>$($):
+minValueQuantity<Quantity>$($):
+maxValueDate<date>$($):
+maxValueDateTime<dateTime>$($):
+maxValueInstant<instant>$($):
+maxValueTime<time>$($):
+maxValueDecimal<decimal>$($):
+maxValueInteger<integer>$($):
+maxValuePositiveInt<positiveInt>$($):
+maxValueUnsignedInt<unsignedInt>$($):
+maxValueQuantity<Quantity>$($):
+maxLength<integer>$(Max length for strings$):
+condition<list::id>$(Reference to invariant about presence$):
+constraint<list>$(Condition that must evaluate to true$):
+  - key<id>$(C? R!  Target of 'condition' reference above$):
+    requirements<string>$(Why this constraint is necessary or appropriate$):
+    severity<code>$(R!  error | warning$):
+    human<string>$(R!  Human description of constraint$):
+    expression<string>$(R!  FHIRPath expression of constraint$):
+    xpath<string>$(XPath expression of constraint$):
+    source<uri>$(Reference to original source of constraint$):
+mustSupport<boolean>$(If the element must supported$):
+isModifier<boolean>$(If this modifies the meaning of other elements$):
+isSummary<boolean>$(Include when _summary = true?$):
+binding:
+    strength<code=required|extensible|preferred>$(R!  required | extensible | preferred | example$):
+    description<string>$(C? Human explanation of the value set$):
+    valueSetUri<uri>$($):
+    valueSetReference<Reference(ValueSet)>$($):
+mapping<list>$(Map element to another set of definitions$):
+  - identity<id>$(R!  Reference to mapping declaration$):
+    language<code>$(Computable language of mapping$):
+    map<string>$(R!  Details of the mapping$):
+    comment<string>$(Comments about the mapping or its use$):

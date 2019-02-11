@@ -1,0 +1,10 @@
+resourceType: "EnrollmentResponse"
+identifier<list::Identifier>$(Business Identifier$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+request<Reference(EnrollmentRequest)>$(Claim reference$):
+outcome<CodeableConcept>$(complete | error | partial$):
+disposition<string>$(Disposition Message$):
+created<dateTime>$(Creation date$):
+organization<Reference(Organization)>$(Insurer$):
+requestProvider<Reference(Practitioner)>$(Responsible practitioner$):
+requestOrganization<Reference(Organization)>$(Responsible organization$):

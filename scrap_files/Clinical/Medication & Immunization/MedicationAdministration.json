@@ -1,0 +1,42 @@
+
+{
+  "resourceType" : "MedicationAdministration",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External identifier
+  "definition" : [{ Reference(PlanDefinition|ActivityDefinition) }], // Instantiates protocol or definition
+  "partOf" : [{ Reference(MedicationAdministration|Procedure) }], // Part of referenced event
+  "status" : "<code>", // R!  in-progress | on-hold | completed | entered-in-error | stopped | unknown
+  "category" : { CodeableConcept }, // Type of medication usage
+  // medication[x]: What was administered. One of these 2:
+  "medicationCodeableConcept" : { CodeableConcept },
+  "medicationReference" : { Reference(Medication) },
+  "subject" : { Reference(Patient|Group) }, // R!  Who received medication
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or Episode of Care administered as part of
+  "supportingInformation" : [{ Reference(Any) }], // Additional information to support administration
+  // effective[x]: Start and end time of administration. One of these 2:
+  "effectiveDateTime" : "<dateTime>",
+  "effectivePeriod" : { Period },
+  "performer" : [{ // Who administered substance
+    "actor" : { Reference(Practitioner|Patient|RelatedPerson|Device) }, // R!  Individual who was performing
+    "onBehalfOf" : { Reference(Organization) } // Organization organization was acting for
+  }],
+  "notGiven" : <boolean>, // True if medication not administered
+  "reasonNotGiven" : [{ CodeableConcept }], // C? Reason administration not performed
+  "reasonCode" : [{ CodeableConcept }], // C? Reason administration performed
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Condition or Observation that supports why the medication was administered
+  "prescription" : { Reference(MedicationRequest) }, // Request administration performed against
+  "device" : [{ Reference(Device) }], // Device used to administer
+  "note" : [{ Annotation }], // Information about the administration
+  "dosage" : { // Details of how medication was taken
+    "text" : "<string>", // Free text dosage instructions e.g. SIG
+    "site" : { CodeableConcept }, // Body site administered to
+    "route" : { CodeableConcept }, // Path of substance into body
+    "method" : { CodeableConcept }, // How drug was administered
+    "dose" : { Quantity(SimpleQuantity) }, // Amount of medication per dose
+    // rate[x]: Dose quantity per unit of time. One of these 2:
+    "rateRatio" : { Ratio }
+    "rateQuantity" : { Quantity(SimpleQuantity) }
+  },
+  "eventHistory" : [{ Reference(Provenance) }] // A list of events of interest in the lifecycle
+}

@@ -1,0 +1,50 @@
+
+{
+  "resourceType" : "AuditEvent",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "type" : { Coding }, // R!  Type/identifier of event
+  "subtype" : [{ Coding }], // More specific type/id for the event
+  "action" : "<code>", // Type of action performed during the event
+  "recorded" : "<instant>", // R!  Time when the event occurred on source
+  "outcome" : "<code>", // Whether the event succeeded or failed
+  "outcomeDesc" : "<string>", // Description of the event outcome
+  "purposeOfEvent" : [{ CodeableConcept }], // The purposeOfUse of the event
+  "agent" : [{ // R!  Actor involved in the event
+    "role" : [{ CodeableConcept }], // Agent role in the event
+    "reference" : { Reference(Practitioner|Organization|Device|Patient|
+    RelatedPerson) }, // Direct reference to resource
+    "userId" : { Identifier }, // Unique identifier for the user
+    "altId" : "<string>", // Alternative User id e.g. authentication
+    "name" : "<string>", // Human-meaningful name for the agent
+    "requestor" : <boolean>, // R!  Whether user is initiator
+    "location" : { Reference(Location) }, // Where
+    "policy" : ["<uri>"], // Policy that authorized event
+    "media" : { Coding }, // Type of media
+    "network" : { // Logical network location for application activity
+      "address" : "<string>", // Identifier for the network access point of the user device
+      "type" : "<code>" // The type of network access point
+    },
+    "purposeOfUse" : [{ CodeableConcept }] // Reason given for this user
+  }],
+  "source" : { // R!  Audit Event Reporter
+    "site" : "<string>", // Logical source location within the enterprise
+    "identifier" : { Identifier }, // R!  The identity of source detecting the event
+    "type" : [{ Coding }] // The type of source where event originated
+  },
+  "entity" : [{ // Data or objects used
+    "identifier" : { Identifier }, // Specific instance of object
+    "reference" : { Reference(Any) }, // Specific instance of resource
+    "type" : { Coding }, // Type of entity involved
+    "role" : { Coding }, // What role the entity played
+    "lifecycle" : { Coding }, // Life-cycle stage for the entity
+    "securityLabel" : [{ Coding }], // Security labels on the entity
+    "name" : "<string>", // C? Descriptor for entity
+    "description" : "<string>", // Descriptive text
+    "query" : "<base64Binary>", // C? Query parameters
+    "detail" : [{ // Additional Information about the entity
+      "type" : "<string>", // R!  Name of the property
+      "value" : "<base64Binary>" // R!  Property value
+    }]
+  }]
+}

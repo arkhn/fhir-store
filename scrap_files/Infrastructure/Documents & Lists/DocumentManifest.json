@@ -1,0 +1,26 @@
+
+{
+  "resourceType" : "DocumentManifest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "masterIdentifier" : { Identifier }, // Unique Identifier for the set of documents
+  "identifier" : [{ Identifier }], // Other identifiers for the manifest
+  "status" : "<code>", // R!  current | superseded | entered-in-error
+  "type" : { CodeableConcept }, // Kind of document set
+  "subject" : { Reference(Patient|Practitioner|Group|Device) }, // The subject of the set of documents
+  "created" : "<dateTime>", // When this document manifest created
+  "author" : [{ Reference(Practitioner|Organization|Device|Patient|
+   RelatedPerson) }], // Who and/or what authored the manifest
+  "recipient" : [{ Reference(Patient|Practitioner|RelatedPerson|Organization) }], // Intended to get notified about this set of documents
+  "source" : "<uri>", // The source system/application/software
+  "description" : "<string>", // Human-readable description (title)
+  "content" : [{ // R!  The items included
+    // p[x]: Contents of this set of documents. One of these 2:
+    "pAttachment" : { Attachment }
+    "pReference" : { Reference(Any) }
+  }],
+  "related" : [{ // Related things
+    "identifier" : { Identifier }, // Identifiers of things that are related
+    "ref" : { Reference(Any) } // Related Resource
+  }]
+}

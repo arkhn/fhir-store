@@ -1,0 +1,36 @@
+
+{
+  "resourceType" : "DeviceRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Request identifier
+  "definition" : [{ Reference(ActivityDefinition|PlanDefinition) }], // Protocol or definition
+  "basedOn" : [{ Reference(Any) }], // What request fulfills
+  "priorRequest" : [{ Reference(Any) }], // What request replaces
+  "groupIdentifier" : { Identifier }, // Identifier of composite request
+  "status" : "<code>", // draft | active | suspended | completed | entered-in-error | cancelled
+  "intent" : { CodeableConcept }, // R!  proposal | plan | original-order | encoded | reflex-order 
+  "priority" : "<code>", // Indicates how quickly the {{title}} should be addressed with respect to other requests
+  // code[x]: Device requested. One of these 2:
+  "codeReference" : { Reference(Device) },
+  "codeCodeableConcept" : { CodeableConcept },
+  "subject" : { Reference(Patient|Group|Location|Device) }, // R!  Focus of request
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or Episode motivating request
+  // occurrence[x]: Desired time or schedule for use. One of these 3:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "occurrenceTiming" : { Timing },
+  "authoredOn" : "<dateTime>", // When recorded
+  "requester" : { // Who/what is requesting diagnostics
+    "agent" : { Reference(Device|Practitioner|Organization) }, // R!  Individual making the request
+    "onBehalfOf" : { Reference(Organization) } // Organization agent is acting for
+  },
+  "performerType" : { CodeableConcept }, // Fille role
+  "performer" : { Reference(Practitioner|Organization|Patient|Device|
+   RelatedPerson|HealthcareService) }, // Requested Filler
+  "reasonCode" : [{ CodeableConcept }], // Coded Reason for request
+  "reasonReference" : [{ Reference(Any) }], // Linked Reason for request
+  "supportingInfo" : [{ Reference(Any) }], // Additional clinical information
+  "note" : [{ Annotation }], // Notes or comments
+  "relevantHistory" : [{ Reference(Provenance) }] // Request provenance
+}

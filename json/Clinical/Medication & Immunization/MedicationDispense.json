@@ -1,0 +1,37 @@
+{
+  "resourceType" : "MedicationDispense",
+  "identifier<list::Identifier>$(External identifier$)": null,
+  "partOf<list::Reference(Procedure)>$(Event that dispense is part of$)": null,
+  "status<code>$(preparation | in-progress | on-hold | completed | entered-in-error | stopped$)": null,
+  "category<CodeableConcept>$(Type of medication dispense$)": null,
+  "medicationCodeableConcept<CodeableConcept>$($)": null,
+  "medicationReference<Reference(Medication)>$($)": null,
+  "subject<Reference(Patient|Group)>$(Who the dispense is for$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter / Episode associated with event$)": null,
+  "supportingInformation<list::Reference(Any)>$(Information that supports the dispensing of the medication$)": null,
+  "performer<list>$(Who performed event$)": [{
+    "actor<Reference(Practitioner|Organization|Patient|Device|RelatedPerson)>$(R!  Individual who was performing$)": null,
+    "onBehalfOf<Reference(Organization)>$(Organization organization was acting for$)": null
+  }],
+  "authorizingPrescription<list::Reference(MedicationRequest)>$(Medication order that authorizes the dispense$)": null,
+  "type<CodeableConcept>$(Trial fill, partial fill, emergency fill, etc.$)": null,
+  "quantity<Quantity(SimpleQuantity)>$(Amount dispensed$)": null,
+  "daysSupply<Quantity(SimpleQuantity)>$(Amount of medication expressed as a timing amount$)": null,
+  "whenPrepared<dateTime>$(Amount of medication expressed as a timing amount$)": null,
+  "whenHandedOver<dateTime>$(When product was packaged and reviewed$)": null,
+  "destination<Reference(Location)>$(Where the medication was sent$)": null,
+  "receiver<list::Reference(Patient|Practitioner)>$(Who collected the medication$)": null,
+  "note<list::Annotation>$(Information about the dispense$)": null,
+  "dosageInstruction<list::Dosage>$(How the medication is to be used by the patient or administered by the caregiver$)": null,
+  "substitution" : { 
+    "wasSubstituted<boolean>$(Whether a substitution was performed on the dispense$)": null,
+    "type<CodeableConcept>$(Code signifying whether a different drug was dispensed from what was prescribed$)": null,
+    "reason<list::CodeableConcept>$(Why was substitution made$)": null,
+    "responsibleParty<list::Reference(Practitioner)>$(Who is responsible for the substitution$)": null
+  },
+  "detectedIssue<list::Reference(DetectedIssue)>$(Clinical issue with action$)": null,
+  "notDone<boolean>$(Clinical issue with action$)": null,
+  "notDoneReasonCodeableConcept<CodeableConcept>$($)": null,
+  "notDoneReasonReference<Reference(DetectedIssue)>$($)": null,
+  "eventHistory<list::Reference(Provenance)>$(A list of releveant lifecycle events$)": null
+}

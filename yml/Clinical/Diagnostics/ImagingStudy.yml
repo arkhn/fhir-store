@@ -1,0 +1,36 @@
+resourceType: "ImagingStudy"
+uid<oid>$(R!  Formal DICOM identifier for the study$):
+accession<Identifier>$(Related workflow identifier ("Accession Number")$):
+identifier<list::Identifier>$(Other identifiers for the study$):
+availability<code>$(ONLINE | OFFLINE | NEARLINE | UNAVAILABLE$):
+modalityList<list::Coding>$(All series modality if actual acquisition modalities$):
+patient<Reference(Patient)>$(R!  Who the images are of$):
+context<Reference(Encounter|EpisodeOfCare)>$(Originating context$):
+started<dateTime>$(When the study was started$):
+basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>$(Request fulfilled$):
+referrer<Reference(Practitioner)>$(Referring physician$):
+interpreter<list::Reference(Practitioner)>$(Who interpreted images$):
+endpoint<list::Reference(Endpoint)>$(Study access endpoint$):
+numberOfSeries<unsignedInt>$(Number of Study Related Series$):
+numberOfInstances<unsignedInt>$(Number of Study Related Instances$):
+procedureReference<list::Reference(Procedure)>$(The performed Procedure reference$):
+procedureCode<list::CodeableConcept>$(The performed procedure code$):
+reason<CodeableConcept>$(Why the study was requested$):
+description<string>$(Institution-generated description$):
+series<list>$(Each study has one or more series of instances$):
+  - uid<oid>$(R!  Formal DICOM identifier for this series$):
+    number<unsignedInt>$(Numeric identifier of this series$):
+    modality<Coding>$(R!  The modality of the instances in the series$):
+    description<string>$(A short human readable summary of the series$):
+    numberOfInstances<unsignedInt>$(Number of Series Related Instances$):
+    availability<code>$(ONLINE | OFFLINE | NEARLINE | UNAVAILABLE$):
+    endpoint<list::Reference(Endpoint)>$(Series access endpoint$):
+    bodySite<Coding>$(Body part examined$):
+    laterality<Coding>$(Body part laterality$):
+    started<dateTime>$(When the series started$):
+    performer<list::Reference(Practitioner)>$(Who performed the series$):
+    instance<list>$(A single SOP instance from the series$):
+      - uid<oid>$(R!  Formal DICOM identifier for this instance$):
+        number<unsignedInt>$(The number of this instance in the series$):
+        sopClass<oid>$(R!  DICOM class type$):
+        title<string>$(Description of instance$):

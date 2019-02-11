@@ -1,0 +1,27 @@
+resourceType: "RiskAssessment"
+identifier<Identifier>$(Unique identifier for the assessment$):
+basedOn<Reference(Any)>$(Request fulfilled by this assessment$):
+parent<Reference(Any)>$(Part of this occurrence$):
+status<code=registered|preliminary|final|amended>$(R!  registered | preliminary | final | amended +$):
+method<CodeableConcept>$(Evaluation mechanism$):
+code<CodeableConcept>$(Type of assessment$):
+subject<Reference(Patient|Group)>$(Who/what does assessment apply to?$):
+context<Reference(Encounter|EpisodeOfCare)>$(Where was assessment performed?$):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+condition<Reference(Condition)>$(Condition assessed$):
+performer<Reference(Practitioner|Device)>$(Who did assessment?$):
+reasonCodeableConcept<CodeableConcept>$($):
+reasonReference<Reference(Any)>$($):
+basis<list::Reference(Any)>$(Information used in assessment$):
+prediction<list>$(Outcome predicted$):
+  - outcome<CodeableConcept>$(R!  Possible outcome for the subject$):
+    probabilityDecimal<decimal>$($):
+    probabilityRange<Range>$($):
+    qualitativeRisk<CodeableConcept>$(Likelihood of specified outcome as a qualitative value$):
+    relativeRisk<decimal>$(Relative likelihood$):
+    whenPeriod<Period>$($):
+    whenRange<Range>$($):
+    rationale<string>$(Explanation of prediction$):
+mitigation<string>$(How to reduce risk$):
+comment<string>$(Comments on the risk assessment$):

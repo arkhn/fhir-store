@@ -1,0 +1,7 @@
+type<code=named-event|periodic|data-added|data-modified|data-removed|data-accessed>$(R!  named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended$):
+eventName<string>$(Triggering event name$):
+eventTimingTiming<Timing>$($):
+eventTimingReference<Reference(Schedule)>$($):
+eventTimingDate<date>$($):
+eventTimingDateTime<dateTime>$($):
+eventData<DataRequirement>$(Triggering data of the event$):

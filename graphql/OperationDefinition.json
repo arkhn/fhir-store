@@ -1,0 +1,584 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "Logical URI to reference this operation definition (globally unique)",
+        "name": "url",
+        "type": "uri"
+      },
+      {
+        "depth": 1,
+        "comment": "Business version of the operation definition",
+        "name": "version",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Name for this operation definition (computer friendly)",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  draft | active | retired | unknown",
+        "name": "status",
+        "type": "code=draft|active|retired"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  operation | query",
+        "name": "kind",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "For testing purposes, not real usage",
+        "name": "experimental",
+        "type": "boolean"
+      },
+      {
+        "depth": 1,
+        "comment": "Date this was last changed",
+        "name": "date",
+        "type": "dateTime"
+      },
+      {
+        "depth": 1,
+        "comment": "Name of the publisher (organization or individual)",
+        "name": "publisher",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "Contact details for the publisher",
+        "name": "contact",
+        "type": "list::ContactDetail",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "name": "ContactDetail_0",
+              "type": "ContactDetail",
+              "isProfile": true,
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "Name of an individual to contact",
+                    "name": "name",
+                    "type": "string"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Contact details for individual or organization",
+                    "name": "telecom",
+                    "type": "list::ContactPoint",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "name": "ContactPoint_0",
+                          "type": "ContactPoint",
+                          "isProfile": true,
+                          "attributes": {
+                            "create": [
+                              {
+                                "depth": 5,
+                                "comment": "C? phone | fax | email | pager | url | sms | other",
+                                "name": "system",
+                                "type": "code=phone|fax|email|pager|url|sms"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "The actual contact point details",
+                                "name": "value",
+                                "type": "string"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "home | work | temp | old | mobile - purpose of this contact point",
+                                "name": "use",
+                                "type": "code"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "Specify preferred order of use (1 = highest)",
+                                "name": "rank",
+                                "type": "positiveInt"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "Time period when the contact point was/is in use",
+                                "name": "period",
+                                "type": "Period",
+                                "attributes": {
+                                  "create": [
+                                    {
+                                      "depth": 6,
+                                      "comment": "C? Starting time with inclusive boundary",
+                                      "name": "start",
+                                      "type": "dateTime"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "C? End time with inclusive boundary if not ongoing",
+                                      "name": "end",
+                                      "type": "dateTime"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Natural language description of the operation definition",
+        "name": "description",
+        "type": "markdown"
+      },
+      {
+        "depth": 1,
+        "comment": "Context the content is intended to support",
+        "name": "useContext",
+        "type": "list::UsageContext",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "name": "UsageContext_0",
+              "type": "UsageContext",
+              "isProfile": true,
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "R!  Type of context being specified",
+                    "name": "code",
+                    "type": "Coding",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Identity of the terminology system",
+                          "name": "system",
+                          "type": "uri"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Version of the system - if relevant",
+                          "name": "version",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Symbol in syntax defined by the system",
+                          "name": "code",
+                          "type": "code"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Representation defined by the system",
+                          "name": "display",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "If this coding was chosen directly by the user",
+                          "name": "userSelected",
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "",
+                    "name": "valueCodeableConcept",
+                    "type": "CodeableConcept",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Code defined by a terminology system",
+                          "name": "coding",
+                          "type": "list::Coding",
+                          "attributes": {
+                            "create": [
+                              {
+                                "depth": 5,
+                                "name": "Coding_0",
+                                "type": "Coding",
+                                "isProfile": true,
+                                "attributes": {
+                                  "create": [
+                                    {
+                                      "depth": 6,
+                                      "comment": "Identity of the terminology system",
+                                      "name": "system",
+                                      "type": "uri"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Version of the system - if relevant",
+                                      "name": "version",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Symbol in syntax defined by the system",
+                                      "name": "code",
+                                      "type": "code"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Representation defined by the system",
+                                      "name": "display",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "If this coding was chosen directly by the user",
+                                      "name": "userSelected",
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Plain text representation of the concept",
+                          "name": "text",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "",
+                    "name": "valueQuantity",
+                    "type": "Quantity",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Numerical value (with implicit precision)",
+                          "name": "value",
+                          "type": "decimal"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "< | <= | >= | > - how to understand the value",
+                          "name": "comparator",
+                          "type": "code"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Unit representation",
+                          "name": "unit",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "C? System that defines coded unit form",
+                          "name": "system",
+                          "type": "uri"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Coded form of the unit",
+                          "name": "code",
+                          "type": "code"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "",
+                    "name": "valueRange",
+                    "type": "Range",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "C? Low limit",
+                          "name": "low",
+                          "type": "Quantity(SimpleQuantity)"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "C? High limit",
+                          "name": "high",
+                          "type": "Quantity(SimpleQuantity)"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Intended jurisdiction for operation definition (if applicable)",
+        "name": "jurisdiction",
+        "type": "list::CodeableConcept",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "name": "CodeableConcept_0",
+              "type": "CodeableConcept",
+              "isProfile": true,
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "Code defined by a terminology system",
+                    "name": "coding",
+                    "type": "list::Coding",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "name": "Coding_0",
+                          "type": "Coding",
+                          "isProfile": true,
+                          "attributes": {
+                            "create": [
+                              {
+                                "depth": 5,
+                                "comment": "Identity of the terminology system",
+                                "name": "system",
+                                "type": "uri"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "Version of the system - if relevant",
+                                "name": "version",
+                                "type": "string"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "Symbol in syntax defined by the system",
+                                "name": "code",
+                                "type": "code"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "Representation defined by the system",
+                                "name": "display",
+                                "type": "string"
+                              },
+                              {
+                                "depth": 5,
+                                "comment": "If this coding was chosen directly by the user",
+                                "name": "userSelected",
+                                "type": "boolean"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Plain text representation of the concept",
+                    "name": "text",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Why this operation definition is defined",
+        "name": "purpose",
+        "type": "markdown"
+      },
+      {
+        "depth": 1,
+        "comment": "Whether content is unchanged by the operation",
+        "name": "idempotent",
+        "type": "boolean"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Name used to invoke the operation",
+        "name": "code",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "Additional information about use",
+        "name": "comment",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "Marks this as a profile of the base",
+        "name": "base",
+        "type": "Reference(OperationDefinition)"
+      },
+      {
+        "depth": 1,
+        "comment": "Types this operation applies to",
+        "name": "resource",
+        "type": "list::code"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Invoke at the system level?",
+        "name": "system",
+        "type": "boolean"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Invole at the type level?",
+        "name": "type",
+        "type": "boolean"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Invoke on an instance?",
+        "name": "instance",
+        "type": "boolean"
+      },
+      {
+        "depth": 1,
+        "comment": "Parameters for the operation/query",
+        "name": "parameter",
+        "type": "list",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "R!  Name in Parameters.parameter.name or in URL",
+              "name": "name",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "R!  in | out",
+              "name": "use",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "R!  Minimum Cardinality",
+              "name": "min",
+              "type": "integer"
+            },
+            {
+              "depth": 2,
+              "comment": "R!  Maximum Cardinality (a number or *)",
+              "name": "max",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Description of meaning/use",
+              "name": "documentation",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "C? What type this parameter has",
+              "name": "type",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "C? number | date | string | token | reference | composite | quantity | uri",
+              "name": "searchType",
+              "type": "code=number|date|string|token|reference|composite|quantity"
+            },
+            {
+              "depth": 2,
+              "comment": "Profile on the type",
+              "name": "profile",
+              "type": "Reference(StructureDefinition)"
+            },
+            {
+              "depth": 2,
+              "name": "binding",
+              "type": "binding",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "R!  required | extensible | preferred | example",
+                    "name": "strength",
+                    "type": "code=required|extensible|preferred"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "",
+                    "name": "valueSetUri",
+                    "type": "uri"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "",
+                    "name": "valueSetReference",
+                    "type": "Reference(ValueSet)"
+                  }
+                ]
+              }
+            },
+            {
+              "depth": 2,
+              "comment": "C? Parts of a nested Parameter",
+              "name": "part",
+              "type": "list::Content as for OperationDefinition.parameter"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Define overloaded variants for when  generating code",
+        "name": "overload",
+        "type": "list",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Name of parameter to include in overload",
+              "name": "parameterName",
+              "type": "list::string"
+            },
+            {
+              "depth": 2,
+              "comment": "Comments to go on overload",
+              "name": "comment",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "name": "OperationDefinition"
+}

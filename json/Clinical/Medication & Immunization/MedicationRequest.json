@@ -1,0 +1,40 @@
+{
+  "resourceType" : "MedicationRequest",
+  "identifier<list::Identifier>$(External ids for this request$)": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Protocol or definition$)": null,
+  "basedOn<list::Reference(CarePlan|MedicationRequest|ProcedureRequest|ReferralRequest)>$(What request fulfills$)": null,
+  "groupIdentifier<Identifier>$(Composite request this is part of$)": null,
+  "status<code>$(Composite request this is part of$)": null,
+  "intent<code>$(active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown$)": null,
+  "category<CodeableConcept>$(Type of medication usage$)": null,
+  "priority<code>$(Type of medication usage$)": null,
+  "medicationCodeableConcept<CodeableConcept>$($)": null,
+  "medicationReference<Reference(Medication)>$($)": null,
+  "subject<Reference(Patient|Group)>$(R!  Who or group medication request is for$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Created during encounter/admission/stay$)": null,
+  "supportingInformation<list::Reference(Any)>$(Information to support ordering of the medication$)": null,
+  "authoredOn<dateTime>$(Information to support ordering of the medication$)": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Who ordered the initial medication(s)$)": null,
+    "onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$)": null
+  },
+  "recorder<Reference(Practitioner)>$(Person who entered the request$)": null,
+  "reasonCode<list::CodeableConcept>$(Reason or indication for writing the prescription$)": null,
+  "reasonReference<list::Reference(Condition|Observation)>$(Condition or Observation that supports why the prescription is being written$)": null,
+  "note<list::Annotation>$(Information about the prescription$)": null,
+  "dosageInstruction<list::Dosage>$(How the medication should be taken$)": null,
+  "dispenseRequest" : { 
+    "validityPeriod<Period>$(Time period supply is authorized for$)": null,
+    "numberOfRepeatsAllowed<positiveInt>$(Medication supply authorization$)": null,
+    "quantity<Quantity(SimpleQuantity)>$(Amount of medication to supply per dispense$)": null,
+    "expectedSupplyDuration<Duration>$(Number of days supply per dispense$)": null,
+    "performer<Reference(Organization)>$(Intended dispenser$)": null
+  },
+  "substitution" : { 
+    "allowed<boolean>$($)": null,
+    "reason<CodeableConcept>$(Why should (not) substitution be made$)": null
+  },
+  "priorPrescription<Reference(MedicationRequest)>$(An order/prescription that is being replaced$)": null,
+  "detectedIssue<list::Reference(DetectedIssue)>$(Clinical Issue with action$)": null,
+  "eventHistory<list::Reference(Provenance)>$(A list of events of interest in the lifecycle$)": null
+}

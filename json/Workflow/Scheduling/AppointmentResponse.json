@@ -1,0 +1,11 @@
+{
+  "resourceType" : "AppointmentResponse",
+  "identifier<list::Identifier>$(External Ids for this item$)": null,
+  "appointment<Reference(Appointment)>$(R!  Appointment this response relates to$)": null,
+  "start<instant>$(Time from appointment, or requested new start time$)": null,
+  "end<instant>$(Time from appointment, or requested new end time$)": null,
+  "participantType<list::CodeableConcept>$(Role of participant in the appointment$)": null,
+  "actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>$(Person, Location/HealthcareService or Device$)": null,
+  "participantStatus<code>$(Person, Location/HealthcareService or Device$)": null,
+  "comment<string>$(R!  accepted | declined | tentative | in-process | completed | needs-action | entered-in-error$)": null
+}

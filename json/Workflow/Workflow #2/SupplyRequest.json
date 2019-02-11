@@ -1,0 +1,25 @@
+{
+  "resourceType" : "SupplyRequest",
+  "identifier<Identifier>$(Unique identifier$)": null,
+  "status<code>$(draft | active | suspended +$)": null,
+  "category<CodeableConcept>$(The kind of supply (central, non-stock, etc.)$)": null,
+  "priority<code>$(routine | urgent | asap | stat$)": null,
+  "orderedItem" : { 
+    "quantity<Quantity>$(R!  The requested amount of the item indicated$)": null,
+    "itemCodeableConcept<CodeableConcept>$($)": null,
+    "itemReference<Reference(Medication|Substance|Device)>$($)": null
+  },
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "occurrenceTiming<Timing>$($)": null,
+  "authoredOn<dateTime>$(When the request was made$)": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$)": null,
+    "onBehalfOf<Reference(Organization)>$(Organization agent is acting for$)": null
+  },
+  "supplier<list::Reference(Organization)>$(Who is intended to fulfill the request$)": null,
+  "reasonCodeableConcept<CodeableConcept>$($)": null,
+  "reasonReference<Reference(Any)>$($)": null,
+  "deliverFrom<Reference(Organization|Location)>$(The origin of the supply$)": null,
+  "deliverTo<Reference(Organization|Location|Patient)>$(The destination of the supply$)": null
+}

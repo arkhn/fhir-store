@@ -1,0 +1,25 @@
+
+{
+  "resourceType" : "SupplyDelivery",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // External identifier
+  "basedOn" : [{ Reference(SupplyRequest) }], // Fulfills plan, proposal or order
+  "partOf" : [{ Reference(SupplyDelivery|Contract) }], // Part of referenced event
+  "status" : "<code>", // in-progress | completed | abandoned | entered-in-error
+  "patient" : { Reference(Patient) }, // Patient for whom the item is supplied
+  "type" : { CodeableConcept }, // Category of dispense event
+  "suppliedItem" : { // The item that is delivered or supplied
+    "quantity" : { Quantity(SimpleQuantity) }, // Amount dispensed
+    // item[x]: Medication, Substance, or Device supplied. One of these 2:
+    "itemCodeableConcept" : { CodeableConcept }
+    "itemReference" : { Reference(Medication|Substance|Device) }
+  },
+  // occurrence[x]: When event occurred. One of these 3:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "occurrenceTiming" : { Timing },
+  "supplier" : { Reference(Practitioner|Organization) }, // Dispenser
+  "destination" : { Reference(Location) }, // Where the Supply was sent
+  "receiver" : [{ Reference(Practitioner) }] // Who collected the Supply
+}

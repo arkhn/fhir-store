@@ -1,0 +1,9 @@
+resourceType: "AppointmentResponse"
+identifier<list::Identifier>$(External Ids for this item$):
+appointment<Reference(Appointment)>$(R!  Appointment this response relates to$):
+start<instant>$(Time from appointment, or requested new start time$):
+end<instant>$(Time from appointment, or requested new end time$):
+participantType<list::CodeableConcept>$(Role of participant in the appointment$):
+actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>$(Person, Location/HealthcareService or Device$):
+participantStatus<code>$(Person, Location/HealthcareService or Device$):
+comment<string>$(R!  accepted | declined | tentative | in-process | completed | needs-action | entered-in-error$):

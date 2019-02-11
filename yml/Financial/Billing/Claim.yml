@@ -1,0 +1,118 @@
+resourceType: "Claim"
+identifier<list::Identifier>$(Claim number$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+type<CodeableConcept>$(Type or discipline$):
+subType<list::CodeableConcept>$(Finer grained claim type information$):
+use<code>$(complete | proposed | exploratory | other$):
+patient<Reference(Patient)>$(The subject of the Products and Services$):
+billablePeriod<Period>$(Period for charge submission$):
+created<dateTime>$(Creation date$):
+enterer<Reference(Practitioner)>$(Author$):
+insurer<Reference(Organization)>$(Target$):
+provider<Reference(Practitioner)>$(Responsible provider$):
+organization<Reference(Organization)>$(Responsible organization$):
+priority<CodeableConcept>$(Desired processing priority$):
+fundsReserve<CodeableConcept>$(Funds requested to be reserved$):
+related<list>$(Related Claims which may be revelant to processing this claimn$):
+  - claim<Reference(Claim)>$(Reference to the related claim$):
+    relationship<CodeableConcept>$(How the reference claim is related$):
+    reference<Identifier>$(Related file or case reference$):
+prescription<Reference(MedicationRequest|VisionPrescription)>$(Prescription authorizing services or products$):
+originalPrescription<Reference(MedicationRequest)>$(Original prescription if superceded by fulfiller$):
+payee:
+    type<CodeableConcept>$(R!  Type of party: Subscriber, Provider, other$):
+    resourceType<Coding>$(organization | patient | practitioner | relatedperson$):
+    party<Reference(Practitioner|Organization|Patient|RelatedPerson)>$(Party to receive the payable$):
+referral<Reference(ReferralRequest)>$(Treatment Referral$):
+facility<Reference(Location)>$(Servicing Facility$):
+careTeam<list>$(Members of the care team$):
+  - sequence<positiveInt>$(R!  Number to covey order of careTeam$):
+    provider<Reference(Practitioner|Organization)>$(R!  Provider individual or organization$):
+    responsible<boolean>$(Billing provider$):
+    role<CodeableConcept>$(Role on the team$):
+    qualification<CodeableConcept>$(Type classification or Specialization$):
+information<list>$(Exceptions special considerations the condition situation prior or concurrent issues$):
+  - sequence<positiveInt>$(R!  Information instance identifier$):
+    category<CodeableConcept>$(R!  General class of information$):
+    code<CodeableConcept>$(Type of information$):
+    timingDate<date>$($):
+    timingPeriod<Period>$($):
+    valueString<string>$($):
+    valueQuantity<Quantity>$($):
+    valueAttachment<Attachment>$($):
+    valueReference<Reference(Any)>$($):
+    reason<CodeableConcept>$(Reason associated with the information$):
+diagnosis<list>$(List of Diagnosis$):
+  - sequence<positiveInt>$(R!  Number to covey order of diagnosis$):
+    diagnosisCodeableConcept<CodeableConcept>$($):
+    diagnosisReference<Reference(Condition)>$($):
+    type<list::CodeableConcept>$(Timing or nature of the diagnosis$):
+    packageCode<CodeableConcept>$(Package billing code$):
+procedure<list>$(Procedures performed$):
+  - sequence<positiveInt>$(R!  Procedure sequence for reference$):
+    date<dateTime>$(When the procedure was performed$):
+    procedureCodeableConcept<CodeableConcept>$($):
+    procedureReference<Reference(Procedure)>$($):
+insurance<list>$(Insurance or medical plan$):
+  - sequence<positiveInt>$(R!  Service instance identifier$):
+    focal<boolean>$(R!  Is the focal Coverage$):
+    coverage<Reference(Coverage)>$(R!  Insurance information$):
+    businessArrangement<string>$(Business agreement$):
+    preAuthRef<list::string>$(Pre-Authorization/Determination Reference$):
+    claimResponse<Reference(ClaimResponse)>$(Adjudication results$):
+accident:
+    date<date>$(R!  When the accident occurred$):
+    type<CodeableConcept>$(The nature of the accident$):
+    locationAddress<Address>$($):
+    locationReference<Reference(Location)>$($):
+employmentImpacted<Period>$(Period unable to work$):
+hospitalization<Period>$(Period in hospital$):
+item<list>$(Goods and Services$):
+  - sequence<positiveInt>$(R!  Service instance$):
+    careTeamLinkId<list::positiveInt>$(Applicable careTeam members$):
+    diagnosisLinkId<list::positiveInt>$(Applicable diagnoses$):
+    procedureLinkId<list::positiveInt>$(Applicable procedures$):
+    informationLinkId<list::positiveInt>$(Applicable exception and supporting information$):
+    revenue<CodeableConcept>$(Revenue or cost center code$):
+    category<CodeableConcept>$(Type of service or product$):
+    service<CodeableConcept>$(Billing Code$):
+    modifier<list::CodeableConcept>$(Service/Product billing modifiers$):
+    programCode<list::CodeableConcept>$(Program specific reason for item inclusion$):
+    servicedDate<date>$($):
+    servicedPeriod<Period>$($):
+    locationCodeableConcept<CodeableConcept>$($):
+    locationAddress<Address>$($):
+    locationReference<Reference(Location)>$($):
+    quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$):
+    unitPrice<Money>$(Fee, charge or cost per point$):
+    factor<decimal>$(Price scaling factor$):
+    net<Money>$(Total item cost$):
+    udi<list::Reference(Device)>$(Unique Device Identifier$):
+    bodySite<CodeableConcept>$(Service Location$):
+    subSite<list::CodeableConcept>$(Service Sub-location$):
+    encounter<list::Reference(Encounter)>$(Encounters related to this billed item$):
+    detail<list>$(Additional items$):
+      - sequence<positiveInt>$(R!  Service instance$):
+        revenue<CodeableConcept>$(Revenue or cost center code$):
+        category<CodeableConcept>$(Type of service or product$):
+        service<CodeableConcept>$(Billing Code$):
+        modifier<list::CodeableConcept>$(Service/Product billing modifiers$):
+        programCode<list::CodeableConcept>$(Program specific reason for item inclusion$):
+        quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$):
+        unitPrice<Money>$(Fee, charge or cost per point$):
+        factor<decimal>$(Price scaling factor$):
+        net<Money>$(Total additional item cost$):
+        udi<list::Reference(Device)>$(Unique Device Identifier$):
+        subDetail<list>$(Additional items$):
+          - sequence<positiveInt>$(R!  Service instance$):
+            revenue<CodeableConcept>$(Revenue or cost center code$):
+            category<CodeableConcept>$(Type of service or product$):
+            service<CodeableConcept>$(Billing Code$):
+            modifier<list::CodeableConcept>$(Service/Product billing modifiers$):
+            programCode<list::CodeableConcept>$(Program specific reason for item inclusion$):
+            quantity<Quantity(SimpleQuantity)>$(Count of Products or Services$):
+            unitPrice<Money>$(Fee, charge or cost per point$):
+            factor<decimal>$(Price scaling factor$):
+            net<Money>$(Net additional item cost$):
+            udi<list::Reference(Device)>$(Unique Device Identifier$):
+total<Money>$(Total claim cost$):

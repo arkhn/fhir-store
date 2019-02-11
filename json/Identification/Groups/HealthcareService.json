@@ -1,0 +1,35 @@
+{
+  "resourceType" : "HealthcareService",
+  "identifier<list::Identifier>$(External identifiers for this item$)": null,
+  "active<boolean>$(Whether this healthcareservice is in active use$)": null,
+  "providedBy<Reference(Organization)>$(Organization that provides this service$)": null,
+  "category<CodeableConcept>$(Broad category of service being performed or delivered$)": null,
+  "type<list::CodeableConcept>$(Type of service that may be delivered or performed$)": null,
+  "specialty<list::CodeableConcept>$(Specialties handled by the HealthcareService$)": null,
+  "location<list::Reference(Location)>$(Location(s) where service may be provided$)": null,
+  "name<string>$(Description of service as presented to a consumer while searching$)": null,
+  "comment<string>$(Additional description and/or any specific issues not covered elsewhere$)": null,
+  "extraDetails<string>$(Extra details about the service that can't be placed in the other fields$)": null,
+  "photo<Attachment>$(Facilitates quick identification of the service$)": null,
+  "telecom<list::ContactPoint>$(Contacts related to the healthcare service$)": null,
+  "coverageArea<list::Reference(Location)>$(Location(s) service is inteded for/available to$)": null,
+  "serviceProvisionCode<list::CodeableConcept>$(Conditions under which service is available/offered$)": null,
+  "eligibility<CodeableConcept>$(Specific eligibility requirements required to use the service$)": null,
+  "eligibilityNote<string>$(Describes the eligibility conditions for the service$)": null,
+  "programName<list::string>$(Program Names that categorize the service$)": null,
+  "characteristic<list::CodeableConcept>$(Collection of characteristics (attributes)$)": null,
+  "referralMethod<list::CodeableConcept>$(Ways that the service accepts referrals$)": null,
+  "appointmentRequired<boolean>$(If an appointment is required for access to this service$)": null,
+  "availableTime<list>$(Times the Service Site is available$)": [{
+    "daysOfWeek<list::code>$(mon | tue | wed | thu | fri | sat | sun$)": null,
+    "allDay<boolean>$(Always available? e.g. 24 hour service$)": null,
+    "availableStartTime<time>$(Opening time of day (ignored if allDay = true)$)": null,
+    "availableEndTime<time>$(Closing time of day (ignored if allDay = true)$)": null
+  }],
+  "notAvailable<list>$(Not available during this time due to provided reason$)": [{
+    "description<string>$(R!  Reason presented to the user explaining why time not available$)": null,
+    "during<Period>$(Service not availablefrom this date$)": null
+  }],
+  "availabilityExceptions<string>$(Description of availability exceptions$)": null,
+  "endpoint<list::Reference(Endpoint)>$(Technical endpoints providing access to services operated for the location$)": null
+}

@@ -1,0 +1,8 @@
+type<list::Coding>$(R!  Indication of the reason the entity signed the object(s)$):
+when<instant>$(R!  When the signature was created$):
+whoUri<uri>$($):
+whoReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($):
+onBehalfOfUri<uri>$($):
+onBehalfOfReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($):
+contentType<code>$($):
+blob<base64Binary>$($):

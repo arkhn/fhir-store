@@ -1,0 +1,19 @@
+resourceType: "ImmunizationRecommendation"
+identifier<list::Identifier>$(Business identifier$):
+patient<Reference(Patient)>$(R!  Who this profile is for$):
+recommendation<list>$(R!  Vaccine administration recommendations$):
+  - date<dateTime>$(R!  Date recommendation created$):
+    vaccineCode<CodeableConcept>$(Vaccine recommendation applies to$):
+    targetDisease<CodeableConcept>$(Disease to be immunized against$):
+    doseNumber<positiveInt>$(Recommended dose number$):
+    forecastStatus<CodeableConcept>$(R!  Vaccine administration status$):
+    dateCriterion<list>$(Dates governing proposed immunization$):
+      - code<CodeableConcept>$(R!  Type of date$):
+        value<dateTime>$(R!  Recommended date$):
+    protocol:
+        doseSequence<positiveInt>$(Dose number within sequence$):
+        description<string>$(Protocol details$):
+        authority<Reference(Organization)>$(Who is responsible for protocol$):
+        series<string>$(Name of vaccination series$):
+    supportingImmunization<list::Reference(Immunization)>$(Past immunizations supporting recommendation$):
+    supportingPatientInformation<list::Reference(Observation|AllergyIntolerance)>$(Patient observations supporting recommendation$):

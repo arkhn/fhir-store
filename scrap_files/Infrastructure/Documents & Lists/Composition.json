@@ -1,0 +1,43 @@
+
+{
+  "resourceType" : "Composition",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // Logical identifier of composition (version-independent)
+  "status" : "<code>", // R!  preliminary | final | amended | entered-in-error
+  "type" : { CodeableConcept }, // R!  Kind of composition (LOINC if possible)
+  "class" : { CodeableConcept }, // Categorization of Composition
+  "subject" : { Reference(Any) }, // R!  Who and/or what the composition is about
+  "encounter" : { Reference(Encounter) }, // Context of the Composition
+  "date" : "<dateTime>", // R!  Composition editing time
+  "author" : [{ Reference(Practitioner|Device|Patient|RelatedPerson) }], // R!  Who and/or what authored the composition
+  "title" : "<string>", // R!  Human Readable name/title
+  "confidentiality" : "<code>", // As defined by affinity domain
+  "attester" : [{ // Attests to accuracy of composition
+    "mode" : ["<code>"], // R!  personal | professional | legal | official
+    "time" : "<dateTime>", // When the composition was attested
+    "party" : { Reference(Patient|Practitioner|Organization) } // Who attested the composition
+  }],
+  "custodian" : { Reference(Organization) }, // Organization which maintains the composition
+  "relatesTo" : [{ // Relationships to other compositions/documents
+    "code" : "<code>", // R!  replaces | transforms | signs | appends
+    // target[x]: Target of the relationship. One of these 2:
+    "targetIdentifier" : { Identifier }
+    "targetReference" : { Reference(Composition) }
+  }],
+  "event" : [{ // The clinical service(s) being documented
+    "code" : [{ CodeableConcept }], // Code(s) that apply to the event being documented
+    "period" : { Period }, // The period covered by the documentation
+    "detail" : [{ Reference(Any) }] // The event(s) being documented
+  }],
+  "section" : [{ // Composition is broken into sections
+    "title" : "<string>", // Label for section (e.g. for ToC)
+    "code" : { CodeableConcept }, // Classification of section (recommended)
+    "text" : { Narrative }, // C? Text summary of the section, for human interpretation
+    "mode" : "<code>", // working | snapshot | changes
+    "orderedBy" : { CodeableConcept }, // Order of section entries
+    "entry" : [{ Reference(Any) }], // C? A reference to data that supports this section
+    "emptyReason" : { CodeableConcept }, // C? Why the section is empty
+    "section" : [{ Content as for Composition.section }] // C? Nested Section
+  }]
+}

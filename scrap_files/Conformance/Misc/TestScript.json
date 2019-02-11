@@ -1,0 +1,156 @@
+
+{
+  "resourceType" : "TestScript",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // R!  Logical URI to reference this test script (globally unique)
+  "identifier" : { Identifier }, // Additional identifier for the test script
+  "version" : "<string>", // Business version of the test script
+  "name" : "<string>", // R!  Name for this test script (computer friendly)
+  "title" : "<string>", // Name for this test script (human friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "description" : "<markdown>", // Natural language description of the test script
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for test script (if applicable)
+  "purpose" : "<markdown>", // Why this test script is defined
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  "origin" : [{ // An abstract server representing a client or sender in a message exchange
+    "index" : <integer>, // R!  The index of the abstract origin server starting at 1
+    "profile" : { Coding } // R!  FHIR-Client | FHIR-SDC-FormFiller
+  }],
+  "destination" : [{ // An abstract server representing a destination or receiver in a message exchange
+    "index" : <integer>, // R!  The index of the abstract destination server starting at 1
+    "profile" : { Coding } // R!  FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor
+  }],
+  "metadata" : { // Required capability that is assumed to function correctly on the FHIR server being tested
+    "link" : [{ // Links to the FHIR specification
+      "url" : "<uri>", // R!  URL to the specification
+      "description" : "<string>" // Short description
+    }],
+    "capability" : [{ // R!  Capabilities  that are assumed to function correctly on the FHIR server being tested
+      "required" : <boolean>, // Are the capabilities required?
+      "validated" : <boolean>, // Are the capabilities validated?
+      "description" : "<string>", // The expected capabilities of the server
+      "origin" : [<integer>], // Which origin server these requirements apply to
+      "destination" : <integer>, // Which server these requirements apply to
+      "link" : ["<uri>"], // Links to the FHIR specification
+      "capabilities" : { Reference(CapabilityStatement) } // R!  Required Capability Statement
+    }]
+  },
+  "fixture" : [{ // Fixture in the test script - by reference (uri)
+    "autocreate" : <boolean>, // Whether or not to implicitly create the fixture during setup
+    "autodelete" : <boolean>, // Whether or not to implicitly delete the fixture during teardown
+    "resource" : { Reference(Any) } // Reference of the resource
+  }],
+  "profile" : [{ Reference(Any) }], // Reference of the validation profile
+  "variable" : [{ // Placeholder for evaluated elements
+    "name" : "<string>", // R!  Descriptive name for this variable
+    "defaultValue" : "<string>", // Default, hard-coded, or user-defined value for this variable
+    "description" : "<string>", // Natural language description of the variable
+    "expression" : "<string>", // The fluentpath expression against the fixture body
+    "headerField" : "<string>", // HTTP header field name for source
+    "hint" : "<string>", // Hint help text for default value to enter
+    "path" : "<string>", // XPath or JSONPath against the fixture body
+    "sourceId" : "<id>" // Fixture Id of source expression or headerField within this variable
+  }],
+  "rule" : [{ // Assert rule used within the test script
+    "resource" : { Reference(Any) }, // R!  Assert rule resource reference
+    "param" : [{ // Rule parameter template
+      "name" : "<string>", // R!  Parameter name matching external assert rule parameter
+      "value" : "<string>" // Parameter value defined either explicitly or dynamically
+    }]
+  }],
+  "ruleset" : [{ // Assert ruleset used within the test script
+    "resource" : { Reference(Any) }, // R!  Assert ruleset resource reference
+    "rule" : [{ // R!  The referenced rule within the ruleset
+      "ruleId" : "<id>", // R!  Id of referenced rule within the ruleset
+      "param" : [{ // Ruleset rule parameter template
+        "name" : "<string>", // R!  Parameter name matching external assert ruleset rule parameter
+        "value" : "<string>" // Parameter value defined either explicitly or dynamically
+      }]
+    }]
+  }],
+  "setup" : { // A series of required setup operations before tests are executed
+    "action" : [{ // R!  A setup operation or assert to perform
+      "operation" : { // The setup operation to perform
+        "type" : { Coding }, // The operation code type that will be executed
+        "resource" : "<code>", // Resource type
+        "label" : "<string>", // Tracking/logging operation label
+        "description" : "<string>", // Tracking/reporting operation description
+        "accept" : "<code>", // xml | json | ttl | none
+        "contentType" : "<code>", // xml | json | ttl | none
+        "destination" : <integer>, // Server responding to the request
+        "encodeRequestUrl" : <boolean>, // Whether or not to send the request url in encoded format
+        "origin" : <integer>, // Server initiating the request
+        "params" : "<string>", // Explicitly defined path parameters
+        "requestHeader" : [{ // Each operation can have one or more header elements
+          "field" : "<string>", // R!  HTTP header field name
+          "value" : "<string>" // R!  HTTP headerfield value
+        }],
+        "requestId" : "<id>", // Fixture Id of mapped request
+        "responseId" : "<id>", // Fixture Id of mapped response
+        "sourceId" : "<id>", // Fixture Id of body for PUT and POST requests
+        "targetId" : "<id>", // Id of fixture used for extracting the [id],  [type], and [vid] for GET requests
+        "url" : "<string>" // Request URL
+      },
+      "assert" : { // The assertion to perform
+        "label" : "<string>", // Tracking/logging assertion label
+        "description" : "<string>", // Tracking/reporting assertion description
+        "direction" : "<code>", // response | request
+        "compareToSourceId" : "<string>", // Id of the source fixture to be evaluated
+        "compareToSourceExpression" : "<string>", // The fluentpath expression to evaluate against the source fixture
+        "compareToSourcePath" : "<string>", // XPath or JSONPath expression to evaluate against the source fixture
+        "contentType" : "<code>", // xml | json | ttl | none
+        "expression" : "<string>", // The fluentpath expression to be evaluated
+        "headerField" : "<string>", // HTTP header field name
+        "minimumId" : "<string>", // Fixture Id of minimum content resource
+        "navigationLinks" : <boolean>, // Perform validation on navigation links?
+        "operator" : "<code>", // equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval
+        "path" : "<string>", // XPath or JSONPath expression
+        "requestMethod" : "<code>", // delete | get | options | patch | post | put
+        "requestURL" : "<string>", // Request URL comparison value
+        "resource" : "<code>", // Resource type
+        "response" : "<code>", // okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
+        "responseCode" : "<string>", // HTTP response code to test
+        "rule" : { // The reference to a TestScript.rule
+          "ruleId" : "<id>", // R!  Id of the TestScript.rule
+          "param" : [{ // Rule parameter template
+            "name" : "<string>", // R!  Parameter name matching external assert rule parameter
+            "value" : "<string>" // R!  Parameter value defined either explicitly or dynamically
+          }]
+        },
+        "ruleset" : { // The reference to a TestScript.ruleset
+          "rulesetId" : "<id>", // R!  Id of the TestScript.ruleset
+          "rule" : [{ // The referenced rule within the ruleset
+            "ruleId" : "<id>", // R!  Id of referenced rule within the ruleset
+            "param" : [{ // Rule parameter template
+              "name" : "<string>", // R!  Parameter name matching external assert ruleset rule parameter
+              "value" : "<string>" // R!  Parameter value defined either explicitly or dynamically
+            }]
+          }]
+        },
+        "sourceId" : "<id>", // Fixture Id of source expression or headerField
+        "validateProfileId" : "<id>", // Profile Id of validation profile reference
+        "value" : "<string>", // The value to compare to
+        "warningOnly" : <boolean> // Will this assert produce a warning only on error?
+      }
+    }]
+  },
+  "test" : [{ // A test in this script
+    "name" : "<string>", // Tracking/logging name of this test
+    "description" : "<string>", // Tracking/reporting short description of the test
+    "action" : [{ // R!  A test operation or assert to perform
+      "operation" : { Content as for TestScript.setup.action.operation }, // The setup operation to perform
+      "assert" : { Content as for TestScript.setup.action.assert } // The setup assertion to perform
+    }]
+  }],
+  "teardown" : { // A series of required clean up steps
+    "action" : [{ // R!  One or more teardown operations to perform
+      "operation" : { Content as for TestScript.setup.action.operation } // R!  The teardown operation to perform
+    }]
+  }
+}

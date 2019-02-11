@@ -1,0 +1,32 @@
+
+{
+  "resourceType" : "MessageHeader",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "event" : { Coding }, // R!  Code for the event this message represents
+  "destination" : [{ // Message destination application(s)
+    "name" : "<string>", // Name of system
+    "target" : { Reference(Device) }, // Particular delivery destination within the destination
+    "endpoint" : "<uri>" // R!  Actual destination address or id
+  }],
+  "receiver" : { Reference(Practitioner|Organization) }, // Intended "real-world" recipient for the data
+  "sender" : { Reference(Practitioner|Organization) }, // Real world sender of the message
+  "timestamp" : "<instant>", // R!  Time that the message was sent
+  "enterer" : { Reference(Practitioner) }, // The source of the data entry
+  "author" : { Reference(Practitioner) }, // The source of the decision
+  "source" : { // R!  Message source application
+    "name" : "<string>", // Name of system
+    "software" : "<string>", // Name of software running the system
+    "version" : "<string>", // Version of software running
+    "contact" : { ContactPoint }, // Human contact for problems
+    "endpoint" : "<uri>" // R!  Actual message source address or id
+  },
+  "responsible" : { Reference(Practitioner|Organization) }, // Final responsibility for event
+  "reason" : { CodeableConcept }, // Cause of event
+  "response" : { // If this is a reply to prior message
+    "identifier" : "<id>", // R!  Id of original message
+    "code" : "<code>", // R!  ok | transient-error | fatal-error
+    "details" : { Reference(OperationOutcome) } // Specific list of hints/warnings/errors
+  },
+  "focus" : [{ Reference(Any) }] // The actual content of the message
+}

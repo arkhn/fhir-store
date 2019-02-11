@@ -1,0 +1,98 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "R!  Indication of the reason the entity signed the object(s)",
+        "name": "type",
+        "type": "list::Coding",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "name": "Coding_0",
+              "type": "Coding",
+              "isProfile": true,
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "Identity of the terminology system",
+                    "name": "system",
+                    "type": "uri"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Version of the system - if relevant",
+                    "name": "version",
+                    "type": "string"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Symbol in syntax defined by the system",
+                    "name": "code",
+                    "type": "code"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Representation defined by the system",
+                    "name": "display",
+                    "type": "string"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "If this coding was chosen directly by the user",
+                    "name": "userSelected",
+                    "type": "boolean"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "R!  When the signature was created",
+        "name": "when",
+        "type": "instant"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "whoUri",
+        "type": "uri"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "whoReference",
+        "type": "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "onBehalfOfUri",
+        "type": "uri"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "onBehalfOfReference",
+        "type": "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "contentType",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "blob",
+        "type": "base64Binary"
+      }
+    ]
+  }
+}

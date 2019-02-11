@@ -1,0 +1,7 @@
+{
+  "value<decimal>$(Numerical value (with implicit precision)$)": null,
+  "comparator<code>$(< | <= | >= | > - how to understand the value$)": null,
+  "unit<string>$(Unit representation$)": null,
+  "system<uri>$(C? System that defines coded unit form$)": null,
+  "code<code>$(Coded form of the unit$)": null
+}

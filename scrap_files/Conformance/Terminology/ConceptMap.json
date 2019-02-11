@@ -1,0 +1,56 @@
+
+{
+  "resourceType" : "ConceptMap",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // Logical URI to reference this concept map (globally unique)
+  "identifier" : { Identifier }, // Additional identifier for the concept map
+  "version" : "<string>", // Business version of the concept map
+  "name" : "<string>", // Name for this concept map (computer friendly)
+  "title" : "<string>", // Name for this concept map (human friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "description" : "<markdown>", // Natural language description of the concept map
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for concept map (if applicable)
+  "purpose" : "<markdown>", // Why this concept map is defined
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  // source[x]: Identifies the source of the concepts which are being mapped. One of these 2:
+  "sourceUri" : "<uri>",
+  "sourceReference" : { Reference(ValueSet) },
+  // target[x]: Provides context to the mappings. One of these 2:
+  "targetUri" : "<uri>",
+  "targetReference" : { Reference(ValueSet) },
+  "group" : [{ // Same source and target systems
+    "source" : "<uri>", // Code System (if value set crosses code systems)
+    "sourceVersion" : "<string>", // Specific version of the  code system
+    "target" : "<uri>", // System of the target (if necessary)
+    "targetVersion" : "<string>", // Specific version of the  code system
+    "element" : [{ // R!  Mappings for a concept from the source set
+      "code" : "<code>", // Identifies element being mapped
+      "display" : "<string>", // Display for the code
+      "target" : [{ // Concept in target system for element
+        "code" : "<code>", // Code that identifies the target element
+        "display" : "<string>", // Display for the code
+        "equivalence" : "<code>", // relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
+        "comment" : "<string>", // C? Description of status/issues in mapping
+        "dependsOn" : [{ // Other elements required for this mapping (from context)
+          "property" : "<uri>", // R!  Reference to property mapping depends on
+          "system" : "<uri>", // Code System (if necessary)
+          "code" : "<string>", // R!  Value of the referenced element
+          "display" : "<string>" // Display for the code
+        }],
+        "product" : [{ Content as for ConceptMap.group.element.target.dependsOn }] // Other concepts that this mapping also produces
+      }]
+    }],
+    "unmapped" : { // When no match in the mappings
+      "mode" : "<code>", // R!  provided | fixed | other-map
+      "code" : "<code>", // Fixed code when mode = fixed
+      "display" : "<string>", // Display for the code
+      "url" : "<uri>" // Canonical URL for other concept map
+    }
+  }]
+}

@@ -1,0 +1,28 @@
+{
+  "resourceType" : "PaymentReconciliation",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "period<Period>$(Period covered$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "organization<Reference(Organization)>$(Insurer$)": null,
+  "request<Reference(ProcessRequest)>$(Claim reference$)": null,
+  "outcome<CodeableConcept>$(complete | error | partial$)": null,
+  "disposition<string>$(Disposition Message$)": null,
+  "requestProvider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "requestOrganization<Reference(Organization)>$(Responsible organization$)": null,
+  "detail<list>$(List of settlements$)": [{
+    "type<CodeableConcept>$(R!  Type code$)": null,
+    "request<Reference(Any)>$(Claim$)": null,
+    "response<Reference(Any)>$(Claim Response$)": null,
+    "submitter<Reference(Organization)>$(Organization which submitted the claim$)": null,
+    "payee<Reference(Organization)>$(Organization which is receiving the payment$)": null,
+    "date<date>$(Invoice date$)": null,
+    "amount<Money>$(Amount being paid$)": null
+  }],
+  "form<CodeableConcept>$(Printed Form Identifier$)": null,
+  "total<Money>$(Total amount of Payment$)": null,
+  "processNote<list>$(Processing comments$)": [{
+    "type<CodeableConcept>$(display | print | printoper$)": null,
+    "text<string>$(Comment on the processing$)": null
+  }]
+}

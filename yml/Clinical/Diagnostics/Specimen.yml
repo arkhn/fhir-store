@@ -1,0 +1,31 @@
+resourceType: "Specimen"
+identifier<list::Identifier>$(External Identifier$):
+accessionIdentifier<Identifier>$(Identifier assigned by the lab$):
+status<code>$(available | unavailable | unsatisfactory | entered-in-error$):
+type<CodeableConcept>$(Kind of material that forms the specimen$):
+subject<Reference(Patient|Group|Device|Substance)>$(R!  Where the specimen came from. This may be from the patient(s) or from the environment or a device$):
+receivedTime<dateTime>$(The time when specimen was received for processing$):
+parent<list::Reference(Specimen)>$(Specimen from which this specimen originated$):
+request<list::Reference(ProcedureRequest)>$(Why the specimen was collected$):
+collection:
+    collector<Reference(Practitioner)>$(Who collected the specimen$):
+    collectedDateTime<dateTime>$($):
+    collectedPeriod<Period>$($):
+    quantity<Quantity(SimpleQuantity)>$(The quantity of specimen collected$):
+    method<CodeableConcept>$(Technique used to perform collection$):
+    bodySite<CodeableConcept>$(Anatomical collection site$):
+processing<list>$(Processing and processing step details$):
+  - description<string>$(Textual description of procedure$):
+    procedure<CodeableConcept>$(Indicates the treatment step  applied to the specimen$):
+    additive<list::Reference(Substance)>$(Material used in the processing step$):
+    timeDateTime<dateTime>$($):
+    timePeriod<Period>$($):
+container<list>$(Direct container of specimen (tube/slide etc.)$):
+  - identifier<list::Identifier>$(Id for the container$):
+    description<string>$(Textual description of the container$):
+    type<CodeableConcept>$(Kind of container directly associated with specimen$):
+    capacity<Quantity(SimpleQuantity)>$(Container volume or size$):
+    specimenQuantity<Quantity(SimpleQuantity)>$(Quantity of specimen within container$):
+    additiveCodeableConcept<CodeableConcept>$($):
+    additiveReference<Reference(Substance)>$($):
+note<list::Annotation>$(Comments$):

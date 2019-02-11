@@ -1,0 +1,16 @@
+
+{
+  // from Element: extension
+  "type" : [{ Coding }], // R!  Indication of the reason the entity signed the object(s)
+  "when" : "<instant>", // R!  When the signature was created
+  // who[x]: Who signed. One of these 2:
+  "whoUri" : "<uri>",
+  "whoReference" : { Reference(Practitioner|RelatedPerson|Patient|Device|
+   Organization) },
+  // onBehalfOf[x]: The party represented. One of these 2:
+  "onBehalfOfUri" : "<uri>",
+  "onBehalfOfReference" : { Reference(Practitioner|RelatedPerson|Patient|Device|
+   Organization) },
+  "contentType" : "<code>", // The technical format of the signature
+  "blob" : "<base64Binary>" // The actual signature content (XML DigSig. JWT, picture, etc.)
+}

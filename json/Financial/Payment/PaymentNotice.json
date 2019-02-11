@@ -1,0 +1,13 @@
+{
+  "resourceType" : "PaymentNotice",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "request<Reference(Any)>$(Request reference$)": null,
+  "response<Reference(Any)>$(Response reference$)": null,
+  "statusDate<date>$(Payment or clearing date$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "target<Reference(Organization)>$(Insurer or Regulatory body$)": null,
+  "provider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "organization<Reference(Organization)>$(Responsible organization$)": null,
+  "paymentStatus<CodeableConcept>$(Whether payment has been sent or cleared$)": null
+}

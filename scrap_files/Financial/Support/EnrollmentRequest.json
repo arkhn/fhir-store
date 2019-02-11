@@ -1,0 +1,14 @@
+
+{
+  "resourceType" : "EnrollmentRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "created" : "<dateTime>", // Creation date
+  "insurer" : { Reference(Organization) }, // Target
+  "provider" : { Reference(Practitioner) }, // Responsible practitioner
+  "organization" : { Reference(Organization) }, // Responsible organization
+  "subject" : { Reference(Patient) }, // The subject of the Products and Services
+  "coverage" : { Reference(Coverage) } // Insurance information
+}

@@ -1,0 +1,32 @@
+resourceType: "ProcedureRequest"
+identifier<list::Identifier>$(Identifiers assigned to this order$):
+definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Protocol or definition$):
+basedOn<list::Reference(Any)>$(What request fulfills$):
+replaces<list::Reference(Any)>$(What request replaces$):
+requisition<Identifier>$(Composite Request ID$):
+status<code=draft|active|suspended|completed|entered-in-error>$(R!  draft | active | suspended | completed | entered-in-error | cancelled$):
+intent<code=proposal|plan|order>$(R!  proposal | plan | order +$):
+priority<code>$(routine | urgent | asap | stat$):
+doNotPerform<boolean>$(True if procedure should not be performed$):
+category<list::CodeableConcept>$(Classification of procedure$):
+code<CodeableConcept>$(R!  What is being requested/ordered$):
+subject<Reference(Patient|Group|Location|Device)>$(R!  Individual the service is ordered for$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode during which request was created$):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+occurrenceTiming<Timing>$($):
+asNeededBoolean<boolean>$($):
+asNeededCodeableConcept<CodeableConcept>$($):
+authoredOn<dateTime>$(Date request signed$):
+requester:
+    agent<Reference(Device|Practitioner|Organization)>$(R!  Individual making the request$):
+    onBehalfOf<Reference(Organization)>$(Organization agent is acting for$):
+performerType<CodeableConcept>$(Performer role$):
+performer<Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)>$(Requested perfomer$):
+reasonCode<list::CodeableConcept>$(Explanation/Justification for test$):
+reasonReference<list::Reference(Condition|Observation)>$(Explanation/Justification for test$):
+supportingInfo<list::Reference(Any)>$(Additional clinical information$):
+specimen<list::Reference(Specimen)>$(Procedure Samples$):
+bodySite<list::CodeableConcept>$(Location on Body$):
+note<list::Annotation>$(Comments$):
+relevantHistory<list::Reference(Provenance)>$(Request provenance$):

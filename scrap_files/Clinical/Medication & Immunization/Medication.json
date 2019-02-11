@@ -1,0 +1,33 @@
+
+{
+  "resourceType" : "Medication",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "code" : { CodeableConcept }, // Codes that identify this medication
+  "status" : "<code>", // active | inactive | entered-in-error
+  "isBrand" : <boolean>, // True if a brand
+  "isOverTheCounter" : <boolean>, // True if medication does not require a prescription
+  "manufacturer" : { Reference(Organization) }, // Manufacturer of the item
+  "form" : { CodeableConcept }, // powder | tablets | capsule +
+  "ingredient" : [{ // Active or inactive ingredient
+    // item[x]: The product contained. One of these 2:
+    "itemCodeableConcept" : { CodeableConcept },
+    "itemReference" : { Reference(Substance|Medication) },
+    "isActive" : <boolean>, // Active ingredient indicator
+    "amount" : { Ratio } // Quantity of ingredient present
+  }],
+  "package" : { // Details about packaged medications
+    "container" : { CodeableConcept }, // E.g. box, vial, blister-pack
+    "content" : [{ // What is  in the package
+      // item[x]: The item in the package. One of these 2:
+      "itemCodeableConcept" : { CodeableConcept },
+      "itemReference" : { Reference(Medication) },
+      "amount" : { Quantity(SimpleQuantity) } // Quantity present in the package
+    }],
+    "batch" : [{ // Identifies a single production run
+      "lotNumber" : "<string>", // Identifier assigned to batch
+      "expirationDate" : "<dateTime>" // When batch will expire
+    }]
+  },
+  "image" : [{ Attachment }] // Picture of the medication
+}

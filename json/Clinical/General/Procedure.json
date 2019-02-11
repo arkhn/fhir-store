@@ -1,0 +1,37 @@
+{
+  "resourceType" : "Procedure",
+  "identifier<list::Identifier>$(External Identifiers for this procedure$)": null,
+  "definition<list::Reference(PlanDefinition|ActivityDefinition|HealthcareService)>$(Instantiates protocol or definition$)": null,
+  "basedOn<list::Reference(CarePlan|ProcedureRequest|ReferralRequest)>$(A request for this procedure$)": null,
+  "partOf<list::Reference(Procedure|Observation|MedicationAdministration)>$(Part of referenced event$)": null,
+  "status<code>$(Part of referenced event$)": null,
+  "notDone<boolean>$(R!  preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown$)": null,
+  "notDoneReason<CodeableConcept>$(C? Reason procedure was not performed$)": null,
+  "category<CodeableConcept>$(Classification of the procedure$)": null,
+  "code<CodeableConcept>$(Identification of the procedure$)": null,
+  "subject<Reference(Patient|Group)>$(R!  Who the procedure was performed on$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode associated with the procedure$)": null,
+  "performedDateTime<dateTime>$(Encounter or episode associated with the procedure$)": null,
+  "performedPeriod<Period>$($)": null,
+  "performer<list>$(The people who performed the procedure$)": [{
+    "role<CodeableConcept>$(The role the actor was in$)": null,
+    "actor<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  The reference to the practitioner$)": null,
+    "onBehalfOf<Reference(Organization)>$(Organization the device or practitioner was acting for$)": null
+  }],
+  "location<Reference(Location)>$(Where the procedure happened$)": null,
+  "reasonCode<list::CodeableConcept>$(Coded reason procedure performed$)": null,
+  "reasonReference<list::Reference(Condition|Observation)>$(Condition that is the reason the procedure performed$)": null,
+  "bodySite<list::CodeableConcept>$(Target body sites$)": null,
+  "outcome<CodeableConcept>$(The result of procedure$)": null,
+  "report<list::Reference(DiagnosticReport)>$(Any report resulting from the procedure$)": null,
+  "complication<list::CodeableConcept>$(Complication following the procedure$)": null,
+  "complicationDetail<list::Reference(Condition)>$(A condition that is a result of the procedure$)": null,
+  "followUp<list::CodeableConcept>$(Instructions for follow up$)": null,
+  "note<list::Annotation>$(Additional information about the procedure$)": null,
+  "focalDevice<list>$(Device changed in procedure$)": [{
+    "action<CodeableConcept>$(Kind of change to device$)": null,
+    "manipulated<Reference(Device)>$(R!  Device that was changed$)": null
+  }],
+  "usedReference<list::Reference(Device|Medication|Substance)>$(Items used during procedure$)": null,
+  "usedCode<list::CodeableConcept>$(Coded items used during the procedure$)": null
+}

@@ -1,0 +1,39 @@
+{
+  "resourceType" : "Patient",
+  "identifier<list::Identifier>$(An identifier for this patient$)": null,
+  "active<boolean>$(Whether this patient's record is in active use$)": null,
+  "name<list::HumanName>$(A name associated with the patient$)": null,
+  "telecom<list::ContactPoint>$(A contact detail for the individual$)": null,
+  "gender<code>$(male | female | other | unknown$)": null,
+  "birthDate<date>$(The date of birth for the individual$)": null,
+  "deceasedBoolean<boolean>$($)": null,
+  "deceasedDateTime<dateTime>$($)": null,
+  "address<list::Address>$(Addresses for the individual$)": null,
+  "maritalStatus<CodeableConcept>$(Marital (civil) status of a patient$)": null,
+  "multipleBirthBoolean<boolean>$($)": null,
+  "multipleBirthInteger<integer>$($)": null,
+  "photo<list::Attachment>$(Image of the patient$)": null,
+  "contact<list>$(A contact party (e.g. guardian partner friend) for the patient$)": [{
+    "relationship<list::CodeableConcept>$(The kind of relationship \"name\" : { HumanName }, // A name associated with the contact person$)": null,
+    "telecom<list::ContactPoint>$(A contact detail for the person$)": null,
+    "address<Address>$(Address for the contact person$)": null,
+    "gender<code>$(male | female | other | unknown$)": null,
+    "organization<Reference(Organization)>$(C? Organization that is associated with the contact$)": null,
+    "period<Period>$(The period during which this contact person or organization is valid to be contacted relating to this patient$)": null
+  }],
+  "animal" : { 
+    "species<CodeableConcept>$(R!  E.g. Dog, Cow$)": null,
+    "breed<CodeableConcept>$(E.g. Poodle, Angus$)": null,
+    "genderStatus<CodeableConcept>$(E.g. Neutered Intact$)": null
+  },
+  "communication<list>$(A list of Languages which may be used to communicate with the patient about his or her health$)": [{
+    "language<CodeableConcept>$(R!  The language which can be used to communicate with the patient about his or her health$)": null,
+    "preferred<boolean>$(Language preference indicator$)": null
+  }],
+  "generalPractitioner<list::Reference(Organization|Practitioner)>$(Patient's nominated primary care provider$)": null,
+  "managingOrganization<Reference(Organization)>$(Organization that is the custodian of the patient record$)": null,
+  "link<list>$(Link to another patient resource that concerns the same actual person$)": [{
+    "other<Reference(Patient|RelatedPerson)>$(R!  The other patient or related person resource that the link refers to$)": null,
+    "type<code=replaced-by|replaces|refer|seealso>$(R!  replaced-by | replaces | refer | seealso - type of link$)": null
+  }]
+}

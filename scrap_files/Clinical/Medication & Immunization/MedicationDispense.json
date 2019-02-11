@@ -1,0 +1,43 @@
+
+{
+  "resourceType" : "MedicationDispense",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External identifier
+  "partOf" : [{ Reference(Procedure) }], // Event that dispense is part of
+  "status" : "<code>", // preparation | in-progress | on-hold | completed | entered-in-error | stopped
+  "category" : { CodeableConcept }, // Type of medication dispense
+  // medication[x]: What medication was supplied. One of these 2:
+  "medicationCodeableConcept" : { CodeableConcept },
+  "medicationReference" : { Reference(Medication) },
+  "subject" : { Reference(Patient|Group) }, // Who the dispense is for
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter / Episode associated with event
+  "supportingInformation" : [{ Reference(Any) }], // Information that supports the dispensing of the medication
+  "performer" : [{ // Who performed event
+    "actor" : { Reference(Practitioner|Organization|Patient|Device|
+    RelatedPerson) }, // R!  Individual who was performing
+    "onBehalfOf" : { Reference(Organization) } // Organization organization was acting for
+  }],
+  "authorizingPrescription" : [{ Reference(MedicationRequest) }], // Medication order that authorizes the dispense
+  "type" : { CodeableConcept }, // Trial fill, partial fill, emergency fill, etc.
+  "quantity" : { Quantity(SimpleQuantity) }, // Amount dispensed
+  "daysSupply" : { Quantity(SimpleQuantity) }, // Amount of medication expressed as a timing amount
+  "whenPrepared" : "<dateTime>", // When product was packaged and reviewed
+  "whenHandedOver" : "<dateTime>", // When product was given out
+  "destination" : { Reference(Location) }, // Where the medication was sent
+  "receiver" : [{ Reference(Patient|Practitioner) }], // Who collected the medication
+  "note" : [{ Annotation }], // Information about the dispense
+  "dosageInstruction" : [{ Dosage }], // How the medication is to be used by the patient or administered by the caregiver
+  "substitution" : { // Whether a substitution was performed on the dispense
+    "wasSubstituted" : <boolean>, // R!  Whether a substitution was or was not performed on the dispense
+    "type" : { CodeableConcept }, // Code signifying whether a different drug was dispensed from what was prescribed
+    "reason" : [{ CodeableConcept }], // Why was substitution made
+    "responsibleParty" : [{ Reference(Practitioner) }] // Who is responsible for the substitution
+  },
+  "detectedIssue" : [{ Reference(DetectedIssue) }], // Clinical issue with action
+  "notDone" : <boolean>, // Whether the dispense was or was not performed
+  // notDoneReason[x]: Why a dispense was not performed. One of these 2:
+  "notDoneReasonCodeableConcept" : { CodeableConcept },
+  "notDoneReasonReference" : { Reference(DetectedIssue) },
+  "eventHistory" : [{ Reference(Provenance) }] // A list of releveant lifecycle events
+}

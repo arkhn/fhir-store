@@ -1,0 +1,27 @@
+
+{
+  "resourceType" : "DataElement",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // Logical URI to reference this data element (globally unique)
+  "identifier" : [{ Identifier }], // Additional identifier for the data element
+  "version" : "<string>", // Business version of the data element
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "name" : "<string>", // Name for this data element (computer friendly)
+  "title" : "<string>", // Name for this data element (human friendly)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for data element (if applicable)
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  "stringency" : "<code>", // comparable | fully-specified | equivalent | convertable | scaleable | flexible
+  "mapping" : [{ // C? External specification mapped to
+    "identity" : "<id>", // R!  Internal id when this mapping is used
+    "uri" : "<uri>", // Identifies what this mapping refers to
+    "name" : "<string>", // Names what this mapping refers to
+    "comment" : "<string>" // Versions, issues, scope limitations, etc.
+  }],
+  "element" : [{ ElementDefinition }] // R!  Definition of element
+}

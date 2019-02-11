@@ -1,0 +1,47 @@
+{
+  "resourceType" : "ImplementationGuide",
+  "url<uri>$(R!  Logical URI to reference this implementation guide (globally unique)$)": null,
+  "version<string>$(Business version of the implementation guide$)": null,
+  "name<string>$(R!  Name for this implementation guide (computer friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(Natural language description of the implementation guide$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for implementation guide (if applicable)$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "fhirVersion<id>$(FHIR Version this Implementation Guide targets$)": null,
+  "dependency<list>$(Another Implementation guide this depends on$)": [{
+    "type<code>$(R!  reference | inclusion$)": null,
+    "uri<uri>$(R!  Where to find dependency$)": null
+  }],
+  "package<list>$(Group of resources as used in .page.package$)": [{
+    "name<string>$(R!  Name used .page.package$)": null,
+    "description<string>$(Human readable text describing the package$)": null,
+    "resource<list>$(R!  Resource in the implementation guide$)": [{
+      "example<boolean>$(R!  If not an example, has its normal meaning$)": null,
+      "name<string>$(Human Name for the resource$)": null,
+      "description<string>$(Reason why included in guide$)": null,
+      "acronym<string>$(Short code to identify the resource$)": null,
+      "sourceUri<uri>$($)": null,
+      "sourceReference<Reference(Any)>$($)": null,
+      "exampleFor<Reference(StructureDefinition)>$(Resource this is an example of (if applicable)$)": null
+    }]
+  }],
+  "global<list>$(Profiles that apply globally$)": [{
+    "type<code>$(R!  Type this profiles applies to$)": null,
+    "profile<Reference(StructureDefinition)>$(R!  Profile that all resources must conform to$)": null
+  }],
+  "binary<list::uri>$(Image, css, script, etc.$)": null,
+  "page" : { 
+    "source<uri>$(R!  Where to find that page$)": null,
+    "title<string>$(R!  Short title shown for navigational assistance$)": null,
+    "kind<code=page|example|list|include|directory|dictionary|toc>$(R!  page | example | list | include | directory | dictionary | toc | resource$)": null,
+    "type<list::code>$(Kind of resource to include in the list$)": null,
+    "package<list::string>$(Name of package to include$)": null,
+    "format<code>$(Format of the page (e.g. html, markdown, etc.)$)": null,
+    "page<list::Content as for ImplementationGuide.page>$(Nested Pages / Sections$)": null
+  }
+}

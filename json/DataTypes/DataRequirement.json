@@ -1,0 +1,19 @@
+{
+  "type<code>$(R!  The type of the required data$)": null,
+  "profile<list::uri>$(The profile of the required data$)": null,
+  "mustSupport<list::string>$(Indicates that specific structure elements are referenced by the knowledge module$)": null,
+  "codeFilter<list>$(What codes are expected$)": [{
+    "path<string>$(R!  The code-valued attribute of the filter$)": null,
+    "valueSetString<string>$($)": null,
+    "valueSetReference<Reference(ValueSet)>$($)": null,
+    "valueCode<list::code>$(What code is expected$)": null,
+    "valueCoding<list::Coding>$(What Coding is expected$)": null,
+    "valueCodeableConcept<list::CodeableConcept>$(What CodeableConcept is expected$)": null
+  }],
+  "dateFilter<list>$(What dates/date ranges are expected$)": [{
+    "path<string>$(R!  The date-valued attribute of the filter$)": null,
+    "valueDateTime<dateTime>$($)": null,
+    "valuePeriod<Period>$($)": null,
+    "valueDuration<Duration>$($)": null
+  }]
+}

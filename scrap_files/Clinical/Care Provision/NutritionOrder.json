@@ -1,0 +1,53 @@
+
+{
+  "resourceType" : "NutritionOrder",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Identifiers assigned to this order
+  "status" : "<code>", // proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
+  "patient" : { Reference(Patient) }, // R!  The person who requires the diet, formula or nutritional supplement
+  "encounter" : { Reference(Encounter) }, // The encounter associated with this nutrition order
+  "dateTime" : "<dateTime>", // R!  Date and time the nutrition order was requested
+  "orderer" : { Reference(Practitioner) }, // Who ordered the diet, formula or nutritional supplement
+  "allergyIntolerance" : [{ Reference(AllergyIntolerance) }], // List of the patient's food and nutrition-related allergies and intolerances
+  "foodPreferenceModifier" : [{ CodeableConcept }], // Order-specific modifier about the type of food that should be given
+  "excludeFoodModifier" : [{ CodeableConcept }], // Order-specific modifier about the type of food that should not be given
+  "oralDiet" : { // C? Oral diet components
+    "type" : [{ CodeableConcept }], // Type of oral diet or diet restrictions that describe what can be consumed orally
+    "schedule" : [{ Timing }], // Scheduled frequency of diet
+    "nutrient" : [{ // Required  nutrient modifications
+      "modifier" : { CodeableConcept }, // Type of nutrient that is being modified
+      "amount" : { Quantity(SimpleQuantity) } // Quantity of the specified nutrient
+    }],
+    "texture" : [{ // Required  texture modifications
+      "modifier" : { CodeableConcept }, // Code to indicate how to alter the texture of the foods, e.g. pureed
+      "foodType" : { CodeableConcept } // Concepts that are used to identify an entity that is ingested for nutritional purposes
+    }],
+    "fluidConsistencyType" : [{ CodeableConcept }], // The required consistency of fluids and liquids provided to the patient
+    "instruction" : "<string>" // Instructions or additional information about the oral diet
+  },
+  "supplement" : [{ // C? Supplement components
+    "type" : { CodeableConcept }, // Type of supplement product requested
+    "productName" : "<string>", // Product or brand name of the nutritional supplement
+    "schedule" : [{ Timing }], // Scheduled frequency of supplement
+    "quantity" : { Quantity(SimpleQuantity) }, // Amount of the nutritional supplement
+    "instruction" : "<string>" // Instructions or additional information about the oral supplement
+  }],
+  "enteralFormula" : { // C? Enteral formula components
+    "baseFormulaType" : { CodeableConcept }, // Type of enteral or infant formula
+    "baseFormulaProductName" : "<string>", // Product or brand name of the enteral or infant formula
+    "additiveType" : { CodeableConcept }, // Type of modular component to add to the feeding
+    "additiveProductName" : "<string>", // Product or brand name of the modular additive
+    "caloricDensity" : { Quantity(SimpleQuantity) }, // Amount of energy per specified volume that is required
+    "routeofAdministration" : { CodeableConcept }, // How the formula should enter the patient's gastrointestinal tract
+    "administration" : [{ // Formula feeding instruction as structured data
+      "schedule" : { Timing }, // Scheduled frequency of enteral feeding
+      "quantity" : { Quantity(SimpleQuantity) }, // The volume of formula to provide
+      // rate[x]: Speed with which the formula is provided per period of time. One of these 2:
+      "rateQuantity" : { Quantity(SimpleQuantity) }
+      "rateRatio" : { Ratio }
+    }],
+    "maxVolumeToDeliver" : { Quantity(SimpleQuantity) }, // Upper limit on formula volume per unit of time
+    "administrationInstruction" : "<string>" // Formula feeding instructions expressed as text
+  }
+}

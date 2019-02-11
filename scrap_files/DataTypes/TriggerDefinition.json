@@ -1,0 +1,12 @@
+
+{
+  // from Element: extension
+  "type" : "<code>", // R!  named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended
+  "eventName" : "<string>", // Triggering event name
+  // eventTiming[x]: Timing of the event. One of these 4:
+  "eventTimingTiming" : { Timing },
+  "eventTimingReference" : { Reference(Schedule) },
+  "eventTimingDate" : "<date>",
+  "eventTimingDateTime" : "<dateTime>",
+  "eventData" : { DataRequirement } // Triggering data of the event
+}

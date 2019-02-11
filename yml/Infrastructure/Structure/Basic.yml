@@ -1,0 +1,6 @@
+resourceType: "Basic"
+identifier<list::Identifier>$(Business identifier$):
+code<CodeableConcept>$(R!  Kind of Resource$):
+subject<Reference(Any)>$(Identifies the focus of this resource$):
+created<date>$(When created$):
+author<Reference(Practitioner|Patient|RelatedPerson)>$(Who created$):

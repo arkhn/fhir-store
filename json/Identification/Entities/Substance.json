@@ -1,0 +1,18 @@
+{
+  "resourceType" : "Substance",
+  "identifier<list::Identifier>$(Unique identifier$)": null,
+  "status<code>$(active | inactive | entered-in-error$)": null,
+  "category<list::CodeableConcept>$(What class/type of substance this is$)": null,
+  "code<CodeableConcept>$(R!  What substance this is$)": null,
+  "description<string>$(Textual description of the substance, comments$)": null,
+  "instance<list>$(If this describes a specific package/container of the substance$)": [{
+    "identifier<Identifier>$(Identifier of the package/container$)": null,
+    "expiry<dateTime>$(When no longer valid to use$)": null,
+    "quantity<Quantity(SimpleQuantity)>$(Amount of substance in the package$)": null
+  }],
+  "ingredient<list>$(Composition information about the substance$)": [{
+    "quantity<Ratio>$(Optional amount (concentration)$)": null,
+    "substanceCodeableConcept<CodeableConcept>$($)": null,
+    "substanceReference<Reference(Substance)>$($)": null
+  }]
+}

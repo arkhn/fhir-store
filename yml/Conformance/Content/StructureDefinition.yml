@@ -1,0 +1,35 @@
+resourceType: "StructureDefinition"
+url<uri>$(R!  Logical URI to reference this structure definition (globally unique)$):
+identifier<list::Identifier>$(Additional identifier for the structure definition$):
+version<string>$(Business version of the structure definition$):
+name<string>$(R!  Name for this structure definition (computer friendly)$):
+title<string>$(Name for this structure definition (human friendly)$):
+status<code=draft|active|retired>$(R!  draft | active | retired | unknown$):
+experimental<boolean>$(For testing purposes, not real usage$):
+date<dateTime>$(Date this was last changed$):
+publisher<string>$(Name of the publisher (organization or individual)$):
+contact<list::ContactDetail>$(Contact details for the publisher$):
+description<markdown>$(Natural language description of the structure definition$):
+useContext<list::UsageContext>$(Context the content is intended to support$):
+jurisdiction<list::CodeableConcept>$(Intended jurisdiction for structure definition (if applicable)$):
+purpose<markdown>$(Why this structure definition is defined$):
+copyright<markdown>$(Use and/or publishing restrictions$):
+keyword<list::Coding>$(Assist with indexing and finding$):
+fhirVersion<id>$(FHIR Version this StructureDefinition targets$):
+mapping<list>$(External specification that the content is mapped to$):
+  - identity<id>$(R!  Internal id when this mapping is used$):
+    uri<uri>$(C? Identifies what this mapping refers to$):
+    name<string>$(C? Names what this mapping refers to$):
+    comment<string>$(Versions Issues Scope limitations etc.$):
+kind<code=primitive-type|complex-type|resource>$(R!  primitive-type | complex-type | resource | logical$):
+abstract<boolean>$(R!  Whether the structure is abstract$):
+contextType<code=resource|datatype>$(C? resource | datatype | extension$):
+context<list::string>$(C? Where the extension can be used in instances$):
+contextInvariant<list::string>$(C? FHIRPath invariants - when the extension can be used$):
+type<code>$(C? R!  Type defined or constrained by this structure$):
+baseDefinition<uri>$(C? Definition that this type is constrained/specialized from$):
+derivation<code=specialization|constraint>$(C? specialization | constraint - How relates to base definition$):
+snapshot:
+    element<list::ElementDefinition>$(C? R!  Definition of elements in the resource (if no StructureDefinition)$):
+differential:
+    element<list::ElementDefinition>$(R!  Definition of elements in the resource (if no StructureDefinition)$):

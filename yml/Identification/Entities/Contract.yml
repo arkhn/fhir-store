@@ -1,0 +1,69 @@
+resourceType: "Contract"
+identifier<Identifier>$(Contract number$):
+status<code>$(amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated$):
+issued<dateTime>$(When this Contract was issued$):
+applies<Period>$(Effective time$):
+subject<list::Reference(Any)>$(Contract Target Entity$):
+topic<list::Reference(Any)>$(Context of the Contract$):
+authority<list::Reference(Organization)>$(Authority under which this Contract has standing$):
+domain<list::Reference(Location)>$(Domain in which this Contract applies$):
+type<CodeableConcept>$(Type or form$):
+subType<list::CodeableConcept>$(Subtype within the context of type$):
+action<list::CodeableConcept>$(Action stipulated by this Contract$):
+actionReason<list::CodeableConcept>$(Rationale for the stiplulated action$):
+decisionType<CodeableConcept>$(Decision by Grantor$):
+contentDerivative<CodeableConcept>$(Content derived from the basal information$):
+securityLabel<list::Coding>$(Security Labels that define affected resources$):
+agent<list>$(Entity being ascribed responsibility$):
+  - actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>$(R!  Contract Agent Type$):
+    role<list::CodeableConcept>$(Role type of the agent$):
+signer<list>$(Contract Signatory$):
+  - type<Coding>$(R!  Contract Signatory Role$):
+    party<Reference(Organization|Patient|Practitioner|RelatedPerson)>$(R!  Contract Signatory Party$):
+    signature<list::Signature>$(R!  Contract Documentation Signature$):
+valuedItem<list>$(Contract Valued Item List$):
+  - entityCodeableConcept<CodeableConcept>$($):
+    entityReference<Reference(Any)>$($):
+    identifier<Identifier>$(Contract Valued Item Number$):
+    effectiveTime<dateTime>$(Contract Valued Item Number$):
+    quantity<Quantity(SimpleQuantity)>$(Count of Contract Valued Items$):
+    unitPrice<Money>$(Contract Valued Item fee, charge, or cost$):
+    factor<decimal>$(Contract Valued Item fee, charge, or cost$):
+    points<decimal>$(Contract Valued Item Price Scaling Factor$):
+    net<Money>$(Total Contract Valued Item Value$):
+term<list>$(Contract Term List$):
+  - identifier<Identifier>$(Contract Term Number$):
+    issued<dateTime>$(Contract Term Number$):
+    applies<Period>$(Contract Term Effective Time$):
+    type<CodeableConcept>$(Contract Term Type or Form$):
+    subType<CodeableConcept>$(Contract Term Type specific classification$):
+    topic<list::Reference(Any)>$(Context of the Contract term$):
+    action<list::CodeableConcept>$(Contract Term Activity$):
+    actionReason<list::CodeableConcept>$(Purpose for the Contract Term Action$):
+    securityLabel<list::Coding>$(Security Labels that define affected terms$):
+    agent<list>$(Contract Term Agent List$):
+      - actor<Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)>$(R!  Contract Term Agent Subject$):
+        role<list::CodeableConcept>$(Type of the Contract Term Agent$):
+    text<string>$(Type of the Contract Term Agent$):
+    valuedItem<list>$(Contract Term Valued Item List$):
+      - entityCodeableConcept<CodeableConcept>$($):
+        entityReference<Reference(Any)>$($):
+        identifier<Identifier>$(Contract Term Valued Item Number$):
+        effectiveTime<dateTime>$($):
+        quantity<Quantity(SimpleQuantity)>$(Contract Term Valued Item Count$):
+        unitPrice<Money>$(Contract Term Valued Item fee, charge, or cost$):
+        factor<decimal>$(Contract Term Valued Item Count$):
+        points<decimal>$(Contract Term Valued Item fee, charge, or cost$):
+        net<Money>$(Total Contract Term Valued Item Value$):
+    group<list::Content as for Contract.term>$(Nested Contract Term Group$):
+bindingAttachment<Attachment>$($):
+bindingReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>$($):
+friendly<list>$(Contract Friendly Language$):
+  - contentAttachment<Attachment>$($):
+    contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>$($):
+legal<list>$(Contract Legal Language$):
+  - contentAttachment<Attachment>$($):
+    contentReference<Reference(Composition|DocumentReference|QuestionnaireResponse)>$($):
+rule<list>$(Computable Contract Language$):
+  - contentAttachment<Attachment>$($):
+    contentReference<Reference(DocumentReference)>$($):

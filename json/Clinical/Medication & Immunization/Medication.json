@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Medication",
+  "code<CodeableConcept>$(Codes that identify this medication$)": null,
+  "status<code>$(active | inactive | entered-in-error$)": null,
+  "isBrand<boolean>$(True if a brand$)": null,
+  "isOverTheCounter<boolean>$(True if medication does not require a prescription$)": null,
+  "manufacturer<Reference(Organization)>$(Manufacturer of the item$)": null,
+  "form<CodeableConcept>$(powder | tablets | capsule +$)": null,
+  "ingredient<list>$(Active or inactive ingredient$)": [{
+    "itemCodeableConcept<CodeableConcept>$($)": null,
+    "itemReference<Reference(Substance|Medication)>$($)": null,
+    "isActive<boolean>$(Active ingredient indicator$)": null,
+    "amount<Ratio>$(Quantity of ingredient present$)": null
+  }],
+  "package" : { 
+    "container<CodeableConcept>$(E.g. box, vial, blister-pack$)": null,
+    "content<list>$(What is  in the package$)": [{
+      "itemCodeableConcept<CodeableConcept>$($)": null,
+      "itemReference<Reference(Medication)>$($)": null,
+      "amount<Quantity(SimpleQuantity)>$(Quantity present in the package$)": null
+    }],
+    "batch<list>$(Identifies a single production run$)": [{
+      "lotNumber<string>$(Identifier assigned to batch$)": null,
+      "expirationDate<dateTime>$(When batch will expire$)": null
+    }]
+  },
+  "image<list::Attachment>$(Picture of the medication$)": null
+}

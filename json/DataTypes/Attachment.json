@@ -1,0 +1,10 @@
+{
+  "contentType<code>$(Mime type of the content, with charset etc.$)": null,
+  "language<code>$(Human language of the content (BCP-47)$)": null,
+  "data<base64Binary>$(Data inline, base64ed$)": null,
+  "url<uri>$(Uri where the data can be found$)": null,
+  "size<unsignedInt>$(Number of bytes of content (if url provided)$)": null,
+  "hash<base64Binary>$(Hash of the data (sha-1, base64ed)$)": null,
+  "title<string>$(Label to display in place of the data$)": null,
+  "creation<dateTime>$(Date attachment was first created$)": null
+}

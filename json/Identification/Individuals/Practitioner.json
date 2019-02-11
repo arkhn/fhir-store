@@ -1,0 +1,18 @@
+{
+  "resourceType" : "Practitioner",
+  "identifier<list::Identifier>$(A identifier for the person as this agent$)": null,
+  "active<boolean>$(Whether this practitioner's record is in active use$)": null,
+  "name<list::HumanName>$(The name(s) associated with the practitioner$)": null,
+  "telecom<list::ContactPoint>$(A contact detail for the practitioner (that apply to all roles)$)": null,
+  "address<list::Address>$(Address(es) of the practitioner that are not role specific (typically home address)$)": null,
+  "gender<code>$(male | female | other | unknown$)": null,
+  "birthDate<date>$(The date  on which the practitioner was born$)": null,
+  "photo<list::Attachment>$(Image of the person$)": null,
+  "qualification<list>$(Qualifications obtained by training and certification$)": [{
+    "identifier<list::Identifier>$(An identifier for this qualification for the practitioner$)": null,
+    "code<CodeableConcept>$(R!  Coded representation of the qualification$)": null,
+    "period<Period>$(Period during which the qualification is valid$)": null,
+    "issuer<Reference(Organization)>$(Organization that regulates and issues the qualification$)": null
+  }],
+  "communication<list::CodeableConcept>$(A language the practitioner is able to use in patient communication$)": null
+}

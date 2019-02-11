@@ -1,0 +1,19 @@
+resourceType: "Dosage"
+sequence<integer>$(The order of the dosage instructions$):
+text<string>$(Free text dosage instructions e.g. SIG$):
+additionalInstruction<list::CodeableConcept>$(Supplemental instruction - e.g. "with meals"$):
+patientInstruction<string>$(Patient or consumer oriented instructions$):
+timing<Timing>$(When medication should be administered$):
+asNeededBoolean<boolean>$($):
+asNeededCodeableConcept<CodeableConcept>$($):
+site<CodeableConcept>$(Body site to administer to$):
+route<CodeableConcept>$(How drug should enter body$):
+method<CodeableConcept>$(Technique for administering medication$):
+doseRange<Range>$($):
+doseQuantity<Quantity(SimpleQuantity)>$($):
+maxDosePerPeriod<Ratio>$(Upper limit on medication per unit of time$):
+maxDosePerAdministration<Quantity(SimpleQuantity)>$(Upper limit on medication per administration$):
+maxDosePerLifetime<Quantity(SimpleQuantity)>$(Upper limit on medication per lifetime of the patient$):
+rateRatio<Ratio>$($):
+rateRange<Range>$($):
+rateQuantity<Quantity(SimpleQuantity)>$($):

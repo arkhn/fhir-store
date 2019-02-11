@@ -1,0 +1,28 @@
+{
+  "resourceType" : "VisionPrescription",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "patient<Reference(Patient)>$(Who prescription is for$)": null,
+  "encounter<Reference(Encounter)>$(Created during encounter / admission / stay$)": null,
+  "dateWritten<dateTime>$(When prescription was authorized$)": null,
+  "prescriber<Reference(Practitioner)>$(Who authorizes the vision product$)": null,
+  "reasonCodeableConcept<CodeableConcept>$($)": null,
+  "reasonReference<Reference(Condition)>$($)": null,
+  "dispense<list>$(Vision supply authorization$)": [{
+    "product<CodeableConcept>$(Product to be supplied$)": null,
+    "eye<code>$(right | left$)": null,
+    "sphere<decimal>$(Lens sphere$)": null,
+    "cylinder<decimal>$(Lens cylinder$)": null,
+    "axis<integer>$(Lens axis$)": null,
+    "prism<decimal>$(Lens prism$)": null,
+    "base<code>$(up | down | in | out$)": null,
+    "add<decimal>$(Lens add$)": null,
+    "power<decimal>$(Contact lens power$)": null,
+    "backCurve<decimal>$(Contact lens back curvature$)": null,
+    "diameter<decimal>$(Contact lens diameter$)": null,
+    "duration<Quantity(SimpleQuantity)>$(Lens wear duration$)": null,
+    "color<string>$(Color required$)": null,
+    "brand<string>$(Brand required$)": null,
+    "note<list::Annotation>$(Notes for coatings$)": null
+  }]
+}

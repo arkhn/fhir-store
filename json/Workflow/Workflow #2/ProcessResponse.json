@@ -1,0 +1,19 @@
+{
+  "resourceType" : "ProcessResponse",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "organization<Reference(Organization)>$(Authoring Organization$)": null,
+  "request<Reference(Any)>$(Request reference$)": null,
+  "outcome<CodeableConcept>$(Processing outcome$)": null,
+  "disposition<string>$(Disposition Message$)": null,
+  "requestProvider<Reference(Practitioner)>$(Responsible Practitioner$)": null,
+  "requestOrganization<Reference(Organization)>$(Responsible organization$)": null,
+  "form<CodeableConcept>$(Printed Form Identifier$)": null,
+  "processNote<list>$(Processing comments or additional requirements$)": [{
+    "type<CodeableConcept>$(display | print | printoper$)": null,
+    "text<string>$(Comment on the processing$)": null
+  }],
+  "error<list::CodeableConcept>$(Error code$)": null,
+  "communicationRequest<list::Reference(CommunicationRequest)>$(Request for additional information$)": null
+}

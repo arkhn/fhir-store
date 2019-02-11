@@ -1,0 +1,4 @@
+{
+  "low<Quantity(SimpleQuantity)>$(C? Low limit$)": null,
+  "high<Quantity(SimpleQuantity)>$(C? High limit$)": null
+}

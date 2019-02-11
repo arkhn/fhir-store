@@ -1,0 +1,17 @@
+
+{
+  "resourceType" : "RelatedPerson",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // A human identifier for this person
+  "active" : <boolean>, // Whether this related person's record is in active use
+  "patient" : { Reference(Patient) }, // R!  The patient this person is related to
+  "relationship" : { CodeableConcept }, // The nature of the relationship
+  "name" : [{ HumanName }], // A name associated with the person
+  "telecom" : [{ ContactPoint }], // A contact detail for the person
+  "gender" : "<code>", // male | female | other | unknown
+  "birthDate" : "<date>", // The date on which the related person was born
+  "address" : [{ Address }], // Address where the related person can be contacted or visited
+  "photo" : [{ Attachment }], // Image of the person
+  "period" : { Period } // Period of time that this relationship is considered valid
+}

@@ -1,0 +1,44 @@
+
+{
+  "resourceType" : "EligibilityResponse",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "created" : "<dateTime>", // Creation date
+  "requestProvider" : { Reference(Practitioner) }, // Responsible practitioner
+  "requestOrganization" : { Reference(Organization) }, // Responsible organization
+  "request" : { Reference(EligibilityRequest) }, // Eligibility reference
+  "outcome" : { CodeableConcept }, // complete | error | partial
+  "disposition" : "<string>", // Disposition Message
+  "insurer" : { Reference(Organization) }, // Insurer issuing the coverage
+  "inforce" : <boolean>, // Coverage inforce indicator
+  "insurance" : [{ // Details by insurance coverage
+    "coverage" : { Reference(Coverage) }, // Updated Coverage details
+    "contract" : { Reference(Contract) }, // Contract details
+    "benefitBalance" : [{ // Benefits by Category
+      "category" : { CodeableConcept }, // R!  Type of services covered
+      "subCategory" : { CodeableConcept }, // Detailed services covered within the type
+      "excluded" : <boolean>, // Excluded from the plan
+      "name" : "<string>", // Short name for the benefit
+      "description" : "<string>", // Description of the benefit or services covered
+      "network" : { CodeableConcept }, // In or out of network
+      "unit" : { CodeableConcept }, // Individual or family
+      "term" : { CodeableConcept }, // Annual or lifetime
+      "financial" : [{ // Benefit Summary
+        "type" : { CodeableConcept }, // R!  Deductable, visits, benefit amount
+        // allowed[x]: Benefits allowed. One of these 3:
+        "allowedUnsignedInt" : "<unsignedInt>",
+        "allowedString" : "<string>",
+        "allowedMoney" : { Money },
+        // used[x]: Benefits used. One of these 2:
+        "usedUnsignedInt" : "<unsignedInt>"
+        "usedMoney" : { Money }
+      }]
+    }]
+  }],
+  "form" : { CodeableConcept }, // Printed Form Identifier
+  "error" : [{ // Processing errors
+    "code" : { CodeableConcept } // R!  Error code detailing processing issues
+  }]
+}

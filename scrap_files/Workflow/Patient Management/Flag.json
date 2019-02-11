@@ -1,0 +1,15 @@
+
+{
+  "resourceType" : "Flag",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier
+  "status" : "<code>", // R!  active | inactive | entered-in-error
+  "category" : { CodeableConcept }, // Clinical, administrative, etc.
+  "code" : { CodeableConcept }, // R!  Coded or textual message to display to user
+  "subject" : { Reference(Patient|Location|Group|Organization|Practitioner|
+   PlanDefinition|Medication|Procedure) }, // R!  Who/What is flag about?
+  "period" : { Period }, // Time period when flag is active
+  "encounter" : { Reference(Encounter) }, // Alert relevant during encounter
+  "author" : { Reference(Device|Organization|Patient|Practitioner) } // Flag creator
+}

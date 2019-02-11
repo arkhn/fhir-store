@@ -1,0 +1,25 @@
+resourceType: "Appointment"
+identifier<list::Identifier>$(External Ids for this item$):
+status<code=proposed|pending|booked|arrived|fulfilled|cancelled|noshow>$(R!  proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error$):
+serviceCategory<CodeableConcept>$(A broad categorisation of the service that is to be performed during this appointment$):
+serviceType<list::CodeableConcept>$(The specific service that is to be performed during this appointment$):
+specialty<list::CodeableConcept>$(The specialty of a practitioner that would be required to perform the service requested in this appointment$):
+appointmentType<CodeableConcept>$(The style of appointment or patient that has been booked in the slot (not service type)$):
+reason<list::CodeableConcept>$(Reason this appointment is scheduled$):
+indication<list::Reference(Condition|Procedure)>$(Reason the appointment is to takes place (resource)$):
+priority<unsignedInt>$(Used to make informed decisions if needing to re-prioritize$):
+description<string>$(Shown on a subject line in a meeting request, or appointment list$):
+supportingInformation<list::Reference(Any)>$(Additional information to support the appointment$):
+start<instant>$(When appointment is to take place$):
+end<instant>$(When appointment is to conclude$):
+minutesDuration<positiveInt>$(Can be less than start/end (e.g. estimate)$):
+slot<list::Reference(Slot)>$(The slots that this appointment is filling$):
+created<dateTime>$(The date that this appointment was initially created$):
+comment<string>$(Additional comments$):
+incomingReferral<list::Reference(ReferralRequest)>$(The ReferralRequest provided as information to allocate to the Encounter$):
+participant<list>$(R!  Participants involved in appointment$):
+  - type<list::CodeableConcept>$(Role of participant in the appointment$):
+    actor<Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)>$(Person, Location/HealthcareService or Device$):
+    required<code>$(Person, Location/HealthcareService or Device$):
+    status<code>$(required | optional | information-only$):
+requestedPeriod<list::Period>$(Potential date/time interval(s) requested to allocate the appointment within$):

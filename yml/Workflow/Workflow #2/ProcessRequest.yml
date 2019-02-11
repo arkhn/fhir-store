@@ -1,0 +1,17 @@
+resourceType: "ProcessRequest"
+identifier<list::Identifier>$(Business Identifier$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+action<code>$(cancel | poll | reprocess | status$):
+target<Reference(Organization)>$(Party which is the target of the request$):
+created<dateTime>$(Creation date$):
+provider<Reference(Practitioner)>$(Responsible practitioner$):
+organization<Reference(Organization)>$(Responsible organization$):
+request<Reference(Any)>$(Reference to the Request resource$):
+response<Reference(Any)>$(Reference to the Response resource$):
+nullify<boolean>$(Remove history$):
+reference<string>$(Reference number/string$):
+item<list>$(Items to re-adjudicate$):
+  - sequenceLinkId<integer>$(R!  Service instance$):
+include<list::string>$(Resource type(s) to include$):
+exclude<list::string>$(Resource type(s) to exclude$):
+period<Period>$(Selection period$):

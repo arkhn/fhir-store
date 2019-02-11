@@ -1,0 +1,17 @@
+{
+  "resourceType" : "DeviceComponent",
+  "identifier<Identifier>$(R!  Instance id assigned by the software stack$)": null,
+  "type<CodeableConcept>$(R!  What kind of component it is$)": null,
+  "lastSystemChange<instant>$(Recent system change timestamp$)": null,
+  "source<Reference(Device)>$(Top-level device resource link$)": null,
+  "parent<Reference(DeviceComponent)>$(Parent resource link$)": null,
+  "operationalStatus<list::CodeableConcept>$(Current operational status of the component, for example On, Off or Standby$)": null,
+  "parameterGroup<CodeableConcept>$(Current supported parameter group$)": null,
+  "measurementPrinciple<code>$(other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+$)": null,
+  "productionSpecification<list>$(Specification details such as Component Revisions or Serial Numbers$)": [{
+    "specType<CodeableConcept>$(Type or kind of production specification, for example serial number or software revision$)": null,
+    "componentId<Identifier>$(Internal component unique identification$)": null,
+    "productionSpec<string>$(A printable string defining the component$)": null
+  }],
+  "languageCode<CodeableConcept>$(Language code for the human-readable text strings produced by the device$)": null
+}

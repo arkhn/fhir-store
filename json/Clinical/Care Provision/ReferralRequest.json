@@ -1,0 +1,30 @@
+{
+  "resourceType" : "ReferralRequest",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Instantiates protocol or definition$)": null,
+  "basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>$(Request fulfilled by this request$)": null,
+  "replaces<list::Reference(ReferralRequest)>$(Request(s) replaced by this request$)": null,
+  "groupIdentifier<Identifier>$(Composite request this is part of$)": null,
+  "status<code=draft|active|suspended|cancelled|completed|entered-in-error>$(R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown$)": null,
+  "intent<code=proposal|plan>$(R!  proposal | plan | order$)": null,
+  "type<CodeableConcept>$(Referral/Transition of care request type$)": null,
+  "priority<code>$(Urgency of referral / transfer of care request$)": null,
+  "serviceRequested<list::CodeableConcept>$(Actions requested as part of the referral$)": null,
+  "subject<Reference(Patient|Group)>$(R!  Patient referred to care or transfer$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Originating encounter$)": null,
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "authoredOn<dateTime>$(Date of creation/activation$)": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$)": null,
+    "onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$)": null
+  },
+  "specialty<CodeableConcept>$(The clinical specialty (discipline) that the referral is requested for$)": null,
+  "recipient<list::Reference(Practitioner|Organization|HealthcareService)>$(Receiver of referral / transfer of care request$)": null,
+  "reasonCode<list::CodeableConcept>$(Reason for referral / transfer of care request$)": null,
+  "reasonReference<list::Reference(Condition|Observation)>$(Why is service needed?$)": null,
+  "description<string>$(Why is service needed?$)": null,
+  "supportingInfo<list::Reference(Any)>$(Additonal information to support referral or transfer of care request$)": null,
+  "note<list::Annotation>$(Comments made about referral request$)": null,
+  "relevantHistory<list::Reference(Provenance)>$(Key events in history of request$)": null
+}

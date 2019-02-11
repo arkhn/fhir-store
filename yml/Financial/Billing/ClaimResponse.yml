@@ -1,0 +1,75 @@
+resourceType: "ClaimResponse"
+identifier<list::Identifier>$(Response  number$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+patient<Reference(Patient)>$(The subject of the Products and Services$):
+created<dateTime>$(Creation date$):
+insurer<Reference(Organization)>$(Insurance issuing organization$):
+requestProvider<Reference(Practitioner)>$(Responsible practitioner$):
+requestOrganization<Reference(Organization)>$(Responsible organization$):
+request<Reference(Claim)>$(Id of resource triggering adjudication$):
+outcome<CodeableConcept>$(complete | error | partial$):
+disposition<string>$(Disposition Message$):
+payeeType<CodeableConcept>$(Party to be paid any benefits payable$):
+item<list>$(Line items$):
+  - sequenceLinkId<positiveInt>$(R!  Service instance$):
+    noteNumber<list::positiveInt>$(List of note numbers which apply$):
+    adjudication<list>$(Adjudication details$):
+      - category<CodeableConcept>$(R!  Adjudication category such as co-pay, eligible, benefit, etc.$):
+        reason<CodeableConcept>$(Explanation of Adjudication outcome$):
+        amount<Money>$(Monetary amount$):
+        value<decimal>$(Non-monetary value$):
+    detail<list>$(Detail line items$):
+      - sequenceLinkId<positiveInt>$(R!  Service instance$):
+        noteNumber<list::positiveInt>$(List of note numbers which apply$):
+        adjudication<list::Content as for ClaimResponse.item.adjudication>$(Detail level adjudication details$):
+        subDetail<list>$(Subdetail line items$):
+          - sequenceLinkId<positiveInt>$(R!  Service instance$):
+            noteNumber<list::positiveInt>$(List of note numbers which apply$):
+            adjudication<list::Content as for ClaimResponse.item.adjudication>$(Subdetail level adjudication details$):
+addItem<list>$(Insurer added line items$):
+  - sequenceLinkId<list::positiveInt>$(Service instances$):
+    revenue<CodeableConcept>$(Revenue or cost center code$):
+    category<CodeableConcept>$(Type of service or product$):
+    service<CodeableConcept>$(Group, Service or Product$):
+    modifier<list::CodeableConcept>$(Service/Product billing modifiers$):
+    fee<Money>$(Professional fee or Product charge$):
+    noteNumber<list::positiveInt>$(List of note numbers which apply$):
+    adjudication<list::Content as for ClaimResponse.item.adjudication>$(Added items adjudication$):
+    detail<list>$(Added items details$):
+      - revenue<CodeableConcept>$(Revenue or cost center code$):
+        category<CodeableConcept>$(Type of service or product$):
+        service<CodeableConcept>$(Service or Product$):
+        modifier<list::CodeableConcept>$(Service/Product billing modifiers$):
+        fee<Money>$(Professional fee or Product charge$):
+        noteNumber<list::positiveInt>$(List of note numbers which apply$):
+        adjudication<list::Content as for ClaimResponse.item.adjudication>$(Added items detail adjudication$):
+error<list>$(Processing errors$):
+  - sequenceLinkId<positiveInt>$(Item sequence number$):
+    detailSequenceLinkId<positiveInt>$(Detail sequence number$):
+    subdetailSequenceLinkId<positiveInt>$(Subdetail sequence number$):
+    code<CodeableConcept>$(R!  Error code detailing processing issues$):
+totalCost<Money>$(Total Cost of service from the Claim$):
+unallocDeductable<Money>$(Unallocated deductible$):
+totalBenefit<Money>$(Total benefit payable for the Claim$):
+payment:
+    type<CodeableConcept>$(Partial or Complete$):
+    adjustment<Money>$(Payment adjustment for non-Claim issues$):
+    adjustmentReason<CodeableConcept>$(Explanation for the non-claim adjustment$):
+    date<date>$(Expected data of Payment$):
+    amount<Money>$(Payable amount after adjustment$):
+    identifier<Identifier>$(Identifier of the payment instrument$):
+reserved<Coding>$(Funds reserved status$):
+form<CodeableConcept>$(Printed Form Identifier$):
+processNote<list>$(Processing notes$):
+  - number<positiveInt>$(Sequence Number for this note$):
+    type<CodeableConcept>$(display | print | printoper$):
+    text<string>$(Note explanatory text$):
+    language<CodeableConcept>$(Language if different from the resource$):
+communicationRequest<list::Reference(CommunicationRequest)>$(Request for additional information$):
+insurance<list>$(Insurance or medical plan$):
+  - sequence<positiveInt>$(R!  Service instance identifier$):
+    focal<boolean>$(R!  Is the focal Coverage$):
+    coverage<Reference(Coverage)>$(R!  Insurance information$):
+    businessArrangement<string>$(Business agreement$):
+    preAuthRef<list::string>$(Pre-Authorization/Determination Reference$):
+    claimResponse<Reference(ClaimResponse)>$(Adjudication results$):

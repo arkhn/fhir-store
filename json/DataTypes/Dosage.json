@@ -1,0 +1,21 @@
+{
+  "resourceType" : "Dosage",
+  "sequence<integer>$(The order of the dosage instructions$)": null,
+  "text<string>$(Free text dosage instructions e.g. SIG$)": null,
+  "additionalInstruction<list::CodeableConcept>$(Supplemental instruction - e.g. \"with meals\"$)": null,
+  "patientInstruction<string>$(Patient or consumer oriented instructions$)": null,
+  "timing<Timing>$(When medication should be administered$)": null,
+  "asNeededBoolean<boolean>$($)": null,
+  "asNeededCodeableConcept<CodeableConcept>$($)": null,
+  "site<CodeableConcept>$(Body site to administer to$)": null,
+  "route<CodeableConcept>$(How drug should enter body$)": null,
+  "method<CodeableConcept>$(Technique for administering medication$)": null,
+  "doseRange<Range>$($)": null,
+  "doseQuantity<Quantity(SimpleQuantity)>$($)": null,
+  "maxDosePerPeriod<Ratio>$(Upper limit on medication per unit of time$)": null,
+  "maxDosePerAdministration<Quantity(SimpleQuantity)>$(Upper limit on medication per administration$)": null,
+  "maxDosePerLifetime<Quantity(SimpleQuantity)>$(Upper limit on medication per lifetime of the patient$)": null,
+  "rateRatio<Ratio>$($)": null,
+  "rateRange<Range>$($)": null,
+  "rateQuantity<Quantity(SimpleQuantity)>$($)": null
+}

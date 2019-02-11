@@ -1,0 +1,8 @@
+
+{
+  "resourceType" : "Binary",
+  // from Resource: id, meta, implicitRules, and language
+  "contentType" : "<code>", // R!  MimeType of the binary content 
+  "securityContext" : { Reference(Any) }, // Access Control Management
+  "content" : "<base64Binary>" // R!  The actual content
+}

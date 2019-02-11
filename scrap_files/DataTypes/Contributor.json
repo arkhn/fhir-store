@@ -1,0 +1,8 @@
+
+{
+  "resourceType" : "Contributor",
+  // from Element: extension
+  "type" : "<code>", // R!  author | editor | reviewer | endorser
+  "name" : "<string>", // R!  Who contributed the content
+  "contact" : [{ ContactDetail }] // Contact details of the contributor
+}

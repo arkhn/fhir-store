@@ -1,0 +1,33 @@
+resourceType: "Patient"
+identifier<list::Identifier>$(An identifier for this patient$):
+active<boolean>$(Whether this patient's record is in active use$):
+name<list::HumanName>$(A name associated with the patient$):
+telecom<list::ContactPoint>$(A contact detail for the individual$):
+gender<code>$(male | female | other | unknown$):
+birthDate<date>$(The date of birth for the individual$):
+deceasedBoolean<boolean>$($):
+deceasedDateTime<dateTime>$($):
+address<list::Address>$(Addresses for the individual$):
+maritalStatus<CodeableConcept>$(Marital (civil) status of a patient$):
+multipleBirthBoolean<boolean>$($):
+multipleBirthInteger<integer>$($):
+photo<list::Attachment>$(Image of the patient$):
+contact<list>$(A contact party (e.g. guardian partner friend) for the patient$):
+  - relationship<list::CodeableConcept>$(The kind of relationship "name" : { HumanName }, // A name associated with the contact person$):
+    telecom<list::ContactPoint>$(A contact detail for the person$):
+    address<Address>$(Address for the contact person$):
+    gender<code>$(male | female | other | unknown$):
+    organization<Reference(Organization)>$(C? Organization that is associated with the contact$):
+    period<Period>$(The period during which this contact person or organization is valid to be contacted relating to this patient$):
+animal:
+    species<CodeableConcept>$(R!  E.g. Dog, Cow$):
+    breed<CodeableConcept>$(E.g. Poodle, Angus$):
+    genderStatus<CodeableConcept>$(E.g. Neutered Intact$):
+communication<list>$(A list of Languages which may be used to communicate with the patient about his or her health$):
+  - language<CodeableConcept>$(R!  The language which can be used to communicate with the patient about his or her health$):
+    preferred<boolean>$(Language preference indicator$):
+generalPractitioner<list::Reference(Organization|Practitioner)>$(Patient's nominated primary care provider$):
+managingOrganization<Reference(Organization)>$(Organization that is the custodian of the patient record$):
+link<list>$(Link to another patient resource that concerns the same actual person$):
+  - other<Reference(Patient|RelatedPerson)>$(R!  The other patient or related person resource that the link refers to$):
+    type<code=replaced-by|replaces|refer|seealso>$(R!  replaced-by | replaces | refer | seealso - type of link$):

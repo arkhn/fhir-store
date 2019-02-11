@@ -1,0 +1,20 @@
+resourceType: "Media"
+identifier<list::Identifier>$(Identifier(s) for the image$):
+basedOn<list::Reference(ProcedureRequest)>$(Procedure that caused this media to be created$):
+type<code=photo|video>$(R!  photo | video | audio$):
+subtype<CodeableConcept>$(The type of acquisition equipment/process$):
+view<CodeableConcept>$(Imaging view, e.g. Lateral or Antero-posterior$):
+subject<Reference(Patient|Practitioner|Group|Device|Specimen)>$(Who/What this Media is a record of$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter / Episode associated with media$):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+operator<Reference(Practitioner)>$(The person who generated the image$):
+reasonCode<list::CodeableConcept>$(Why was event performed?$):
+bodySite<CodeableConcept>$(Body part in media$):
+device<Reference(Device|DeviceMetric)>$(Observing Device$):
+height<positiveInt>$(C? Height of the image in pixels (photo/video)$):
+width<positiveInt>$(C? Width of the image in pixels (photo/video)$):
+frames<positiveInt>$(C? Number of frames if > 1 (photo)$):
+duration<unsignedInt>$(C? Length in seconds (audio / video)$):
+content<Attachment>$(R!  Actual Media - reference or data$):
+note<list::Annotation>$(Comments made about the media$):

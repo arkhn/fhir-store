@@ -1,0 +1,33 @@
+resourceType: "Procedure"
+identifier<list::Identifier>$(External Identifiers for this procedure$):
+definition<list::Reference(PlanDefinition|ActivityDefinition|HealthcareService)>$(Instantiates protocol or definition$):
+basedOn<list::Reference(CarePlan|ProcedureRequest|ReferralRequest)>$(A request for this procedure$):
+partOf<list::Reference(Procedure|Observation|MedicationAdministration)>$(Part of referenced event$):
+status<code>$(Part of referenced event$):
+notDone<boolean>$(R!  preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown$):
+notDoneReason<CodeableConcept>$(C? Reason procedure was not performed$):
+category<CodeableConcept>$(Classification of the procedure$):
+code<CodeableConcept>$(Identification of the procedure$):
+subject<Reference(Patient|Group)>$(R!  Who the procedure was performed on$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode associated with the procedure$):
+performedDateTime<dateTime>$(Encounter or episode associated with the procedure$):
+performedPeriod<Period>$($):
+performer<list>$(The people who performed the procedure$):
+  - role<CodeableConcept>$(The role the actor was in$):
+    actor<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  The reference to the practitioner$):
+    onBehalfOf<Reference(Organization)>$(Organization the device or practitioner was acting for$):
+location<Reference(Location)>$(Where the procedure happened$):
+reasonCode<list::CodeableConcept>$(Coded reason procedure performed$):
+reasonReference<list::Reference(Condition|Observation)>$(Condition that is the reason the procedure performed$):
+bodySite<list::CodeableConcept>$(Target body sites$):
+outcome<CodeableConcept>$(The result of procedure$):
+report<list::Reference(DiagnosticReport)>$(Any report resulting from the procedure$):
+complication<list::CodeableConcept>$(Complication following the procedure$):
+complicationDetail<list::Reference(Condition)>$(A condition that is a result of the procedure$):
+followUp<list::CodeableConcept>$(Instructions for follow up$):
+note<list::Annotation>$(Additional information about the procedure$):
+focalDevice<list>$(Device changed in procedure$):
+  - action<CodeableConcept>$(Kind of change to device$):
+    manipulated<Reference(Device)>$(R!  Device that was changed$):
+usedReference<list::Reference(Device|Medication|Substance)>$(Items used during procedure$):
+usedCode<list::CodeableConcept>$(Coded items used during the procedure$):

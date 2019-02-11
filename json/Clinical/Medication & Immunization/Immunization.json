@@ -1,0 +1,43 @@
+{
+  "resourceType" : "Immunization",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "status<code>$(R!  completed | entered-in-error$)": null,
+  "notGiven<boolean>$(R!  Flag for whether immunization was given$)": null,
+  "vaccineCode<CodeableConcept>$(R!  Vaccine product administered$)": null,
+  "patient<Reference(Patient)>$(R!  Who was immunized$)": null,
+  "encounter<Reference(Encounter)>$(Encounter administered as part of$)": null,
+  "date<dateTime>$(Vaccination administration date$)": null,
+  "primarySource<boolean>$(R!  Indicates context the data was recorded in$)": null,
+  "reportOrigin<CodeableConcept>$(Indicates the source of a secondarily reported record$)": null,
+  "location<Reference(Location)>$(Where vaccination occurred$)": null,
+  "manufacturer<Reference(Organization)>$(Vaccine manufacturer$)": null,
+  "lotNumber<string>$(Vaccine lot number$)": null,
+  "expirationDate<date>$(Vaccine expiration date$)": null,
+  "site<CodeableConcept>$(Body site vaccine  was administered$)": null,
+  "route<CodeableConcept>$(How vaccine entered body$)": null,
+  "doseQuantity<Quantity(SimpleQuantity)>$(Amount of vaccine administered$)": null,
+  "practitioner<list>$(Who performed event$)": [{
+    "role<CodeableConcept>$(What type of performance was done$)": null,
+    "actor<Reference(Practitioner)>$(R!  Individual who was performing$)": null
+  }],
+  "note<list::Annotation>$(Vaccination notes$)": null,
+  "explanation" : { 
+    "reason<list::CodeableConcept>$(Why immunization occurred$)": null,
+    "reasonNotGiven<list::CodeableConcept>$(Why immunization did not occur$)": null
+  },
+  "reaction<list>$(Details of a reaction that follows immunization$)": [{
+    "date<dateTime>$(When reaction started$)": null,
+    "detail<Reference(Observation)>$(Additional information on reaction$)": null,
+    "reported<boolean>$(Indicates self-reported reaction$)": null
+  }],
+  "vaccinationProtocol<list>$(What protocol was followed$)": [{
+    "doseSequence<positiveInt>$(Dose number within series$)": null,
+    "description<string>$(Details of vaccine protocol$)": null,
+    "authority<Reference(Organization)>$(Who is responsible for protocol$)": null,
+    "series<string>$(Name of vaccine series$)": null,
+    "seriesDoses<positiveInt>$(Recommended number of doses for immunity$)": null,
+    "targetDisease<list::CodeableConcept>$(R!  Disease immunized against$)": null,
+    "doseStatus<CodeableConcept>$(R!  Indicates if dose counts towards immunity$)": null,
+    "doseStatusReason<CodeableConcept>$(Why dose does (not) count$)": null
+  }]
+}

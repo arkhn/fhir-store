@@ -1,0 +1,24 @@
+{
+  "resourceType" : "ImmunizationRecommendation",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "patient<Reference(Patient)>$(R!  Who this profile is for$)": null,
+  "recommendation<list>$(R!  Vaccine administration recommendations$)": [{
+    "date<dateTime>$(R!  Date recommendation created$)": null,
+    "vaccineCode<CodeableConcept>$(Vaccine recommendation applies to$)": null,
+    "targetDisease<CodeableConcept>$(Disease to be immunized against$)": null,
+    "doseNumber<positiveInt>$(Recommended dose number$)": null,
+    "forecastStatus<CodeableConcept>$(R!  Vaccine administration status$)": null,
+    "dateCriterion<list>$(Dates governing proposed immunization$)": [{
+      "code<CodeableConcept>$(R!  Type of date$)": null,
+      "value<dateTime>$(R!  Recommended date$)": null
+    }],
+    "protocol" : { 
+      "doseSequence<positiveInt>$(Dose number within sequence$)": null,
+      "description<string>$(Protocol details$)": null,
+      "authority<Reference(Organization)>$(Who is responsible for protocol$)": null,
+      "series<string>$(Name of vaccination series$)": null
+    },
+    "supportingImmunization<list::Reference(Immunization)>$(Past immunizations supporting recommendation$)": null,
+    "supportingPatientInformation<list::Reference(Observation|AllergyIntolerance)>$(Patient observations supporting recommendation$)": null
+  }]
+}

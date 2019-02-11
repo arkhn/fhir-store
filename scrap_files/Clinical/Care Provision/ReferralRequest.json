@@ -1,0 +1,35 @@
+
+{
+  "resourceType" : "ReferralRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier
+  "definition" : [{ Reference(ActivityDefinition|PlanDefinition) }], // Instantiates protocol or definition
+  "basedOn" : [{ Reference(ReferralRequest|CarePlan|ProcedureRequest) }], // Request fulfilled by this request
+  "replaces" : [{ Reference(ReferralRequest) }], // Request(s) replaced by this request
+  "groupIdentifier" : { Identifier }, // Composite request this is part of
+  "status" : "<code>", // R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown
+  "intent" : "<code>", // R!  proposal | plan | order
+  "type" : { CodeableConcept }, // Referral/Transition of care request type
+  "priority" : "<code>", // Urgency of referral / transfer of care request
+  "serviceRequested" : [{ CodeableConcept }], // Actions requested as part of the referral
+  "subject" : { Reference(Patient|Group) }, // R!  Patient referred to care or transfer
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Originating encounter
+  // occurrence[x]: When the service(s) requested in the referral should occur. One of these 2:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "authoredOn" : "<dateTime>", // Date of creation/activation
+  "requester" : { // Who/what is requesting service
+    "agent" : { Reference(Practitioner|Organization|Patient|RelatedPerson|
+    Device) }, // R!  Individual making the request
+    "onBehalfOf" : { Reference(Organization) } // C? Organization agent is acting for
+  },
+  "specialty" : { CodeableConcept }, // The clinical specialty (discipline) that the referral is requested for
+  "recipient" : [{ Reference(Practitioner|Organization|HealthcareService) }], // Receiver of referral / transfer of care request
+  "reasonCode" : [{ CodeableConcept }], // Reason for referral / transfer of care request
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Why is service needed?
+  "description" : "<string>", // A textual description of the referral
+  "supportingInfo" : [{ Reference(Any) }], // Additonal information to support referral or transfer of care request
+  "note" : [{ Annotation }], // Comments made about referral request
+  "relevantHistory" : [{ Reference(Provenance) }] // Key events in history of request
+}

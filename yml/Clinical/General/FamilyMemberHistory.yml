@@ -1,0 +1,34 @@
+resourceType: "FamilyMemberHistory"
+identifier<list::Identifier>$(External Id(s) for this record$):
+definition<list::Reference(PlanDefinition|Questionnaire)>$(Instantiates protocol or definition$):
+status<code=partial|completed|entered-in-error>$(R!  partial | completed | entered-in-error | health-unknown$):
+notDone<boolean>$(The taking of a family member's history did not occur$):
+notDoneReason<CodeableConcept>$(C? subject-unknown | withheld | unable-to-obtain | deferred$):
+patient<Reference(Patient)>$(R!  Patient history is about$):
+date<dateTime>$(When history was captured/updated$):
+name<string>$(The family member described$):
+relationship<CodeableConcept>$(R!  Relationship to the subject$):
+gender<code>$(male | female | other | unknown$):
+bornPeriod<Period>$($):
+bornDate<date>$($):
+bornString<string>$($):
+ageAge<Age>$($):
+ageRange<Range>$($):
+ageString<string>$($):
+estimatedAge<boolean>$(C? Age is estimated?$):
+deceasedBoolean<boolean>$($):
+deceasedAge<Age>$($):
+deceasedRange<Range>$($):
+deceasedDate<date>$($):
+deceasedString<string>$($):
+reasonCode<list::CodeableConcept>$(Why was family member history performed?$):
+reasonReference<list::Reference(Condition|Observation|AllergyIntolerance|QuestionnaireResponse)>$(Why was family member history performed?$):
+note<list::Annotation>$(General note about related person$):
+condition<list>$(Condition that the related person had$):
+  - code<CodeableConcept>$(R!  Condition suffered by relation$):
+    outcome<CodeableConcept>$(deceased | permanent disability | etc.$):
+    onsetAge<Age>$($):
+    onsetRange<Range>$($):
+    onsetPeriod<Period>$($):
+    onsetString<string>$($):
+    note<list::Annotation>$(Extra information about condition$):

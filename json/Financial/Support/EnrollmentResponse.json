@@ -1,0 +1,12 @@
+{
+  "resourceType" : "EnrollmentResponse",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "request<Reference(EnrollmentRequest)>$(Claim reference$)": null,
+  "outcome<CodeableConcept>$(complete | error | partial$)": null,
+  "disposition<string>$(Disposition Message$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "organization<Reference(Organization)>$(Insurer$)": null,
+  "requestProvider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "requestOrganization<Reference(Organization)>$(Responsible organization$)": null
+}

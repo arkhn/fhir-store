@@ -1,0 +1,43 @@
+
+{
+  "resourceType" : "StructureDefinition",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // R!  Logical URI to reference this structure definition (globally unique)
+  "identifier" : [{ Identifier }], // Additional identifier for the structure definition
+  "version" : "<string>", // Business version of the structure definition
+  "name" : "<string>", // R!  Name for this structure definition (computer friendly)
+  "title" : "<string>", // Name for this structure definition (human friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "description" : "<markdown>", // Natural language description of the structure definition
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for structure definition (if applicable)
+  "purpose" : "<markdown>", // Why this structure definition is defined
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  "keyword" : [{ Coding }], // Assist with indexing and finding
+  "fhirVersion" : "<id>", // FHIR Version this StructureDefinition targets
+  "mapping" : [{ // External specification that the content is mapped to
+    "identity" : "<id>", // R!  Internal id when this mapping is used
+    "uri" : "<uri>", // C? Identifies what this mapping refers to
+    "name" : "<string>", // C? Names what this mapping refers to
+    "comment" : "<string>" // Versions, Issues, Scope limitations etc.
+  }],
+  "kind" : "<code>", // R!  primitive-type | complex-type | resource | logical
+  "abstract" : <boolean>, // R!  Whether the structure is abstract
+  "contextType" : "<code>", // C? resource | datatype | extension
+  "context" : ["<string>"], // C? Where the extension can be used in instances
+  "contextInvariant" : ["<string>"], // C? FHIRPath invariants - when the extension can be used
+  "type" : "<code>", // C? R!  Type defined or constrained by this structure
+  "baseDefinition" : "<uri>", // C? Definition that this type is constrained/specialized from
+  "derivation" : "<code>", // C? specialization | constraint - How relates to base definition
+  "snapshot" : { // C? Snapshot view of the structure
+    "element" : [{ ElementDefinition }] // C? R!  Definition of elements in the resource (if no StructureDefinition)
+  },
+  "differential" : { // C? Differential view of the structure
+    "element" : [{ ElementDefinition }] // R!  Definition of elements in the resource (if no StructureDefinition)
+  }
+}

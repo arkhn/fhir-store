@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Device",
+  "identifier<list::Identifier>$(Instance identifier$)": null,
+  "udi" : { 
+    "deviceIdentifier<string>$(Mandatory fixed portion of UDI$)": null,
+    "name<string>$(Device Name as appears on UDI label$)": null,
+    "jurisdiction<uri>$(Regional UDI authority$)": null,
+    "carrierHRF<string>$(UDI Human Readable Barcode String$)": null,
+    "carrierAIDC<base64Binary>$(UDI Machine Readable Barcode String$)": null,
+    "issuer<uri>$(UDI Issuing Organization$)": null,
+    "entryType<code>$(barcode | rfid | manual +$)": null
+  },
+  "status<code>$(active | inactive | entered-in-error | unknown$)": null,
+  "type<CodeableConcept>$(What kind of device this is$)": null,
+  "lotNumber<string>$(Lot number of manufacture$)": null,
+  "manufacturer<string>$(Name of device manufacturer$)": null,
+  "manufactureDate<dateTime>$(Date when the device was made$)": null,
+  "expirationDate<dateTime>$(Date and time of expiry of this device (if applicable)$)": null,
+  "model<string>$(Model id assigned by the manufacturer$)": null,
+  "version<string>$(Version number (i.e. software)$)": null,
+  "patient<Reference(Patient)>$(Patient to whom Device is affixed$)": null,
+  "owner<Reference(Organization)>$(Organization responsible for device$)": null,
+  "contact<list::ContactPoint>$(Details for human/organization for support$)": null,
+  "location<Reference(Location)>$(Where the resource is found$)": null,
+  "url<uri>$(Network address to contact device$)": null,
+  "note<list::Annotation>$(Device notes and comments$)": null,
+  "safety<list::CodeableConcept>$(Safety Characteristics of Device$)": null
+}

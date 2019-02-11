@@ -1,0 +1,14 @@
+resourceType: "DeviceUseStatement"
+identifier<list::Identifier>$(External identifier for this record$):
+status<code=active|completed|entered-in-error>$(R!  active | completed | entered-in-error +$):
+subject<Reference(Patient|Group)>$(R!  Patient using device$):
+whenUsed<Period>$(Period device was used$):
+timingTiming<Timing>$($):
+timingPeriod<Period>$($):
+timingDateTime<dateTime>$($):
+recordedOn<dateTime>$(When statement was recorded$):
+source<Reference(Patient|Practitioner|RelatedPerson)>$(Who made the statement$):
+device<Reference(Device)>$(R!  Reference to device used$):
+indication<list::CodeableConcept>$(Why device was used$):
+bodySite<CodeableConcept>$(Target body site$):
+note<list::Annotation>$(Addition details (comments instructions)$):

@@ -1,0 +1,28 @@
+resourceType: "Parameters"
+parameter<list>$(Operation Parameter$):
+  - name<string>$(R!  Name from the definition$):
+    valueInteger<integer>$($):
+    valueDecimal<decimal>$($):
+    valueDateTime<dateTime>$($):
+    valueDate<date>$($):
+    valueInstant<instant>$($):
+    valueString<string>$($):
+    valueUri<uri>$($):
+    valueBoolean<boolean>$($):
+    valueCode<code>$($):
+    valueBase64Binary<base64Binary>$($):
+    valueCoding<Coding>$($):
+    valueCodeableConcept<CodeableConcept>$($):
+    valueAttachment<Attachment>$($):
+    valueIdentifier<Identifier>$($):
+    valueQuantity<Quantity>$($):
+    valueRange<Range>$($):
+    valuePeriod<Period>$($):
+    valueRatio<Ratio>$($):
+    valueHumanName<HumanName>$($):
+    valueAddress<Address>$($):
+    valueContactPoint<ContactPoint>$($):
+    valueSchedule<Schedule>$($):
+    valueReference<Reference>$($):
+    resource<Resource>$(C? If parameter is a whole resource$):
+    part<list::Content as for Parameters.parameter>$(Named part of a multi-part parameter$):

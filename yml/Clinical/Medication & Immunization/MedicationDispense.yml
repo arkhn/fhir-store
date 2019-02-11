@@ -1,0 +1,33 @@
+resourceType: "MedicationDispense"
+identifier<list::Identifier>$(External identifier$):
+partOf<list::Reference(Procedure)>$(Event that dispense is part of$):
+status<code>$(preparation | in-progress | on-hold | completed | entered-in-error | stopped$):
+category<CodeableConcept>$(Type of medication dispense$):
+medicationCodeableConcept<CodeableConcept>$($):
+medicationReference<Reference(Medication)>$($):
+subject<Reference(Patient|Group)>$(Who the dispense is for$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter / Episode associated with event$):
+supportingInformation<list::Reference(Any)>$(Information that supports the dispensing of the medication$):
+performer<list>$(Who performed event$):
+  - actor<Reference(Practitioner|Organization|Patient|Device|RelatedPerson)>$(R!  Individual who was performing$):
+    onBehalfOf<Reference(Organization)>$(Organization organization was acting for$):
+authorizingPrescription<list::Reference(MedicationRequest)>$(Medication order that authorizes the dispense$):
+type<CodeableConcept>$(Trial fill, partial fill, emergency fill, etc.$):
+quantity<Quantity(SimpleQuantity)>$(Amount dispensed$):
+daysSupply<Quantity(SimpleQuantity)>$(Amount of medication expressed as a timing amount$):
+whenPrepared<dateTime>$(Amount of medication expressed as a timing amount$):
+whenHandedOver<dateTime>$(When product was packaged and reviewed$):
+destination<Reference(Location)>$(Where the medication was sent$):
+receiver<list::Reference(Patient|Practitioner)>$(Who collected the medication$):
+note<list::Annotation>$(Information about the dispense$):
+dosageInstruction<list::Dosage>$(How the medication is to be used by the patient or administered by the caregiver$):
+substitution:
+    wasSubstituted<boolean>$(Whether a substitution was performed on the dispense$):
+    type<CodeableConcept>$(Code signifying whether a different drug was dispensed from what was prescribed$):
+    reason<list::CodeableConcept>$(Why was substitution made$):
+    responsibleParty<list::Reference(Practitioner)>$(Who is responsible for the substitution$):
+detectedIssue<list::Reference(DetectedIssue)>$(Clinical issue with action$):
+notDone<boolean>$(Clinical issue with action$):
+notDoneReasonCodeableConcept<CodeableConcept>$($):
+notDoneReasonReference<Reference(DetectedIssue)>$($):
+eventHistory<list::Reference(Provenance)>$(A list of releveant lifecycle events$):

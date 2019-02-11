@@ -1,0 +1,97 @@
+
+{
+  "resourceType" : "Task",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Task Instance Identifier
+  // definition[x]: Formal definition of task. One of these 2:
+  "definitionUri" : "<uri>",
+  "definitionReference" : { Reference(ActivityDefinition) },
+  "basedOn" : [{ Reference(Any) }], // Request fulfilled by this task
+  "groupIdentifier" : { Identifier }, // Requisition or grouper id
+  "partOf" : [{ Reference(Task) }], // Composite task
+  "status" : "<code>", // R!  draft | requested | received | accepted | +
+  "statusReason" : { CodeableConcept }, // Reason for current status
+  "businessStatus" : { CodeableConcept }, // E.g. "Specimen collected", "IV prepped"
+  "intent" : "<code>", // R!  proposal | plan | order +
+  "priority" : "<code>", // normal | urgent | asap | stat
+  "code" : { CodeableConcept }, // Task Type
+  "description" : "<string>", // Human-readable explanation of task
+  "focus" : { Reference(Any) }, // What task is acting on
+  "for" : { Reference(Any) }, // Beneficiary of the Task
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Healthcare event during which this task originated
+  "executionPeriod" : { Period }, // Start and end time of execution
+  "authoredOn" : "<dateTime>", // C? Task Creation Date
+  "lastModified" : "<dateTime>", // C? Task Last Modified Date
+  "requester" : { // Who is asking for task to be done
+    "agent" : { Reference(Device|Organization|Patient|Practitioner|
+    RelatedPerson) }, // R!  Individual asking for task
+    "onBehalfOf" : { Reference(Organization) } // Organization individual is acting for
+  },
+  "performerType" : [{ CodeableConcept }], // requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
+  "owner" : { Reference(Device|Organization|Patient|Practitioner|
+   RelatedPerson) }, // Responsible individual
+  "reason" : { CodeableConcept }, // Why task is needed
+  "note" : [{ Annotation }], // Comments made about the task
+  "relevantHistory" : [{ Reference(Provenance) }], // Key events in history of the Task
+  "restriction" : { // Constraints on fulfillment tasks
+    "repetitions" : "<positiveInt>", // How many times to repeat
+    "period" : { Period }, // When fulfillment sought
+    "recipient" : [{ Reference(Patient|Practitioner|RelatedPerson|Group|
+    Organization) }] // For whom is fulfillment sought?
+  },
+  "input" : [{ // Information used to perform task
+    "type" : { CodeableConcept }, // R!  Label for the input
+    // value[x]: Content to use in performing the task. One of these 23:
+    "valueInteger" : <integer>
+    "valueDecimal" : <decimal>
+    "valueDateTime" : "<dateTime>"
+    "valueDate" : "<date>"
+    "valueInstant" : "<instant>"
+    "valueString" : "<string>"
+    "valueUri" : "<uri>"
+    "valueBoolean" : <boolean>
+    "valueCode" : "<code>"
+    "valueBase64Binary" : "<base64Binary>"
+    "valueCoding" : { Coding }
+    "valueCodeableConcept" : { CodeableConcept }
+    "valueAttachment" : { Attachment }
+    "valueIdentifier" : { Identifier }
+    "valueQuantity" : { Quantity }
+    "valueRange" : { Range }
+    "valuePeriod" : { Period }
+    "valueRatio" : { Ratio }
+    "valueHumanName" : { HumanName }
+    "valueAddress" : { Address }
+    "valueContactPoint" : { ContactPoint }
+    "valueSchedule" : { Schedule }
+    "valueReference" : { Reference }
+  }],
+  "output" : [{ // Information produced as part of task
+    "type" : { CodeableConcept }, // R!  Label for output
+    // value[x]: Result of output. One of these 23:
+    "valueInteger" : <integer>
+    "valueDecimal" : <decimal>
+    "valueDateTime" : "<dateTime>"
+    "valueDate" : "<date>"
+    "valueInstant" : "<instant>"
+    "valueString" : "<string>"
+    "valueUri" : "<uri>"
+    "valueBoolean" : <boolean>
+    "valueCode" : "<code>"
+    "valueBase64Binary" : "<base64Binary>"
+    "valueCoding" : { Coding }
+    "valueCodeableConcept" : { CodeableConcept }
+    "valueAttachment" : { Attachment }
+    "valueIdentifier" : { Identifier }
+    "valueQuantity" : { Quantity }
+    "valueRange" : { Range }
+    "valuePeriod" : { Period }
+    "valueRatio" : { Ratio }
+    "valueHumanName" : { HumanName }
+    "valueAddress" : { Address }
+    "valueContactPoint" : { ContactPoint }
+    "valueSchedule" : { Schedule }
+    "valueReference" : { Reference }
+  }]
+}

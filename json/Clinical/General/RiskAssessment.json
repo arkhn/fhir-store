@@ -1,0 +1,30 @@
+{
+  "resourceType" : "RiskAssessment",
+  "identifier<Identifier>$(Unique identifier for the assessment$)": null,
+  "basedOn<Reference(Any)>$(Request fulfilled by this assessment$)": null,
+  "parent<Reference(Any)>$(Part of this occurrence$)": null,
+  "status<code=registered|preliminary|final|amended>$(R!  registered | preliminary | final | amended +$)": null,
+  "method<CodeableConcept>$(Evaluation mechanism$)": null,
+  "code<CodeableConcept>$(Type of assessment$)": null,
+  "subject<Reference(Patient|Group)>$(Who/what does assessment apply to?$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Where was assessment performed?$)": null,
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "condition<Reference(Condition)>$(Condition assessed$)": null,
+  "performer<Reference(Practitioner|Device)>$(Who did assessment?$)": null,
+  "reasonCodeableConcept<CodeableConcept>$($)": null,
+  "reasonReference<Reference(Any)>$($)": null,
+  "basis<list::Reference(Any)>$(Information used in assessment$)": null,
+  "prediction<list>$(Outcome predicted$)": [{
+    "outcome<CodeableConcept>$(R!  Possible outcome for the subject$)": null,
+    "probabilityDecimal<decimal>$($)": null,
+    "probabilityRange<Range>$($)": null,
+    "qualitativeRisk<CodeableConcept>$(Likelihood of specified outcome as a qualitative value$)": null,
+    "relativeRisk<decimal>$(Relative likelihood$)": null,
+    "whenPeriod<Period>$($)": null,
+    "whenRange<Range>$($)": null,
+    "rationale<string>$(Explanation of prediction$)": null
+  }],
+  "mitigation<string>$(How to reduce risk$)": null,
+  "comment<string>$(Comments on the risk assessment$)": null
+}

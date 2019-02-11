@@ -1,0 +1,27 @@
+resourceType: "ReferralRequest"
+identifier<list::Identifier>$(Business identifier$):
+definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Instantiates protocol or definition$):
+basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>$(Request fulfilled by this request$):
+replaces<list::Reference(ReferralRequest)>$(Request(s) replaced by this request$):
+groupIdentifier<Identifier>$(Composite request this is part of$):
+status<code=draft|active|suspended|cancelled|completed|entered-in-error>$(R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown$):
+intent<code=proposal|plan>$(R!  proposal | plan | order$):
+type<CodeableConcept>$(Referral/Transition of care request type$):
+priority<code>$(Urgency of referral / transfer of care request$):
+serviceRequested<list::CodeableConcept>$(Actions requested as part of the referral$):
+subject<Reference(Patient|Group)>$(R!  Patient referred to care or transfer$):
+context<Reference(Encounter|EpisodeOfCare)>$(Originating encounter$):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+authoredOn<dateTime>$(Date of creation/activation$):
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$):
+    onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$):
+specialty<CodeableConcept>$(The clinical specialty (discipline) that the referral is requested for$):
+recipient<list::Reference(Practitioner|Organization|HealthcareService)>$(Receiver of referral / transfer of care request$):
+reasonCode<list::CodeableConcept>$(Reason for referral / transfer of care request$):
+reasonReference<list::Reference(Condition|Observation)>$(Why is service needed?$):
+description<string>$(Why is service needed?$):
+supportingInfo<list::Reference(Any)>$(Additonal information to support referral or transfer of care request$):
+note<list::Annotation>$(Comments made about referral request$):
+relevantHistory<list::Reference(Provenance)>$(Key events in history of request$):

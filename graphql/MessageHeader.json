@@ -1,0 +1,299 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "R!  Code for the event this message represents",
+        "name": "event",
+        "type": "Coding",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Identity of the terminology system",
+              "name": "system",
+              "type": "uri"
+            },
+            {
+              "depth": 2,
+              "comment": "Version of the system - if relevant",
+              "name": "version",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Symbol in syntax defined by the system",
+              "name": "code",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "Representation defined by the system",
+              "name": "display",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "If this coding was chosen directly by the user",
+              "name": "userSelected",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Message destination application(s)",
+        "name": "destination",
+        "type": "list",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Name of system",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Particular delivery destination within the destination",
+              "name": "target",
+              "type": "Reference(Device)"
+            },
+            {
+              "depth": 2,
+              "comment": "R!  Actual destination address or id",
+              "name": "endpoint",
+              "type": "uri"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Intended \"real-world\" recipient for the data",
+        "name": "receiver",
+        "type": "Reference(Practitioner|Organization)"
+      },
+      {
+        "depth": 1,
+        "comment": "Real world sender of the message",
+        "name": "sender",
+        "type": "Reference(Practitioner|Organization)"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  Time that the message was sent",
+        "name": "timestamp",
+        "type": "instant"
+      },
+      {
+        "depth": 1,
+        "comment": "The source of the data entry",
+        "name": "enterer",
+        "type": "Reference(Practitioner)"
+      },
+      {
+        "depth": 1,
+        "comment": "The source of the decision",
+        "name": "author",
+        "type": "Reference(Practitioner)"
+      },
+      {
+        "depth": 1,
+        "name": "source",
+        "type": "source",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Name of system",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Name of software running the system",
+              "name": "software",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Version of software running",
+              "name": "version",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Human contact for problems",
+              "name": "contact",
+              "type": "ContactPoint",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "C? phone | fax | email | pager | url | sms | other",
+                    "name": "system",
+                    "type": "code=phone|fax|email|pager|url|sms"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "The actual contact point details",
+                    "name": "value",
+                    "type": "string"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "home | work | temp | old | mobile - purpose of this contact point",
+                    "name": "use",
+                    "type": "code"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Specify preferred order of use (1 = highest)",
+                    "name": "rank",
+                    "type": "positiveInt"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "Time period when the contact point was/is in use",
+                    "name": "period",
+                    "type": "Period",
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "C? Starting time with inclusive boundary",
+                          "name": "start",
+                          "type": "dateTime"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "C? End time with inclusive boundary if not ongoing",
+                          "name": "end",
+                          "type": "dateTime"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "depth": 2,
+              "comment": "R!  Actual message source address or id",
+              "name": "endpoint",
+              "type": "uri"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "Final responsibility for event",
+        "name": "responsible",
+        "type": "Reference(Practitioner|Organization)"
+      },
+      {
+        "depth": 1,
+        "comment": "Cause of event",
+        "name": "reason",
+        "type": "CodeableConcept",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Code defined by a terminology system",
+              "name": "coding",
+              "type": "list::Coding",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "name": "Coding_0",
+                    "type": "Coding",
+                    "isProfile": true,
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Identity of the terminology system",
+                          "name": "system",
+                          "type": "uri"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Version of the system - if relevant",
+                          "name": "version",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Symbol in syntax defined by the system",
+                          "name": "code",
+                          "type": "code"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Representation defined by the system",
+                          "name": "display",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "If this coding was chosen directly by the user",
+                          "name": "userSelected",
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "depth": 2,
+              "comment": "Plain text representation of the concept",
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "name": "response",
+        "type": "response",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "R!  Id of original message",
+              "name": "identifier",
+              "type": "id"
+            },
+            {
+              "depth": 2,
+              "comment": "R!  ok | transient-error | fatal-error",
+              "name": "code",
+              "type": "code=ok|transient-error"
+            },
+            {
+              "depth": 2,
+              "comment": "Specific list of hints/warnings/errors",
+              "name": "details",
+              "type": "Reference(OperationOutcome)"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "The actual content of the message",
+        "name": "focus",
+        "type": "list::Reference(Any)"
+      }
+    ]
+  },
+  "name": "MessageHeader"
+}

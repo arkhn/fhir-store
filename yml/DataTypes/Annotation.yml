@@ -1,0 +1,4 @@
+authorReference<Reference(Practitioner|Patient|RelatedPerson)>$($):
+authorString<string>$($):
+time<dateTime>$(When the annotation was made$):
+text<string>$(R!  The annotation  - text content$):

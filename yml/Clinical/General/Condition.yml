@@ -1,0 +1,30 @@
+resourceType: "Condition"
+identifier<list::Identifier>$(External Ids for this condition$):
+clinicalStatus<code=active|recurrence|inactive|remission>$(C? active | recurrence | inactive | remission | resolved$):
+verificationStatus<code=provisional|differential|confirmed|refuted|entered-in-error>$(C? provisional | differential | confirmed | refuted | entered-in-error | unknown$):
+category<list::CodeableConcept>$(problem-list-item | encounter-diagnosis$):
+severity<CodeableConcept>$(Subjective severity of condition$):
+code<CodeableConcept>$(Identification of the condition, problem or diagnosis$):
+bodySite<list::CodeableConcept>$(Anatomical location, if relevant$):
+subject<Reference(Patient|Group)>$(R!  Who has the condition?$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode when condition first asserted$):
+onsetDateTime<dateTime>$($):
+onsetAge<Age>$($):
+onsetPeriod<Period>$($):
+onsetRange<Range>$($):
+onsetString<string>$($):
+abatementDateTime<dateTime>$($):
+abatementAge<Age>$($):
+abatementBoolean<boolean>$($):
+abatementPeriod<Period>$($):
+abatementRange<Range>$($):
+abatementString<string>$($):
+assertedDate<dateTime>$(Date record was believed accurate$):
+asserter<Reference(Practitioner|Patient|RelatedPerson)>$(Person who asserts this condition$):
+stage:
+    summary<CodeableConcept>$(C? Simple summary (disease specific)$):
+    assessment<list::Reference(ClinicalImpression|DiagnosticReport|Observation)>$(C? Formal record of assessment$):
+evidence<list>$(Supporting evidence$):
+  - code<list::CodeableConcept>$(C? Manifestation/symptom$):
+    detail<list::Reference(Any)>$(C? Supporting information found elsewhere$):
+note<list::Annotation>$(Additional information about the Condition$):

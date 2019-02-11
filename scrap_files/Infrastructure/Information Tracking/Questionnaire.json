@@ -1,0 +1,78 @@
+
+{
+  "resourceType" : "Questionnaire",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // Logical URI to reference this questionnaire (globally unique)
+  "identifier" : [{ Identifier }], // Additional identifier for the questionnaire
+  "version" : "<string>", // Business version of the questionnaire
+  "name" : "<string>", // Name for this questionnaire (computer friendly)
+  "title" : "<string>", // Name for this questionnaire (human friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "description" : "<markdown>", // Natural language description of the questionnaire
+  "purpose" : "<markdown>", // Why this questionnaire is defined
+  "approvalDate" : "<date>", // When the questionnaire was approved by publisher
+  "lastReviewDate" : "<date>", // When the questionnaire was last reviewed
+  "effectivePeriod" : { Period }, // When the questionnaire is expected to be used
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for questionnaire (if applicable)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  "code" : [{ Coding }], // Concept that represents the overall questionnaire
+  "subjectType" : ["<code>"], // Resource that can be subject of QuestionnaireResponse
+  "item" : [{ // C? Questions and sections within the Questionnaire
+    "linkId" : "<string>", // R!  Unique id for item in questionnaire
+    "definition" : "<uri>", // ElementDefinition - details for the item
+    "code" : [{ Coding }], // C? Corresponding concept for this item in a terminology
+    "prefix" : "<string>", // E.g. "1(a)", "2.5.3"
+    "text" : "<string>", // Primary text for the item
+    "type" : "<code>", // R!  group | display | boolean | decimal | integer | date | dateTime +
+    "enableWhen" : [{ // Only allow data when
+      "question" : "<string>", // R!  Question that determines whether item is enabled
+      "hasAnswer" : <boolean>, // C? Enable when answered or not
+      // answer[x]: Value question must have. One of these 12:
+      "answerBoolean" : <boolean>
+      "answerDecimal" : <decimal>
+      "answerInteger" : <integer>
+      "answerDate" : "<date>"
+      "answerDateTime" : "<dateTime>"
+      "answerTime" : "<time>"
+      "answerString" : "<string>"
+      "answerUri" : "<uri>"
+      "answerAttachment" : { Attachment }
+      "answerCoding" : { Coding }
+      "answerQuantity" : { Quantity }
+      "answerReference" : { Reference(Any) }
+    }],
+    "required" : <boolean>, // C? Whether the item must be included in data results
+    "repeats" : <boolean>, // C? Whether the item may repeat
+    "readOnly" : <boolean>, // C? Don't allow human editing
+    "maxLength" : <integer>, // C? No more than this many characters
+    "options" : { Reference(ValueSet) }, // C? Valueset containing permitted answers
+    "option" : [{ // C? Permitted answer
+      // value[x]: Answer value. One of these 5:
+      "valueInteger" : <integer>
+      "valueDate" : "<date>"
+      "valueTime" : "<time>"
+      "valueString" : "<string>"
+      "valueCoding" : { Coding }
+    }],
+    // initial[x]: Default value when item is first rendered. One of these 12:
+    "initialBoolean" : <boolean>,
+    "initialDecimal" : <decimal>,
+    "initialInteger" : <integer>,
+    "initialDate" : "<date>",
+    "initialDateTime" : "<dateTime>",
+    "initialTime" : "<time>",
+    "initialString" : "<string>",
+    "initialUri" : "<uri>",
+    "initialAttachment" : { Attachment },
+    "initialCoding" : { Coding },
+    "initialQuantity" : { Quantity },
+    "initialReference" : { Reference(Any) },
+    "item" : [{ Content as for Questionnaire.item }] // C? Nested questionnaire items
+  }]
+}

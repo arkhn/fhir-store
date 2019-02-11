@@ -1,0 +1,22 @@
+resourceType: "Provenance"
+target<list::Reference(Any)>$(R!  Target Reference(s) (usually version specific)$):
+period<Period>$(When the activity occurred$):
+recorded<instant>$(R!  When the activity was recorded / updated$):
+policy<list::uri>$(Policy or plan the activity was defined by$):
+location<Reference(Location)>$(Where the activity occurred, if relevant$):
+reason<list::Coding>$(Reason the activity is occurring$):
+activity<Coding>$(Activity that occurred$):
+agent<list>$(R!  Actor involved$):
+  - role<list::CodeableConcept>$(What the agents role was$):
+    whoUri<uri>$($):
+    whoReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($):
+    onBehalfOfUri<uri>$($):
+    onBehalfOfReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($):
+    relatedAgentType<CodeableConcept>$(Type of relationship between agents$):
+entity<list>$(An entity used in this activity$):
+  - role<code>$($):
+    whatUri<uri>$(An entity used in this activity$):
+    whatReference<Reference(Any)>$($):
+    whatIdentifier<Identifier>$($):
+    agent<list::Content as for Provenance.agent>$(Entity is attributed to this agent$):
+signature<list::Signature>$(Signature on target$):

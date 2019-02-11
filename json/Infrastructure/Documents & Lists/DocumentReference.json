@@ -1,0 +1,37 @@
+{
+  "resourceType" : "DocumentReference",
+  "masterIdentifier<Identifier>$(Master Version Specific Identifier$)": null,
+  "identifier<list::Identifier>$(Other identifiers for the document$)": null,
+  "status<code=current|superseded>$(R!  current | superseded | entered-in-error$)": null,
+  "docStatus<code>$(preliminary | final | appended | amended | entered-in-error$)": null,
+  "type<CodeableConcept>$(R!  Kind of document (LOINC if possible)$)": null,
+  "class<CodeableConcept>$(Categorization of document$)": null,
+  "subject<Reference(Patient|Practitioner|Group|Device)>$(Who/what is the subject of the document$)": null,
+  "created<dateTime>$(Document creation time$)": null,
+  "indexed<instant>$(R!  When this document reference was created$)": null,
+  "author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>$(Who and/or what authored the document$)": null,
+  "authenticator<Reference(Practitioner|Organization)>$(Who/what authenticated the document$)": null,
+  "custodian<Reference(Organization)>$(Organization which maintains the document$)": null,
+  "relatesTo<list>$(Relationships to other documents$)": [{
+    "code<code>$(Relationships to other documents$)": null,
+    "target<Reference(DocumentReference)>$(R!  Target of the relationship$)": null
+  }],
+  "description<string>$($)": null,
+  "securityLabel<list::CodeableConcept>$(Document security-tags$)": null,
+  "content<list>$(R!  Document referenced$)": [{
+    "attachment<Attachment>$(R!  Where to access the document$)": null,
+    "format<Coding>$(Format/content rules for the document$)": null
+  }],
+  "context" : { 
+    "encounter<Reference(Encounter)>$(Context of the document  content$)": null,
+    "event<list::CodeableConcept>$(Main clinical acts documented$)": null,
+    "period<Period>$(Time of service that is being documented$)": null,
+    "facilityType<CodeableConcept>$(Kind of facility where patient was seen$)": null,
+    "practiceSetting<CodeableConcept>$(Additional details about where the content was created (e.g. clinical specialty)$)": null,
+    "sourcePatientInfo<Reference(Patient)>$(Patient demographics from source$)": null,
+    "related<list>$(Related identifiers or resources$)": [{
+      "identifier<Identifier>$(Identifier of related objects or events$)": null,
+      "ref<Reference(Any)>$(Related Resource$)": null
+    }]
+  }
+}

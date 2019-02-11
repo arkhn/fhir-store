@@ -1,0 +1,27 @@
+{
+  "resourceType" : "Communication",
+  "identifier<list::Identifier>$(Unique identifier$)": null,
+  "definition<list::Reference(PlanDefinition|ActivityDefinition)>$(Instantiates protocol or definition$)": null,
+  "basedOn<list::Reference(Any)>$(Request fulfilled by this communication$)": null,
+  "partOf<list::Reference(Any)>$(Part of this action$)": null,
+  "status<code=preparation|in-progress|suspended|aborted|completed>$(R!  preparation | in-progress | suspended | aborted | completed | entered-in-error$)": null,
+  "notDone<boolean>$(Communication did not occur$)": null,
+  "notDoneReason<CodeableConcept>$(C? Why communication did not occur$)": null,
+  "category<list::CodeableConcept>$(Message category$)": null,
+  "medium<list::CodeableConcept>$(A channel of communication$)": null,
+  "subject<Reference(Patient|Group)>$(Focus of message$)": null,
+  "recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)>$(Message recipient$)": null,
+  "topic<list::Reference(Any)>$(Focal resources$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode leading to message$)": null,
+  "sent<dateTime>$(Encounter or episode leading to message$)": null,
+  "received<dateTime>$(When sent$)": null,
+  "sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>$(Message sender$)": null,
+  "reasonCode<list::CodeableConcept>$(Indication for message$)": null,
+  "reasonReference<list::Reference(Condition|Observation)>$(Why was communication done?$)": null,
+  "payload<list>$(Message payload$)": [{
+    "contentString<string>$(Why was communication done?$)": null,
+    "contentAttachment<Attachment>$($)": null,
+    "contentReference<Reference(Any)>$($)": null
+  }],
+  "note<list::Annotation>$(Comments made about the communication$)": null
+}

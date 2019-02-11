@@ -1,0 +1,31 @@
+resourceType: "QuestionnaireResponse"
+identifier<Identifier>$(Unique id for this set of answers$):
+basedOn<list::Reference(ReferralRequest|CarePlan|ProcedureRequest)>$(Request fulfilled by this QuestionnaireResponse$):
+parent<list::Reference(Observation|Procedure)>$(Part of this action$):
+questionnaire<Reference(Questionnaire)>$(Form being answered$):
+status<code=in-progress|completed|amended|entered-in-error>$(R!  in-progress | completed | amended | entered-in-error | stopped$):
+subject<Reference(Any)>$(The subject of the questions$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode during which questionnaire was completed$):
+authored<dateTime>$(Date the answers were gathered$):
+author<Reference(Device|Practitioner|Patient|RelatedPerson)>$(Person who received and recorded the answers$):
+source<Reference(Patient|Practitioner|RelatedPerson)>$(The person who answered the questions$):
+item<list>$(Groups and questions$):
+  - linkId<string>$(R!  Pointer to specific item from Questionnaire$):
+    definition<uri>$(ElementDefinition - details for the item$):
+    text<string>$(Name for group or question text$):
+    subject<Reference(Any)>$(The subject this group's answers are about$):
+    answer<list>$(The response(s) to the question$):
+      - valueBoolean<boolean>$($):
+        valueDecimal<decimal>$($):
+        valueInteger<integer>$($):
+        valueDate<date>$($):
+        valueDateTime<dateTime>$($):
+        valueTime<time>$($):
+        valueString<string>$($):
+        valueUri<uri>$($):
+        valueAttachment<Attachment>$($):
+        valueCoding<Coding>$($):
+        valueQuantity<Quantity>$($):
+        valueReference<Reference(Any)>$($):
+        item<list::Content as for QuestionnaireResponse.item>$(Nested groups and questions$):
+    item<list::Content as for QuestionnaireResponse.item>$(Nested questionnaire response items$):

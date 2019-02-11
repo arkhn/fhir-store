@@ -1,0 +1,21 @@
+{
+  "resourceType" : "DocumentManifest",
+  "masterIdentifier<Identifier>$(Unique Identifier for the set of documents$)": null,
+  "identifier<list::Identifier>$(Other identifiers for the manifest$)": null,
+  "status<code=current|superseded>$(R!  current | superseded | entered-in-error$)": null,
+  "type<CodeableConcept>$(Kind of document set$)": null,
+  "subject<Reference(Patient|Practitioner|Group|Device)>$(The subject of the set of documents$)": null,
+  "created<dateTime>$(When this document manifest created$)": null,
+  "author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>$(Who and/or what authored the manifest$)": null,
+  "recipient<list::Reference(Patient|Practitioner|RelatedPerson|Organization)>$(Intended to get notified about this set of documents$)": null,
+  "source<uri>$(Intended to get notified about this set of documents$)": null,
+  "description<string>$(The source system/application/software$)": null,
+  "content<list>$(R!  The items included$)": [{
+    "pAttachment<Attachment>$($)": null,
+    "pReference<Reference(Any)>$($)": null
+  }],
+  "related<list>$(Related things$)": [{
+    "identifier<Identifier>$(Identifiers of things that are related$)": null,
+    "ref<Reference(Any)>$(Related Resource$)": null
+  }]
+}

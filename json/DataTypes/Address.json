@@ -1,0 +1,13 @@
+{
+  "resourceType" : "Address",
+  "use<code>$(home | work | temp | old - purpose of this address$)": null,
+  "type<code>$(postal | physical | both$)": null,
+  "text<string>$(Text representation of the address$)": null,
+  "line<list::string>$(Street name, number, direction & P.O. Box etc.$)": null,
+  "city<string>$(Name of city, town etc.$)": null,
+  "district<string>$(District name (aka county)$)": null,
+  "state<string>$(Sub-unit of country (abbreviations ok)$)": null,
+  "postalCode<string>$(Postal code for area$)": null,
+  "country<string>$(Country (e.g. can be ISO 3166 2 or 3 letter code)$)": null,
+  "period<Period>$(Time period when address was/is in use$)": null
+}

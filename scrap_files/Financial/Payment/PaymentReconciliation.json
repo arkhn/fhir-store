@@ -1,0 +1,31 @@
+
+{
+  "resourceType" : "PaymentReconciliation",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "period" : { Period }, // Period covered
+  "created" : "<dateTime>", // Creation date
+  "organization" : { Reference(Organization) }, // Insurer
+  "request" : { Reference(ProcessRequest) }, // Claim reference
+  "outcome" : { CodeableConcept }, // complete | error | partial
+  "disposition" : "<string>", // Disposition Message
+  "requestProvider" : { Reference(Practitioner) }, // Responsible practitioner
+  "requestOrganization" : { Reference(Organization) }, // Responsible organization
+  "detail" : [{ // List of settlements
+    "type" : { CodeableConcept }, // R!  Type code
+    "request" : { Reference(Any) }, // Claim
+    "response" : { Reference(Any) }, // Claim Response
+    "submitter" : { Reference(Organization) }, // Organization which submitted the claim
+    "payee" : { Reference(Organization) }, // Organization which is receiving the payment
+    "date" : "<date>", // Invoice date
+    "amount" : { Money } // Amount being paid
+  }],
+  "form" : { CodeableConcept }, // Printed Form Identifier
+  "total" : { Money }, // Total amount of Payment
+  "processNote" : [{ // Processing comments
+    "type" : { CodeableConcept }, // display | print | printoper
+    "text" : "<string>" // Comment on the processing
+  }]
+}

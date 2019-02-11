@@ -1,0 +1,10 @@
+{
+  "type<list::Coding>$(R!  Indication of the reason the entity signed the object(s)$)": null,
+  "when<instant>$(R!  When the signature was created$)": null,
+  "whoUri<uri>$($)": null,
+  "whoReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($)": null,
+  "onBehalfOfUri<uri>$($)": null,
+  "onBehalfOfReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($)": null,
+  "contentType<code>$($)": null,
+  "blob<base64Binary>$($)": null
+}

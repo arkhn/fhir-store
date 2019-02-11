@@ -1,0 +1,33 @@
+resourceType: "EligibilityResponse"
+identifier<list::Identifier>$(Business Identifier$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+created<dateTime>$(Creation date$):
+requestProvider<Reference(Practitioner)>$(Responsible practitioner$):
+requestOrganization<Reference(Organization)>$(Responsible organization$):
+request<Reference(EligibilityRequest)>$(Eligibility reference$):
+outcome<CodeableConcept>$(complete | error | partial$):
+disposition<string>$(Disposition Message$):
+insurer<Reference(Organization)>$(Insurer issuing the coverage$):
+inforce<boolean>$(Coverage inforce indicator$):
+insurance<list>$(Details by insurance coverage$):
+  - coverage<Reference(Coverage)>$(Updated Coverage details$):
+    contract<Reference(Contract)>$(Contract details$):
+    benefitBalance<list>$(Benefits by Category$):
+      - category<CodeableConcept>$(R!  Type of services covered$):
+        subCategory<CodeableConcept>$(Detailed services covered within the type$):
+        excluded<boolean>$(Excluded from the plan$):
+        name<string>$(Short name for the benefit$):
+        description<string>$(Description of the benefit or services covered$):
+        network<CodeableConcept>$(In or out of network$):
+        unit<CodeableConcept>$(Individual or family$):
+        term<CodeableConcept>$(Annual or lifetime$):
+        financial<list>$(Benefit Summary$):
+          - type<CodeableConcept>$(R!  Deductable, visits, benefit amount$):
+            allowedUnsignedInt<unsignedInt>$($):
+            allowedString<string>$($):
+            allowedMoney<Money>$($):
+            usedUnsignedInt<unsignedInt>$($):
+            usedMoney<Money>$($):
+form<CodeableConcept>$(Printed Form Identifier$):
+error<list>$(Processing errors$):
+  - code<CodeableConcept>$(R!  Error code detailing processing issues$):

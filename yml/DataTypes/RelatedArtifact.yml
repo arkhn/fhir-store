@@ -1,0 +1,7 @@
+resourceType: "RelatedArtifact"
+type<code=documentation|justification|citation|predecessor|successor|derived-from|depends-on>$(R!  documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of$):
+display<string>$(Brief description of the related artifact$):
+citation<string>$(Bibliographic citation for the artifact$):
+url<uri>$(Where the artifact can be accessed$):
+document<Attachment>$(What document is being referenced$):
+resource<Reference(Any)>$(What resource is being referenced$):

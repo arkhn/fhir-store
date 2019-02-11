@@ -1,0 +1,32 @@
+
+{
+  "resourceType" : "DiagnosticReport",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier for report
+  "basedOn" : [{ Reference(CarePlan|ImmunizationRecommendation|
+   MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest) }], // What was requested
+  "status" : "<code>", // R!  registered | partial | preliminary | final +
+  "category" : { CodeableConcept }, // Service category
+  "code" : { CodeableConcept }, // R!  Name/Code for this diagnostic report
+  "subject" : { Reference(Patient|Group|Device|Location) }, // The subject of the report - usually, but not always, the patient
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Health care event when test ordered
+  // effective[x]: Clinically relevant time/time-period for report. One of these 2:
+  "effectiveDateTime" : "<dateTime>",
+  "effectivePeriod" : { Period },
+  "issued" : "<instant>", // DateTime this version was released
+  "performer" : [{ // Participants in producing the report
+    "role" : { CodeableConcept }, // Type of performer
+    "actor" : { Reference(Practitioner|Organization) } // R!  Practitioner or Organization  participant
+  }],
+  "specimen" : [{ Reference(Specimen) }], // Specimens this report is based on
+  "result" : [{ Reference(Observation) }], // Observations - simple, or complex nested groups
+  "imagingStudy" : [{ Reference(ImagingStudy|ImagingManifest) }], // Reference to full details of imaging associated with the diagnostic report
+  "image" : [{ // Key images associated with this report
+    "comment" : "<string>", // Comment about the image (e.g. explanation)
+    "link" : { Reference(Media) } // R!  Reference to the image source
+  }],
+  "conclusion" : "<string>", // Clinical Interpretation of test results
+  "codedDiagnosis" : [{ CodeableConcept }], // Codes for the conclusion
+  "presentedForm" : [{ Attachment }] // Entire report as issued
+}

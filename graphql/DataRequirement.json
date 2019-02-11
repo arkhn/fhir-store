@@ -1,0 +1,234 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "R!  The type of the required data",
+        "name": "type",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "The profile of the required data",
+        "name": "profile",
+        "type": "list::uri"
+      },
+      {
+        "depth": 1,
+        "comment": "Indicates that specific structure elements are referenced by the knowledge module",
+        "name": "mustSupport",
+        "type": "list::string"
+      },
+      {
+        "depth": 1,
+        "comment": "What codes are expected",
+        "name": "codeFilter",
+        "type": "list",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "R!  The code-valued attribute of the filter",
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "",
+              "name": "valueSetString",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "",
+              "name": "valueSetReference",
+              "type": "Reference(ValueSet)"
+            },
+            {
+              "depth": 2,
+              "comment": "What code is expected",
+              "name": "valueCode",
+              "type": "list::code"
+            },
+            {
+              "depth": 2,
+              "comment": "What Coding is expected",
+              "name": "valueCoding",
+              "type": "list::Coding",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "name": "Coding_0",
+                    "type": "Coding",
+                    "isProfile": true,
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Identity of the terminology system",
+                          "name": "system",
+                          "type": "uri"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Version of the system - if relevant",
+                          "name": "version",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Symbol in syntax defined by the system",
+                          "name": "code",
+                          "type": "code"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Representation defined by the system",
+                          "name": "display",
+                          "type": "string"
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "If this coding was chosen directly by the user",
+                          "name": "userSelected",
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "depth": 2,
+              "comment": "What CodeableConcept is expected",
+              "name": "valueCodeableConcept",
+              "type": "list::CodeableConcept",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "name": "CodeableConcept_0",
+                    "type": "CodeableConcept",
+                    "isProfile": true,
+                    "attributes": {
+                      "create": [
+                        {
+                          "depth": 4,
+                          "comment": "Code defined by a terminology system",
+                          "name": "coding",
+                          "type": "list::Coding",
+                          "attributes": {
+                            "create": [
+                              {
+                                "depth": 5,
+                                "name": "Coding_0",
+                                "type": "Coding",
+                                "isProfile": true,
+                                "attributes": {
+                                  "create": [
+                                    {
+                                      "depth": 6,
+                                      "comment": "Identity of the terminology system",
+                                      "name": "system",
+                                      "type": "uri"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Version of the system - if relevant",
+                                      "name": "version",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Symbol in syntax defined by the system",
+                                      "name": "code",
+                                      "type": "code"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "Representation defined by the system",
+                                      "name": "display",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "depth": 6,
+                                      "comment": "If this coding was chosen directly by the user",
+                                      "name": "userSelected",
+                                      "type": "boolean"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "depth": 4,
+                          "comment": "Plain text representation of the concept",
+                          "name": "text",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "What dates/date ranges are expected",
+        "name": "dateFilter",
+        "type": "list",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "R!  The date-valued attribute of the filter",
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "",
+              "name": "valueDateTime",
+              "type": "dateTime"
+            },
+            {
+              "depth": 2,
+              "comment": "",
+              "name": "valuePeriod",
+              "type": "Period",
+              "attributes": {
+                "create": [
+                  {
+                    "depth": 3,
+                    "comment": "C? Starting time with inclusive boundary",
+                    "name": "start",
+                    "type": "dateTime"
+                  },
+                  {
+                    "depth": 3,
+                    "comment": "C? End time with inclusive boundary if not ongoing",
+                    "name": "end",
+                    "type": "dateTime"
+                  }
+                ]
+              }
+            },
+            {
+              "depth": 2,
+              "comment": "",
+              "name": "valueDuration",
+              "type": "Duration"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

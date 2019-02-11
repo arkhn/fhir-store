@@ -1,0 +1,11 @@
+{
+  "resourceType" : "OperationOutcome",
+  "issue<list>$(R!  A single issue associated with the action$)": [{
+    "severity<code=fatal|error|warning>$(R!  fatal | error | warning | information$)": null,
+    "code<code>$(R!  Error or warning code$)": null,
+    "details<CodeableConcept>$(Additional details about the error$)": null,
+    "diagnostics<string>$(Additional diagnostic information about the issue$)": null,
+    "location<list::string>$(Path of element(s) related to issue$)": null,
+    "expression<list::string>$(FHIRPath of element(s) related to issue$)": null
+  }]
+}

@@ -1,0 +1,15 @@
+resourceType: "DetectedIssue"
+identifier<Identifier>$(Unique id for the detected issue$):
+status<code=registered|preliminary|final|amended>$(R!  registered | preliminary | final | amended +$):
+category<CodeableConcept>$(Issue Category, e.g. drug-drug, duplicate therapy, etc.$):
+severity<code>$(high | moderate | low$):
+patient<Reference(Patient)>$(Associated patient$):
+date<dateTime>$(When identified$):
+author<Reference(Practitioner|Device)>$(The provider or device that identified the issue$):
+implicated<list::Reference(Any)>$(Problem resource$):
+detail<string>$(Description and context$):
+reference<uri>$(Authority for issue$):
+mitigation<list>$(Step taken to address$):
+  - action<CodeableConcept>$(R!  What mitigation?$):
+    date<dateTime>$(Date committed$):
+    author<Reference(Practitioner)>$(Who is committing?$):

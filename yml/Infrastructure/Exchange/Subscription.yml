@@ -1,0 +1,13 @@
+resourceType: "Subscription"
+status<code=requested|active|error>$(R!  requested | active | error | off$):
+contact<list::ContactPoint>$(Contact details for source (e.g. troubleshooting)$):
+end<instant>$(When to automatically delete the subscription$):
+reason<string>$(R!  Description of why this subscription was created$):
+criteria<string>$(R!  Rule for server push criteria$):
+error<string>$(Latest error note$):
+channel:
+    type<code=rest-hook|websocket|email|sms>$(R!  rest-hook | websocket | email | sms | message$):
+    endpoint<uri>$(Where the channel points to$):
+    payload<string>$(Mimetype to send, or omit for no payload$):
+    header<list::string>$(Usage depends on the channel type$):
+tag<list::Coding>$(A tag to add to matching resources$):

@@ -1,0 +1,21 @@
+{
+  "resourceType" : "ImagingManifest",
+  "identifier<Identifier>$(SOP Instance UID$)": null,
+  "patient<Reference(Patient)>$(R!  Patient of the selected objects$)": null,
+  "authoringTime<dateTime>$(Time when the selection of instances was made$)": null,
+  "author<Reference(Practitioner|Device|Organization|Patient|RelatedPerson)>$(Author (human or machine)$)": null,
+  "description<string>$(Author (human or machine)$)": null,
+  "study<list>$(R!  Study identity of the selected instances$)": [{
+    "uid<oid>$(R!  Study identity of the selected instances$)": null,
+    "imagingStudy<Reference(ImagingStudy)>$(Reference to ImagingStudy$)": null,
+    "endpoint<list::Reference(Endpoint)>$(Study access service endpoint$)": null,
+    "series<list>$(R!  Series identity of the selected instances$)": [{
+      "uid<oid>$(R!  Series identity of the selected instances$)": null,
+      "endpoint<list::Reference(Endpoint)>$(Series access endpoint$)": null,
+      "instance<list>$(R!  The selected instance$)": [{
+        "sopClass<oid>$(R!  The selected instance$)": null,
+        "uid<oid>$(R!  SOP class UID of instance$)": null
+      }]
+    }]
+  }]
+}

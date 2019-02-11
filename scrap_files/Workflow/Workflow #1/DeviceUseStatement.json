@@ -1,0 +1,20 @@
+
+{
+  "resourceType" : "DeviceUseStatement",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External identifier for this record
+  "status" : "<code>", // R!  active | completed | entered-in-error +
+  "subject" : { Reference(Patient|Group) }, // R!  Patient using device
+  "whenUsed" : { Period }, // Period device was used
+  // timing[x]: How often  the device was used. One of these 3:
+  "timingTiming" : { Timing },
+  "timingPeriod" : { Period },
+  "timingDateTime" : "<dateTime>",
+  "recordedOn" : "<dateTime>", // When statement was recorded
+  "source" : { Reference(Patient|Practitioner|RelatedPerson) }, // Who made the statement
+  "device" : { Reference(Device) }, // R!  Reference to device used
+  "indication" : [{ CodeableConcept }], // Why device was used
+  "bodySite" : { CodeableConcept }, // Target body site
+  "note" : [{ Annotation }] // Addition details (comments, instructions)
+}

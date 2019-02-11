@@ -1,0 +1,22 @@
+{
+  "resourceType" : "Media",
+  "identifier<list::Identifier>$(Identifier(s) for the image$)": null,
+  "basedOn<list::Reference(ProcedureRequest)>$(Procedure that caused this media to be created$)": null,
+  "type<code=photo|video>$(R!  photo | video | audio$)": null,
+  "subtype<CodeableConcept>$(The type of acquisition equipment/process$)": null,
+  "view<CodeableConcept>$(Imaging view, e.g. Lateral or Antero-posterior$)": null,
+  "subject<Reference(Patient|Practitioner|Group|Device|Specimen)>$(Who/What this Media is a record of$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter / Episode associated with media$)": null,
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "operator<Reference(Practitioner)>$(The person who generated the image$)": null,
+  "reasonCode<list::CodeableConcept>$(Why was event performed?$)": null,
+  "bodySite<CodeableConcept>$(Body part in media$)": null,
+  "device<Reference(Device|DeviceMetric)>$(Observing Device$)": null,
+  "height<positiveInt>$(C? Height of the image in pixels (photo/video)$)": null,
+  "width<positiveInt>$(C? Width of the image in pixels (photo/video)$)": null,
+  "frames<positiveInt>$(C? Number of frames if > 1 (photo)$)": null,
+  "duration<unsignedInt>$(C? Length in seconds (audio / video)$)": null,
+  "content<Attachment>$(R!  Actual Media - reference or data$)": null,
+  "note<list::Annotation>$(Comments made about the media$)": null
+}

@@ -1,0 +1,20 @@
+
+{
+  "resourceType" : "DeviceMetric",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : { Identifier }, // R!  Unique identifier of this DeviceMetric
+  "type" : { CodeableConcept }, // R!  Identity of metric, for example Heart Rate or PEEP Setting
+  "unit" : { CodeableConcept }, // Unit of Measure for the Metric
+  "source" : { Reference(Device) }, // Describes the link to the source Device
+  "parent" : { Reference(DeviceComponent) }, // Describes the link to the parent DeviceComponent
+  "operationalStatus" : "<code>", // on | off | standby | entered-in-error
+  "color" : "<code>", // black | red | green | yellow | blue | magenta | cyan | white
+  "category" : "<code>", // R!  measurement | setting | calculation | unspecified
+  "measurementPeriod" : { Timing }, // Describes the measurement repetition time
+  "calibration" : [{ // Describes the calibrations that have been performed or that are required to be performed
+    "type" : "<code>", // unspecified | offset | gain | two-point
+    "state" : "<code>", // not-calibrated | calibration-required | calibrated | unspecified
+    "time" : "<instant>" // Describes the time last calibration has been performed
+  }]
+}

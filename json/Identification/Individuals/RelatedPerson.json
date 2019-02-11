@@ -1,0 +1,14 @@
+{
+  "resourceType" : "RelatedPerson",
+  "identifier<list::Identifier>$(A human identifier for this person$)": null,
+  "active<boolean>$(Whether this related person's record is in active use$)": null,
+  "patient<Reference(Patient)>$(R!  The patient this person is related to$)": null,
+  "relationship<CodeableConcept>$(The nature of the relationship$)": null,
+  "name<list::HumanName>$(A name associated with the person$)": null,
+  "telecom<list::ContactPoint>$(A contact detail for the person$)": null,
+  "gender<code>$(male | female | other | unknown$)": null,
+  "birthDate<date>$(The date on which the related person was born$)": null,
+  "address<list::Address>$(Address where the related person can be contacted or visited$)": null,
+  "photo<list::Attachment>$(Image of the person$)": null,
+  "period<Period>$(Period of time that this relationship is considered valid$)": null
+}

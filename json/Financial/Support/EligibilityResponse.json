@@ -1,0 +1,39 @@
+{
+  "resourceType" : "EligibilityResponse",
+  "identifier<list::Identifier>$(Business Identifier$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "requestProvider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "requestOrganization<Reference(Organization)>$(Responsible organization$)": null,
+  "request<Reference(EligibilityRequest)>$(Eligibility reference$)": null,
+  "outcome<CodeableConcept>$(complete | error | partial$)": null,
+  "disposition<string>$(Disposition Message$)": null,
+  "insurer<Reference(Organization)>$(Insurer issuing the coverage$)": null,
+  "inforce<boolean>$(Coverage inforce indicator$)": null,
+  "insurance<list>$(Details by insurance coverage$)": [{
+    "coverage<Reference(Coverage)>$(Updated Coverage details$)": null,
+    "contract<Reference(Contract)>$(Contract details$)": null,
+    "benefitBalance<list>$(Benefits by Category$)": [{
+      "category<CodeableConcept>$(R!  Type of services covered$)": null,
+      "subCategory<CodeableConcept>$(Detailed services covered within the type$)": null,
+      "excluded<boolean>$(Excluded from the plan$)": null,
+      "name<string>$(Short name for the benefit$)": null,
+      "description<string>$(Description of the benefit or services covered$)": null,
+      "network<CodeableConcept>$(In or out of network$)": null,
+      "unit<CodeableConcept>$(Individual or family$)": null,
+      "term<CodeableConcept>$(Annual or lifetime$)": null,
+      "financial<list>$(Benefit Summary$)": [{
+        "type<CodeableConcept>$(R!  Deductable, visits, benefit amount$)": null,
+        "allowedUnsignedInt<unsignedInt>$($)": null,
+        "allowedString<string>$($)": null,
+        "allowedMoney<Money>$($)": null,
+        "usedUnsignedInt<unsignedInt>$($)": null,
+        "usedMoney<Money>$($)": null
+      }]
+    }]
+  }],
+  "form<CodeableConcept>$(Printed Form Identifier$)": null,
+  "error<list>$(Processing errors$)": [{
+    "code<CodeableConcept>$(R!  Error code detailing processing issues$)": null
+  }]
+}

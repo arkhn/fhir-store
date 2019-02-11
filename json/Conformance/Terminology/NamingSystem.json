@@ -1,0 +1,23 @@
+{
+  "resourceType" : "NamingSystem",
+  "name<string>$(R!  Name for this naming system (computer friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "kind<code=codesystem|identifier>$(R!  codesystem | identifier | root$)": null,
+  "date<dateTime>$(R!  Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "responsible<string>$(Who maintains system namespace?$)": null,
+  "type<CodeableConcept>$(e.g. driver,  provider,  patient, bank etc.$)": null,
+  "description<markdown>$(Natural language description of the naming system$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for naming system (if applicable)$)": null,
+  "usage<string>$(How/where is it used$)": null,
+  "uniqueId<list>$(R!  Unique identifiers used for system$)": [{
+    "type<code=oid|uuid|uri>$(R!  oid | uuid | uri | other$)": null,
+    "value<string>$(R!  The unique identifier$)": null,
+    "preferred<boolean>$(Is this the id that should be used for this type$)": null,
+    "comment<string>$(Notes about identifier usage$)": null,
+    "period<Period>$(When is identifier valid?$)": null
+  }],
+  "replacedBy<Reference(NamingSystem)>$(C? Use this instead$)": null
+}

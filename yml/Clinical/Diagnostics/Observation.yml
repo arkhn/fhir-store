@@ -1,0 +1,55 @@
+resourceType: "Observation"
+identifier<list::Identifier>$(Business Identifier for observation$):
+basedOn<list::Reference(CarePlan|DeviceRequest|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest|ReferralRequest)>$(Fulfills plan, proposal or order$):
+status<code>$(Fulfills plan, proposal or order$):
+category<list::CodeableConcept>$(Classification of  type of observation$):
+code<CodeableConcept>$(R!  Type of observation (code / type)$):
+subject<Reference(Patient|Group|Device|Location)>$(Who and/or what this is about$):
+context<Reference(Encounter|EpisodeOfCare)>$(Healthcare event during which this observation is made$):
+effectiveDateTime<dateTime>$(Healthcare event during which this observation is made$):
+effectivePeriod<Period>$($):
+issued<instant>$($):
+performer<list::Reference(Practitioner|Organization|Patient|RelatedPerson)>$(Who is responsible for the observation$):
+valueQuantity<Quantity>$($):
+valueCodeableConcept<CodeableConcept>$($):
+valueString<string>$($):
+valueBoolean<boolean>$($):
+valueRange<Range>$($):
+valueRatio<Ratio>$($):
+valueSampledData<SampledData>$($):
+valueAttachment<Attachment>$($):
+valueTime<time>$($):
+valueDateTime<dateTime>$($):
+valuePeriod<Period>$($):
+dataAbsentReason<CodeableConcept>$(C? Why the result is missing$):
+interpretation<CodeableConcept>$(High, low, normal, etc.$):
+comment<string>$(High, low, normal, etc.$):
+bodySite<CodeableConcept>$(Observed body part$):
+method<CodeableConcept>$(How it was done$):
+specimen<Reference(Specimen)>$(Specimen used for this observation$):
+device<Reference(Device|DeviceMetric)>$((Measurement) Device$):
+referenceRange<list>$(Provides guide for interpretation$):
+  - low<Quantity(SimpleQuantity)>$(C? Low Range, if relevant$):
+    high<Quantity(SimpleQuantity)>$(C? High Range, if relevant$):
+    type<CodeableConcept>$(Reference range qualifier$):
+    appliesTo<list::CodeableConcept>$(Reference range population$):
+    age<Range>$(Applicable age range, if relevant$):
+    text<string>$(Applicable age range if relevant$):
+related<list>$(Resource related to this observation$):
+  - type<code>$(Resource related to this observation$):
+    target<Reference(Observation|QuestionnaireResponse|Sequence)>$(R!  Resource that is related to this one$):
+component<list>$(Component results$):
+  - code<CodeableConcept>$(R!  Type of component observation (code / type)$):
+    valueQuantity<Quantity>$($):
+    valueCodeableConcept<CodeableConcept>$($):
+    valueString<string>$($):
+    valueRange<Range>$($):
+    valueRatio<Ratio>$($):
+    valueSampledData<SampledData>$($):
+    valueAttachment<Attachment>$($):
+    valueTime<time>$($):
+    valueDateTime<dateTime>$($):
+    valuePeriod<Period>$($):
+    dataAbsentReason<CodeableConcept>$(C? Why the component result is missing$):
+    interpretation<CodeableConcept>$(High, low, normal, etc.$):
+    referenceRange<list::Content as for Observation.referenceRange>$(Provides guide for interpretation of component result$):

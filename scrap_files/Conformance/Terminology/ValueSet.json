@@ -1,0 +1,73 @@
+
+{
+  "resourceType" : "ValueSet",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // Logical URI to reference this value set (globally unique)
+  "identifier" : [{ Identifier }], // Additional identifier for the value set
+  "version" : "<string>", // Business version of the value set
+  "name" : "<string>", // Name for this value set (computer friendly)
+  "title" : "<string>", // Name for this value set (human friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "description" : "<markdown>", // Natural language description of the value set
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for value set (if applicable)
+  "immutable" : <boolean>, // Indicates whether or not any change to the content logical definition may occur
+  "purpose" : "<markdown>", // Why this value set is defined
+  "copyright" : "<markdown>", // Use and/or publishing restrictions
+  "extensible" : <boolean>, // Whether this is intended to be used with an extensible binding
+  "compose" : { // C? Definition of the content of the value set (CLD)
+    "lockedDate" : "<date>", // Fixed date for version-less references (transitive)
+    "inactive" : <boolean>, // Whether inactive codes are in the value set
+    "include" : [{ // R!  Include one or more codes from a code system or other value set(s)
+      "system" : "<uri>", // C? The system the codes come from
+      "version" : "<string>", // Specific version of the code system referred to
+      "concept" : [{ // C? A concept defined in the system
+        "code" : "<code>", // R!  Code or expression from system
+        "display" : "<string>", // Text to display for this code for this value set in this valueset
+        "designation" : [{ // Additional representations for this concept
+          "language" : "<code>", // Human language of the designation
+          "use" : { Coding }, // Details how this designation would be used
+          "value" : "<string>" // R!  The text value for this designation
+        }]
+      }],
+      "filter" : [{ // C? Select codes/concepts by their properties (including relationships)
+        "property" : "<code>", // R!  A property defined by the code system
+        "op" : "<code>", // R!  = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists
+        "value" : "<code>" // R!  Code from the system, or regex criteria, or boolean value for exists
+      }],
+      "valueSet" : ["<uri>"] // C? Select only contents included in this value set
+    }],
+    "exclude" : [{ Content as for ValueSet.compose.include }] // C? Explicitly exclude codes from a code system or other value sets
+  },
+  "expansion" : { // C? Used when the value set is "expanded"
+    "identifier" : "<uri>", // R!  Uniquely identifies this expansion
+    "timestamp" : "<dateTime>", // R!  Time ValueSet expansion happened
+    "total" : <integer>, // Total number of codes in the expansion
+    "offset" : <integer>, // Offset at which this resource starts
+    "parameter" : [{ // Parameter that controlled the expansion process
+      "name" : "<string>", // R!  Name as assigned by the server
+      // value[x]: Value of the named parameter. One of these 6:
+      "valueString" : "<string>"
+      "valueBoolean" : <boolean>
+      "valueInteger" : <integer>
+      "valueDecimal" : <decimal>
+      "valueUri" : "<uri>"
+      "valueCode" : "<code>"
+    }],
+    "contains" : [{ // Codes in the value set
+      "system" : "<uri>", // System value for the code
+      "abstract" : <boolean>, // If user cannot select this entry
+      "inactive" : <boolean>, // If concept is inactive in the code system
+      "version" : "<string>", // Version in which this code/display is defined
+      "code" : "<code>", // C? Code - if blank, this is not a selectable code
+      "display" : "<string>", // C? User display for the concept
+      "designation" : [{ Content as for ValueSet.compose.include.concept.designation }], // Additional representations for this item
+      "contains" : [{ Content as for ValueSet.expansion.contains }] // Codes contained under this entry
+    }]
+  }
+}

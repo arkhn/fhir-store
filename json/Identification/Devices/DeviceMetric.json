@@ -1,0 +1,17 @@
+{
+  "resourceType" : "DeviceMetric",
+  "identifier<Identifier>$(R!  Unique identifier of this DeviceMetric$)": null,
+  "type<CodeableConcept>$(R!  Identity of metric, for example Heart Rate or PEEP Setting$)": null,
+  "unit<CodeableConcept>$(Unit of Measure for the Metric$)": null,
+  "source<Reference(Device)>$(Describes the link to the source Device$)": null,
+  "parent<Reference(DeviceComponent)>$(Describes the link to the parent DeviceComponent$)": null,
+  "operationalStatus<code>$(on | off | standby | entered-in-error$)": null,
+  "color<code>$(black | red | green | yellow | blue | magenta | cyan | white$)": null,
+  "category<code=measurement|setting|calculation>$(R!  measurement | setting | calculation | unspecified$)": null,
+  "measurementPeriod<Timing>$(Describes the measurement repetition time$)": null,
+  "calibration<list>$(Describes the calibrations that have been performed or that are required to be performed$)": [{
+    "type<code>$(unspecified | offset | gain | two-point$)": null,
+    "state<code>$(not-calibrated | calibration-required | calibrated | unspecified$)": null,
+    "time<instant>$(Describes the time last calibration has been performed$)": null
+  }]
+}

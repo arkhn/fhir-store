@@ -1,0 +1,10 @@
+
+{
+  "resourceType" : "UsageContext",
+  // from Element: extension
+  "code" : { Coding }, // R!  Type of context being specified
+  // value[x]: Value that defines the context. One of these 3:
+  "valueCodeableConcept" : { CodeableConcept }
+  "valueQuantity" : { Quantity }
+  "valueRange" : { Range }
+}

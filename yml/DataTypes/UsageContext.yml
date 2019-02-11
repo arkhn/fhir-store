@@ -1,0 +1,5 @@
+resourceType: "UsageContext"
+code<Coding>$(R!  Type of context being specified$):
+valueCodeableConcept<CodeableConcept>$($):
+valueQuantity<Quantity>$($):
+valueRange<Range>$($):

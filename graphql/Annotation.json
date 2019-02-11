@@ -1,0 +1,30 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "authorReference",
+        "type": "Reference(Practitioner|Patient|RelatedPerson)"
+      },
+      {
+        "depth": 1,
+        "comment": "",
+        "name": "authorString",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "When the annotation was made",
+        "name": "time",
+        "type": "dateTime"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  The annotation  - text content",
+        "name": "text",
+        "type": "string"
+      }
+    ]
+  }
+}

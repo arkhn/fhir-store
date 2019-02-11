@@ -1,0 +1,13 @@
+
+{
+  "resourceType" : "BodySite",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Bodysite identifier
+  "active" : <boolean>, // Whether this body site record is in active use
+  "code" : { CodeableConcept }, // Named anatomical location
+  "qualifier" : [{ CodeableConcept }], // Modification to location code
+  "description" : "<string>", // Anatomical location description
+  "image" : [{ Attachment }], // Attached images
+  "patient" : { Reference(Patient) } // R!  Who this is about
+}

@@ -1,0 +1,7 @@
+{
+  "resourceType" : "UsageContext",
+  "code<Coding>$(R!  Type of context being specified$)": null,
+  "valueCodeableConcept<CodeableConcept>$($)": null,
+  "valueQuantity<Quantity>$($)": null,
+  "valueRange<Range>$($)": null
+}

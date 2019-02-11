@@ -1,0 +1,4 @@
+resourceType: "Contributor"
+type<code=author|editor|reviewer>$(R!  author | editor | reviewer | endorser$):
+name<string>$(R!  Who contributed the content$):
+contact<list::ContactDetail>$(Contact details of the contributor$):

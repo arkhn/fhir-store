@@ -1,0 +1,7 @@
+{
+  "system<uri>$(Identity of the terminology system$)": null,
+  "version<string>$(Version of the system - if relevant$)": null,
+  "code<code>$(Symbol in syntax defined by the system$)": null,
+  "display<string>$(Representation defined by the system$)": null,
+  "userSelected<boolean>$(If this coding was chosen directly by the user$)": null
+}

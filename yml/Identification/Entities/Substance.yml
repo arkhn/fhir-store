@@ -1,0 +1,14 @@
+resourceType: "Substance"
+identifier<list::Identifier>$(Unique identifier$):
+status<code>$(active | inactive | entered-in-error$):
+category<list::CodeableConcept>$(What class/type of substance this is$):
+code<CodeableConcept>$(R!  What substance this is$):
+description<string>$(Textual description of the substance, comments$):
+instance<list>$(If this describes a specific package/container of the substance$):
+  - identifier<Identifier>$(Identifier of the package/container$):
+    expiry<dateTime>$(When no longer valid to use$):
+    quantity<Quantity(SimpleQuantity)>$(Amount of substance in the package$):
+ingredient<list>$(Composition information about the substance$):
+  - quantity<Ratio>$(Optional amount (concentration)$):
+    substanceCodeableConcept<CodeableConcept>$($):
+    substanceReference<Reference(Substance)>$($):

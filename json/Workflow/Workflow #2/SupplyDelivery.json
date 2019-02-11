@@ -1,0 +1,20 @@
+{
+  "resourceType" : "SupplyDelivery",
+  "identifier<Identifier>$(External identifier$)": null,
+  "basedOn<list::Reference(SupplyRequest)>$(Fulfills plan, proposal or order$)": null,
+  "partOf<list::Reference(SupplyDelivery|Contract)>$(Part of referenced event$)": null,
+  "status<code>$(in-progress | completed | abandoned | entered-in-error$)": null,
+  "patient<Reference(Patient)>$(Patient for whom the item is supplied$)": null,
+  "type<CodeableConcept>$(Category of dispense event$)": null,
+  "suppliedItem" : { 
+    "quantity<Quantity(SimpleQuantity)>$(Amount dispensed$)": null,
+    "itemCodeableConcept<CodeableConcept>$($)": null,
+    "itemReference<Reference(Medication|Substance|Device)>$($)": null
+  },
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "occurrenceTiming<Timing>$($)": null,
+  "supplier<Reference(Practitioner|Organization)>$(Dispenser$)": null,
+  "destination<Reference(Location)>$(Where the Supply was sent$)": null,
+  "receiver<list::Reference(Practitioner)>$(Who collected the Supply$)": null
+}

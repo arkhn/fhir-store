@@ -1,0 +1,87 @@
+{
+  "resourceType" : "ClaimResponse",
+  "identifier<list::Identifier>$(Response  number$)": null,
+  "status<code>$(active | cancelled | draft | entered-in-error$)": null,
+  "patient<Reference(Patient)>$(The subject of the Products and Services$)": null,
+  "created<dateTime>$(Creation date$)": null,
+  "insurer<Reference(Organization)>$(Insurance issuing organization$)": null,
+  "requestProvider<Reference(Practitioner)>$(Responsible practitioner$)": null,
+  "requestOrganization<Reference(Organization)>$(Responsible organization$)": null,
+  "request<Reference(Claim)>$(Id of resource triggering adjudication$)": null,
+  "outcome<CodeableConcept>$(complete | error | partial$)": null,
+  "disposition<string>$(Disposition Message$)": null,
+  "payeeType<CodeableConcept>$(Party to be paid any benefits payable$)": null,
+  "item<list>$(Line items$)": [{
+    "sequenceLinkId<positiveInt>$(R!  Service instance$)": null,
+    "noteNumber<list::positiveInt>$(List of note numbers which apply$)": null,
+    "adjudication<list>$(Adjudication details$)": [{
+      "category<CodeableConcept>$(R!  Adjudication category such as co-pay, eligible, benefit, etc.$)": null,
+      "reason<CodeableConcept>$(Explanation of Adjudication outcome$)": null,
+      "amount<Money>$(Monetary amount$)": null,
+      "value<decimal>$(Non-monetary value$)": null
+    }],
+    "detail<list>$(Detail line items$)": [{
+      "sequenceLinkId<positiveInt>$(R!  Service instance$)": null,
+      "noteNumber<list::positiveInt>$(List of note numbers which apply$)": null,
+      "adjudication<list::Content as for ClaimResponse.item.adjudication>$(Detail level adjudication details$)": null,
+      "subDetail<list>$(Subdetail line items$)": [{
+        "sequenceLinkId<positiveInt>$(R!  Service instance$)": null,
+        "noteNumber<list::positiveInt>$(List of note numbers which apply$)": null,
+        "adjudication<list::Content as for ClaimResponse.item.adjudication>$(Subdetail level adjudication details$)": null
+      }]
+    }]
+  }],
+  "addItem<list>$(Insurer added line items$)": [{
+    "sequenceLinkId<list::positiveInt>$(Service instances$)": null,
+    "revenue<CodeableConcept>$(Revenue or cost center code$)": null,
+    "category<CodeableConcept>$(Type of service or product$)": null,
+    "service<CodeableConcept>$(Group, Service or Product$)": null,
+    "modifier<list::CodeableConcept>$(Service/Product billing modifiers$)": null,
+    "fee<Money>$(Professional fee or Product charge$)": null,
+    "noteNumber<list::positiveInt>$(List of note numbers which apply$)": null,
+    "adjudication<list::Content as for ClaimResponse.item.adjudication>$(Added items adjudication$)": null,
+    "detail<list>$(Added items details$)": [{
+      "revenue<CodeableConcept>$(Revenue or cost center code$)": null,
+      "category<CodeableConcept>$(Type of service or product$)": null,
+      "service<CodeableConcept>$(Service or Product$)": null,
+      "modifier<list::CodeableConcept>$(Service/Product billing modifiers$)": null,
+      "fee<Money>$(Professional fee or Product charge$)": null,
+      "noteNumber<list::positiveInt>$(List of note numbers which apply$)": null,
+      "adjudication<list::Content as for ClaimResponse.item.adjudication>$(Added items detail adjudication$)": null
+    }]
+  }],
+  "error<list>$(Processing errors$)": [{
+    "sequenceLinkId<positiveInt>$(Item sequence number$)": null,
+    "detailSequenceLinkId<positiveInt>$(Detail sequence number$)": null,
+    "subdetailSequenceLinkId<positiveInt>$(Subdetail sequence number$)": null,
+    "code<CodeableConcept>$(R!  Error code detailing processing issues$)": null
+  }],
+  "totalCost<Money>$(Total Cost of service from the Claim$)": null,
+  "unallocDeductable<Money>$(Unallocated deductible$)": null,
+  "totalBenefit<Money>$(Total benefit payable for the Claim$)": null,
+  "payment" : { 
+    "type<CodeableConcept>$(Partial or Complete$)": null,
+    "adjustment<Money>$(Payment adjustment for non-Claim issues$)": null,
+    "adjustmentReason<CodeableConcept>$(Explanation for the non-claim adjustment$)": null,
+    "date<date>$(Expected data of Payment$)": null,
+    "amount<Money>$(Payable amount after adjustment$)": null,
+    "identifier<Identifier>$(Identifier of the payment instrument$)": null
+  },
+  "reserved<Coding>$(Funds reserved status$)": null,
+  "form<CodeableConcept>$(Printed Form Identifier$)": null,
+  "processNote<list>$(Processing notes$)": [{
+    "number<positiveInt>$(Sequence Number for this note$)": null,
+    "type<CodeableConcept>$(display | print | printoper$)": null,
+    "text<string>$(Note explanatory text$)": null,
+    "language<CodeableConcept>$(Language if different from the resource$)": null
+  }],
+  "communicationRequest<list::Reference(CommunicationRequest)>$(Request for additional information$)": null,
+  "insurance<list>$(Insurance or medical plan$)": [{
+    "sequence<positiveInt>$(R!  Service instance identifier$)": null,
+    "focal<boolean>$(R!  Is the focal Coverage$)": null,
+    "coverage<Reference(Coverage)>$(R!  Insurance information$)": null,
+    "businessArrangement<string>$(Business agreement$)": null,
+    "preAuthRef<list::string>$(Pre-Authorization/Determination Reference$)": null,
+    "claimResponse<Reference(ClaimResponse)>$(Adjudication results$)": null
+  }]
+}

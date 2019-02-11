@@ -1,0 +1,33 @@
+
+{
+  "resourceType" : "Communication",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Unique identifier
+  "definition" : [{ Reference(PlanDefinition|ActivityDefinition) }], // Instantiates protocol or definition
+  "basedOn" : [{ Reference(Any) }], // Request fulfilled by this communication
+  "partOf" : [{ Reference(Any) }], // Part of this action
+  "status" : "<code>", // R!  preparation | in-progress | suspended | aborted | completed | entered-in-error
+  "notDone" : <boolean>, // Communication did not occur
+  "notDoneReason" : { CodeableConcept }, // C? Why communication did not occur
+  "category" : [{ CodeableConcept }], // Message category
+  "medium" : [{ CodeableConcept }], // A channel of communication
+  "subject" : { Reference(Patient|Group) }, // Focus of message
+  "recipient" : [{ Reference(Device|Organization|Patient|Practitioner|
+   RelatedPerson|Group) }], // Message recipient
+  "topic" : [{ Reference(Any) }], // Focal resources
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or episode leading to message
+  "sent" : "<dateTime>", // When sent
+  "received" : "<dateTime>", // When received
+  "sender" : { Reference(Device|Organization|Patient|Practitioner|
+   RelatedPerson) }, // Message sender
+  "reasonCode" : [{ CodeableConcept }], // Indication for message
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Why was communication done?
+  "payload" : [{ // Message payload
+    // content[x]: Message part content. One of these 3:
+    "contentString" : "<string>"
+    "contentAttachment" : { Attachment }
+    "contentReference" : { Reference(Any) }
+  }],
+  "note" : [{ Annotation }] // Comments made about the communication
+}

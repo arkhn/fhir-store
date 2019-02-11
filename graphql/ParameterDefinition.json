@@ -1,0 +1,48 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "Name used to access the parameter value",
+        "name": "name",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  in | out",
+        "name": "use",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "Minimum cardinality",
+        "name": "min",
+        "type": "integer"
+      },
+      {
+        "depth": 1,
+        "comment": "Maximum cardinality (a number of *)",
+        "name": "max",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "A brief description of the parameter",
+        "name": "documentation",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "R!  What type of value",
+        "name": "type",
+        "type": "code"
+      },
+      {
+        "depth": 1,
+        "comment": "What profile the value is expected to be",
+        "name": "profile",
+        "type": "Reference(StructureDefinition)"
+      }
+    ]
+  }
+}

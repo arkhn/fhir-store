@@ -1,0 +1,27 @@
+resourceType: "AllergyIntolerance"
+identifier<list::Identifier>$(External ids for this item$):
+clinicalStatus<code=active|inactive>$(C? active | inactive | resolved$):
+verificationStatus<code=unconfirmed|confirmed|refuted>$(C? R!  unconfirmed | confirmed | refuted | entered-in-error$):
+type<code>$(allergy | intolerance - Underlying mechanism (if known)$):
+category<list::code>$(food | medication | environment | biologic$):
+criticality<code>$(low | high | unable-to-assess$):
+code<CodeableConcept>$(Code that identifies the allergy or intolerance$):
+patient<Reference(Patient)>$(R!  Who the sensitivity is for$):
+onsetDateTime<dateTime>$($):
+onsetAge<Age>$($):
+onsetPeriod<Period>$($):
+onsetRange<Range>$($):
+onsetString<string>$($):
+assertedDate<dateTime>$(Date record was believed accurate$):
+recorder<Reference(Practitioner|Patient)>$(Who recorded the sensitivity$):
+asserter<Reference(Patient|RelatedPerson|Practitioner)>$(Source of the information about the allergy$):
+lastOccurrence<dateTime>$(Date(/time) of last known occurrence of a reaction$):
+note<list::Annotation>$(Additional text not captured in other fields$):
+reaction<list>$(Adverse Reaction Events linked to exposure to substance$):
+  - substance<CodeableConcept>$(Specific substance or pharmaceutical product considered to be responsible for event$):
+    manifestation<list::CodeableConcept>$(R!  Clinical symptoms/signs associated with the Event$):
+    description<string>$(Description of the event as a whole$):
+    onset<dateTime>$(Date(/time) when manifestations showed$):
+    severity<code>$(mild | moderate | severe (of event as a whole)$):
+    exposureRoute<CodeableConcept>$(How the subject was exposed to the substance$):
+    note<list::Annotation>$(Text about event not captured in other fields$):

@@ -1,0 +1,25 @@
+resourceType: "Device"
+identifier<list::Identifier>$(Instance identifier$):
+udi:
+    deviceIdentifier<string>$(Mandatory fixed portion of UDI$):
+    name<string>$(Device Name as appears on UDI label$):
+    jurisdiction<uri>$(Regional UDI authority$):
+    carrierHRF<string>$(UDI Human Readable Barcode String$):
+    carrierAIDC<base64Binary>$(UDI Machine Readable Barcode String$):
+    issuer<uri>$(UDI Issuing Organization$):
+    entryType<code>$(barcode | rfid | manual +$):
+status<code>$(active | inactive | entered-in-error | unknown$):
+type<CodeableConcept>$(What kind of device this is$):
+lotNumber<string>$(Lot number of manufacture$):
+manufacturer<string>$(Name of device manufacturer$):
+manufactureDate<dateTime>$(Date when the device was made$):
+expirationDate<dateTime>$(Date and time of expiry of this device (if applicable)$):
+model<string>$(Model id assigned by the manufacturer$):
+version<string>$(Version number (i.e. software)$):
+patient<Reference(Patient)>$(Patient to whom Device is affixed$):
+owner<Reference(Organization)>$(Organization responsible for device$):
+contact<list::ContactPoint>$(Details for human/organization for support$):
+location<Reference(Location)>$(Where the resource is found$):
+url<uri>$(Network address to contact device$):
+note<list::Annotation>$(Device notes and comments$):
+safety<list::CodeableConcept>$(Safety Characteristics of Device$):

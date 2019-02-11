@@ -1,0 +1,41 @@
+
+{
+  "resourceType" : "DocumentReference",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "masterIdentifier" : { Identifier }, // Master Version Specific Identifier
+  "identifier" : [{ Identifier }], // Other identifiers for the document
+  "status" : "<code>", // R!  current | superseded | entered-in-error
+  "docStatus" : "<code>", // preliminary | final | appended | amended | entered-in-error
+  "type" : { CodeableConcept }, // R!  Kind of document (LOINC if possible)
+  "class" : { CodeableConcept }, // Categorization of document
+  "subject" : { Reference(Patient|Practitioner|Group|Device) }, // Who/what is the subject of the document
+  "created" : "<dateTime>", // Document creation time
+  "indexed" : "<instant>", // R!  When this document reference was created
+  "author" : [{ Reference(Practitioner|Organization|Device|Patient|
+   RelatedPerson) }], // Who and/or what authored the document
+  "authenticator" : { Reference(Practitioner|Organization) }, // Who/what authenticated the document
+  "custodian" : { Reference(Organization) }, // Organization which maintains the document
+  "relatesTo" : [{ // Relationships to other documents
+    "code" : "<code>", // R!  replaces | transforms | signs | appends
+    "target" : { Reference(DocumentReference) } // R!  Target of the relationship
+  }],
+  "description" : "<string>", // Human-readable description (title)
+  "securityLabel" : [{ CodeableConcept }], // Document security-tags
+  "content" : [{ // R!  Document referenced
+    "attachment" : { Attachment }, // R!  Where to access the document
+    "format" : { Coding } // Format/content rules for the document
+  }],
+  "context" : { // Clinical context of document
+    "encounter" : { Reference(Encounter) }, // Context of the document  content
+    "event" : [{ CodeableConcept }], // Main clinical acts documented
+    "period" : { Period }, // Time of service that is being documented
+    "facilityType" : { CodeableConcept }, // Kind of facility where patient was seen
+    "practiceSetting" : { CodeableConcept }, // Additional details about where the content was created (e.g. clinical specialty)
+    "sourcePatientInfo" : { Reference(Patient) }, // Patient demographics from source
+    "related" : [{ // Related identifiers or resources
+      "identifier" : { Identifier }, // Identifier of related objects or events
+      "ref" : { Reference(Any) } // Related Resource
+    }]
+  }
+}

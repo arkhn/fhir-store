@@ -1,0 +1,27 @@
+resourceType: "CommunicationRequest"
+identifier<list::Identifier>$(Unique identifier$):
+basedOn<list::Reference(Any)>$(Fulfills plan or proposal$):
+replaces<list::Reference(CommunicationRequest)>$(Request(s) replaced by this request$):
+groupIdentifier<Identifier>$(Composite request this is part of$):
+status<code=draft|active|suspended|cancelled|completed|entered-in-error>$(R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown$):
+category<list::CodeableConcept>$(Message category$):
+priority<code>$(Message urgency$):
+medium<list::CodeableConcept>$(A channel of communication$):
+subject<Reference(Patient|Group)>$(Focus of message$):
+recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)>$(Message recipient$):
+topic<list::Reference(Any)>$(Focal resources$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode leading to message$):
+payload<list>$(Message payload$):
+  - contentString<string>$(Message payload$):
+    contentAttachment<Attachment>$($):
+    contentReference<Reference(Any)>$($):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+authoredOn<dateTime>$($):
+sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>$(Message sender$):
+requester:
+    agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$):
+    onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$):
+reasonCode<list::CodeableConcept>$(Why is communication needed?$):
+reasonReference<list::Reference(Condition|Observation)>$(Why is communication needed?$):
+note<list::Annotation>$(Comments made about communication request$):

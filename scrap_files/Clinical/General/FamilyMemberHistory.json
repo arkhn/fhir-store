@@ -1,0 +1,45 @@
+
+{
+  "resourceType" : "FamilyMemberHistory",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Id(s) for this record
+  "definition" : [{ Reference(PlanDefinition|Questionnaire) }], // Instantiates protocol or definition
+  "status" : "<code>", // R!  partial | completed | entered-in-error | health-unknown
+  "notDone" : <boolean>, // The taking of a family member's history did not occur
+  "notDoneReason" : { CodeableConcept }, // C? subject-unknown | withheld | unable-to-obtain | deferred
+  "patient" : { Reference(Patient) }, // R!  Patient history is about
+  "date" : "<dateTime>", // When history was captured/updated
+  "name" : "<string>", // The family member described
+  "relationship" : { CodeableConcept }, // R!  Relationship to the subject
+  "gender" : "<code>", // male | female | other | unknown
+  // born[x]: (approximate) date of birth. One of these 3:
+  "bornPeriod" : { Period },
+  "bornDate" : "<date>",
+  "bornString" : "<string>",
+  // age[x]: (approximate) age. One of these 3:
+  "ageAge" : { Age },
+  "ageRange" : { Range },
+  "ageString" : "<string>",
+  "estimatedAge" : <boolean>, // C? Age is estimated?
+  // deceased[x]: Dead? How old/when?. One of these 5:
+  "deceasedBoolean" : <boolean>,
+  "deceasedAge" : { Age },
+  "deceasedRange" : { Range },
+  "deceasedDate" : "<date>",
+  "deceasedString" : "<string>",
+  "reasonCode" : [{ CodeableConcept }], // Why was family member history performed?
+  "reasonReference" : [{ Reference(Condition|Observation|AllergyIntolerance|
+   QuestionnaireResponse) }], // Why was family member history performed?
+  "note" : [{ Annotation }], // General note about related person
+  "condition" : [{ // Condition that the related person had
+    "code" : { CodeableConcept }, // R!  Condition suffered by relation
+    "outcome" : { CodeableConcept }, // deceased | permanent disability | etc.
+    // onset[x]: When condition first manifested. One of these 4:
+    "onsetAge" : { Age },
+    "onsetRange" : { Range },
+    "onsetPeriod" : { Period },
+    "onsetString" : "<string>",
+    "note" : [{ Annotation }] // Extra information about condition
+  }]
+}

@@ -1,0 +1,17 @@
+resourceType: "SupplyDelivery"
+identifier<Identifier>$(External identifier$):
+basedOn<list::Reference(SupplyRequest)>$(Fulfills plan, proposal or order$):
+partOf<list::Reference(SupplyDelivery|Contract)>$(Part of referenced event$):
+status<code>$(in-progress | completed | abandoned | entered-in-error$):
+patient<Reference(Patient)>$(Patient for whom the item is supplied$):
+type<CodeableConcept>$(Category of dispense event$):
+suppliedItem:
+    quantity<Quantity(SimpleQuantity)>$(Amount dispensed$):
+    itemCodeableConcept<CodeableConcept>$($):
+    itemReference<Reference(Medication|Substance|Device)>$($):
+occurrenceDateTime<dateTime>$($):
+occurrencePeriod<Period>$($):
+occurrenceTiming<Timing>$($):
+supplier<Reference(Practitioner|Organization)>$(Dispenser$):
+destination<Reference(Location)>$(Where the Supply was sent$):
+receiver<list::Reference(Practitioner)>$(Who collected the Supply$):

@@ -1,0 +1,34 @@
+{
+  "resourceType" : "Condition",
+  "identifier<list::Identifier>$(External Ids for this condition$)": null,
+  "clinicalStatus<code=active|recurrence|inactive|remission>$(C? active | recurrence | inactive | remission | resolved$)": null,
+  "verificationStatus<code=provisional|differential|confirmed|refuted|entered-in-error>$(C? provisional | differential | confirmed | refuted | entered-in-error | unknown$)": null,
+  "category<list::CodeableConcept>$(problem-list-item | encounter-diagnosis$)": null,
+  "severity<CodeableConcept>$(Subjective severity of condition$)": null,
+  "code<CodeableConcept>$(Identification of the condition, problem or diagnosis$)": null,
+  "bodySite<list::CodeableConcept>$(Anatomical location, if relevant$)": null,
+  "subject<Reference(Patient|Group)>$(R!  Who has the condition?$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode when condition first asserted$)": null,
+  "onsetDateTime<dateTime>$($)": null,
+  "onsetAge<Age>$($)": null,
+  "onsetPeriod<Period>$($)": null,
+  "onsetRange<Range>$($)": null,
+  "onsetString<string>$($)": null,
+  "abatementDateTime<dateTime>$($)": null,
+  "abatementAge<Age>$($)": null,
+  "abatementBoolean<boolean>$($)": null,
+  "abatementPeriod<Period>$($)": null,
+  "abatementRange<Range>$($)": null,
+  "abatementString<string>$($)": null,
+  "assertedDate<dateTime>$(Date record was believed accurate$)": null,
+  "asserter<Reference(Practitioner|Patient|RelatedPerson)>$(Person who asserts this condition$)": null,
+  "stage" : { 
+    "summary<CodeableConcept>$(C? Simple summary (disease specific)$)": null,
+    "assessment<list::Reference(ClinicalImpression|DiagnosticReport|Observation)>$(C? Formal record of assessment$)": null
+  },
+  "evidence<list>$(Supporting evidence$)": [{
+    "code<list::CodeableConcept>$(C? Manifestation/symptom$)": null,
+    "detail<list::Reference(Any)>$(C? Supporting information found elsewhere$)": null
+  }],
+  "note<list::Annotation>$(Additional information about the Condition$)": null
+}

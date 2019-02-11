@@ -1,0 +1,67 @@
+resourceType: "Questionnaire"
+url<uri>$(Logical URI to reference this questionnaire (globally unique)$):
+identifier<list::Identifier>$(Additional identifier for the questionnaire$):
+version<string>$(Business version of the questionnaire$):
+name<string>$(Name for this questionnaire (computer friendly)$):
+title<string>$(Name for this questionnaire (human friendly)$):
+status<code=draft|active|retired>$(R!  draft | active | retired | unknown$):
+experimental<boolean>$(For testing purposes, not real usage$):
+date<dateTime>$(Date this was last changed$):
+publisher<string>$(Name of the publisher (organization or individual)$):
+description<markdown>$(Natural language description of the questionnaire$):
+purpose<markdown>$(Why this questionnaire is defined$):
+approvalDate<date>$(When the questionnaire was approved by publisher$):
+lastReviewDate<date>$(When the questionnaire was last reviewed$):
+effectivePeriod<Period>$(When the questionnaire is expected to be used$):
+useContext<list::UsageContext>$(Context the content is intended to support$):
+jurisdiction<list::CodeableConcept>$(Intended jurisdiction for questionnaire (if applicable)$):
+contact<list::ContactDetail>$(Contact details for the publisher$):
+copyright<markdown>$(Use and/or publishing restrictions$):
+code<list::Coding>$(Concept that represents the overall questionnaire$):
+subjectType<list::code>$(Resource that can be subject of QuestionnaireResponse$):
+item<list>$(C? Questions and sections within the Questionnaire$):
+  - linkId<string>$(R!  Unique id for item in questionnaire$):
+    definition<uri>$(ElementDefinition - details for the item$):
+    code<list::Coding>$(C? Corresponding concept for this item in a terminology$):
+    prefix<string>$(E.g. "1(a)", "2.5.3"$):
+    text<string>$(Primary text for the item$):
+    type<code=group|display|boolean|decimal|integer|date|dateTime>$(R!  group | display | boolean | decimal | integer | date | dateTime +$):
+    enableWhen<list>$(Only allow data when$):
+      - question<string>$(R!  Question that determines whether item is enabled$):
+        hasAnswer<boolean>$(C? Enable when answered or not$):
+        answerBoolean<boolean>$($):
+        answerDecimal<decimal>$($):
+        answerInteger<integer>$($):
+        answerDate<date>$($):
+        answerDateTime<dateTime>$($):
+        answerTime<time>$($):
+        answerString<string>$($):
+        answerUri<uri>$($):
+        answerAttachment<Attachment>$($):
+        answerCoding<Coding>$($):
+        answerQuantity<Quantity>$($):
+        answerReference<Reference(Any)>$($):
+    required<boolean>$(C? Whether the item must be included in data results$):
+    repeats<boolean>$(C? Whether the item may repeat$):
+    readOnly<boolean>$(C? Don't allow human editing$):
+    maxLength<integer>$(C? No more than this many characters$):
+    options<Reference(ValueSet)>$(C? Valueset containing permitted answers$):
+    option<list>$(C? Permitted answer$):
+      - valueInteger<integer>$($):
+        valueDate<date>$($):
+        valueTime<time>$($):
+        valueString<string>$($):
+        valueCoding<Coding>$($):
+    initialBoolean<boolean>$($):
+    initialDecimal<decimal>$($):
+    initialInteger<integer>$($):
+    initialDate<date>$($):
+    initialDateTime<dateTime>$($):
+    initialTime<time>$($):
+    initialString<string>$($):
+    initialUri<uri>$($):
+    initialAttachment<Attachment>$($):
+    initialCoding<Coding>$($):
+    initialQuantity<Quantity>$($):
+    initialReference<Reference(Any)>$($):
+    item<list::Content as for Questionnaire.item>$(C? Nested questionnaire items$):

@@ -1,0 +1,46 @@
+{
+  "resourceType" : "AuditEvent",
+  "type<Coding>$(R!  Type/identifier of event$)": null,
+  "subtype<list::Coding>$(More specific type/id for the event$)": null,
+  "action<code>$(Type of action performed during the event$)": null,
+  "recorded<instant>$(R!  Time when the event occurred on source$)": null,
+  "outcome<code>$(Whether the event succeeded or failed$)": null,
+  "outcomeDesc<string>$(Description of the event outcome$)": null,
+  "purposeOfEvent<list::CodeableConcept>$(The purposeOfUse of the event$)": null,
+  "agent<list>$(R!  Actor involved in the event$)": [{
+    "role<list::CodeableConcept>$(Agent role in the event$)": null,
+    "reference<Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>$(Direct reference to resource$)": null,
+    "userId<Identifier>$(Unique identifier for the user$)": null,
+    "altId<string>$(Unique identifier for the user$)": null,
+    "name<string>$(Alternative User id e.g. authentication$)": null,
+    "requestor<boolean>$(Human-meaningful name for the agent$)": null,
+    "location<Reference(Location)>$(Where$)": null,
+    "policy<list::uri>$(Where$)": null,
+    "media<Coding>$(Type of media$)": null,
+    "network" : { 
+      "address<string>$(Logical network location for application activity$)": null,
+      "type<code>$(Identifier for the network access point of the user device$)": null
+    },
+    "purposeOfUse<list::CodeableConcept>$(Reason given for this user$)": null
+  }],
+  "source" : { 
+    "site<string>$(R!  Audit Event Reporter$)": null,
+    "identifier<Identifier>$(R!  The identity of source detecting the event$)": null,
+    "type<list::Coding>$(The type of source where event originated$)": null
+  },
+  "entity<list>$(Data or objects used$)": [{
+    "identifier<Identifier>$(Specific instance of object$)": null,
+    "reference<Reference(Any)>$(Specific instance of resource$)": null,
+    "type<Coding>$(Type of entity involved$)": null,
+    "role<Coding>$(What role the entity played$)": null,
+    "lifecycle<Coding>$(Life-cycle stage for the entity$)": null,
+    "securityLabel<list::Coding>$(Security labels on the entity$)": null,
+    "name<string>$(Security labels on the entity$)": null,
+    "description<string>$(C? Descriptor for entity$)": null,
+    "query<base64Binary>$(Descriptive text$)": null,
+    "detail<list>$(Additional Information about the entity$)": [{
+      "type<string>$(Additional Information about the entity$)": null,
+      "value<base64Binary>$(R!  Name of the property$)": null
+    }]
+  }]
+}

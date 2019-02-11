@@ -1,0 +1,26 @@
+{
+  "resourceType" : "Provenance",
+  "target<list::Reference(Any)>$(R!  Target Reference(s) (usually version specific)$)": null,
+  "period<Period>$(When the activity occurred$)": null,
+  "recorded<instant>$(R!  When the activity was recorded / updated$)": null,
+  "policy<list::uri>$(Policy or plan the activity was defined by$)": null,
+  "location<Reference(Location)>$(Where the activity occurred, if relevant$)": null,
+  "reason<list::Coding>$(Reason the activity is occurring$)": null,
+  "activity<Coding>$(Activity that occurred$)": null,
+  "agent<list>$(R!  Actor involved$)": [{
+    "role<list::CodeableConcept>$(What the agents role was$)": null,
+    "whoUri<uri>$($)": null,
+    "whoReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($)": null,
+    "onBehalfOfUri<uri>$($)": null,
+    "onBehalfOfReference<Reference(Practitioner|RelatedPerson|Patient|Device|Organization)>$($)": null,
+    "relatedAgentType<CodeableConcept>$(Type of relationship between agents$)": null
+  }],
+  "entity<list>$(An entity used in this activity$)": [{
+    "role<code>$($)": null,
+    "whatUri<uri>$(An entity used in this activity$)": null,
+    "whatReference<Reference(Any)>$($)": null,
+    "whatIdentifier<Identifier>$($)": null,
+    "agent<list::Content as for Provenance.agent>$(Entity is attributed to this agent$)": null
+  }],
+  "signature<list::Signature>$(Signature on target$)": null
+}

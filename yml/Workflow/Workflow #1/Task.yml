@@ -1,0 +1,82 @@
+resourceType: "Task"
+identifier<list::Identifier>$(Task Instance Identifier$):
+definitionUri<uri>$($):
+definitionReference<Reference(ActivityDefinition)>$($):
+basedOn<list::Reference(Any)>$(Request fulfilled by this task$):
+groupIdentifier<Identifier>$(Requisition or grouper id$):
+partOf<list::Reference(Task)>$(Composite task$):
+status<code=draft|requested|received|accepted>$(R!  draft | requested | received | accepted | +$):
+statusReason<CodeableConcept>$(Reason for current status$):
+businessStatus<CodeableConcept>$(E.g. "Specimen collected", "IV prepped"$):
+intent<code=proposal|plan|order>$(R!  proposal | plan | order +$):
+priority<code>$(normal | urgent | asap | stat$):
+code<CodeableConcept>$(Task Type$):
+description<string>$(Human-readable explanation of task$):
+focus<Reference(Any)>$(What task is acting on$):
+for<Reference(Any)>$(Beneficiary of the Task$):
+context<Reference(Encounter|EpisodeOfCare)>$(Healthcare event during which this task originated$):
+executionPeriod<Period>$(Start and end time of execution$):
+authoredOn<dateTime>$(C? Task Creation Date$):
+lastModified<dateTime>$(C? Task Last Modified Date$):
+requester:
+    agent<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>$(R!  Individual asking for task$):
+    onBehalfOf<Reference(Organization)>$(Organization individual is acting for$):
+performerType<list::CodeableConcept>$(requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer$):
+owner<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>$(Responsible individual$):
+reason<CodeableConcept>$(Why task is needed$):
+note<list::Annotation>$(Comments made about the task$):
+relevantHistory<list::Reference(Provenance)>$(Key events in history of the Task$):
+restriction:
+    repetitions<positiveInt>$(Key events in history of the Task$):
+    period<Period>$(When fulfillment sought$):
+    recipient<list::Reference(Patient|Practitioner|RelatedPerson|Group|Organization)>$(For whom is fulfillment sought?$):
+input<list>$(Information used to perform task$):
+  - type<CodeableConcept>$(R!  Label for the input$):
+    valueInteger<integer>$($):
+    valueDecimal<decimal>$(Information used to perform task$):
+    valueDateTime<dateTime>$(R!  Label for the input$):
+    valueDate<date>$($):
+    valueInstant<instant>$($):
+    valueString<string>$($):
+    valueUri<uri>$($):
+    valueBoolean<boolean>$($):
+    valueCode<code>$($):
+    valueBase64Binary<base64Binary>$($):
+    valueCoding<Coding>$($):
+    valueCodeableConcept<CodeableConcept>$($):
+    valueAttachment<Attachment>$($):
+    valueIdentifier<Identifier>$($):
+    valueQuantity<Quantity>$($):
+    valueRange<Range>$($):
+    valuePeriod<Period>$($):
+    valueRatio<Ratio>$($):
+    valueHumanName<HumanName>$($):
+    valueAddress<Address>$($):
+    valueContactPoint<ContactPoint>$($):
+    valueSchedule<Schedule>$($):
+    valueReference<Reference>$($):
+output<list>$(Information produced as part of task$):
+  - type<CodeableConcept>$(R!  Label for output$):
+    valueInteger<integer>$($):
+    valueDecimal<decimal>$(Information produced as part of task$):
+    valueDateTime<dateTime>$(R!  Label for output$):
+    valueDate<date>$($):
+    valueInstant<instant>$($):
+    valueString<string>$($):
+    valueUri<uri>$($):
+    valueBoolean<boolean>$($):
+    valueCode<code>$($):
+    valueBase64Binary<base64Binary>$($):
+    valueCoding<Coding>$($):
+    valueCodeableConcept<CodeableConcept>$($):
+    valueAttachment<Attachment>$($):
+    valueIdentifier<Identifier>$($):
+    valueQuantity<Quantity>$($):
+    valueRange<Range>$($):
+    valuePeriod<Period>$($):
+    valueRatio<Ratio>$($):
+    valueHumanName<HumanName>$($):
+    valueAddress<Address>$($):
+    valueContactPoint<ContactPoint>$($):
+    valueSchedule<Schedule>$($):
+    valueReference<Reference>$($):

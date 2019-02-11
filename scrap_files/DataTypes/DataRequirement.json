@@ -1,0 +1,23 @@
+
+{
+  // from Element: extension
+  "type" : "<code>", // R!  The type of the required data
+  "profile" : ["<uri>"], // The profile of the required data
+  "mustSupport" : ["<string>"], // Indicates that specific structure elements are referenced by the knowledge module
+  "codeFilter" : [{ // What codes are expected
+    "path" : "<string>", // R!  The code-valued attribute of the filter
+    // valueSet[x]: Valueset for the filter. One of these 2:
+    "valueSetString" : "<string>",
+    "valueSetReference" : { Reference(ValueSet) },
+    "valueCode" : ["<code>"], // What code is expected
+    "valueCoding" : [{ Coding }], // What Coding is expected
+    "valueCodeableConcept" : [{ CodeableConcept }] // What CodeableConcept is expected
+  }],
+  "dateFilter" : [{ // What dates/date ranges are expected
+    "path" : "<string>", // R!  The date-valued attribute of the filter
+    // value[x]: The value of the filter, as a Period, DateTime, or Duration value. One of these 3:
+    "valueDateTime" : "<dateTime>"
+    "valuePeriod" : { Period }
+    "valueDuration" : { Duration }
+  }]
+}

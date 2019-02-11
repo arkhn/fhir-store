@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "url<uri>$(R!  Logical URI to reference this structure definition (globally unique)$)": null,
+  "identifier<list::Identifier>$(Additional identifier for the structure definition$)": null,
+  "version<string>$(Business version of the structure definition$)": null,
+  "name<string>$(R!  Name for this structure definition (computer friendly)$)": null,
+  "title<string>$(Name for this structure definition (human friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(Natural language description of the structure definition$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for structure definition (if applicable)$)": null,
+  "purpose<markdown>$(Why this structure definition is defined$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "keyword<list::Coding>$(Assist with indexing and finding$)": null,
+  "fhirVersion<id>$(FHIR Version this StructureDefinition targets$)": null,
+  "mapping<list>$(External specification that the content is mapped to$)": [{
+    "identity<id>$(R!  Internal id when this mapping is used$)": null,
+    "uri<uri>$(C? Identifies what this mapping refers to$)": null,
+    "name<string>$(C? Names what this mapping refers to$)": null,
+    "comment<string>$(Versions Issues Scope limitations etc.$)": null
+  }],
+  "kind<code=primitive-type|complex-type|resource>$(R!  primitive-type | complex-type | resource | logical$)": null,
+  "abstract<boolean>$(R!  Whether the structure is abstract$)": null,
+  "contextType<code=resource|datatype>$(C? resource | datatype | extension$)": null,
+  "context<list::string>$(C? Where the extension can be used in instances$)": null,
+  "contextInvariant<list::string>$(C? FHIRPath invariants - when the extension can be used$)": null,
+  "type<code>$(C? R!  Type defined or constrained by this structure$)": null,
+  "baseDefinition<uri>$(C? Definition that this type is constrained/specialized from$)": null,
+  "derivation<code=specialization|constraint>$(C? specialization | constraint - How relates to base definition$)": null,
+  "snapshot" : { 
+    "element<list::ElementDefinition>$(C? R!  Definition of elements in the resource (if no StructureDefinition)$)": null
+  },
+  "differential" : { 
+    "element<list::ElementDefinition>$(R!  Definition of elements in the resource (if no StructureDefinition)$)": null
+  }
+}

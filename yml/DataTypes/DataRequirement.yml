@@ -1,0 +1,15 @@
+type<code>$(R!  The type of the required data$):
+profile<list::uri>$(The profile of the required data$):
+mustSupport<list::string>$(Indicates that specific structure elements are referenced by the knowledge module$):
+codeFilter<list>$(What codes are expected$):
+  - path<string>$(R!  The code-valued attribute of the filter$):
+    valueSetString<string>$($):
+    valueSetReference<Reference(ValueSet)>$($):
+    valueCode<list::code>$(What code is expected$):
+    valueCoding<list::Coding>$(What Coding is expected$):
+    valueCodeableConcept<list::CodeableConcept>$(What CodeableConcept is expected$):
+dateFilter<list>$(What dates/date ranges are expected$):
+  - path<string>$(R!  The date-valued attribute of the filter$):
+    valueDateTime<dateTime>$($):
+    valuePeriod<Period>$($):
+    valueDuration<Duration>$($):

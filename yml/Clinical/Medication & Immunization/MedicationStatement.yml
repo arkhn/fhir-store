@@ -1,0 +1,21 @@
+resourceType: "MedicationStatement"
+identifier<list::Identifier>$(External identifier$):
+basedOn<list::Reference(MedicationRequest|CarePlan|ProcedureRequest|ReferralRequest)>$(Fulfils plan, proposal or order$):
+partOf<list::Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)>$(Part of referenced event$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter / Episode associated with MedicationStatement$):
+status<code>$(Part of referenced event$):
+category<CodeableConcept>$(Type of medication usage$):
+medicationCodeableConcept<CodeableConcept>$($):
+medicationReference<Reference(Medication)>$($):
+effectiveDateTime<dateTime>$($):
+effectivePeriod<Period>$($):
+dateAsserted<dateTime>$($):
+informationSource<Reference(Patient|Practitioner|RelatedPerson|Organization)>$(Person or organization that provided the information about the taking of this medication$):
+subject<Reference(Patient|Group)>$(R!  Who is/was taking  the medication$):
+derivedFrom<list::Reference(Any)>$(Additional supporting information$):
+taken<code>$(Person or organization that provided the information about the taking of this medication$):
+reasonNotTaken<list::CodeableConcept>$(C? True if asserting medication was not given$):
+reasonCode<list::CodeableConcept>$(Reason for why the medication is being/was taken$):
+reasonReference<list::Reference(Condition|Observation)>$(Condition or observation that supports why the medication is being/was taken$):
+note<list::Annotation>$(Further information about the statement$):
+dosage<list::Dosage>$(Details of how medication is/was taken or should be taken$):

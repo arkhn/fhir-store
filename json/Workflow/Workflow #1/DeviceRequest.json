@@ -1,0 +1,30 @@
+{
+  "resourceType" : "DeviceRequest",
+  "identifier<list::Identifier>$(External Request identifier$)": null,
+  "definition<list::Reference(ActivityDefinition|PlanDefinition)>$(Protocol or definition$)": null,
+  "basedOn<list::Reference(Any)>$(What request fulfills$)": null,
+  "priorRequest<list::Reference(Any)>$(What request replaces$)": null,
+  "groupIdentifier<Identifier>$(Identifier of composite request$)": null,
+  "status<code>$(draft | active | suspended | completed | entered-in-error | cancelled$)": null,
+  "intent<CodeableConcept>$(R!  proposal | plan | original-order | encoded | reflex-order$)": null,
+  "priority<code>$(Indicates how quickly the {{title}} should be addressed with respect to other requests$)": null,
+  "codeReference<Reference(Device)>$($)": null,
+  "codeCodeableConcept<CodeableConcept>$($)": null,
+  "subject<Reference(Patient|Group|Location|Device)>$(R!  Focus of request$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode motivating request$)": null,
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "occurrenceTiming<Timing>$($)": null,
+  "authoredOn<dateTime>$(When recorded$)": null,
+  "requester" : { 
+    "agent<Reference(Device|Practitioner|Organization)>$(R!  Individual making the request$)": null,
+    "onBehalfOf<Reference(Organization)>$(Organization agent is acting for$)": null
+  },
+  "performerType<CodeableConcept>$(Fille role$)": null,
+  "performer<Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)>$(Requested Filler$)": null,
+  "reasonCode<list::CodeableConcept>$(Coded Reason for request$)": null,
+  "reasonReference<list::Reference(Any)>$(Linked Reason for request$)": null,
+  "supportingInfo<list::Reference(Any)>$(Additional clinical information$)": null,
+  "note<list::Annotation>$(Notes or comments$)": null,
+  "relevantHistory<list::Reference(Provenance)>$(Request provenance$)": null
+}

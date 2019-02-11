@@ -1,0 +1,49 @@
+{
+  "resourceType" : "NutritionOrder",
+  "identifier<list::Identifier>$(Identifiers assigned to this order$)": null,
+  "status<code>$(proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error$)": null,
+  "patient<Reference(Patient)>$(R!  The person who requires the diet, formula or nutritional supplement$)": null,
+  "encounter<Reference(Encounter)>$(The encounter associated with this nutrition order$)": null,
+  "dateTime<dateTime>$(R!  Date and time the nutrition order was requested$)": null,
+  "orderer<Reference(Practitioner)>$(Who ordered the diet, formula or nutritional supplement$)": null,
+  "allergyIntolerance<list::Reference(AllergyIntolerance)>$(List of the patient's food and nutrition-related allergies and intolerances$)": null,
+  "foodPreferenceModifier<list::CodeableConcept>$(Order-specific modifier about the type of food that should be given$)": null,
+  "excludeFoodModifier<list::CodeableConcept>$(Order-specific modifier about the type of food that should not be given$)": null,
+  "oralDiet" : { 
+    "type<list::CodeableConcept>$(Type of oral diet or diet restrictions that describe what can be consumed orally$)": null,
+    "schedule<list::Timing>$(Scheduled frequency of diet$)": null,
+    "nutrient<list>$(Required  nutrient modifications$)": [{
+      "modifier<CodeableConcept>$(Type of nutrient that is being modified$)": null,
+      "amount<Quantity(SimpleQuantity)>$(Quantity of the specified nutrient$)": null
+    }],
+    "texture<list>$(Required  texture modifications$)": [{
+      "modifier<CodeableConcept>$(Code to indicate how to alter the texture of the foods, e.g. pureed$)": null,
+      "foodType<CodeableConcept>$(Concepts that are used to identify an entity that is ingested for nutritional purposes$)": null
+    }],
+    "fluidConsistencyType<list::CodeableConcept>$(The required consistency of fluids and liquids provided to the patient$)": null,
+    "instruction<string>$(Instructions or additional information about the oral diet$)": null
+  },
+  "supplement<list>$(C? Supplement components$)": [{
+    "type<CodeableConcept>$(Type of supplement product requested$)": null,
+    "productName<string>$(Product or brand name of the nutritional supplement$)": null,
+    "schedule<list::Timing>$(Scheduled frequency of supplement$)": null,
+    "quantity<Quantity(SimpleQuantity)>$(Amount of the nutritional supplement$)": null,
+    "instruction<string>$(Instructions or additional information about the oral supplement$)": null
+  }],
+  "enteralFormula" : { 
+    "baseFormulaType<CodeableConcept>$(Type of enteral or infant formula$)": null,
+    "baseFormulaProductName<string>$(Product or brand name of the enteral or infant formula$)": null,
+    "additiveType<CodeableConcept>$(Type of modular component to add to the feeding$)": null,
+    "additiveProductName<string>$(Product or brand name of the modular additive$)": null,
+    "caloricDensity<Quantity(SimpleQuantity)>$(Amount of energy per specified volume that is required$)": null,
+    "routeofAdministration<CodeableConcept>$(How the formula should enter the patient's gastrointestinal tract$)": null,
+    "administration<list>$(Formula feeding instruction as structured data$)": [{
+      "schedule<Timing>$(Scheduled frequency of enteral feeding$)": null,
+      "quantity<Quantity(SimpleQuantity)>$(The volume of formula to provide$)": null,
+      "rateQuantity<Quantity(SimpleQuantity)>$($)": null,
+      "rateRatio<Ratio>$($)": null
+    }],
+    "maxVolumeToDeliver<Quantity(SimpleQuantity)>$(Upper limit on formula volume per unit of time$)": null,
+    "administrationInstruction<string>$(Formula feeding instructions expressed as text$)": null
+  }
+}

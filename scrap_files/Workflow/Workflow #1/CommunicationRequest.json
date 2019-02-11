@@ -1,0 +1,39 @@
+
+{
+  "resourceType" : "CommunicationRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Unique identifier
+  "basedOn" : [{ Reference(Any) }], // Fulfills plan or proposal
+  "replaces" : [{ Reference(CommunicationRequest) }], // Request(s) replaced by this request
+  "groupIdentifier" : { Identifier }, // Composite request this is part of
+  "status" : "<code>", // R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown
+  "category" : [{ CodeableConcept }], // Message category
+  "priority" : "<code>", // Message urgency
+  "medium" : [{ CodeableConcept }], // A channel of communication
+  "subject" : { Reference(Patient|Group) }, // Focus of message
+  "recipient" : [{ Reference(Device|Organization|Patient|Practitioner|
+   RelatedPerson|Group|CareTeam) }], // Message recipient
+  "topic" : [{ Reference(Any) }], // Focal resources
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or episode leading to message
+  "payload" : [{ // Message payload
+    // content[x]: Message part content. One of these 3:
+    "contentString" : "<string>"
+    "contentAttachment" : { Attachment }
+    "contentReference" : { Reference(Any) }
+  }],
+  // occurrence[x]: When scheduled. One of these 2:
+  "occurrenceDateTime" : "<dateTime>",
+  "occurrencePeriod" : { Period },
+  "authoredOn" : "<dateTime>", // When request transitioned to being actionable
+  "sender" : { Reference(Device|Organization|Patient|Practitioner|
+   RelatedPerson) }, // Message sender
+  "requester" : { // Who/what is requesting service
+    "agent" : { Reference(Practitioner|Organization|Patient|RelatedPerson|
+    Device) }, // R!  Individual making the request
+    "onBehalfOf" : { Reference(Organization) } // C? Organization agent is acting for
+  },
+  "reasonCode" : [{ CodeableConcept }], // Why is communication needed?
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Why is communication needed?
+  "note" : [{ Annotation }] // Comments made about communication request
+}

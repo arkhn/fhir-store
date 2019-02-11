@@ -1,0 +1,8 @@
+{
+  "resourceType" : "Basic",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "code<CodeableConcept>$(R!  Kind of Resource$)": null,
+  "subject<Reference(Any)>$(Identifies the focus of this resource$)": null,
+  "created<date>$(When created$)": null,
+  "author<Reference(Practitioner|Patient|RelatedPerson)>$(Who created$)": null
+}

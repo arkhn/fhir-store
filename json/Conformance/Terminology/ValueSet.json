@@ -1,0 +1,69 @@
+{
+  "resourceType" : "ValueSet",
+  "url<uri>$(Logical URI to reference this value set (globally unique)$)": null,
+  "identifier<list::Identifier>$(Additional identifier for the value set$)": null,
+  "version<string>$(Business version of the value set$)": null,
+  "name<string>$(Name for this value set (computer friendly)$)": null,
+  "title<string>$(Name for this value set (human friendly)$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "description<markdown>$(Natural language description of the value set$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for value set (if applicable)$)": null,
+  "immutable<boolean>$(Indicates whether or not any change to the content logical definition may occur$)": null,
+  "purpose<markdown>$(Why this value set is defined$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "extensible<boolean>$(Whether this is intended to be used with an extensible binding$)": null,
+  "compose" : { 
+    "lockedDate<date>$(Fixed date for version-less references (transitive)$)": null,
+    "inactive<boolean>$(Whether inactive codes are in the value set$)": null,
+    "include<list>$(R!  Include one or more codes from a code system or other value set(s)$)": [{
+      "system<uri>$(C? The system the codes come from$)": null,
+      "version<string>$(Specific version of the code system referred to$)": null,
+      "concept<list>$(C? A concept defined in the system$)": [{
+        "code<code>$(R!  Code or expression from system$)": null,
+        "display<string>$(Text to display for this code for this value set in this valueset$)": null,
+        "designation<list>$(Additional representations for this concept$)": [{
+          "language<code>$(Human language of the designation$)": null,
+          "use<Coding>$(Details how this designation would be used$)": null,
+          "value<string>$(R!  The text value for this designation$)": null
+        }]
+      }],
+      "filter<list>$(C? Select codes/concepts by their properties (including relationships)$)": [{
+        "property<code>$(R!  A property defined by the code system$)": null,
+        "op<code>$(R!  = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists$)": null,
+        "value<code>$(R!  Code from the system or regex criteria or boolean value for exists$)": null
+      }],
+      "valueSet<list::uri>$(C? Select only contents included in this value set$)": null
+    }],
+    "exclude<list::Content as for ValueSet.compose.include>$(C? Explicitly exclude codes from a code system or other value sets$)": null
+  },
+  "expansion" : { 
+    "identifier<uri>$(R!  Uniquely identifies this expansion$)": null,
+    "timestamp<dateTime>$(R!  Time ValueSet expansion happened$)": null,
+    "total<integer>$(Total number of codes in the expansion$)": null,
+    "offset<integer>$(Offset at which this resource starts$)": null,
+    "parameter<list>$(Parameter that controlled the expansion process$)": [{
+      "name<string>$(R!  Name as assigned by the server$)": null,
+      "valueString<string>$($)": null,
+      "valueBoolean<boolean>$($)": null,
+      "valueInteger<integer>$($)": null,
+      "valueDecimal<decimal>$($)": null,
+      "valueUri<uri>$($)": null,
+      "valueCode<code>$($)": null
+    }],
+    "contains<list>$(Codes in the value set$)": [{
+      "system<uri>$(System value for the code$)": null,
+      "abstract<boolean>$(If user cannot select this entry$)": null,
+      "inactive<boolean>$(If concept is inactive in the code system$)": null,
+      "version<string>$(Version in which this code/display is defined$)": null,
+      "code<code>$(C? Code - if blank, this is not a selectable code$)": null,
+      "display<string>$(C? User display for the concept$)": null,
+      "designation<list::Content as for ValueSet.compose.include.concept.designation>$(Additional representations for this item$)": null,
+      "contains<list::Content as for ValueSet.expansion.contains>$(Codes contained under this entry$)": null
+    }]
+  }
+}

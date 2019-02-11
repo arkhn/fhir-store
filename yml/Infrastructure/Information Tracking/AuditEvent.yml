@@ -1,0 +1,39 @@
+resourceType: "AuditEvent"
+type<Coding>$(R!  Type/identifier of event$):
+subtype<list::Coding>$(More specific type/id for the event$):
+action<code>$(Type of action performed during the event$):
+recorded<instant>$(R!  Time when the event occurred on source$):
+outcome<code>$(Whether the event succeeded or failed$):
+outcomeDesc<string>$(Description of the event outcome$):
+purposeOfEvent<list::CodeableConcept>$(The purposeOfUse of the event$):
+agent<list>$(R!  Actor involved in the event$):
+  - role<list::CodeableConcept>$(Agent role in the event$):
+    reference<Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>$(Direct reference to resource$):
+    userId<Identifier>$(Unique identifier for the user$):
+    altId<string>$(Unique identifier for the user$):
+    name<string>$(Alternative User id e.g. authentication$):
+    requestor<boolean>$(Human-meaningful name for the agent$):
+    location<Reference(Location)>$(Where$):
+    policy<list::uri>$(Where$):
+    media<Coding>$(Type of media$):
+    network:
+        address<string>$(Logical network location for application activity$):
+        type<code>$(Identifier for the network access point of the user device$):
+    purposeOfUse<list::CodeableConcept>$(Reason given for this user$):
+source:
+    site<string>$(R!  Audit Event Reporter$):
+    identifier<Identifier>$(R!  The identity of source detecting the event$):
+    type<list::Coding>$(The type of source where event originated$):
+entity<list>$(Data or objects used$):
+  - identifier<Identifier>$(Specific instance of object$):
+    reference<Reference(Any)>$(Specific instance of resource$):
+    type<Coding>$(Type of entity involved$):
+    role<Coding>$(What role the entity played$):
+    lifecycle<Coding>$(Life-cycle stage for the entity$):
+    securityLabel<list::Coding>$(Security labels on the entity$):
+    name<string>$(Security labels on the entity$):
+    description<string>$(C? Descriptor for entity$):
+    query<base64Binary>$(Descriptive text$):
+    detail<list>$(Additional Information about the entity$):
+      - type<string>$(Additional Information about the entity$):
+        value<base64Binary>$(R!  Name of the property$):

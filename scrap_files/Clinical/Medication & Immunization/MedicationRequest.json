@@ -1,0 +1,46 @@
+
+{
+  "resourceType" : "MedicationRequest",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External ids for this request
+  "definition" : [{ Reference(ActivityDefinition|PlanDefinition) }], // Protocol or definition
+  "basedOn" : [{ Reference(CarePlan|MedicationRequest|ProcedureRequest|
+   ReferralRequest) }], // What request fulfills
+  "groupIdentifier" : { Identifier }, // Composite request this is part of
+  "status" : "<code>", // active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
+  "intent" : "<code>", // R!  proposal | plan | order | instance-order
+  "category" : { CodeableConcept }, // Type of medication usage
+  "priority" : "<code>", // routine | urgent | stat | asap
+  // medication[x]: Medication to be taken. One of these 2:
+  "medicationCodeableConcept" : { CodeableConcept },
+  "medicationReference" : { Reference(Medication) },
+  "subject" : { Reference(Patient|Group) }, // R!  Who or group medication request is for
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Created during encounter/admission/stay
+  "supportingInformation" : [{ Reference(Any) }], // Information to support ordering of the medication
+  "authoredOn" : "<dateTime>", // When request was initially authored
+  "requester" : { // Who/What requested the Request
+    "agent" : { Reference(Practitioner|Organization|Patient|RelatedPerson|
+    Device) }, // R!  Who ordered the initial medication(s)
+    "onBehalfOf" : { Reference(Organization) } // C? Organization agent is acting for
+  },
+  "recorder" : { Reference(Practitioner) }, // Person who entered the request
+  "reasonCode" : [{ CodeableConcept }], // Reason or indication for writing the prescription
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Condition or Observation that supports why the prescription is being written
+  "note" : [{ Annotation }], // Information about the prescription
+  "dosageInstruction" : [{ Dosage }], // How the medication should be taken
+  "dispenseRequest" : { // Medication supply authorization
+    "validityPeriod" : { Period }, // Time period supply is authorized for
+    "numberOfRepeatsAllowed" : "<positiveInt>", // Number of refills authorized
+    "quantity" : { Quantity(SimpleQuantity) }, // Amount of medication to supply per dispense
+    "expectedSupplyDuration" : { Duration }, // Number of days supply per dispense
+    "performer" : { Reference(Organization) } // Intended dispenser
+  },
+  "substitution" : { // Any restrictions on medication substitution
+    "allowed" : <boolean>, // R!  Whether substitution is allowed or not
+    "reason" : { CodeableConcept } // Why should (not) substitution be made
+  },
+  "priorPrescription" : { Reference(MedicationRequest) }, // An order/prescription that is being replaced
+  "detectedIssue" : [{ Reference(DetectedIssue) }], // Clinical Issue with action
+  "eventHistory" : [{ Reference(Provenance) }] // A list of events of interest in the lifecycle
+}

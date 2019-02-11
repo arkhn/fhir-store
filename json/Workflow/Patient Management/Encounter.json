@@ -1,0 +1,52 @@
+{
+  "resourceType" : "Encounter",
+  "identifier<list::Identifier>$(Identifier(s) by which this encounter is known$)": null,
+  "status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>$(R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +$)": null,
+  "statusHistory<list>$(List of past encounter statuses$)": [{
+    "status<code=planned|arrived|triaged|in-progress|onleave|finished|cancelled>$(R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +$)": null,
+    "period<Period>$(R!  The time that the episode was in the specified status$)": null
+  }],
+  "class<Coding>$(inpatient | outpatient | ambulatory | emergency +$)": null,
+  "classHistory<list>$(List of past encounter classes$)": [{
+    "class<Coding>$(R!  inpatient | outpatient | ambulatory | emergency +$)": null,
+    "period<Period>$(R!  The time that the episode was in the specified class$)": null
+  }],
+  "type<list::CodeableConcept>$(Specific type of encounter$)": null,
+  "priority<CodeableConcept>$(Indicates the urgency of the encounter$)": null,
+  "subject<Reference(Patient|Group)>$(The patient ro group present at the encounter$)": null,
+  "episodeOfCare<list::Reference(EpisodeOfCare)>$(Episode(s) of care that this encounter should be recorded against$)": null,
+  "incomingReferral<list::Reference(ReferralRequest)>$(The ReferralRequest that initiated this encounter$)": null,
+  "participant<list>$(List of participants involved in the encounter$)": [{
+    "type<list::CodeableConcept>$(Role of participant in encounter$)": null,
+    "period<Period>$(Period of time during the encounter that the participant participated$)": null,
+    "individual<Reference(Practitioner|RelatedPerson)>$(Persons involved in the encounter other than the patient$)": null
+  }],
+  "appointment<Reference(Appointment)>$(The appointment that scheduled this encounter$)": null,
+  "period<Period>$(The start and end time of the encounter$)": null,
+  "length<Duration>$(Quantity of time the encounter lasted (less time absent)$)": null,
+  "reason<list::CodeableConcept>$(Reason the encounter takes place (code)$)": null,
+  "diagnosis<list>$(The list of diagnosis relevant to this encounter$)": [{
+    "condition<Reference(Condition|Procedure)>$(R!  Reason the encounter takes place (resource)$)": null,
+    "role<CodeableConcept>$(Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)$)": null,
+    "rank<positiveInt>$(Ranking of the diagnosis (for each role type)$)": null
+  }],
+  "account<list::Reference(Account)>$(The set of accounts that may be used for billing for this Encounter$)": null,
+  "hospitalization" : { 
+    "preAdmissionIdentifier<Identifier>$(Pre-admission identifier$)": null,
+    "origin<Reference(Location)>$(The location from which the patient came before admission$)": null,
+    "admitSource<CodeableConcept>$(From where patient was admitted (physician referral, transfer)$)": null,
+    "reAdmission<CodeableConcept>$(The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission$)": null,
+    "dietPreference<list::CodeableConcept>$(Diet preferences reported by the patient$)": null,
+    "specialCourtesy<list::CodeableConcept>$(Special courtesies (VIP, board member)$)": null,
+    "specialArrangement<list::CodeableConcept>$(Wheelchair, translator, stretcher, etc.$)": null,
+    "destination<Reference(Location)>$(Location to which the patient is discharged$)": null,
+    "dischargeDisposition<CodeableConcept>$(Category or kind of location after discharge$)": null
+  },
+  "location<list>$(List of locations where the patient has been$)": [{
+    "location<Reference(Location)>$(R!  Location the encounter takes place$)": null,
+    "status<code>$(planned | active | reserved | completed$)": null,
+    "period<Period>$(Time period during which the patient was present at the location$)": null
+  }],
+  "serviceProvider<Reference(Organization)>$(The custodian organization of this Encounter record$)": null,
+  "partOf<Reference(Encounter)>$(Another Encounter this encounter is part of$)": null
+}

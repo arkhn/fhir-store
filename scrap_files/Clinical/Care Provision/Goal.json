@@ -1,0 +1,33 @@
+
+{
+  "resourceType" : "Goal",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Ids for this goal
+  "status" : "<code>", // R!  proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected
+  "category" : [{ CodeableConcept }], // E.g. Treatment, dietary, behavioral, etc.
+  "priority" : { CodeableConcept }, // high-priority | medium-priority | low-priority
+  "description" : { CodeableConcept }, // R!  Code or text describing goal
+  "subject" : { Reference(Patient|Group|Organization) }, // Who this goal is intended for
+  // start[x]: When goal pursuit begins. One of these 2:
+  "startDate" : "<date>",
+  "startCodeableConcept" : { CodeableConcept },
+  "target" : { // C? Target outcome for the goal
+    "measure" : { CodeableConcept }, // C? The parameter whose value is being tracked
+    // detail[x]: The target value to be achieved. One of these 3:
+    "detailQuantity" : { Quantity },
+    "detailRange" : { Range },
+    "detailCodeableConcept" : { CodeableConcept },
+    // due[x]: Reach goal on or before. One of these 2:
+    "dueDate" : "<date>"
+    "dueDuration" : { Duration }
+  },
+  "statusDate" : "<date>", // When goal status took effect
+  "statusReason" : "<string>", // Reason for current status
+  "expressedBy" : { Reference(Patient|Practitioner|RelatedPerson) }, // Who's responsible for creating Goal?
+  "addresses" : [{ Reference(Condition|Observation|MedicationStatement|
+   NutritionOrder|ProcedureRequest|RiskAssessment) }], // Issues addressed by this goal
+  "note" : [{ Annotation }], // Comments about the goal
+  "outcomeCode" : [{ CodeableConcept }], // What result was achieved regarding the goal?
+  "outcomeReference" : [{ Reference(Observation) }] // Observation that resulted from goal
+}

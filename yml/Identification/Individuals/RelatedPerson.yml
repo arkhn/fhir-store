@@ -1,0 +1,12 @@
+resourceType: "RelatedPerson"
+identifier<list::Identifier>$(A human identifier for this person$):
+active<boolean>$(Whether this related person's record is in active use$):
+patient<Reference(Patient)>$(R!  The patient this person is related to$):
+relationship<CodeableConcept>$(The nature of the relationship$):
+name<list::HumanName>$(A name associated with the person$):
+telecom<list::ContactPoint>$(A contact detail for the person$):
+gender<code>$(male | female | other | unknown$):
+birthDate<date>$(The date on which the related person was born$):
+address<list::Address>$(Address where the related person can be contacted or visited$):
+photo<list::Attachment>$(Image of the person$):
+period<Period>$(Period of time that this relationship is considered valid$):

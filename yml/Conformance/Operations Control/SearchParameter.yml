@@ -1,0 +1,27 @@
+resourceType: "SearchParameter"
+url<uri>$(R!  Logical URI to reference this search parameter (globally unique)$):
+version<string>$(Business version of the search parameter$):
+name<string>$(R!  Name for this search parameter (computer friendly)$):
+status<code=draft|active|retired>$(R!  draft | active | retired | unknown$):
+experimental<boolean>$(For testing purposes, not real usage$):
+date<dateTime>$(Date this was last changed$):
+publisher<string>$(Name of the publisher (organization or individual)$):
+contact<list::ContactDetail>$(Contact details for the publisher$):
+useContext<list::UsageContext>$(Context the content is intended to support$):
+jurisdiction<list::CodeableConcept>$(Intended jurisdiction for search parameter (if applicable)$):
+purpose<markdown>$(Why this search parameter is defined$):
+code<code>$(R!  Code used in URL$):
+base<list::code>$(R!  The resource type(s) this search parameter applies to$):
+type<code=number|date|string|token|reference|composite|quantity>$(R!  number | date | string | token | reference | composite | quantity | uri$):
+derivedFrom<uri>$(Original Definition for the search parameter$):
+description<markdown>$(R!  Natural language description of the search parameter$):
+expression<string>$(C? FHIRPath expression that extracts the values$):
+xpath<string>$(C? XPath that extracts the values$):
+xpathUsage<code=normal|phonetic|nearby|distance>$(C? normal | phonetic | nearby | distance | other$):
+target<list::code>$(Types of resource (if a resource reference)$):
+comparator<list::code>$(eq | ne | gt | lt | ge | le | sa | eb | ap$):
+modifier<list::code>$(missing | exact | contains | not | text | in | not-in | below | above | type$):
+chain<list::string>$(Chained names supported$):
+component<list>$(For Composite resources to define the parts$):
+  - definition<Reference(SearchParameter)>$(R!  Defines how the part works$):
+    expression<string>$(R!  Subexpression relative to main expression$):

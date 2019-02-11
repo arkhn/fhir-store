@@ -1,0 +1,5 @@
+{
+  "reference<string>$(C? Literal reference, Relative, internal or absolute URL$)": null,
+  "identifier<Identifier>$(Logical reference, when literal reference is not known$)": null,
+  "display<string>$(Text alternative for the resource$)": null
+}

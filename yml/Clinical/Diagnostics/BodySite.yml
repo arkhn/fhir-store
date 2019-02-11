@@ -1,0 +1,8 @@
+resourceType: "BodySite"
+identifier<list::Identifier>$(Bodysite identifier$):
+active<boolean>$(Whether this body site record is in active use$):
+code<CodeableConcept>$(Named anatomical location$):
+qualifier<list::CodeableConcept>$(Modification to location code$):
+description<string>$(Anatomical location description$):
+image<list::Attachment>$(Attached images$):
+patient<Reference(Patient)>$(R!  Who this is about$):

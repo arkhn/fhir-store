@@ -1,0 +1,32 @@
+resourceType: "MedicationAdministration"
+identifier<list::Identifier>$(External identifier$):
+definition<list::Reference(PlanDefinition|ActivityDefinition)>$(Instantiates protocol or definition$):
+partOf<list::Reference(MedicationAdministration|Procedure)>$(Part of referenced event$):
+status<code=in-progress|on-hold|completed|entered-in-error|stopped>$(R!  in-progress | on-hold | completed | entered-in-error | stopped | unknown$):
+category<CodeableConcept>$(Type of medication usage$):
+medicationCodeableConcept<CodeableConcept>$($):
+medicationReference<Reference(Medication)>$($):
+subject<Reference(Patient|Group)>$(R!  Who received medication$):
+context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode of Care administered as part of$):
+supportingInformation<list::Reference(Any)>$(Additional information to support administration$):
+effectiveDateTime<dateTime>$($):
+effectivePeriod<Period>$($):
+performer<list>$(Who administered substance$):
+  - actor<Reference(Practitioner|Patient|RelatedPerson|Device)>$(R!  Individual who was performing$):
+    onBehalfOf<Reference(Organization)>$(Organization organization was acting for$):
+notGiven<boolean>$(True if medication not administered$):
+reasonNotGiven<list::CodeableConcept>$(C? Reason administration not performed$):
+reasonCode<list::CodeableConcept>$(C? Reason administration performed$):
+reasonReference<list::Reference(Condition|Observation)>$(Condition or Observation that supports why the medication was administered$):
+prescription<Reference(MedicationRequest)>$(Request administration performed against$):
+device<list::Reference(Device)>$(Device used to administer$):
+note<list::Annotation>$(Information about the administration$):
+dosage:
+    text<string>$(Free text dosage instructions e.g. SIG$):
+    site<CodeableConcept>$(Body site administered to$):
+    route<CodeableConcept>$(Path of substance into body$):
+    method<CodeableConcept>$(How drug was administered$):
+    dose<Quantity(SimpleQuantity)>$(Amount of medication per dose$):
+    rateRatio<Ratio>$($):
+    rateQuantity<Quantity(SimpleQuantity)>$($):
+eventHistory<list::Reference(Provenance)>$(A list of events of interest in the lifecycle$):

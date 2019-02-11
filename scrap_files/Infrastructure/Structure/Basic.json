@@ -1,0 +1,11 @@
+
+{
+  "resourceType" : "Basic",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business identifier
+  "code" : { CodeableConcept }, // R!  Kind of Resource
+  "subject" : { Reference(Any) }, // Identifies the focus of this resource
+  "created" : "<date>", // When created
+  "author" : { Reference(Practitioner|Patient|RelatedPerson) } // Who created
+}

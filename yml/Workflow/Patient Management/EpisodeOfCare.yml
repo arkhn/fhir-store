@@ -1,0 +1,18 @@
+resourceType: "EpisodeOfCare"
+identifier<list::Identifier>$(Business Identifier(s) relevant for this EpisodeOfCare$):
+status<code=planned|waitlist|active|onhold|finished|cancelled>$(R!  planned | waitlist | active | onhold | finished | cancelled | entered-in-error$):
+statusHistory<list>$(Past list of status codes (the current status may be included to cover the start date of the status)$):
+  - status<code=planned|waitlist|active|onhold|finished|cancelled>$(R!  planned | waitlist | active | onhold | finished | cancelled | entered-in-error$):
+    period<Period>$(R!  Duration the EpisodeOfCare was in the specified status$):
+type<list::CodeableConcept>$(Type/class  - e.g. specialist referral, disease management$):
+diagnosis<list>$(The list of diagnosis relevant to this episode of care$):
+  - condition<Reference(Condition)>$(R!  Conditions/problems/diagnoses this episode of care is for$):
+    role<CodeableConcept>$(Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)$):
+    rank<positiveInt>$(Ranking of the diagnosis (for each role type)$):
+patient<Reference(Patient)>$(R!  The patient who is the focus of this episode of care$):
+managingOrganization<Reference(Organization)>$(Organization that assumes care$):
+period<Period>$(Interval during responsibility is assumed$):
+referralRequest<list::Reference(ReferralRequest)>$(Originating Referral Request(s)$):
+careManager<Reference(Practitioner)>$(Care manager/care co-ordinator for the patient$):
+team<list::Reference(CareTeam)>$(Other practitioners facilitating this episode of care$):
+account<list::Reference(Account)>$(The set of accounts that may be used for billing for this EpisodeOfCare$):

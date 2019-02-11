@@ -1,0 +1,30 @@
+{
+  "resourceType" : "ClinicalImpression",
+  "identifier<list::Identifier>$(Business identifier$)": null,
+  "status<code=draft|completed>$(R!  draft | completed | entered-in-error$)": null,
+  "code<CodeableConcept>$(Kind of assessment performed$)": null,
+  "description<string>$(Why/how the assessment was performed$)": null,
+  "subject<Reference(Patient|Group)>$(R!  Patient or group assessed$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or Episode created from$)": null,
+  "effectiveDateTime<dateTime>$($)": null,
+  "effectivePeriod<Period>$($)": null,
+  "date<dateTime>$(When the assessment was documented$)": null,
+  "assessor<Reference(Practitioner)>$(The clinician performing the assessment$)": null,
+  "previous<Reference(ClinicalImpression)>$(Reference to last assessment$)": null,
+  "problem<list::Reference(Condition|AllergyIntolerance)>$(Relevant impressions of patient state$)": null,
+  "investigation<list>$(One or more sets of investigations (signs symptions etc.)$)": [{
+    "code<CodeableConcept>$(R!  A name/code for the set$)": null,
+    "item<list::Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport|RiskAssessment|ImagingStudy)>$(Record of a specific investigation$)": null
+  }],
+  "protocol<list::uri>$($)": null,
+  "summary<string>$(Clinical Protocol followed$)": null,
+  "finding<list>$(Possible or likely findings and diagnoses$)": [{
+    "itemCodeableConcept<CodeableConcept>$($)": null,
+    "itemReference<Reference(Condition|Observation)>$($)": null,
+    "basis<string>$($)": null
+  }],
+  "prognosisCodeableConcept<list::CodeableConcept>$(Estimate of likely outcome$)": null,
+  "prognosisReference<list::Reference(RiskAssessment)>$(RiskAssessment expressing likely outcome$)": null,
+  "action<list::Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|Appointment)>$(Action taken as part of assessment procedure$)": null,
+  "note<list::Annotation>$(Comments made about the ClinicalImpression$)": null
+}

@@ -1,0 +1,22 @@
+{
+  "resourceType" : "Location",
+  "identifier<list::Identifier>$(Unique code or number identifying the location to its users$)": null,
+  "status<code>$(active | suspended | inactive$)": null,
+  "operationalStatus<Coding>$(The Operational status of the location (typically only for a bed/room)$)": null,
+  "name<string>$(Name of the location as used by humans$)": null,
+  "alias<list::string>$(A list of alternate names that the location is known as, or was known as in the past$)": null,
+  "description<string>$(Additional details about the location that could be displayed as further information to identify the location beyond its name$)": null,
+  "mode<code>$(instance | kind$)": null,
+  "type<CodeableConcept>$(Type of function performed$)": null,
+  "telecom<list::ContactPoint>$(Contact details of the location$)": null,
+  "address<Address>$(Physical location$)": null,
+  "physicalType<CodeableConcept>$(Physical form of the location$)": null,
+  "position" : { 
+    "longitude<decimal>$(R!  Longitude with WGS84 datum$)": null,
+    "latitude<decimal>$(R!  Latitude with WGS84 datum$)": null,
+    "altitude<decimal>$(Altitude with WGS84 datum$)": null
+  },
+  "managingOrganization<Reference(Organization)>$(Organization responsible for provisioning and upkeep$)": null,
+  "partOf<Reference(Location)>$(Another Location this one is physically part of$)": null,
+  "endpoint<list::Reference(Endpoint)>$(Technical endpoints providing access to services operated for the location$)": null
+}

@@ -1,0 +1,40 @@
+resourceType: "ImplementationGuide"
+url<uri>$(R!  Logical URI to reference this implementation guide (globally unique)$):
+version<string>$(Business version of the implementation guide$):
+name<string>$(R!  Name for this implementation guide (computer friendly)$):
+status<code=draft|active|retired>$(R!  draft | active | retired | unknown$):
+experimental<boolean>$(For testing purposes, not real usage$):
+date<dateTime>$(Date this was last changed$):
+publisher<string>$(Name of the publisher (organization or individual)$):
+contact<list::ContactDetail>$(Contact details for the publisher$):
+description<markdown>$(Natural language description of the implementation guide$):
+useContext<list::UsageContext>$(Context the content is intended to support$):
+jurisdiction<list::CodeableConcept>$(Intended jurisdiction for implementation guide (if applicable)$):
+copyright<markdown>$(Use and/or publishing restrictions$):
+fhirVersion<id>$(FHIR Version this Implementation Guide targets$):
+dependency<list>$(Another Implementation guide this depends on$):
+  - type<code>$(R!  reference | inclusion$):
+    uri<uri>$(R!  Where to find dependency$):
+package<list>$(Group of resources as used in .page.package$):
+  - name<string>$(R!  Name used .page.package$):
+    description<string>$(Human readable text describing the package$):
+    resource<list>$(R!  Resource in the implementation guide$):
+      - example<boolean>$(R!  If not an example, has its normal meaning$):
+        name<string>$(Human Name for the resource$):
+        description<string>$(Reason why included in guide$):
+        acronym<string>$(Short code to identify the resource$):
+        sourceUri<uri>$($):
+        sourceReference<Reference(Any)>$($):
+        exampleFor<Reference(StructureDefinition)>$(Resource this is an example of (if applicable)$):
+global<list>$(Profiles that apply globally$):
+  - type<code>$(R!  Type this profiles applies to$):
+    profile<Reference(StructureDefinition)>$(R!  Profile that all resources must conform to$):
+binary<list::uri>$(Image, css, script, etc.$):
+page:
+    source<uri>$(R!  Where to find that page$):
+    title<string>$(R!  Short title shown for navigational assistance$):
+    kind<code=page|example|list|include|directory|dictionary|toc>$(R!  page | example | list | include | directory | dictionary | toc | resource$):
+    type<list::code>$(Kind of resource to include in the list$):
+    package<list::string>$(Name of package to include$):
+    format<code>$(Format of the page (e.g. html, markdown, etc.)$):
+    page<list::Content as for ImplementationGuide.page>$(Nested Pages / Sections$):

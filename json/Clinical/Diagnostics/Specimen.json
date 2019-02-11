@@ -1,0 +1,36 @@
+{
+  "resourceType" : "Specimen",
+  "identifier<list::Identifier>$(External Identifier$)": null,
+  "accessionIdentifier<Identifier>$(Identifier assigned by the lab$)": null,
+  "status<code>$(available | unavailable | unsatisfactory | entered-in-error$)": null,
+  "type<CodeableConcept>$(Kind of material that forms the specimen$)": null,
+  "subject<Reference(Patient|Group|Device|Substance)>$(R!  Where the specimen came from. This may be from the patient(s) or from the environment or a device$)": null,
+  "receivedTime<dateTime>$(The time when specimen was received for processing$)": null,
+  "parent<list::Reference(Specimen)>$(Specimen from which this specimen originated$)": null,
+  "request<list::Reference(ProcedureRequest)>$(Why the specimen was collected$)": null,
+  "collection" : { 
+    "collector<Reference(Practitioner)>$(Who collected the specimen$)": null,
+    "collectedDateTime<dateTime>$($)": null,
+    "collectedPeriod<Period>$($)": null,
+    "quantity<Quantity(SimpleQuantity)>$(The quantity of specimen collected$)": null,
+    "method<CodeableConcept>$(Technique used to perform collection$)": null,
+    "bodySite<CodeableConcept>$(Anatomical collection site$)": null
+  },
+  "processing<list>$(Processing and processing step details$)": [{
+    "description<string>$(Textual description of procedure$)": null,
+    "procedure<CodeableConcept>$(Indicates the treatment step  applied to the specimen$)": null,
+    "additive<list::Reference(Substance)>$(Material used in the processing step$)": null,
+    "timeDateTime<dateTime>$($)": null,
+    "timePeriod<Period>$($)": null
+  }],
+  "container<list>$(Direct container of specimen (tube/slide etc.)$)": [{
+    "identifier<list::Identifier>$(Id for the container$)": null,
+    "description<string>$(Textual description of the container$)": null,
+    "type<CodeableConcept>$(Kind of container directly associated with specimen$)": null,
+    "capacity<Quantity(SimpleQuantity)>$(Container volume or size$)": null,
+    "specimenQuantity<Quantity(SimpleQuantity)>$(Quantity of specimen within container$)": null,
+    "additiveCodeableConcept<CodeableConcept>$($)": null,
+    "additiveReference<Reference(Substance)>$($)": null
+  }],
+  "note<list::Annotation>$(Comments$)": null
+}

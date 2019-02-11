@@ -1,0 +1,24 @@
+{
+  "resourceType" : "DataElement",
+  "url<uri>$(Logical URI to reference this data element (globally unique)$)": null,
+  "identifier<list::Identifier>$(Additional identifier for the data element$)": null,
+  "version<string>$(Business version of the data element$)": null,
+  "status<code=draft|active|retired>$(R!  draft | active | retired | unknown$)": null,
+  "experimental<boolean>$(For testing purposes, not real usage$)": null,
+  "date<dateTime>$(Date this was last changed$)": null,
+  "publisher<string>$(Name of the publisher (organization or individual)$)": null,
+  "name<string>$(Name for this data element (computer friendly)$)": null,
+  "title<string>$(Name for this data element (human friendly)$)": null,
+  "contact<list::ContactDetail>$(Contact details for the publisher$)": null,
+  "useContext<list::UsageContext>$(Context the content is intended to support$)": null,
+  "jurisdiction<list::CodeableConcept>$(Intended jurisdiction for data element (if applicable)$)": null,
+  "copyright<markdown>$(Use and/or publishing restrictions$)": null,
+  "stringency<code>$(comparable | fully-specified | equivalent | convertable | scaleable | flexible$)": null,
+  "mapping<list>$(C? External specification mapped to$)": [{
+    "identity<id>$(R!  Internal id when this mapping is used$)": null,
+    "uri<uri>$(Identifies what this mapping refers to$)": null,
+    "name<string>$(Names what this mapping refers to$)": null,
+    "comment<string>$(Versions issues scope limitations etc.$)": null
+  }],
+  "element<list::ElementDefinition>$(R!  Definition of element$)": null
+}

@@ -1,0 +1,19 @@
+
+{
+  "resourceType" : "Subscription",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "status" : "<code>", // R!  requested | active | error | off
+  "contact" : [{ ContactPoint }], // Contact details for source (e.g. troubleshooting)
+  "end" : "<instant>", // When to automatically delete the subscription
+  "reason" : "<string>", // R!  Description of why this subscription was created
+  "criteria" : "<string>", // R!  Rule for server push criteria
+  "error" : "<string>", // Latest error note
+  "channel" : { // R!  The channel on which to report matches to the criteria
+    "type" : "<code>", // R!  rest-hook | websocket | email | sms | message
+    "endpoint" : "<uri>", // Where the channel points to
+    "payload" : "<string>", // Mimetype to send, or omit for no payload
+    "header" : ["<string>"] // Usage depends on the channel type
+  },
+  "tag" : [{ Coding }] // A tag to add to matching resources
+}

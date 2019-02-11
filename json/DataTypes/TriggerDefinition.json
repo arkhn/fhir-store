@@ -1,0 +1,9 @@
+{
+  "type<code=named-event|periodic|data-added|data-modified|data-removed|data-accessed>$(R!  named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended$)": null,
+  "eventName<string>$(Triggering event name$)": null,
+  "eventTimingTiming<Timing>$($)": null,
+  "eventTimingReference<Reference(Schedule)>$($)": null,
+  "eventTimingDate<date>$($)": null,
+  "eventTimingDateTime<dateTime>$($)": null,
+  "eventData<DataRequirement>$(Triggering data of the event$)": null
+}

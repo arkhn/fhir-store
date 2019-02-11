@@ -1,0 +1,5 @@
+{
+  "resourceType" : "ContactDetail",
+  "name<string>$(Name of an individual to contact$)": null,
+  "telecom<list::ContactPoint>$(Contact details for individual or organization$)": null
+}

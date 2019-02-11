@@ -1,0 +1,4 @@
+{
+  "start<dateTime>$(C? Starting time with inclusive boundary$)": null,
+  "end<dateTime>$(C? End time with inclusive boundary if not ongoing$)": null
+}

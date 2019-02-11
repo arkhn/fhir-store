@@ -1,0 +1,95 @@
+{
+  "attributes": {
+    "create": [
+      {
+        "depth": 1,
+        "comment": "R!  documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of",
+        "name": "type",
+        "type": "code=documentation|justification|citation|predecessor|successor|derived-from|depends-on"
+      },
+      {
+        "depth": 1,
+        "comment": "Brief description of the related artifact",
+        "name": "display",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "Bibliographic citation for the artifact",
+        "name": "citation",
+        "type": "string"
+      },
+      {
+        "depth": 1,
+        "comment": "Where the artifact can be accessed",
+        "name": "url",
+        "type": "uri"
+      },
+      {
+        "depth": 1,
+        "comment": "What document is being referenced",
+        "name": "document",
+        "type": "Attachment",
+        "attributes": {
+          "create": [
+            {
+              "depth": 2,
+              "comment": "Mime type of the content, with charset etc.",
+              "name": "contentType",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "Human language of the content (BCP-47)",
+              "name": "language",
+              "type": "code"
+            },
+            {
+              "depth": 2,
+              "comment": "Data inline, base64ed",
+              "name": "data",
+              "type": "base64Binary"
+            },
+            {
+              "depth": 2,
+              "comment": "Uri where the data can be found",
+              "name": "url",
+              "type": "uri"
+            },
+            {
+              "depth": 2,
+              "comment": "Number of bytes of content (if url provided)",
+              "name": "size",
+              "type": "unsignedInt"
+            },
+            {
+              "depth": 2,
+              "comment": "Hash of the data (sha-1, base64ed)",
+              "name": "hash",
+              "type": "base64Binary"
+            },
+            {
+              "depth": 2,
+              "comment": "Label to display in place of the data",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "depth": 2,
+              "comment": "Date attachment was first created",
+              "name": "creation",
+              "type": "dateTime"
+            }
+          ]
+        }
+      },
+      {
+        "depth": 1,
+        "comment": "What resource is being referenced",
+        "name": "resource",
+        "type": "Reference(Any)"
+      }
+    ]
+  },
+  "name": "RelatedArtifact"
+}

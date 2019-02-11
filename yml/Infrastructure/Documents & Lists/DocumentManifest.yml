@@ -1,0 +1,17 @@
+resourceType: "DocumentManifest"
+masterIdentifier<Identifier>$(Unique Identifier for the set of documents$):
+identifier<list::Identifier>$(Other identifiers for the manifest$):
+status<code=current|superseded>$(R!  current | superseded | entered-in-error$):
+type<CodeableConcept>$(Kind of document set$):
+subject<Reference(Patient|Practitioner|Group|Device)>$(The subject of the set of documents$):
+created<dateTime>$(When this document manifest created$):
+author<list::Reference(Practitioner|Organization|Device|Patient|RelatedPerson)>$(Who and/or what authored the manifest$):
+recipient<list::Reference(Patient|Practitioner|RelatedPerson|Organization)>$(Intended to get notified about this set of documents$):
+source<uri>$(Intended to get notified about this set of documents$):
+description<string>$(The source system/application/software$):
+content<list>$(R!  The items included$):
+  - pAttachment<Attachment>$($):
+    pReference<Reference(Any)>$($):
+related<list>$(Related things$):
+  - identifier<Identifier>$(Identifiers of things that are related$):
+    ref<Reference(Any)>$(Related Resource$):

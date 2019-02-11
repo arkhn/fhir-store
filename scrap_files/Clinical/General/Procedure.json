@@ -1,0 +1,43 @@
+
+{
+  "resourceType" : "Procedure",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // External Identifiers for this procedure
+  "definition" : [{ Reference(PlanDefinition|ActivityDefinition|
+   HealthcareService) }], // Instantiates protocol or definition
+  "basedOn" : [{ Reference(CarePlan|ProcedureRequest|ReferralRequest) }], // A request for this procedure
+  "partOf" : [{ Reference(Procedure|Observation|MedicationAdministration) }], // Part of referenced event
+  "status" : "<code>", // R!  preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
+  "notDone" : <boolean>, // True if procedure was not performed as scheduled
+  "notDoneReason" : { CodeableConcept }, // C? Reason procedure was not performed
+  "category" : { CodeableConcept }, // Classification of the procedure
+  "code" : { CodeableConcept }, // Identification of the procedure
+  "subject" : { Reference(Patient|Group) }, // R!  Who the procedure was performed on
+  "context" : { Reference(Encounter|EpisodeOfCare) }, // Encounter or episode associated with the procedure
+  // performed[x]: Date/Period the procedure was performed. One of these 2:
+  "performedDateTime" : "<dateTime>",
+  "performedPeriod" : { Period },
+  "performer" : [{ // The people who performed the procedure
+    "role" : { CodeableConcept }, // The role the actor was in
+    "actor" : { Reference(Practitioner|Organization|Patient|RelatedPerson|
+    Device) }, // R!  The reference to the practitioner
+    "onBehalfOf" : { Reference(Organization) } // Organization the device or practitioner was acting for
+  }],
+  "location" : { Reference(Location) }, // Where the procedure happened
+  "reasonCode" : [{ CodeableConcept }], // Coded reason procedure performed
+  "reasonReference" : [{ Reference(Condition|Observation) }], // Condition that is the reason the procedure performed
+  "bodySite" : [{ CodeableConcept }], // Target body sites
+  "outcome" : { CodeableConcept }, // The result of procedure
+  "report" : [{ Reference(DiagnosticReport) }], // Any report resulting from the procedure
+  "complication" : [{ CodeableConcept }], // Complication following the procedure
+  "complicationDetail" : [{ Reference(Condition) }], // A condition that is a result of the procedure
+  "followUp" : [{ CodeableConcept }], // Instructions for follow up
+  "note" : [{ Annotation }], // Additional information about the procedure
+  "focalDevice" : [{ // Device changed in procedure
+    "action" : { CodeableConcept }, // Kind of change to device
+    "manipulated" : { Reference(Device) } // R!  Device that was changed
+  }],
+  "usedReference" : [{ Reference(Device|Medication|Substance) }], // Items used during procedure
+  "usedCode" : [{ CodeableConcept }] // Coded items used during the procedure
+}

@@ -1,0 +1,22 @@
+
+{
+  "resourceType" : "ProcessResponse",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier
+  "status" : "<code>", // active | cancelled | draft | entered-in-error
+  "created" : "<dateTime>", // Creation date
+  "organization" : { Reference(Organization) }, // Authoring Organization
+  "request" : { Reference(Any) }, // Request reference
+  "outcome" : { CodeableConcept }, // Processing outcome
+  "disposition" : "<string>", // Disposition Message
+  "requestProvider" : { Reference(Practitioner) }, // Responsible Practitioner
+  "requestOrganization" : { Reference(Organization) }, // Responsible organization
+  "form" : { CodeableConcept }, // Printed Form Identifier
+  "processNote" : [{ // Processing comments or additional requirements
+    "type" : { CodeableConcept }, // display | print | printoper
+    "text" : "<string>" // Comment on the processing
+  }],
+  "error" : [{ CodeableConcept }], // Error code
+  "communicationRequest" : [{ Reference(CommunicationRequest) }] // Request for additional information
+}

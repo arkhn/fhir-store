@@ -1,0 +1,23 @@
+resourceType: "Goal"
+identifier<list::Identifier>$(External Ids for this goal$):
+status<code=proposed|accepted|planned|in-progress|on-target|ahead-of-target|behind-target|sustaining|achieved|on-hold|cancelled|entered-in-error>$(R!  proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected$):
+category<list::CodeableConcept>$(E.g. Treatment, dietary, behavioral, etc.$):
+priority<CodeableConcept>$(high-priority | medium-priority | low-priority$):
+description<CodeableConcept>$(R!  Code or text describing goal$):
+subject<Reference(Patient|Group|Organization)>$(Who this goal is intended for$):
+startDate<date>$($):
+startCodeableConcept<CodeableConcept>$($):
+target:
+    measure<CodeableConcept>$(C? The parameter whose value is being tracked$):
+    detailQuantity<Quantity>$($):
+    detailRange<Range>$($):
+    detailCodeableConcept<CodeableConcept>$($):
+    dueDate<date>$($):
+    dueDuration<Duration>$($):
+statusDate<date>$(When goal status took effect$):
+statusReason<string>$(Reason for current status$):
+expressedBy<Reference(Patient|Practitioner|RelatedPerson)>$(Who's responsible for creating Goal?$):
+addresses<list::Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)>$(Issues addressed by this goal$):
+note<list::Annotation>$(Comments about the goal$):
+outcomeCode<list::CodeableConcept>$(What result was achieved regarding the goal?$):
+outcomeReference<list::Reference(Observation)>$(Observation that resulted from goal$):

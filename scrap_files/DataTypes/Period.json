@@ -1,0 +1,6 @@
+
+{
+  // from Element: extension
+  "start" : "<dateTime>", // C? Starting time with inclusive boundary
+  "end" : "<dateTime>" // C? End time with inclusive boundary, if not ongoing
+}

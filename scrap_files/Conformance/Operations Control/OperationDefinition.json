@@ -1,0 +1,48 @@
+
+{
+  "resourceType" : "OperationDefinition",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "url" : "<uri>", // Logical URI to reference this operation definition (globally unique)
+  "version" : "<string>", // Business version of the operation definition
+  "name" : "<string>", // R!  Name for this operation definition (computer friendly)
+  "status" : "<code>", // R!  draft | active | retired | unknown
+  "kind" : "<code>", // R!  operation | query
+  "experimental" : <boolean>, // For testing purposes, not real usage
+  "date" : "<dateTime>", // Date this was last changed
+  "publisher" : "<string>", // Name of the publisher (organization or individual)
+  "contact" : [{ ContactDetail }], // Contact details for the publisher
+  "description" : "<markdown>", // Natural language description of the operation definition
+  "useContext" : [{ UsageContext }], // Context the content is intended to support
+  "jurisdiction" : [{ CodeableConcept }], // Intended jurisdiction for operation definition (if applicable)
+  "purpose" : "<markdown>", // Why this operation definition is defined
+  "idempotent" : <boolean>, // Whether content is unchanged by the operation
+  "code" : "<code>", // R!  Name used to invoke the operation
+  "comment" : "<string>", // Additional information about use
+  "base" : { Reference(OperationDefinition) }, // Marks this as a profile of the base
+  "resource" : ["<code>"], // Types this operation applies to
+  "system" : <boolean>, // R!  Invoke at the system level?
+  "type" : <boolean>, // R!  Invole at the type level?
+  "instance" : <boolean>, // R!  Invoke on an instance?
+  "parameter" : [{ // Parameters for the operation/query
+    "name" : "<code>", // R!  Name in Parameters.parameter.name or in URL
+    "use" : "<code>", // R!  in | out
+    "min" : <integer>, // R!  Minimum Cardinality
+    "max" : "<string>", // R!  Maximum Cardinality (a number or *)
+    "documentation" : "<string>", // Description of meaning/use
+    "type" : "<code>", // C? What type this parameter has
+    "searchType" : "<code>", // C? number | date | string | token | reference | composite | quantity | uri
+    "profile" : { Reference(StructureDefinition) }, // Profile on the type
+    "binding" : { // ValueSet details if this is coded
+      "strength" : "<code>", // R!  required | extensible | preferred | example
+      // valueSet[x]: Source of value set. One of these 2:
+      "valueSetUri" : "<uri>"
+      "valueSetReference" : { Reference(ValueSet) }
+    },
+    "part" : [{ Content as for OperationDefinition.parameter }] // C? Parts of a nested Parameter
+  }],
+  "overload" : [{ // Define overloaded variants for when  generating code
+    "parameterName" : ["<string>"], // Name of parameter to include in overload
+    "comment" : "<string>" // Comments to go on overload
+  }]
+}

@@ -1,0 +1,22 @@
+resourceType: "Medication"
+code<CodeableConcept>$(Codes that identify this medication$):
+status<code>$(active | inactive | entered-in-error$):
+isBrand<boolean>$(True if a brand$):
+isOverTheCounter<boolean>$(True if medication does not require a prescription$):
+manufacturer<Reference(Organization)>$(Manufacturer of the item$):
+form<CodeableConcept>$(powder | tablets | capsule +$):
+ingredient<list>$(Active or inactive ingredient$):
+  - itemCodeableConcept<CodeableConcept>$($):
+    itemReference<Reference(Substance|Medication)>$($):
+    isActive<boolean>$(Active ingredient indicator$):
+    amount<Ratio>$(Quantity of ingredient present$):
+package:
+    container<CodeableConcept>$(E.g. box, vial, blister-pack$):
+    content<list>$(What is  in the package$):
+      - itemCodeableConcept<CodeableConcept>$($):
+        itemReference<Reference(Medication)>$($):
+        amount<Quantity(SimpleQuantity)>$(Quantity present in the package$):
+    batch<list>$(Identifies a single production run$):
+      - lotNumber<string>$(Identifier assigned to batch$):
+        expirationDate<dateTime>$(When batch will expire$):
+image<list::Attachment>$(Picture of the medication$):

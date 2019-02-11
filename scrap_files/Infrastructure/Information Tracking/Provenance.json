@@ -1,0 +1,34 @@
+
+{
+  "resourceType" : "Provenance",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "target" : [{ Reference(Any) }], // R!  Target Reference(s) (usually version specific)
+  "period" : { Period }, // When the activity occurred
+  "recorded" : "<instant>", // R!  When the activity was recorded / updated
+  "policy" : ["<uri>"], // Policy or plan the activity was defined by
+  "location" : { Reference(Location) }, // Where the activity occurred, if relevant
+  "reason" : [{ Coding }], // Reason the activity is occurring
+  "activity" : { Coding }, // Activity that occurred
+  "agent" : [{ // R!  Actor involved
+    "role" : [{ CodeableConcept }], // What the agents role was
+    // who[x]: Who participated. One of these 2:
+    "whoUri" : "<uri>",
+    "whoReference" : { Reference(Practitioner|RelatedPerson|Patient|Device|
+    Organization) },
+    // onBehalfOf[x]: Who the agent is representing. One of these 2:
+    "onBehalfOfUri" : "<uri>",
+    "onBehalfOfReference" : { Reference(Practitioner|RelatedPerson|Patient|Device|
+    Organization) },
+    "relatedAgentType" : { CodeableConcept } // Type of relationship between agents
+  }],
+  "entity" : [{ // An entity used in this activity
+    "role" : "<code>", // R!  derivation | revision | quotation | source | removal
+    // what[x]: Identity of entity. One of these 3:
+    "whatUri" : "<uri>",
+    "whatReference" : { Reference(Any) },
+    "whatIdentifier" : { Identifier },
+    "agent" : [{ Content as for Provenance.agent }] // Entity is attributed to this agent
+  }],
+  "signature" : [{ Signature }] // Signature on target
+}

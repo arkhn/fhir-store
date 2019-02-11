@@ -1,0 +1,31 @@
+{
+  "resourceType" : "CommunicationRequest",
+  "identifier<list::Identifier>$(Unique identifier$)": null,
+  "basedOn<list::Reference(Any)>$(Fulfills plan or proposal$)": null,
+  "replaces<list::Reference(CommunicationRequest)>$(Request(s) replaced by this request$)": null,
+  "groupIdentifier<Identifier>$(Composite request this is part of$)": null,
+  "status<code=draft|active|suspended|cancelled|completed|entered-in-error>$(R!  draft | active | suspended | cancelled | completed | entered-in-error | unknown$)": null,
+  "category<list::CodeableConcept>$(Message category$)": null,
+  "priority<code>$(Message urgency$)": null,
+  "medium<list::CodeableConcept>$(A channel of communication$)": null,
+  "subject<Reference(Patient|Group)>$(Focus of message$)": null,
+  "recipient<list::Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)>$(Message recipient$)": null,
+  "topic<list::Reference(Any)>$(Focal resources$)": null,
+  "context<Reference(Encounter|EpisodeOfCare)>$(Encounter or episode leading to message$)": null,
+  "payload<list>$(Message payload$)": [{
+    "contentString<string>$(Message payload$)": null,
+    "contentAttachment<Attachment>$($)": null,
+    "contentReference<Reference(Any)>$($)": null
+  }],
+  "occurrenceDateTime<dateTime>$($)": null,
+  "occurrencePeriod<Period>$($)": null,
+  "authoredOn<dateTime>$($)": null,
+  "sender<Reference(Device|Organization|Patient|Practitioner|RelatedPerson)>$(Message sender$)": null,
+  "requester" : { 
+    "agent<Reference(Practitioner|Organization|Patient|RelatedPerson|Device)>$(R!  Individual making the request$)": null,
+    "onBehalfOf<Reference(Organization)>$(C? Organization agent is acting for$)": null
+  },
+  "reasonCode<list::CodeableConcept>$(Why is communication needed?$)": null,
+  "reasonReference<list::Reference(Condition|Observation)>$(Why is communication needed?$)": null,
+  "note<list::Annotation>$(Comments made about communication request$)": null
+}

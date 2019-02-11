@@ -1,0 +1,17 @@
+resourceType: "EligibilityRequest"
+identifier<list::Identifier>$(Business Identifier$):
+status<code>$(active | cancelled | draft | entered-in-error$):
+priority<CodeableConcept>$(Desired processing priority$):
+patient<Reference(Patient)>$(The subject of the Products and Services$):
+servicedDate<date>$($):
+servicedPeriod<Period>$($):
+created<dateTime>$(Creation date$):
+enterer<Reference(Practitioner)>$(Author$):
+provider<Reference(Practitioner)>$(Responsible practitioner$):
+organization<Reference(Organization)>$(Responsible organization$):
+insurer<Reference(Organization)>$(Target$):
+facility<Reference(Location)>$(Servicing Facility$):
+coverage<Reference(Coverage)>$(Insurance or medical plan$):
+businessArrangement<string>$(Business agreement$):
+benefitCategory<CodeableConcept>$(Type of services covered$):
+benefitSubCategory<CodeableConcept>$(Detailed services covered within the type$):

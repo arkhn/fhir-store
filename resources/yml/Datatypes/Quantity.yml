@@ -1,5 +1,5 @@
 value<decimal>:
 comparator<code>:
-unit:
+unit<string>:
 system<uri>:
 code<code>:

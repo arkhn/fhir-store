@@ -18,10 +18,9 @@ from process import hl7_spider, json_to_yml
 # 2. Clean files to have proper json and also convert to yml
 FILE_PATH = os.path.dirname(__file__)
 ROOT_FOLDER_SRC_NAME = hl7_spider.SAVING_DIRECTORY
-ROOT_FOLDER_DEST_NAME = "yml"
+ROOT_FOLDER_DEST_NAME = "resources/json"
 ROOT_FOLDER_SRC_PATH = os.path.join(FILE_PATH, os.pardir, ROOT_FOLDER_SRC_NAME)
-ROOT_FOLDER_DEST_PATH = os.path.join(FILE_PATH, os.pardir,
-                                     ROOT_FOLDER_DEST_NAME)
+
 cleaner = Clean()
 
 maxDepth = 0
@@ -31,7 +30,7 @@ for root, dirs, files in os.walk(ROOT_FOLDER_SRC_PATH):
         print('Cleaning', root, fname)
         # Clean JSON file
         file_path = os.path.join(root, fname)
-        json_file_path = file_path.replace(ROOT_FOLDER_SRC_NAME, 'json')
+        json_file_path = file_path.replace(ROOT_FOLDER_SRC_NAME, ROOT_FOLDER_DEST_NAME)
         yml_file_path = json_file_path.replace("json", "yml")
         depth = cleaner.clean_json(file_path, json_file_path)
         maxDepth = max(maxDepth, depth)

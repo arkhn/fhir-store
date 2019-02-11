@@ -1,4 +1,4 @@
 authorReference<Reference(Practitioner|Patient|RelatedPerson)>:
-authorString:
+authorString<string>:
 time<dateTime>:
-text:
+text<string>:

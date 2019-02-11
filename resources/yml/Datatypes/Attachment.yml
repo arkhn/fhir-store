@@ -4,5 +4,5 @@ data<base64Binary>:
 url<uri>:
 size<unsignedInt>:
 hash<base64Binary>:
-title:
+title<string>:
 creation<dateTime>:

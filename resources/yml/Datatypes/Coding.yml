@@ -1,5 +1,5 @@
 system<uri>:
-version:
+version<string>:
 code<code>:
-display:
+display<string>:
 userSelected<boolean>:

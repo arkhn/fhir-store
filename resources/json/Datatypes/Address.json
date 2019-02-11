@@ -1,0 +1,13 @@
+{
+  "resourceType" : "Address",
+  "use<code=home|work|temp|old>": null,
+  "type<code=postal|physical|both>": null,
+  "text<string>": null,
+  "line<list::string>": null,
+  "city<string>": null,
+  "district<string>": null,
+  "state<string>": null,
+  "postalCode<string>": null,
+  "country<string>": null,
+  "period<Period>": null
+}

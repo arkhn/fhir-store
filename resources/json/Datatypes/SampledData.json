@@ -1,0 +1,9 @@
+{
+  "origin<Quantity(SimpleQuantity)>": null,
+  "period<decimal>": null,
+  "factor<decimal>": null,
+  "lowerLimit<decimal>": null,
+  "upperLimit<decimal>": null,
+  "dimensions<positiveInt>": null,
+  "data<string>": null
+}

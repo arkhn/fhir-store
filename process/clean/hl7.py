@@ -174,7 +174,9 @@ class Clean:
             DATATYPES_PATH = './json/DataTypes'
             maxDepth = 0
 
-            def recAttribute(key, tree, depth):
+            def recAttribute(key, tree, depth, reference_depth = 0):
+                #reference_depth is here to allow max 2 loops over "reference" type
+
                 node = dict({
                     'depth': depth
                 })
@@ -187,7 +189,9 @@ class Clean:
                     return tree
 
                 isDataType = False
+                isReference = False
                 isDataTypeList = False
+                isReferenceList = False
                 beginning = None
 
                 # get comment
@@ -206,10 +210,16 @@ class Clean:
 
                     isDataType = type in fhirDataTypes
 
+                    # check for reference
+                    isReference = type.startswith("Reference")
+
                     match3 = re.match('''list::(.*)''', type)
                     if match3:
                         datatype = match3.group(1)
                         isDataTypeList = datatype in fhirDataTypes
+
+                        # check for reference
+                        isReferenceList = datatype.startswith("Reference")
                         # else:
                         #     raise '{} not in fhirDataTypes'.format(datatype)
                 else:
@@ -228,8 +238,20 @@ class Clean:
                         for key2 in datatype_content:
                             if key2 != "resourceType":
                                 node['attributes']['create'].append(
-                                    recAttribute(key2, datatype_content[key2], depth+1)
+                                    recAttribute(key2, datatype_content[key2], depth+1, reference_depth)
                                 )
+                if isReference and reference_depth<2:
+                    with open(os.path.join(DATATYPES_PATH, '{}.json'.format("Reference")), 'r') as datatype_file:
+                        datatype_content = json.load(datatype_file)
+                        node['attributes'] = {
+                            'create': []
+                        }
+                        for key2 in datatype_content:
+                            if key2 != "resourceType":
+                                node['attributes']['create'].append(
+                                    recAttribute(key2, datatype_content[key2], depth+1, reference_depth+1)
+                                )
+
                 elif isDataTypeList:
                     with open(os.path.join(DATATYPES_PATH, '{}.json'.format(datatype)), 'r') as datatype_file:
                         datatype_content = json.load(datatype_file)
@@ -249,15 +271,38 @@ class Clean:
                         for key2 in datatype_content:
                             if key2 != "resourceType":
                                 node['attributes']['create'][0]['attributes']['create'].append(
-                                    recAttribute(key2, datatype_content[key2], depth+2)
+                                    recAttribute(key2, datatype_content[key2], depth+2, reference_depth)
                                 )
+
+                elif isReferenceList:
+                    with open(os.path.join(DATATYPES_PATH, '{}.json'.format("Reference")), 'r') as datatype_file:
+                        datatype_content = json.load(datatype_file)
+                        node['attributes'] = {
+                            'create': [
+                                {
+                                    'depth': depth+1,
+                                    'name': '{}_0'.format("Reference"),
+                                    'type': "Reference",
+                                    'isProfile': True,
+                                    'attributes': {
+                                        'create': []
+                                    }
+                                }
+                            ]
+                        }
+                        for key2 in datatype_content:
+                            if key2 != "resourceType":
+                                node['attributes']['create'][0]['attributes']['create'].append(
+                                    recAttribute(key2, datatype_content[key2], depth+2, reference_depth+1)
+                                )
+
                 elif isinstance(tree, list):
                     node['attributes'] = {
-                        'create': [recAttribute(key2, tree[0][key2], depth+1) for key2 in tree[0]]
+                        'create': [recAttribute(key2, tree[0][key2], depth+1, reference_depth) for key2 in tree[0]]
                     }
                 elif tree is not None:
                     node['attributes'] = {
-                        'create' : [recAttribute(key2, tree[key2], depth+1) for key2 in tree]
+                        'create' : [recAttribute(key2, tree[key2], depth+1, reference_depth) for key2 in tree]
                     }
 
                 return node
@@ -272,8 +317,8 @@ class Clean:
                 else:
                     resource['attributes']['create'].append(recAttribute(key, jj[key], 1))
 
-            if (filename == 'process/../scrap_files/Identification/Individuals/Patient.json'):
-                print(json.dumps(resource, indent=2))
+            # if (filename == 'process/../scrap_files/Identification/Individuals/Patient.json'):
+            #     print(json.dumps(resource, indent=2))
 
             command_file = os.path.join(GRAPHQL_COMMANDS_FOLDER, os.path.basename(filename))
             if not os.path.exists(os.path.dirname(command_file)):
